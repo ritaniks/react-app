@@ -1,0 +1,36 @@
+@import "../../../assets/css/variables.scss";
+
+.wrapNavBar {
+  background-color: $blue;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  height: 40px;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.navLink {
+  height: 100%;
+  padding: 5px;
+  color: $white;
+
+  &:hover,
+  :focus {
+    color: $white;
+    text-decoration: none;
+    background-color: #134790;
+  }
+
+  &:active {
+    color: $white;
+  }
+}
+.bgDashbord {
+  background-color: #3a74c5;
+}
