@@ -10,8 +10,6 @@ const user = {
   val: 1,
 };
 
-// const name = "";
-
 const App = () => {
   return (
     <div>
