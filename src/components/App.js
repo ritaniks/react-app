@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 
-import "./App.css";
+import "./App.module.scss";
 
 const user = {
   name: "Max",
@@ -17,8 +17,6 @@ const App = () => {
     <div>
       <header className="header">
         <Header user={user} />
-        {/* <Header user={user}></Header> */}
-        {/* {user.admin && <p>dddd</p>} */}
       </header>
 
       <main className="main">

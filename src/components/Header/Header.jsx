@@ -1,31 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import css from "./Header.module.css";
-import styled from "styled-components";
+import css from "./Header.module.scss";
 
-const Div = styled.div`
-  background-color: red;
-`;
-
-const Header = ({ user }) => {
-
-//   const getter = () => { 
-//   };
-
+const Header = () => {
   return (
-    <div className={css.header}>
-      <Div>header</Div>
-      <p>{user.name}</p>
+    <div className={css.wrapHeader}>
+      Header
     </div>
   );
-};
-
-Header.defaultProps = {
-  // user: "Jon",
-};
-Header.propTypes = {
-  user: PropTypes.object.isRequired,
 };
 
 export default Header;
