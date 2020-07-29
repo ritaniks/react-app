@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import AlertMessage from "./parts/AlertMessage";
-import Logo from "./parts/Logo";
-import TopBar from "./parts/NavBar";
-import UserProfile from "./parts/UserProfile";
+import AlertMessage from './parts/AlertMessage';
+import Logo from './parts/Logo';
+import TopBar from './parts/NavBar';
+import UserProfile from './parts/UserProfile';
 
-import css from "./Header.module.scss";
+import css from './Header.module.scss';
 
 const Header = ({ user }) => {
   return (
@@ -18,6 +19,10 @@ const Header = ({ user }) => {
       <TopBar />
     </div>
   );
+};
+
+Header.propTypes = {
+  user: PropTypes.shape({}).isRequired,
 };
 
 export default Header;
