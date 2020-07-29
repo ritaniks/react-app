@@ -1,11 +1,11 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import css from "./NavBar.module.scss";
+import css from './NavBar.module.scss';
 
 const ativeStyle = {
-  backgroundColor: "#134790",
-  color: "white",
+  backgroundColor: '#134790',
+  color: 'white',
 };
 
 const NavBar = () => {
