@@ -1,10 +1,11 @@
-import React from "react";
-import css from "./Logo.module.scss";
+import React from 'react';
+import { ReactComponent as LogoSite } from '../../../assets/img/logo.svg';
+import css from './Logo.module.scss';
 
 const Logo = () => {
   return (
     <div className={css.wrapLogo} role="banner">
-      <img src="./logo" alt="logo" />
+      <LogoSite className={css.logo} />
     </div>
   );
 };
