@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import css from "./AlertMessage.module.scss";
+import css from './AlertMessage.module.scss';
 
 const AlertMessage = () => {
   return (
