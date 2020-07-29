@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import RoutesSite from "./parts/RoutesSite";
+import RoutesSite from './parts/RoutesSite';
 
-import css from "./Main.module.scss";
+import css from './Main.module.scss';
 
 const Main = () => {
   return (
