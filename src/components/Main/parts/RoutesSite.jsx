@@ -1,13 +1,13 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import Dashboard from "../../pages/Dashboard";
-import TimeEntry from "../../pages/TimeEntry";
-import Expenses from "../../pages/Expenses";
-import Reports from "../../pages/Reports";
-import Maintenance from "../../pages/Maintenance";
-import Settings from "../../pages/Settings";
-import Error from "../../pages/Error";
+import Dashboard from '../../pages/Dashboard';
+import TimeEntry from '../../pages/TimeEntry';
+import Expenses from '../../pages/Expenses';
+import Reports from '../../pages/Reports';
+import Maintenance from '../../pages/Maintenance';
+import Settings from '../../pages/Settings';
+import Error from '../../pages/Error';
 
 // switcher for routing pages
 
