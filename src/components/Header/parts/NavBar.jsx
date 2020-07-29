@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <nav className={css.wrapNavBar}>
       <ul className={css.navList}>
-        <li className={css.navItem}>
+        {/* <li className={css.navItem}>
           <NavLink
             className={css.navLink}
             activeStyle={ativeStyle}
@@ -21,7 +21,7 @@ const NavBar = () => {
           >
             Home
           </NavLink>
-        </li>
+        </li> */}
         <li className={css.navItem}>
           <NavLink
             className={`${css.navLink} ${css.bgDashbord}`}
@@ -56,11 +56,11 @@ const NavBar = () => {
         <li className={css.navItem}>
           <NavLink
             className={css.navLink}
-            to="/administrative_reports"
+            to="/reports"
             exact
             activeStyle={ativeStyle}
           >
-            Administrative Reports
+            Reports
           </NavLink>
         </li>
         <li className={css.navItem}>

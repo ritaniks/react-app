@@ -7,13 +7,13 @@ import UserProfile from "./parts/UserProfile";
 
 import css from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <div className={css.wrapHeader}>
       <AlertMessage />
       <div className={css.wrapInfoHeader}>
         <Logo />
-        <UserProfile />
+        <UserProfile user={user} />
       </div>
       <TopBar />
     </div>
