@@ -4,7 +4,6 @@ import { Dropdown } from 'react-bootstrap';
 import css from './UserProfile.module.scss';
 
 const UserProfile = ({ user }) => {
-  // eslint-disable-next-line react/prop-types
   const { name } = user;
   return (
     <div className={`${css.wrapUserProfile}`}>
@@ -22,8 +21,9 @@ const UserProfile = ({ user }) => {
   );
 };
 UserProfile.propTypes = {
-  user: PropTypes.shape({}),
-  name: PropTypes.string.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }),
 };
 UserProfile.defaultProps = {
   user: null,
