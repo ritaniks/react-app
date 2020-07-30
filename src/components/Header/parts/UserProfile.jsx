@@ -1,31 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { Dropdown } from 'react-bootstrap';
+import { ReactComponent as Logout } from '../../../assets/img/header/logout.svg';
+import { ReactComponent as User } from '../../../assets/img/header/user.svg';
+
 import css from './UserProfile.module.scss';
 
 const UserProfile = ({ user }) => {
-  // eslint-disable-next-line react/prop-types
-  const { name } = user;
   return (
     <div className={`${css.wrapUserProfile}`}>
       <Dropdown>
-        <Dropdown.Toggle variant="" id="dropdown-basic">
-          {name}
+        <Dropdown.Toggle
+          className={css.userName}
+          variant=""
+          id="dropdown-basic"
+        >
+          {user.name}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Logout</Dropdown.Item>
+        <Dropdown.Menu className={css.menu}>
+          <Dropdown.Header className={css.menuTitle}>
+            Equantive Inc. #235
+          </Dropdown.Header>
+
+          <Dropdown.Divider />
+          <Dropdown.Item className={css.item} href="#/action-1">
+            <User className={css.icon} />
+            <span> Profile</span>
+          </Dropdown.Item>
+          <Dropdown.Item className={css.item} href="#/action-2">
+            <Logout className={css.icon} />
+            <span> Logout</span>
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
   );
 };
 UserProfile.propTypes = {
-  user: PropTypes.shape({}),
-  name: PropTypes.string.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
-UserProfile.defaultProps = {
-  user: null,
-};
+
 export default UserProfile;

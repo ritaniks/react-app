@@ -1,2 +1,21 @@
 .wrapUserProfile {
+  padding: 5px;
+}
+.userName:focus {
+  box-shadow: none !important;
+  background-color: #f8f9fa;
+}
+.menu {
+  border: 1px solid #eceff5 !important;
+}
+.menuTitle {
+  color: #6a7896;
+}
+.icon {
+  height: 14px;
+  fill: #6a7896;
+  margin: 0 5px 5px 0;
+}
+.item span {
+  color: #6a7896;
 }
