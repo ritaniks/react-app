@@ -1,7 +1,7 @@
 import React from 'react';
 
 const EnterExpensesPage = () => {
-  return <>Enter Expenses Page</>;
+  return <h2>Enter Expenses Page</h2>;
 };
 
 export default EnterExpensesPage;

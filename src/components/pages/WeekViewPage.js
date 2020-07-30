@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WeekViewPage = () => {
-  return <>Week View Page</>;
+  return <h2>Week View Page</h2>;
 };
 
 export default WeekViewPage;

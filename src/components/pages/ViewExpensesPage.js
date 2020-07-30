@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ViewExpensesPage = () => {
-  return <>View Expenses Page</>;
+  return <h2>View Expenses Page</h2>;
 };
 
 export default ViewExpensesPage;

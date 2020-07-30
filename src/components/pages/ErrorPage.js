@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ErrorPage = ({ message }) => {
-  return <p>{message} Error Page</p>;
+  return <h2>{message} Error Page</h2>;
 };
 
 ErrorPage.propTypes = {
