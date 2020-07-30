@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as LogoSite } from '../../../assets/img/logo.svg';
+import { ReactComponent as LogoSite } from '../../../assets/img/header/logo.svg';
 import css from './Logo.module.scss';
 
 const Logo = () => {
