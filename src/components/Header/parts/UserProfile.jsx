@@ -11,7 +11,11 @@ const UserProfile = ({ user }) => {
   return (
     <div className={`${css.wrapUserProfile}`}>
       <Dropdown>
-        <Dropdown.Toggle variant="" id="dropdown-basic">
+        <Dropdown.Toggle
+          className={css.userName}
+          variant=""
+          id="dropdown-basic"
+        >
           {user.name}
         </Dropdown.Toggle>
 

@@ -1,6 +1,10 @@
 .wrapUserProfile {
+  padding: 5px;
 }
-
+.userName:focus {
+  box-shadow: none !important;
+  background-color: #f8f9fa;
+}
 .menu {
   border: 1px solid #eceff5 !important;
 }

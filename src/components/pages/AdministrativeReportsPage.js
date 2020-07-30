@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdministrativeReportsPage = () => {
-  return <>AdministrativeReportsPage</>;
+  return <>Administrative Reports Page</>;
 };
 
 export default AdministrativeReportsPage;

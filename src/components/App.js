@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import css from './App.module.scss';
 
 const user = {
-  name: 'Kris',
+  name: 'Kristina',
   admin: true,
   val: 1,
 };
