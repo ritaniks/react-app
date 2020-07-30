@@ -5,12 +5,9 @@ import { Dropdown } from 'react-bootstrap';
 import { ReactComponent as Logout } from '../../../assets/img/header/logout.svg';
 import { ReactComponent as User } from '../../../assets/img/header/user.svg';
 
-// import ButtonDropdown from '../../common/Button/ButtonDropdown';
-
 import css from './UserProfile.module.scss';
 
 const UserProfile = ({ user }) => {
-  // console.log(user);
   return (
     <div className={`${css.wrapUserProfile}`}>
       <Dropdown>
@@ -41,53 +38,3 @@ UserProfile.propTypes = {
 };
 
 export default UserProfile;
-
-// class UserProfile extends Component {
-//   static propTypes = {
-//     user: PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//     }),
-//   };
-
-//   static defaultProps = {
-//     user: null,
-//   };
-
-//   state = { isOpen: false };
-
-//   toggleOpen = () => {
-//     this.setState(state => ({ isOpen: !state.isOpen }));
-//   };
-
-//   render() {
-//     const { isOpen } = this.state;
-//     const { user } = this.props;
-
-//     return (
-//       <>
-//         <ButtonDropdown
-//           isOpen={isOpen}
-//           onClose={this.toggleOpen}
-//           target={
-//             <button
-//               title="Equantive Inc. #235"
-//               className={css.btn}
-//               type="button"
-//               onClick={this.toggleOpen}
-//             >
-//               {user.name}
-//             </button>
-//           }
-//         >
-//           <div className={css.wrapProfileSettings}>
-//             <p>Equantive Inc. #235</p>
-//             <a href="#/action-1">Profile</a>
-//             <a href="#/action-1">Logout</a>
-//           </div>
-//         </ButtonDropdown>
-//       </>
-//     );
-//   }
-// }
-
-// export default UserProfile;
