@@ -16,7 +16,10 @@ const UserProfile = ({ user }) => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu className={css.menu}>
-          <p className={css.menuTitle}>Equantive Inc. #235</p>
+          <Dropdown.Header className={css.menuTitle}>
+            Equantive Inc. #235
+          </Dropdown.Header>
+
           <Dropdown.Divider />
           <Dropdown.Item className={css.item} href="#/action-1">
             <User className={css.icon} />
