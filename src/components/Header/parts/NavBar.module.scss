@@ -1,24 +1,17 @@
-@import "../../../assets/css/variables.scss";
+@import '../../../assets/css/variables.scss';
 
-.wrapNavBar {
+.nav {
   background-color: $blue;
+  height: 40px;
+  display: flex;
 }
 
-.navList {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  height: 40px;
-}
-.navItem {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
 .navLink {
   height: 100%;
-  padding: 5px;
+  padding: 5px 20px;
   color: $white;
+  display: flex;
+  align-items: center;
 
   &:hover,
   :focus {
@@ -31,6 +24,31 @@
     color: $white;
   }
 }
+
+.navLinkIn {
+  color: #6a7896;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  &:hover,
+  :focus {
+    text-decoration: none;
+  }
+}
 .bgDashbord {
   background-color: #3a74c5;
+}
+
+.dropdown button {
+  background-color: transparent !important;
+  border: none;
+  height: 100%;
+}
+.dropdown button:focus {
+  box-shadow: none !important;
+  // background-color: #134790 !important;
+}
+.link:hover {
+  background-color: #134790;
 }

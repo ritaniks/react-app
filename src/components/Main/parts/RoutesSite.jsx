@@ -1,13 +1,18 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Dashboard from '../../pages/Dashboard';
-import TimeEntry from '../../pages/TimeEntry';
-import Expenses from '../../pages/Expenses';
-import Reports from '../../pages/Reports';
-import Maintenance from '../../pages/Maintenance';
-import Settings from '../../pages/Settings';
-import Error from '../../pages/Error';
+import Dashboard from '../../pages/DashboardPage';
+import WeekView from '../../pages/WeekViewPage';
+import TimesheetPeriodView from '../../pages/TimesheetPeriodViewPage';
+import DayView from '../../pages/DayViewPage';
+import EnterExpenses from '../../pages/EnterExpensesPage';
+import ViewExpenses from '../../pages/ViewExpensesPage';
+import ExpenseDetailReport from '../../pages/ExpenseDetailReportPage';
+import AdministrativeReports from '../../pages/AdministrativeReportsPage';
+import YourReports from '../../pages/YourReportsPage';
+import Maintenance from '../../pages/MaintenancePage';
+import Settings from '../../pages/SettingsPage';
+import Error from '../../pages/ErrorPage';
 
 // switcher for routing pages
 
@@ -15,9 +20,18 @@ const RoutesSite = () => (
   <>
     <Switch>
       <Route path="/" exact component={Dashboard} />
-      <Route path="/time_entry" exact component={TimeEntry} />
-      <Route path="/expenses" component={Expenses} />
-      <Route path="/reports" component={Reports} />
+      <Route path="/week_view" exact component={WeekView} />
+      <Route
+        path="/timesheet_period_view"
+        exact
+        component={TimesheetPeriodView}
+      />
+      <Route path="/day_view" exact component={DayView} />
+      <Route path="/enter_expenses" component={EnterExpenses} />
+      <Route path="/view_expenses" component={ViewExpenses} />
+      <Route path="/expense_detail_report" component={ExpenseDetailReport} />
+      <Route path="/administrative_reports" component={AdministrativeReports} />
+      <Route path="/your_reports" component={YourReports} />
       <Route path="/maintenance" component={Maintenance} />
       <Route path="/settings" component={Settings} />
 

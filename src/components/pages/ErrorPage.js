@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Error = ({ message }) => {
+const ErrorPage = ({ message }) => {
   return <p>{message} Error Page</p>;
 };
 
-Error.propTypes = {
+ErrorPage.propTypes = {
   message: PropTypes.string.isRequired,
 };
 
-export default Error;
+export default ErrorPage;

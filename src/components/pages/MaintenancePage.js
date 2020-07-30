@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Maintenance = () => {
+const MaintenancePage = () => {
   return <>Maintenance Page</>;
 };
 
-export default Maintenance;
+export default MaintenancePage;

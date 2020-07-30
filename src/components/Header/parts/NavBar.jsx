@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import css from './NavBar.module.scss';
 
 const ativeStyle = {
@@ -10,70 +11,126 @@ const ativeStyle = {
 
 const NavBar = () => {
   return (
-    <nav className={css.wrapNavBar}>
-      <ul className={css.navList}>
-        <li className={css.navItem}>
-          <NavLink
-            className={`${css.navLink} ${css.bgDashbord}`}
-            activeStyle={ativeStyle}
-            to="/"
-            exact
-          >
-            Dashboard
-          </NavLink>
-        </li>
-        <li className={css.navItem}>
-          <NavLink
-            className={css.navLink}
-            to="/time_entry"
-            exact
-            activeStyle={ativeStyle}
-          >
-            Time Entry
-          </NavLink>
-        </li>
-        <li className={css.navItem}>
-          <NavLink
-            className={css.navLink}
-            to="/expenses"
-            exact
-            activeStyle={ativeStyle}
-          >
-            Expenses
-          </NavLink>
-        </li>
+    <nav className={css.nav}>
+      <NavLink
+        className={`${css.navLink} ${css.bgDashbord} ${css.link}`}
+        activeStyle={ativeStyle}
+        to="/"
+        exact
+      >
+        Dashboard
+      </NavLink>
 
-        <li className={css.navItem}>
+      <DropdownButton
+        className={`${css.link} ${css.dropdown}`}
+        title="Time Entry"
+      >
+        <Dropdown.Item>
           <NavLink
-            className={css.navLink}
-            to="/reports"
+            className={css.navLinkIn}
+            to="/week_view"
             exact
             activeStyle={ativeStyle}
           >
-            Reports
+            Week View
           </NavLink>
-        </li>
-        <li className={css.navItem}>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <NavLink
-            className={css.navLink}
-            to="/maintenance"
+            className={css.navLinkIn}
+            to="/timesheet_period_view"
             exact
             activeStyle={ativeStyle}
           >
-            Maintenance
+            Timesheet Period View
           </NavLink>
-        </li>
-        <li className={css.navItem}>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <NavLink
-            className={css.navLink}
-            to="/settings"
+            className={css.navLinkIn}
+            to="/day_view"
             exact
             activeStyle={ativeStyle}
           >
-            Settings
+            Day View
           </NavLink>
-        </li>
-      </ul>
+        </Dropdown.Item>
+      </DropdownButton>
+
+      <DropdownButton
+        className={`${css.link} ${css.dropdown}`}
+        title="Expenses"
+      >
+        <Dropdown.Item>
+          <NavLink
+            className={css.navLinkIn}
+            to="/enter_expenses"
+            exact
+            activeStyle={ativeStyle}
+          >
+            Enter Expenses
+          </NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink
+            className={css.navLinkIn}
+            to="/view_expenses"
+            exact
+            activeStyle={ativeStyle}
+          >
+            View Expenses
+          </NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink
+            className={css.navLinkIn}
+            to="/expense_detail_report"
+            exact
+            activeStyle={ativeStyle}
+          >
+            Expense Detail Report
+          </NavLink>
+        </Dropdown.Item>
+      </DropdownButton>
+      <DropdownButton className={`${css.link} ${css.dropdown}`} title="Reports">
+        <Dropdown.Item>
+          <NavLink
+            className={css.navLinkIn}
+            to="/administrative_reports"
+            exact
+            activeStyle={ativeStyle}
+          >
+            Administrative Reports
+          </NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink
+            className={css.navLinkIn}
+            to="/your_reports"
+            exact
+            activeStyle={ativeStyle}
+          >
+            Your Reports
+          </NavLink>
+        </Dropdown.Item>
+      </DropdownButton>
+      <NavLink
+        className={css.navLink}
+        to="/maintenance"
+        exact
+        activeStyle={ativeStyle}
+      >
+        Maintenance
+      </NavLink>
+
+      <NavLink
+        className={css.navLink}
+        to="/settings"
+        exact
+        activeStyle={ativeStyle}
+      >
+        Settings
+      </NavLink>
     </nav>
   );
 };
