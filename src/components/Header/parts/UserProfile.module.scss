@@ -1,27 +1,13 @@
 .wrapUserProfile {
   padding: 5px;
-
-  @media (max-width: 767px) {
-    & div button:after,
-    div button span {
-      display: none;
-    }
-  }
 }
 .userName {
   & :focus {
     box-shadow: none !important;
     background-color: #f8f9fa;
   }
-
-  @media (max-width: 767px) {
-    display: none;
-  }
 }
 
-.userName .menu {
-  border: 1px solid #eceff5 !important;
-}
 .menuTitle {
   color: #6a7896;
 }
@@ -30,22 +16,33 @@
   fill: #6a7896;
   margin: 0 5px 5px 0;
 }
-.item span {
-  color: #6a7896;
+.item {
+  &:active {
+    background-color: #dce1ea !important;
+  }
+  & span {
+    color: #6a7896;
+  }
 }
+
 .userIcon {
   height: 1.5rem;
   fill: white;
+}
 
-  @media (min-width: 767px) {
+@media (min-width: 768px) {
+  .userIcon {
     display: none;
   }
 }
-// .iconToogle {
-//   @media (min-width: 767px) {
-//     display: none;
-//   }
-// }
-@media (min-width: 767px) {
-  // .dropdown-toggle::after
+
+@media (max-width: 767px) {
+  .wrapUserProfile div button:after,
+  .wrapUserProfile div button span {
+    display: none;
+  }
+
+  .userName {
+    display: none;
+  }
 }

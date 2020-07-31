@@ -1,10 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import cn from 'classnames';
 
 import { DropdownButton } from 'react-bootstrap';
+// import Logo from './Logo';
 import css from './NavBar.module.scss';
 
-// import { ReactComponent as Burger } from '../../../assets/img/header/burger.svg';
 import { ReactComponent as Dashboard } from '../../../assets/img/header/dashboard.svg';
 import { ReactComponent as Clock } from '../../../assets/img/header/clock.svg';
 import { ReactComponent as Dollar } from '../../../assets/img/header/dollar.svg';
@@ -12,18 +15,18 @@ import { ReactComponent as ChartPie } from '../../../assets/img/header/chart-pie
 import { ReactComponent as Briefcase } from '../../../assets/img/header/briefcase.svg';
 import { ReactComponent as Settings } from '../../../assets/img/header/settings.svg';
 
-const NavBar = () => {
+const NavBar = ({ open, checkNewRoute }) => {
   return (
     <>
-      {/* <Burger className={`${css.menuIcon}`} /> */}
-
-      <nav className={css.nav}>
+      <nav className={cn(css.nav, !open && css.nav_visible)}>
+        {/* <Logo /> */}
         <div className={css.wrapLink}>
           <Dashboard className={css.icon} />
           <NavLink
             className={`${css.navLink} ${css.bgDashbord} ${css.link}`}
             to="/"
             exact
+            onClick={() => checkNewRoute()}
           >
             Dashboard
           </NavLink>
@@ -36,7 +39,12 @@ const NavBar = () => {
             className={`${css.link} ${css.dropdown} `}
             title="Time Entry"
           >
-            <NavLink className={css.navLinkIn} to="/week_view" exact>
+            <NavLink
+              className={css.navLinkIn}
+              to="/week_view"
+              exact
+              onClick={() => checkNewRoute()}
+            >
               Week View
             </NavLink>
 
@@ -44,11 +52,17 @@ const NavBar = () => {
               className={css.navLinkIn}
               to="/timesheet_period_view"
               exact
+              onClick={() => checkNewRoute()}
             >
               Timesheet Period View
             </NavLink>
 
-            <NavLink className={css.navLinkIn} to="/day_view" exact>
+            <NavLink
+              className={css.navLinkIn}
+              to="/day_view"
+              exact
+              onClick={() => checkNewRoute()}
+            >
               Day View
             </NavLink>
           </DropdownButton>
@@ -61,11 +75,21 @@ const NavBar = () => {
             className={`${css.link} ${css.dropdown} `}
             title="Expenses"
           >
-            <NavLink className={css.navLinkIn} to="/enter_expenses" exact>
+            <NavLink
+              className={css.navLinkIn}
+              to="/enter_expenses"
+              exact
+              onClick={() => checkNewRoute()}
+            >
               Enter Expenses
             </NavLink>
 
-            <NavLink className={css.navLinkIn} to="/view_expenses" exact>
+            <NavLink
+              className={css.navLinkIn}
+              to="/view_expenses"
+              exact
+              onClick={() => checkNewRoute()}
+            >
               View Expenses
             </NavLink>
 
@@ -73,6 +97,7 @@ const NavBar = () => {
               className={css.navLinkIn}
               to="/expense_detail_report"
               exact
+              onClick={() => checkNewRoute()}
             >
               Expense Detail Report
             </NavLink>
@@ -90,11 +115,17 @@ const NavBar = () => {
               className={css.navLinkIn}
               to="/administrative_reports"
               exact
+              onClick={() => checkNewRoute()}
             >
               Administrative Reports
             </NavLink>
 
-            <NavLink className={css.navLinkIn} to="/your_reports" exact>
+            <NavLink
+              className={css.navLinkIn}
+              to="/your_reports"
+              exact
+              onClick={() => checkNewRoute()}
+            >
               Your Reports
             </NavLink>
           </DropdownButton>
@@ -102,14 +133,24 @@ const NavBar = () => {
 
         <div className={css.wrapLink}>
           <Briefcase className={css.icon} />
-          <NavLink className={css.navLink} to="/maintenance" exact>
+          <NavLink
+            className={css.navLink}
+            to="/maintenance"
+            exact
+            onClick={() => checkNewRoute()}
+          >
             Maintenance
           </NavLink>
         </div>
 
         <div className={css.wrapLink}>
           <Settings className={css.icon} />
-          <NavLink className={css.navLink} to="/settings" exact>
+          <NavLink
+            className={css.navLink}
+            to="/settings"
+            exact
+            onClick={() => checkNewRoute()}
+          >
             Settings
           </NavLink>
         </div>
@@ -133,6 +174,11 @@ const NavBar = () => {
         </Dropdown> */}
     </>
   );
+};
+
+NavBar.propTypes = {
+  open: PropTypes.bool.isRequired,
+  checkNewRoute: PropTypes.func.isRequired,
 };
 
 export default NavBar;

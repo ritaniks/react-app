@@ -21,7 +21,7 @@ const UserProfile = ({ user }) => {
           <span> {user.name}</span>
         </Dropdown.Toggle>
 
-        <Dropdown.Menu className={css.menu}>
+        <Dropdown.Menu>
           <Dropdown.Header className={css.menuTitle}>
             Equantive Inc. #235
           </Dropdown.Header>

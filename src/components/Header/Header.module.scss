@@ -5,20 +5,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8vh;
+  height: 10vh;
   padding: 0 20px;
   background-color: #134790;
-
-  @media (min-width: 767px) {
-    background-color: white;
-  }
 }
 .menuIcon {
   height: 25px;
   width: 25px;
   fill: white;
+}
 
-  @media (min-width: 767px) {
+@media (min-width: 768px) {
+  .wrapInfoHeader {
+    background-color: white;
+  }
+
+  .menuIcon {
     display: none;
   }
 }
