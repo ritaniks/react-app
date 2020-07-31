@@ -8,9 +8,6 @@
   }
 }
 
-.userName .menu {
-  border: 1px solid #eceff5 !important;
-}
 .menuTitle {
   color: #6a7896;
 }
@@ -19,9 +16,15 @@
   fill: #6a7896;
   margin: 0 5px 5px 0;
 }
-.item span {
-  color: #6a7896;
+.item {
+  &:active {
+    background-color: #dce1ea !important;
+  }
+  & span {
+    color: #6a7896;
+  }
 }
+
 .userIcon {
   height: 1.5rem;
   fill: white;
