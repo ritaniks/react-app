@@ -10,7 +10,7 @@ const AlertMessage = () => {
     <>
       {show && (
         <div className={css.wrapAlertMessage}>
-          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          <Alert variant="warning" onClose={() => setShow(false)} dismissible>
             <p>You have 14 free trial days left. Purchase now</p>
           </Alert>
         </div>

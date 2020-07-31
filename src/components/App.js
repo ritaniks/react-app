@@ -13,7 +13,7 @@ const user = {
 
 const App = () => {
   return (
-    <div className={css.wrapApp}>
+    <div className={` ${css.wrapApp}`}>
       <header className={css.header}>
         <Header user={user} />
       </header>

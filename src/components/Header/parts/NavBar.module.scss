@@ -4,11 +4,10 @@
   background-color: $blue;
   height: 40px;
   display: flex;
-}
 
-.nav div {
-  height: 100%;
-  position: relative;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .navLink {
@@ -28,6 +27,9 @@
   &:active {
     color: $white;
   }
+}
+.wrapLink {
+  position: relative;
 }
 
 .icon {
@@ -66,9 +68,11 @@
 }
 
 .link {
+  height: 100%;
   & div {
     border: none;
   }
+
   & div a:active {
     background-color: #dce1ea;
   }
