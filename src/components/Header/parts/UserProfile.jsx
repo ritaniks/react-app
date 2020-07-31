@@ -15,8 +15,10 @@ const UserProfile = ({ user }) => {
           className={css.userName}
           variant=""
           id="dropdown-basic"
+          title="Equantive Inc. #235"
         >
-          {user.name}
+          <User className={css.userIcon} />
+          <span> {user.name}</span>
         </Dropdown.Toggle>
 
         <Dropdown.Menu className={css.menu}>
