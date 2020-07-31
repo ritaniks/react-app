@@ -1,22 +1,11 @@
 .wrapUserProfile {
   padding: 5px;
-
-  // @media (max-width: 767px) {
-  //   & div button:after,
-  //   div button span {
-  //     display: none;
-  //   }
-  // }
 }
 .userName {
   & :focus {
     box-shadow: none !important;
     background-color: #f8f9fa;
   }
-
-  // @media (max-width: 767px) {
-  //   display: none;
-  // }
 }
 
 .userName .menu {
@@ -36,10 +25,6 @@
 .userIcon {
   height: 1.5rem;
   fill: white;
-
-  // @media (min-width: 768px) {
-  //   display: none;
-  // }
 }
 
 @media (min-width: 768px) {

@@ -1,24 +1,52 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import AlertMessage from './parts/AlertMessage';
 import Logo from './parts/Logo';
-import TopBar from './parts/NavBar';
+import NavBar from './parts/NavBar';
+
 import UserProfile from './parts/UserProfile';
 import { ReactComponent as Burger } from '../../assets/img/header/burger.svg';
 
 import css from './Header.module.scss';
 
 const Header = ({ user }) => {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+
+  const hendleOpen = () => {
+    setOpen(!open);
+  };
+
+  const closeBar = e => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const checkNewRoute = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', closeBar);
+    return () => {
+      document.removeEventListener('mousedown', closeBar);
+    };
+  }, []);
+
   return (
     <div className={css.wrapHeader}>
       <AlertMessage />
       <div className={css.wrapInfoHeader}>
-        <Burger className={`${css.menuIcon}`} />
+        <Burger onClick={() => hendleOpen()} className={`${css.menuIcon}`} />
         <Logo />
         <UserProfile user={user} />
       </div>
-      <TopBar />
+      <div ref={node}>
+        <NavBar checkNewRoute={checkNewRoute} open={open} />
+      </div>
     </div>
   );
 };

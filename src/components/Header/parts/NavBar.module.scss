@@ -2,17 +2,13 @@
 
 .nav {
   background-color: $blue;
-  height: 40px;
+  height: 3rem;
   display: flex;
-
-  @media (max-width: 767px) {
-    display: none;
-  }
 }
 
 .navLink {
-  height: 100%;
-  padding: 5px 25px 5px 40px;
+  height: 3rem;
+  padding: 5px 2rem 5px 3rem;
   color: $white;
   display: flex;
   align-items: center;
@@ -34,8 +30,8 @@
 
 .icon {
   position: absolute;
-  top: 13px;
-  left: 13px;
+  top: 16px;
+  left: 18px;
   z-index: 1;
   height: 15px;
   width: 15px;
@@ -60,15 +56,15 @@
 .dropdown button {
   background-color: transparent !important;
   border: none;
-  height: 100%;
-  padding: 5px 25px 5px 40px;
+  height: 3rem;
+  padding: 5px 2rem 5px 3rem;
 }
 .dropdown button:focus {
   box-shadow: none !important;
 }
 
 .link {
-  height: 100%;
+  height: 3rem;
   & div {
     border: none;
   }
@@ -82,5 +78,70 @@
 
   &:hover {
     background-color: #134790;
+  }
+}
+
+@media (max-width: 900px) {
+  .icon {
+    left: 10px;
+  }
+  .navLink,
+  .dropdown button {
+    padding: 5px 2rem 5px 2rem;
+  }
+}
+@media (max-width: 800px) {
+  .icon {
+    display: none;
+  }
+
+  .navLink,
+  .dropdown button {
+    padding: 5px 1.5rem 5px 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+
+    &_visible {
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px);
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+  }
+
+  .link div {
+    position: static !important;
+    top: unset !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    transform: none !important;
+    width: 100% !important;
+    border: 0;
+    border-radius: 0;
+    background: #033273;
+    margin: 0;
+  }
+
+  .icon {
+    display: block;
+    top: 18px;
+    left: 18px;
+  }
+
+  .navLink,
+  .dropdown button,
+  .navLinkIn {
+    padding: 5px 3rem 5px 3rem;
   }
 }
