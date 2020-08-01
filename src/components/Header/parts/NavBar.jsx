@@ -143,7 +143,7 @@ const NavBar = ({ open, checkNewRoute }) => {
         <div className={css.wrapLink}>
           <Briefcase className={css.icon} />
           <NavLink
-            className={css.navLink}
+            className={`${css.navLink}  ${css.link}`}
             to="/maintenance"
             exact
             onClick={() => checkNewRoute()}
@@ -155,7 +155,7 @@ const NavBar = ({ open, checkNewRoute }) => {
         <div className={css.wrapLink}>
           <Settings className={css.icon} />
           <NavLink
-            className={css.navLink}
+            className={`${css.navLink} ${css.link}`}
             to="/settings"
             exact
             onClick={() => checkNewRoute()}
