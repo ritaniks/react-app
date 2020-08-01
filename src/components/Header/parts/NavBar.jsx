@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { DropdownButton } from 'react-bootstrap';
-// import Logo from './Logo';
+import Logo from './Logo';
 import css from './NavBar.module.scss';
 
 import { ReactComponent as Dashboard } from '../../../assets/img/header/dashboard.svg';
@@ -19,7 +19,16 @@ const NavBar = ({ open, checkNewRoute }) => {
   return (
     <>
       <nav className={cn(css.nav, !open && css.nav_visible)}>
-        {/* <Logo /> */}
+        <div
+          className={css.wrapLogo}
+          onClick={() => checkNewRoute()}
+          role="link"
+          onKeydown=""
+          tabIndex={0}
+        >
+          <Logo />
+        </div>
+
         <div className={css.wrapLink}>
           <Dashboard className={css.icon} />
           <NavLink

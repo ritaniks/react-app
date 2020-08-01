@@ -1,7 +1,8 @@
 .wrapUserProfile {
-  padding: 5px;
 }
 .userName {
+  padding: 0 !important;
+
   & :focus {
     box-shadow: none !important;
     background-color: #f8f9fa;

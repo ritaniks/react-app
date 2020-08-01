@@ -5,6 +5,10 @@
   height: 3rem;
   display: flex;
 }
+.wrapLogo {
+  height: 4.75rem;
+  display: none;
+}
 
 .navLink {
   height: 3rem;
@@ -126,6 +130,11 @@
     }
   }
 
+  .wrapLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .link div {
     position: static !important;
     top: unset !important;
@@ -149,6 +158,10 @@
     display: block;
     top: 18px;
     left: 18px;
+  }
+  .dropdown button {
+    width: 100%;
+    text-align: start;
   }
 
   .navLink,
