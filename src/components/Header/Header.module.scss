@@ -4,4 +4,23 @@
 .wrapInfoHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 20px;
+  background-color: #134790;
+}
+.menuIcon {
+  height: 25px;
+  width: 25px;
+  fill: white;
+}
+
+@media (min-width: 768px) {
+  .wrapInfoHeader {
+    background-color: white;
+  }
+
+  .menuIcon {
+    display: none;
+  }
 }

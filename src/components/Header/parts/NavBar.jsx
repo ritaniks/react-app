@@ -1,91 +1,193 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import css from "./NavBar.module.scss";
+import cn from 'classnames';
 
-const ativeStyle = {
-  backgroundColor: "#134790",
-  color: "white",
-};
+import { DropdownButton } from 'react-bootstrap';
+import Logo from './Logo';
+import css from './NavBar.module.scss';
 
-const NavBar = () => {
+import { ReactComponent as Dashboard } from '../../../assets/img/header/dashboard.svg';
+import { ReactComponent as Clock } from '../../../assets/img/header/clock.svg';
+import { ReactComponent as Dollar } from '../../../assets/img/header/dollar.svg';
+import { ReactComponent as ChartPie } from '../../../assets/img/header/chart-pie.svg';
+import { ReactComponent as Briefcase } from '../../../assets/img/header/briefcase.svg';
+import { ReactComponent as Settings } from '../../../assets/img/header/settings.svg';
+
+const NavBar = ({ open, checkNewRoute }) => {
   return (
-    <nav className={css.wrapNavBar}>
-      <ul className={css.navList}>
-        {/* <li className={css.navItem}>
+    <>
+      <nav className={cn(css.nav, !open && css.nav_visible)}>
+        <div
+          className={css.wrapLogo}
+          onClick={() => checkNewRoute()}
+          role="link"
+          onKeydown=""
+          tabIndex={0}
+        >
+          <Logo />
+        </div>
+
+        <div className={css.wrapLink}>
+          <Dashboard className={css.icon} />
           <NavLink
-            className={css.navLink}
-            activeStyle={ativeStyle}
+            className={`${css.navLink} ${css.bgDashbord} ${css.link}`}
             to="/"
             exact
-          >
-            Home
-          </NavLink>
-        </li> */}
-        <li className={css.navItem}>
-          <NavLink
-            className={`${css.navLink} ${css.bgDashbord}`}
-            activeStyle={ativeStyle}
-            to="/dashboard"
-            exact
+            onClick={() => checkNewRoute()}
           >
             Dashboard
           </NavLink>
-        </li>
-        <li className={css.navItem}>
-          <NavLink
-            className={css.navLink}
-            to="/time_entry"
-            exact
-            activeStyle={ativeStyle}
-          >
-            Time Entry
-          </NavLink>
-        </li>
-        <li className={css.navItem}>
-          <NavLink
-            className={css.navLink}
-            to="/expenses"
-            exact
-            activeStyle={ativeStyle}
-          >
-            Expenses
-          </NavLink>
-        </li>
+        </div>
 
-        <li className={css.navItem}>
-          <NavLink
-            className={css.navLink}
-            to="/reports"
-            exact
-            activeStyle={ativeStyle}
+        <div className={css.wrapLink}>
+          <Clock className={css.icon} />
+          <DropdownButton
+            id="dropdown-basic-button"
+            className={`${css.link} ${css.dropdown} `}
+            title="Time Entry"
           >
-            Reports
-          </NavLink>
-        </li>
-        <li className={css.navItem}>
+            <NavLink
+              className={css.navLinkIn}
+              to="/week_view"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Week View
+            </NavLink>
+
+            <NavLink
+              className={css.navLinkIn}
+              to="/timesheet_period_view"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Timesheet Period View
+            </NavLink>
+
+            <NavLink
+              className={css.navLinkIn}
+              to="/day_view"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Day View
+            </NavLink>
+          </DropdownButton>
+        </div>
+
+        <div className={css.wrapLink}>
+          <Dollar className={css.icon} />
+          <DropdownButton
+            id="dropdown-basic-button"
+            className={`${css.link} ${css.dropdown} `}
+            title="Expenses"
+          >
+            <NavLink
+              className={css.navLinkIn}
+              to="/enter_expenses"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Enter Expenses
+            </NavLink>
+
+            <NavLink
+              className={css.navLinkIn}
+              to="/view_expenses"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              View Expenses
+            </NavLink>
+
+            <NavLink
+              className={css.navLinkIn}
+              to="/expense_detail_report"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Expense Detail Report
+            </NavLink>
+          </DropdownButton>
+        </div>
+
+        <div className={css.wrapLink}>
+          <ChartPie className={css.icon} />
+          <DropdownButton
+            id="dropdown-basic-button"
+            className={`${css.link} ${css.dropdown}`}
+            title="Reports"
+          >
+            <NavLink
+              className={css.navLinkIn}
+              to="/administrative_reports"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Administrative Reports
+            </NavLink>
+
+            <NavLink
+              className={css.navLinkIn}
+              to="/your_reports"
+              exact
+              onClick={() => checkNewRoute()}
+            >
+              Your Reports
+            </NavLink>
+          </DropdownButton>
+        </div>
+
+        <div className={css.wrapLink}>
+          <Briefcase className={css.icon} />
           <NavLink
             className={css.navLink}
             to="/maintenance"
             exact
-            activeStyle={ativeStyle}
+            onClick={() => checkNewRoute()}
           >
             Maintenance
           </NavLink>
-        </li>
-        <li className={css.navItem}>
+        </div>
+
+        <div className={css.wrapLink}>
+          <Settings className={css.icon} />
           <NavLink
             className={css.navLink}
             to="/settings"
             exact
-            activeStyle={ativeStyle}
+            onClick={() => checkNewRoute()}
           >
             Settings
           </NavLink>
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </nav>
+      {/* <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            week_view
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <NavLink className={css.navLink} to="/settings" exact>
+            Settings
+          </NavLink>
+            <NavLink className={css.navLink} to="/settings" exact>
+            Settings
+          </NavLink>
+            <NavLink className={css.navLink} to="/settings" exact>
+            Settings
+          </NavLink>
+          </Dropdown.Menu>
+        </Dropdown> */}
+    </>
   );
+};
+
+NavBar.propTypes = {
+  open: PropTypes.bool.isRequired,
+  checkNewRoute: PropTypes.func.isRequired,
 };
 
 export default NavBar;

@@ -1,2 +1,49 @@
 .wrapUserProfile {
 }
+.userName {
+  padding: 0 !important;
+
+  & :focus {
+    box-shadow: none !important;
+    background-color: #f8f9fa;
+  }
+}
+
+.menuTitle {
+  color: #6a7896;
+}
+.icon {
+  height: 14px;
+  fill: #6a7896;
+  margin: 0 5px 5px 0;
+}
+.item {
+  &:active {
+    background-color: #dce1ea !important;
+  }
+  & span {
+    color: #6a7896;
+  }
+}
+
+.userIcon {
+  height: 1.5rem;
+  fill: white;
+}
+
+@media (min-width: 768px) {
+  .userIcon {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapUserProfile div button:after,
+  .wrapUserProfile div button span {
+    display: none;
+  }
+
+  .userName {
+    display: none;
+  }
+}

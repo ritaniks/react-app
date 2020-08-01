@@ -1,11 +1,13 @@
-import React from "react";
-import css from "./Logo.module.scss";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { ReactComponent as LogoSite } from '../../../assets/img/header/logo.svg';
+import css from './Logo.module.scss';
 
 const Logo = () => {
   return (
-    <div className={css.wrapLogo} role="banner">
-      <img src="./logo" alt="logo" />
-    </div>
+    <NavLink to="/" exact>
+      <LogoSite className={css.logo} />
+    </NavLink>
   );
 };
 

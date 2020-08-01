@@ -1,6 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
+    "react-app",
     "airbnb",
     "plugin:import/errors",
     "plugin:react/recommended",
@@ -25,11 +26,45 @@
     "jest": true
   },
   "rules": {
+    "react/jsx-props-no-spreading": 0,
     "no-console": 1,
-    "jsx-a11y/label-has-for": 0,
-    "jsx-a11y/label-has-associated-control": 0,
     "linebreak-style": ["error", "unix"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "jsx-a11y/no-onchange": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/destructuring-assignment": [
+      2,
+      "always",
+      {
+        "ignoreClassFields": true
+      }
+    ],
+    "react/static-property-placement": [1, "static public field"],
+    "react/state-in-constructor": [1, "never"],
+    "react/sort-comp": [
+      0,
+      {
+        "order": [
+          "static-methods",
+          "static-variables",
+          "instance-variables",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": 0
   },
   "globals": {
     "window": true,
