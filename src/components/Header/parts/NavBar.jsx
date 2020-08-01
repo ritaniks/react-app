@@ -23,7 +23,7 @@ const NavBar = ({ open, checkNewRoute }) => {
           className={css.wrapLogo}
           onClick={() => checkNewRoute()}
           role="link"
-          onKeydown=""
+          onKeyDown={() => console.log('...')}
           tabIndex={0}
         >
           <Logo />
