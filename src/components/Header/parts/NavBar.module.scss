@@ -4,6 +4,7 @@
   background-color: $blue;
   height: 100%;
   display: flex;
+  // padding: 0 20px;
 }
 .wrapLogo {
   height: 4.75rem;
@@ -61,7 +62,7 @@
 }
 
 .bgDashbord {
-  background-color: #3a74c5;
+  background-color: $blue-active;
 }
 
 .dropdown button {
@@ -85,7 +86,7 @@
   }
 
   &:hover {
-    background-color: #134790;
+    background-color: $blue-hover;
   }
 }
 
@@ -144,7 +145,7 @@
     width: 100% !important;
     border: 0;
     border-radius: 0;
-    background: #033273;
+    background: $blue;
     margin: 0;
     padding: 0;
   }
