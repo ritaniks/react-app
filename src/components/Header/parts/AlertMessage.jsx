@@ -11,7 +11,15 @@ const AlertMessage = () => {
       {show && (
         <div className={css.wrapAlertMessage}>
           <Alert variant="warning" onClose={() => setShow(false)} dismissible>
-            <p>You have 14 free trial days left. Purchase now</p>
+            <form className="f0875 form-inline d-flex justify-content-center">
+              <p>You have 14 free trial days left. </p>
+              <button
+                className="btn btn-outline-primary btn-sm mx-2"
+                type="submit"
+              >
+                Purchase now
+              </button>
+            </form>
           </Alert>
         </div>
       )}

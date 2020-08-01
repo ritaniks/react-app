@@ -5,12 +5,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8vh;
-  padding: 0 20px;
+  height: 4rem;
+  padding: 0 16px;
   background-color: #134790;
 
   @media (min-width: 767px) {
     background-color: white;
+    padding: 0 24px;
   }
 }
 .menuIcon {
