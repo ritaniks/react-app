@@ -2,7 +2,7 @@
 
 .nav {
   background-color: $blue;
-  height: 3rem;
+  height: 100%;
   display: flex;
 }
 .wrapLogo {
@@ -75,7 +75,6 @@
 }
 
 .link {
-  height: 3rem;
   & div {
     min-width: 12rem;
     padding: 0;
