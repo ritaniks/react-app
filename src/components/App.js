@@ -1,24 +1,25 @@
-import React from 'react';
-import Header from './Header/Header';
-import Main from './Main/Main';
+import React from "react";
+import Header from "./Header/Header";
+import Main from "./Main/Main";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import css from './App.module.scss';
+import "./App.module.scss";
 
 const user = {
-  name: 'Kristina',
+  name: "Max",
   admin: true,
   val: 1,
 };
 
+// const name = "";
+
 const App = () => {
   return (
-    <div className={` ${css.wrapApp}`}>
-      <header className={css.header}>
+    <div>
+      <header className="header">
         <Header user={user} />
       </header>
 
-      <main className={css.main}>
+      <main className="main">
         <Main />
       </main>
     </div>
