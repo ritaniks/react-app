@@ -1,7 +1,16 @@
-.wrapUserProfile {
-}
+// .wrapUserProfile {
+//   padding: 0px;
+
+//   @media (max-width: 767px) {
+//     & div button:after,
+//     div button span {
+//       display: none;
+//     }
+//   }
+// }
 .userName {
   padding: 0 !important;
+  color: white !important;
 
   & :focus {
     box-shadow: none !important;
@@ -18,6 +27,8 @@
   margin: 0 5px 5px 0;
 }
 .item {
+  width: auto;
+
   &:active {
     background-color: #dce1ea !important;
   }
@@ -29,6 +40,8 @@
 .userIcon {
   height: 1.5rem;
   fill: white;
+  height: 1.5rem;
+  display: block;
 }
 
 @media (min-width: 768px) {
@@ -40,10 +53,6 @@
 @media (max-width: 767px) {
   .wrapUserProfile div button:after,
   .wrapUserProfile div button span {
-    display: none;
-  }
-
-  .userName {
     display: none;
   }
 }
