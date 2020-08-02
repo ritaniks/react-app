@@ -34,8 +34,12 @@
 
 .icon {
   position: absolute;
-  top: 16px;
-  left: 18px;
+  top: 50%;
+  left: 25px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
   z-index: 1;
   height: 15px;
   width: 15px;
@@ -92,7 +96,7 @@
 
 @media (max-width: 900px) {
   .icon {
-    left: 10px;
+    left: 16px;
   }
   .navLink,
   .dropdown button {
@@ -156,8 +160,12 @@
 
   .icon {
     display: block;
-    top: 18px;
-    left: 18px;
+    // top: 50%;
+    left: 25px;
+
+    // -webkit-transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
   }
   .dropdown button {
     width: 100%;
