@@ -1,7 +1,16 @@
-.wrapUserProfile {
-}
+// .wrapUserProfile {
+//   padding: 0px;
+
+//   @media (max-width: 767px) {
+//     & div button:after,
+//     div button span {
+//       display: none;
+//     }
+//   }
+// }
 .userName {
   padding: 0 !important;
+  color: white !important;
 
   & :focus {
     box-shadow: none !important;
@@ -29,7 +38,6 @@
 }
 
 .userIcon {
-  height: 1.5rem;
   fill: white;
   height: 1.5rem;
   display: block;

@@ -1,3 +1,5 @@
+@import '../../assets/css/variables.scss';
+
 .wrapHeader {
 }
 
@@ -5,9 +7,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+
+  // height: 4rem;
+  // padding: 0 16px;
+  // background-color: #134790;
+
+  // @media (min-width: 767px) {
+  //   background-color: white;
+  //   padding: 0 24px;
+  // }
+
+  height: 4rem;
   padding: 0 20px;
-  background-color: #134790;
+  background-color: $blue;
 }
 .menuIcon {
   height: 25px;
@@ -17,7 +29,7 @@
 
 @media (min-width: 768px) {
   .wrapInfoHeader {
-    background-color: white;
+    background-color: $dark;
   }
 
   .menuIcon {

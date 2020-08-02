@@ -1,7 +1,8 @@
 import React from 'react';
+import GraphsPlaceholder from '../Main/parts/GraphsPlaceholder';
 
 const DashboardPage = () => {
-  return <h2>Dashboard Page</h2>;
+  return <GraphsPlaceholder />;
 };
 
 export default DashboardPage;
