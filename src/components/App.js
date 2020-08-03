@@ -8,7 +8,6 @@ import css from './App.module.scss';
 const user = {
   name: 'Kristina',
   admin: true,
-  val: 1,
 };
 
 const App = () => {
