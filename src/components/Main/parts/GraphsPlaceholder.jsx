@@ -1,6 +1,6 @@
 import React from 'react';
 import placeholder from '../../../assets/img/main/dashboard/dashboard-placeholder.png';
-import css from './GraphsPlaceholder.module.scss';
+// import css from './GraphsPlaceholder.module.scss';
 
 const GraphsPlaceholder = () => {
   return (
