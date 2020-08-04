@@ -13,6 +13,9 @@ import YourReports from '../../pages/YourReportsPage';
 import Maintenance from '../../pages/MaintenancePage';
 import Settings from '../../pages/SettingsPage';
 import Error from '../../pages/ErrorPage';
+import Login from '../../pages/LoginPage';
+import Registration from '../../pages/RegistrationPage';
+import ForgotPassword from '../../pages/ForgotPasswordPage';
 
 // switcher for routing pages
 
@@ -20,6 +23,11 @@ const RoutesSite = () => (
   <>
     <Switch>
       <Route path="/" exact component={Dashboard} />
+      {/* TO-DO - visible link for this route  */}
+      <Route path="/login" exact component={Login} />
+      {/* TO-DO - visible link for this route  */}
+      <Route path="/registration" exact component={Registration} />
+      <Route path="/forgot_password" exact component={ForgotPassword} />
       <Route path="/week_view" exact component={WeekView} />
       <Route
         path="/timesheet_period_view"
@@ -34,7 +42,6 @@ const RoutesSite = () => (
       <Route path="/your_reports" component={YourReports} />
       <Route path="/maintenance" component={Maintenance} />
       <Route path="/settings" component={Settings} />
-
       <Route>
         <Error message="404" />
       </Route>

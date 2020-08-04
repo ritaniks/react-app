@@ -10,6 +10,10 @@ import Logo from './Logo';
 import css from './NavBar.module.scss';
 
 const NavBar = ({ open, checkNewRoute }) => {
+  // const [isOpen, setIsOpen] = useState('false');
+
+  // const toggleOpen = () => setIsOpen(!isOpen);
+
   return (
     <>
       <nav className={cn(css.nav, !open && css.nav_visible)}>
