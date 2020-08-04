@@ -35,7 +35,11 @@ const Login = () => {
           Submit
         </button>
       </form>
-      <Link to="/forgot_password">Forgot password?</Link>
+      <div className="d-flex justify-content-between">
+        <Link to="/forgot_password">Forgot password?</Link>
+        or
+        <Link to="/registration">Registration</Link>
+      </div>
     </div>
   );
 };

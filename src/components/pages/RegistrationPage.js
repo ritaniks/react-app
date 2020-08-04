@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Registration from '../Main/parts/Registration/Registration';
+
 const RegistrationPage = () => {
-  return <h2>Registration Page</h2>;
+  return (
+    <>
+      <Registration />
+    </>
+  );
 };
 
 export default RegistrationPage;
