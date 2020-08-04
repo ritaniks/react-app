@@ -6,20 +6,22 @@ import cn from 'classnames';
 
 import { DropdownButton } from 'react-bootstrap';
 import Logo from './Logo';
+import { switchIcon, links } from './navbarConfig';
+
 import css from './NavBar.module.scss';
 
-import { ReactComponent as Dashboard } from '../../../assets/img/header/dashboard.svg';
-import { ReactComponent as Clock } from '../../../assets/img/header/clock.svg';
-import { ReactComponent as Dollar } from '../../../assets/img/header/dollar.svg';
-import { ReactComponent as ChartPie } from '../../../assets/img/header/chart-pie.svg';
-import { ReactComponent as Briefcase } from '../../../assets/img/header/briefcase.svg';
-import { ReactComponent as Settings } from '../../../assets/img/header/settings.svg';
+// import { ReactComponent as Dashboard } from '../../../assets/img/header/dashboard.svg';
+// import { ReactComponent as Clock } from '../../../assets/img/header/clock.svg';
+// import { ReactComponent as Dollar } from '../../../assets/img/header/dollar.svg';
+// import { ReactComponent as ChartPie } from '../../../assets/img/header/chart-pie.svg';
+// import { ReactComponent as Briefcase } from '../../../assets/img/header/briefcase.svg';
+// import { ReactComponent as Settings } from '../../../assets/img/header/settings.svg';
 
 const NavBar = ({ open, checkNewRoute }) => {
   return (
     <>
       <nav className={cn(css.nav, !open && css.nav_visible)}>
-        <div
+        {/* <div
           className={css.wrapLogo}
           onClick={() => checkNewRoute()}
           role="link"
@@ -27,9 +29,56 @@ const NavBar = ({ open, checkNewRoute }) => {
           tabIndex={0}
         >
           <Logo />
-        </div>
+        </div> */}
+        <button
+          type="button"
+          className={css.wrapLogo}
+          onClick={() => checkNewRoute()}
+        >
+          <Logo />
+        </button>
 
-        <div className={css.wrapLink}>
+        {links.map(link => {
+          if (link.link === 'link') {
+            return (
+              <div key={link.id} className={css.wrapLink}>
+                {switchIcon(link.icon)}
+                <NavLink
+                  className={cn(css.navLink, css.link)}
+                  to={link.route}
+                  exact
+                  onClick={() => checkNewRoute()}
+                >
+                  {link.name}
+                </NavLink>
+              </div>
+            );
+          }
+          return (
+            <div key={link.id} className={css.wrapLink}>
+              {switchIcon(link.icon)}
+              <DropdownButton
+                id="dropdown-basic-button"
+                className={`${css.link} ${css.dropdown} `}
+                title={link.title}
+              >
+                {link.routes.map((r, index) => (
+                  <NavLink
+                    key={index}
+                    className={css.navLinkIn}
+                    to={r.route}
+                    exact
+                    onClick={() => checkNewRoute()}
+                  >
+                    {r.name}
+                  </NavLink>
+                ))}
+              </DropdownButton>
+            </div>
+          );
+        })}
+
+        {/* <div className={css.wrapLink}>
           <Dashboard className={css.icon} />
           <NavLink
             className={`${css.navLink} ${css.bgDashbord} ${css.link}`}
@@ -162,7 +211,7 @@ const NavBar = ({ open, checkNewRoute }) => {
           >
             Settings
           </NavLink>
-        </div>
+        </div> */}
       </nav>
       {/* <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
