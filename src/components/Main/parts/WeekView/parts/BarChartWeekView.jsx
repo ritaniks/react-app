@@ -1,24 +1,24 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-// import BarChart from '../../../../common/Charts/BarChart';
 
 import css from './BarChartWeekView.module.scss';
 
 const BarChartWeekView = () => {
   const data = {
-    // type: 'bar',
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [
       {
+        stack: 'Stack 0',
         label: 'Billable',
         backgroundColor: 'rgba(32, 201, 151, 0.6)',
         borderColor: '#ddd',
         borderWidth: 2,
         hoverBackgroundColor: 'rgba(32, 201, 151, 0.8)',
         // hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [4, 2, 8, 6, 4, 8, 5],
+        data: [4.5, 2.2, 8.1, 6.15, 4.13, 3.5, 5.12],
       },
       {
+        stack: 'Stack 0',
         label: 'Non-Billable',
         backgroundColor: 'rgba(23, 162, 184, 0.6)',
         borderColor: '#ddd',
@@ -33,31 +33,28 @@ const BarChartWeekView = () => {
   const barOptions = {
     options: {
       responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        fullWidth: true,
-      },
-      toolTip: {
-        // shared: true, // disable here.
-      },
-
       plugins: {
         labels: {
-          render: 'value',
           fontSize: 0,
-          fontStyle: 'bold',
-          fontColor: '#545454',
         },
       },
-
+      tooltips: {
+        mode: 'index',
+        intersect: true,
+        callbacks: {
+          footer: tooltipItem => {
+            const firstVal = tooltipItem[0].value;
+            const secondVal = tooltipItem[1].value;
+            const sum = Math.ceil((firstVal + secondVal) * 100) / 100;
+            return `Total Hours: ${sum}`;
+          },
+        },
+      },
       scales: {
         xAxes: [
           {
             ticks: {
               maxRotation: 0,
-            },
-            gridLines: {
-              display: false,
             },
             stacked: true,
           },
@@ -65,11 +62,10 @@ const BarChartWeekView = () => {
         yAxes: [
           {
             ticks: {
-              beginAtZero: true,
-              maxTicksLimit: 3,
+              stepSize: 8,
+              min: 0,
+              max: 24,
             },
-            gridLines: {},
-            stacked: true,
           },
         ],
       },

@@ -22,6 +22,17 @@ const DoughnutChartWeekView = () => {
   };
 
   const options = {
+    legend: {
+      position: 'bottom',
+      labels: {
+        usePointStyle: true,
+      },
+    },
+    plugins: {
+      labels: {
+        fontSize: 0,
+      },
+    },
     tooltips: {
       callbacks: {
         label: (item, data2) => {
