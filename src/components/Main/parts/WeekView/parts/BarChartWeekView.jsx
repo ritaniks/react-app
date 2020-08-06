@@ -1,9 +1,12 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+// import BarChart from '../../../../common/Charts/BarChart';
 
-const BarChart = () => {
+import css from './BarChartWeekView.module.scss';
+
+const BarChartWeekView = () => {
   const data = {
-    type: 'bar',
+    // type: 'bar',
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [
       {
@@ -29,14 +32,13 @@ const BarChart = () => {
 
   const barOptions = {
     options: {
-      // responsive: true,
-      //   maintainAspectRatio: false, // виключає анимацію charta
-      // responsive: true,
+      responsive: true,
       maintainAspectRatio: false,
       legend: {
-        // display: false,
-        // position: 'left',
         fullWidth: true,
+      },
+      toolTip: {
+        // shared: true, // disable here.
       },
 
       plugins: {
@@ -52,41 +54,33 @@ const BarChart = () => {
         xAxes: [
           {
             ticks: {
-              // display: false,
-              // maxTicksLimit: 2,
-              maxRotation: 0, // вирівнює написи під колонками
+              maxRotation: 0,
             },
             gridLines: {
-              display: false, // забирає сітку
+              display: false,
             },
-            stacked: true, // стовпець один над одним
-            // categoryPercentage: 1.0, // забирають пробіли між колонками
-            // barPercentage: 1.0,      // забирають пробіли між колонками
+            stacked: true,
           },
         ],
         yAxes: [
           {
             ticks: {
-              // display: false,
               beginAtZero: true,
               maxTicksLimit: 3,
             },
-            gridLines: {
-              // display: false, // забирає сітку
-            },
-            stacked: true, // стовпець один над одним
+            gridLines: {},
+            stacked: true,
           },
         ],
       },
     },
   };
-
   return (
-    <div styles={{ display: 'block', height: '250px', width: '500px' }}>
+    <div className={css.wrapBar}>
       <h2>Week hours:</h2>
-      <Bar data={data} width={600} height={200} options={barOptions.options} />
+      <Bar data={data} width={500} height={150} options={barOptions.options} />
     </div>
   );
 };
 
-export default BarChart;
+export default BarChartWeekView;
