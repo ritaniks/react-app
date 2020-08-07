@@ -38,11 +38,12 @@ const DoughnutChartWeekView = () => {
         label: item => {
           const label = data.labels[item.index];
           const hours = data.datasets[item.datasetIndex].data[item.index];
+
           const dataset = data.datasets[0];
-          const pecent = Math.round(
-            // eslint-disable-next-line dot-notation
-            (dataset.data[item.index] / dataset['_meta'][1].total) * 100,
-          );
+          const total = dataset.data.reduce((acc, el) => el + acc, 0);
+          const selectItem = dataset.data[item.index];
+          const pecent = Math.round((selectItem / total) * 100);
+
           return `${label}: ${hours} hr (${pecent}%)`;
         },
       },
