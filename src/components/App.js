@@ -8,6 +8,7 @@ const user = {
   name: 'Kristina',
   admin: true,
   auth: false,
+  users: []
 };
 
 const App = () => {
