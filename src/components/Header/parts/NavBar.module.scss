@@ -4,11 +4,12 @@
   background-color: $blue;
   height: 100%;
   display: flex;
-  // padding: 0 20px;
 }
 .wrapLogo {
   height: 4.75rem;
   display: none;
+  background-color: transparent;
+  border: none;
 }
 
 .navLink {
@@ -34,8 +35,12 @@
 
 .icon {
   position: absolute;
-  top: 16px;
-  left: 18px;
+  top: 50%;
+  left: 25px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
   z-index: 1;
   height: 15px;
   width: 15px;
@@ -61,9 +66,9 @@
   }
 }
 
-.bgDashbord {
-  background-color: $blue-active;
-}
+// .bgDashbord {
+//   background-color: $blue-active;
+// }
 
 .dropdown button {
   background-color: transparent !important;
@@ -92,11 +97,11 @@
 
 @media (max-width: 900px) {
   .icon {
-    left: 10px;
+    left: 16px;
   }
   .navLink,
   .dropdown button {
-    padding: 5px 2rem 5px 2rem;
+    padding: 5px 1.5rem 5px 2rem;
   }
 }
 @media (max-width: 800px) {
@@ -156,8 +161,8 @@
 
   .icon {
     display: block;
-    top: 18px;
-    left: 18px;
+    top: 24px;
+    left: 25px;
   }
   .dropdown button {
     width: 100%;
