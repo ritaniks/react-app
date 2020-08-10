@@ -11,7 +11,9 @@ const WeekView = () => {
         <div>
           <DateAndClock />
         </div>
-        <div>Title</div>
+        <div>
+          <h3>Timesheet for _userName_ Week View</h3>
+        </div>
       </div>
 
       <div>
