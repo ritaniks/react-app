@@ -18,10 +18,12 @@ const Modal = ({ children, setIsClose }) => {
   };
 
   const handleBackdropClick = ({ target, currentTarget }) => {
-    console.log(target, 'target');
     if (currentTarget && target !== currentTarget) {
       return;
     }
+    setIsClose();
+  };
+  const handleXPress = () => {
     setIsClose();
   };
 
@@ -35,7 +37,17 @@ const Modal = ({ children, setIsClose }) => {
         onClick={handleBackdropClick}
         onKeyUp={handleKeyPress}
       >
-        <div className={css.modal}>{children}</div>
+        <div className={css.modal}>
+          <button
+            onClick={handleXPress}
+            type="button"
+            className={`close ${css.iconClose}`}
+          >
+            <span aria-hidden="true">×</span>
+            <span className="sr-only">Close modal</span>
+          </button>
+          {children}
+        </div>
       </div>
     </>
   );
