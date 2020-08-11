@@ -3,17 +3,13 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { DropdownButton } from 'react-bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { switchIcon, links } from './navbarConfig';
 import Logo from './Logo';
 
 import css from './NavBar.module.scss';
 
 const NavBar = ({ open, checkNewRoute }) => {
-  // const [isOpen, setIsOpen] = useState('false');
-
-  // const toggleOpen = () => setIsOpen(!isOpen);
-
   return (
     <>
       <nav className={cn(css.nav, !open && css.nav_visible)}>
@@ -51,15 +47,20 @@ const NavBar = ({ open, checkNewRoute }) => {
                 title={link.title}
               >
                 {link.routes.map((r, index) => (
-                  <NavLink
+                  <Dropdown.Item
+                    as="button"
                     key={index}
-                    className={css.navLinkIn}
-                    to={r.route}
-                    exact
-                    onClick={() => checkNewRoute()}
+                    className={css.dropdownItem}
                   >
-                    {r.name}
-                  </NavLink>
+                    <NavLink
+                      className={css.navLinkIn}
+                      to={r.route}
+                      exact
+                      onClick={() => checkNewRoute()}
+                    >
+                      {r.name}
+                    </NavLink>
+                  </Dropdown.Item>
                 ))}
               </DropdownButton>
             </div>
