@@ -66,10 +66,6 @@
   }
 }
 
-// .bgDashbord {
-//   background-color: $blue-active;
-// }
-
 .dropdown button {
   background-color: transparent !important;
   border: none;
@@ -78,6 +74,9 @@
 }
 .dropdown button:focus {
   box-shadow: none !important;
+}
+.dropdownItem {
+  padding: 0 !important;
 }
 
 .link {
