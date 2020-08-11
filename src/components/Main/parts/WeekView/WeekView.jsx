@@ -3,6 +3,7 @@ import React from 'react';
 import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/BarChartWeekView';
 import DoughnutChart from './parts/DoughnutChartWeekView';
+import ModalWeekView from './parts/ModalWeekView';
 
 const WeekView = () => {
   return (
@@ -21,6 +22,9 @@ const WeekView = () => {
         <DoughnutChart />
       </div>
       <div>Table</div>
+      <div>
+        <ModalWeekView />
+      </div>
     </div>
   );
 };
