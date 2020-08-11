@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as globalActions from '../../../redux/global/globalActions';
 import css from './Modal.module.scss';
 
 const Modal = ({ children, setIsClose }) => {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
     return () => {
@@ -28,7 +27,6 @@ const Modal = ({ children, setIsClose }) => {
 
   return (
     <>
-      {/* {isModalOpen && ( */}
       <div
         role="toolbar"
         aria-label="Закрыть"
@@ -39,9 +37,12 @@ const Modal = ({ children, setIsClose }) => {
       >
         <div className={css.modal}>{children}</div>
       </div>
-      {/* )} */}
     </>
   );
+};
+
+Modal.propTypes = {
+  setIsClose: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

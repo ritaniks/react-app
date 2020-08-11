@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import * as globalSelectors from '../../../../../redux/global/globalSelectors';
@@ -9,11 +10,16 @@ const ModalWeekView = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <button type="button" onClick={() => setIsOpen()}>
-        Show modal 1
+        Show modal
       </button>
-      {isOpen && <Modal>1111 this is inside props</Modal>}
+      {isOpen && <Modal>--- this is inside props.children for Modal ---</Modal>}
     </>
   );
+};
+
+ModalWeekView.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
