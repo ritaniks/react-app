@@ -1,12 +1,24 @@
-import { createStore, combineReducers } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+// Reducers
+import testReducers from './test/testReducers';
 import globalReducer from './global/globalReducers';
 
+// Middleware
+import ReduxThunk from 'redux-thunk';
+// import logger from 'redux-logger';
+
 const rootReducer = combineReducers({
+  test: testReducers,
   global: globalReducer,
 });
 
-const store = createStore(rootReducer, devToolsEnhancer());
+const middleware = [ReduxThunk]; // logger
+
+const enhancer = applyMiddleware(...middleware);
+
+const store = createStore(rootReducer, composeWithDevTools(enhancer));
 
 export default store;
 

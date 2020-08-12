@@ -4,14 +4,22 @@ import Main from './Main/Main';
 
 import css from './App.module.scss';
 
+import { connect } from 'react-redux';
+import * as testOperations from '../redux/test/testOperations';
+import { useEffect } from 'react';
+
 const user = {
   name: 'Kristina',
   admin: true,
   auth: false,
-  users: []
+  users: [],
 };
 
-const App = () => {
+const App = ({ fetchTest }) => {
+  useEffect(() => {
+    fetchTest();
+  }, []);
+
   return (
     <div className={` ${css.wrapApp}`}>
       <header className={css.header}>
@@ -25,4 +33,6 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatchToProps = { fetchTest: testOperations.fetchTest };
+
+export default connect(null, mapDispatchToProps)(App);
