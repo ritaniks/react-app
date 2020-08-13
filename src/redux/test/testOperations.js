@@ -1,4 +1,4 @@
-import axios from 'axios';
+import * as api from '../../services/api';
 
 import {
   fetchTestStart,
@@ -6,11 +6,11 @@ import {
   fetchTestError,
 } from './testActions';
 
-export const fetchTest = () => dispatch => {
+export const fetchTest = () => (dispatch, getState) => {
+  console.log(getState(), 'getState');
   dispatch(fetchTestStart());
-
-  axios
-    .get(`http://swapi.dev/api/films/`)
+  api
+    .getStarWarsFilms()
     .then(response => {
       dispatch(fetchTestSuccess(response.data.results));
       console.log(response.data.results, 'response test data');
