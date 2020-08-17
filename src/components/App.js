@@ -4,10 +4,6 @@ import Main from './Main/Main';
 
 import css from './App.module.scss';
 
-import { connect } from 'react-redux';
-import * as testOperations from '../redux/test/testOperations';
-import { useEffect } from 'react';
-
 const user = {
   name: 'Kristina',
   admin: true,
@@ -16,11 +12,6 @@ const user = {
 };
 
 const App = ({ fetchTest }) => {
-  useEffect(() => {
-    fetchTest();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div className={` ${css.wrapApp}`}>
       <header className={css.header}>
@@ -34,6 +25,4 @@ const App = ({ fetchTest }) => {
   );
 };
 
-const mapDispatchToProps = { fetchTest: testOperations.fetchTest };
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
