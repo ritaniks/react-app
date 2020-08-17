@@ -13,7 +13,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 const HeaderWeekView = () => {
   const [startDate, setStartDate] = useState(new Date());
 
-  const convertDate = moment(startDate).format('LL');
+  const convertDate = moment(startDate).format('ll');
 
   const handleBackDay = () => {
     const yesterday = moment(startDate).subtract(1, 'days')._d;

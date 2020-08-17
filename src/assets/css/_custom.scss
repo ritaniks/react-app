@@ -9,3 +9,10 @@ $light: #ffffff;
 $dark: #212121;
 
 // @import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #212121 !important;
+  text-decoration: none;
+  background-color: lightgray !important;
+}

@@ -1,10 +1,15 @@
 import React from 'react';
-// import css from './WeekView.module.scss';
+
 import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/BarChartWeekView';
 import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
 import HeaderWeekView from './parts/HeaderWeekView';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+import DayPicker from './parts/DayPicker';
+
+// import css from './WeekView.module.scss';
+import '../../../../assets/css/_custom.scss';
 
 const WeekView = () => {
   return (
@@ -28,6 +33,24 @@ const WeekView = () => {
       </div>
 
       <HeaderWeekView />
+
+      {/* <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Dropdown Button
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+        <Dropdown.Item>
+            <DayPicker />
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown> */}
+
+      <DropdownButton id="dropdown-basic-button" title="Week picker">
+        <Dropdown.Item>
+          <DayPicker />
+        </Dropdown.Item>
+      </DropdownButton>
     </div>
   );
 };
