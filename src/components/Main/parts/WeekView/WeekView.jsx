@@ -34,18 +34,6 @@ const WeekView = () => {
 
       <HeaderWeekView />
 
-      {/* <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Dropdown Button
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-        <Dropdown.Item>
-            <DayPicker />
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown> */}
-
       <DropdownButton id="dropdown-basic-button" title="Week picker">
         <Dropdown.Item>
           <DayPicker />

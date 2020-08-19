@@ -78,7 +78,7 @@ class DayPickerR extends Component {
         />
         {selectedDays.length === 7 && (
           <div>
-            {moment(selectedDays[0]).format('ddd D')} –{' '}
+            {moment(selectedDays[0]).format('MMM D')} –{' '}
             {moment(selectedDays[6]).format('ll')}
           </div>
         )}
