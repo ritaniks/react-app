@@ -33,16 +33,21 @@ const Hero = () => {
         </Row>
         <Row>
           <Col>
-            Easily allocates time and expenses across multiple grants and
-            funding sources.
+            <p className={css.borderLeft}>
+              Easily allocates time and expenses across multiple grants and
+              funding sources.
+            </p>
           </Col>
           <Col>
-            Meets all non-profit auditing requirements. We definetly need
-            additional sentance here.
+            <p className={css.borderLeft}>
+              Meets all non-profit auditing requirements.
+            </p>
           </Col>
           <Col>
-            TimeLedger’s extensive reports include specialized non-profit
-            reports that distribute fringe pool expenses by user and project.
+            <p className={css.borderLeft}>
+              TimeLedger’s extensive reports include specialized non-profit
+              reports that distribute fringe pool expenses by user and project.
+            </p>
           </Col>
         </Row>
         {/* <HeroImg /> */}

@@ -6,6 +6,14 @@ $danger: #f75050;
 $info: #5dee90;
 $warning: #ffe869;
 $light: #ffffff;
-$dark: #555555;
+$dark: #212121;
 
 // @import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+// For DayPicker.jsx
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #212121 !important;
+  text-decoration: none;
+  background-color: lightgray !important;
+}

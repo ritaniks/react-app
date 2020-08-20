@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Logo from '../../Header/parts/Logo';
 
-import css from './Header.module.scss';
+// import css from './Header.module.scss';
 
 const Header = () => {
   return (

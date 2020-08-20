@@ -13,9 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //   users: [],
 // };
 
-const App = () => {
+const App = ({ fetchTest }) => {
   return (
-    <div className={` ${css.wrapApp}`}>
+    <div className={`${css.wrapApp}`}>
       <Nonprofit />
       {/* <header className={css.header}>
         <Header user={user} />
