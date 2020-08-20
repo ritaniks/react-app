@@ -26,6 +26,10 @@ class DayPickerR extends Component {
   };
 
   handleDayChange = date => {
+    // console.log(
+    //   getWeekDays(getWeekRange(date).from),
+    //   'getWeekDays(getWeekRange(date).from)',
+    // );
     this.setState({
       selectedDays: getWeekDays(getWeekRange(date).from),
     });

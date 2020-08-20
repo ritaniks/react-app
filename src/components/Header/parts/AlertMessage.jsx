@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 
 import css from './AlertMessage.module.scss';
-// import '../../../assets/css/_custom.scss';
+import '../../../assets/css/_custom.scss';
 
 const AlertMessage = () => {
   const [show, setShow] = useState(true);

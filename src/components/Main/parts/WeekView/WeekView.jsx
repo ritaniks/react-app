@@ -7,14 +7,25 @@ import ModalWeekView from './parts/ModalWeekView';
 import HeaderWeekView from './parts/HeaderWeekView';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import DayPicker from './parts/DayPicker';
+import DayPickerInput2 from './parts/DayPickerInput2';
+import DayPicker3 from './parts/DayPicker3';
 
 // import css from './WeekView.module.scss';
 import '../../../../assets/css/_custom.scss';
 
-const WeekView = () => {
+const WeekView = e => {
+  const handleDropdownBtn = e => {
+    console.log(e.target.getAttribute('role') === 'button');
+    console.log(e.target.getAttribute('role'), 'button222');
+    console.log(e.currentTarget, 'button333');
+
+    if (e.target.getAttribute('role') === 'button') {
+      e.stopPropagation();
+    }
+  };
   return (
     <div className="d-flex flex-column">
-      <div className="d-flex justify-content-between">
+      {/* <div className="d-flex justify-content-between">
         <div>
           <DateAndClock />
         </div>
@@ -30,15 +41,24 @@ const WeekView = () => {
       <div>Table</div>
       <div>
         <ModalWeekView />
-      </div>
+      </div> */}
 
-      <HeaderWeekView />
+      {/* <HeaderWeekView /> */}
 
-      <DropdownButton id="dropdown-basic-button" title="Week picker">
+      <DropdownButton
+        onClick={handleDropdownBtn}
+        menuRole="menu"
+        id="dropdown-basic-button"
+        title="Picker"
+      >
         <Dropdown.Item>
           <DayPicker />
         </Dropdown.Item>
       </DropdownButton>
+      <hr />
+      <DayPickerInput2 />
+      <hr />
+      <DayPicker3 />
     </div>
   );
 };
