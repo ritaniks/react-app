@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HeroImg from './HeroImg';
 
-// import css from './Hero.module.scss';
+import css from './Hero.module.scss';
 
 const Hero = () => {
   return (
@@ -28,13 +28,21 @@ const Hero = () => {
         </Row>
         <Row>
           <Col>
-            Easily allocates time and expenses across multiple grants and
-            funding sources.
+            <p className={css.borderLeft}>
+              Easily allocates time and expenses across multiple grants and
+              funding sources.
+            </p>
           </Col>
-          <Col>Meets all non-profit auditing requirements.</Col>
           <Col>
-            TimeLedger’s extensive reports include specialized non-profit
-            reports that distribute fringe pool expenses by user and project.
+            <p className={css.borderLeft}>
+              Meets all non-profit auditing requirements.
+            </p>
+          </Col>
+          <Col>
+            <p className={css.borderLeft}>
+              TimeLedger’s extensive reports include specialized non-profit
+              reports that distribute fringe pool expenses by user and project.
+            </p>
           </Col>
         </Row>
         <HeroImg />
