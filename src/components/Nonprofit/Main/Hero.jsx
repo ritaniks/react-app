@@ -4,21 +4,26 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import HeroImg from './HeroImg';
+// import HeroImg from './HeroImg';
 
-// import css from './Hero.module.scss';
+import css from './Hero.module.scss';
 
 const Hero = () => {
   return (
     <div>
       <Container>
-        <h1 className="mx-auto mb-4">
+        <h1 className={`mx-auto mb-4 ${css.hero}`}>
+          {' '}
           TimeLedger includes specialized features for Non-Profit Organizations
           that sharply reduce administrative reporting time{' '}
         </h1>
         <Row className="mb-6">
           <Col className="d-flex justify-content-center mb-0">
-            <Button variant="info" size="lg" className="mr-md-4 mr-sm-3 px-5">
+            <Button
+              variant="primary"
+              size="lg"
+              className="mr-md-4 mr-sm-3 px-5"
+            >
               Demo
             </Button>{' '}
             <Button variant="warning" size="lg">
@@ -31,13 +36,16 @@ const Hero = () => {
             Easily allocates time and expenses across multiple grants and
             funding sources.
           </Col>
-          <Col>Meets all non-profit auditing requirements.</Col>
+          <Col>
+            Meets all non-profit auditing requirements. We definetly need
+            additional sentance here.
+          </Col>
           <Col>
             TimeLedger’s extensive reports include specialized non-profit
             reports that distribute fringe pool expenses by user and project.
           </Col>
         </Row>
-        <HeroImg />
+        {/* <HeroImg /> */}
       </Container>
     </div>
   );
