@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ReactComponent as HeroImg2 } from '../../../assets/img/main/nonprofit/hero.png';
+import HeroImg2 from '../../../assets/img/nonprofit/hero.png';
 // import css from './HeroImg.module.scss';
 
 const HeroImg = () => {
-  return <HeroImg2 />;
+  return <img src={HeroImg2} alt="hero-img-2" />;
 };
 
 export default HeroImg;
