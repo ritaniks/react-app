@@ -26,9 +26,16 @@ img {
   display: block;
 }
 
+/* custom font size */
 .f0875 {
   font-size: 0.875rem;
 }
+
+/* custom indents */
+.mb-6 {
+  margin-bottom: 4rem;
+}
+
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -63,11 +70,6 @@ img {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
 }
 *,
 *::before,
@@ -356,6 +358,7 @@ h6,
 h1,
 .h1 {
   font-size: 2.5rem;
+  font-weight: 700;
 }
 h2,
 .h2 {
