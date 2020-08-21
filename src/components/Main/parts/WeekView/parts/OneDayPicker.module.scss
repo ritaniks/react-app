@@ -1,4 +1,4 @@
-.wrapWeekPicker {
+.wrapDayPicker {
   position: relative;
 }
 
@@ -6,7 +6,8 @@
   border: 1px solid lightgray;
   border-radius: 0.25rem;
 }
-.weekPicker {
+
+.dayPicker {
   position: absolute;
   top: 2.75rem;
   left: 0;

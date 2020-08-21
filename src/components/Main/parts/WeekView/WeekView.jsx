@@ -6,6 +6,7 @@ import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
 import HeaderWeekView from './parts/HeaderWeekView';
 import WeekPicker from './parts/WeekPicker';
+import OneDayPicker from './parts/OneDayPicker';
 
 // import css from './WeekView.module.scss';
 import '../../../../assets/css/_custom.scss';
@@ -34,6 +35,7 @@ const WeekView = () => {
       <HeaderWeekView />
 
       <WeekPicker />
+      <OneDayPicker />
     </div>
   );
 };
