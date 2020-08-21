@@ -8,7 +8,6 @@ import 'react-day-picker/lib/style.css';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
-  console.log(days, 'days');
   for (let i = 1; i < 7; i += 1) {
     days.push(moment(weekStart).add(i, 'days').toDate());
   }
@@ -91,7 +90,7 @@ class WeekPicker extends Component {
       selectedRangeEnd: daysAreSelected && selectedDays[6],
     };
     return (
-      <div className={css.wrapWeekPicker}>
+      <div className={`${css.wrapWeekPicker} SelectedWeek`}>
         <button onClick={this.handleToogle} type="button">
           {moment(selectedDays[0]).format('MMM D')} –{' '}
           {moment(selectedDays[6]).format('ll')}
@@ -109,24 +108,23 @@ class WeekPicker extends Component {
             onWeekClick={this.handleWeekClick}
           />
         )}
-
         <Helmet>
           <style>{`
-        .SelectedWeekExample .DayPicker-Month {
+        .SelectedWeek .DayPicker-Month {
           border-collapse: separate;
         }
-        .SelectedWeekExample .DayPicker-WeekNumber {
+        .SelectedWeek .DayPicker-WeekNumber {
           outline: none;
         }
-        .SelectedWeekExample .DayPicker-Day {
+        .SelectedWeek .DayPicker-Day {
           outline: none;
           border: 1px solid transparent;
         }
-        .SelectedWeekExample .DayPicker-Day--hoverRange {
+        .SelectedWeek .DayPicker-Day--hoverRange {
           background-color: #EFEFEF !important;
         }
 
-        .SelectedWeekExample .DayPicker-Day--selectedRange {
+        .SelectedWeek .DayPicker-Day--selectedRange {
           background-color: #fff7ba !important;
           border-top-color: #FFEB3B;
           border-bottom-color: #FFEB3B;
@@ -134,22 +132,22 @@ class WeekPicker extends Component {
           border-right-color: #fff7ba;
         }
 
-        .SelectedWeekExample .DayPicker-Day--selectedRangeStart {
+        .SelectedWeek .DayPicker-Day--selectedRangeStart {
           background-color: #FFEB3B !important;
           border-left: 1px solid #FFEB3B;
         }
 
-        .SelectedWeekExample .DayPicker-Day--selectedRangeEnd {
+        .SelectedWeek .DayPicker-Day--selectedRangeEnd {
           background-color: #FFEB3B !important;
           border-right: 1px solid #FFEB3B;
         }
 
-        .SelectedWeekExample .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
-        .SelectedWeekExample .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
+        .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
+        .SelectedWeek .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
           border-radius: 0 !important;
           color: black !important;
         }
-        .SelectedWeekExample .DayPicker-Day--hoverRange:hover {
+        .SelectedWeek .DayPicker-Day--hoverRange:hover {
           border-radius: 0 !important;
         }
       `}</style>
