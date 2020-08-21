@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
+
+import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
+  console.log(days, 'days');
   for (let i = 1; i < 7; i += 1) {
     days.push(moment(weekStart).add(i, 'days').toDate());
   }
@@ -19,10 +22,11 @@ function getWeekRange(date) {
   };
 }
 
-class DayPickerR extends Component {
+class WeekPicker extends Component {
   state = {
     hoverRange: undefined,
     selectedDays: [],
+    isOpen: false,
   };
 
   handleDayChange = date => {
@@ -48,8 +52,30 @@ class DayPickerR extends Component {
       selectedDays: days,
     });
   };
+  handleToogle = () => {
+    const { isOpen } = this.state;
+    this.setState(prev => ({
+      isOpen: !prev.isOpen,
+    }));
+  };
+
+  componentDidMount() {
+    this.setState({
+      selectedDays: getWeekDays(getWeekRange(new Date()).from),
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { selectedDays, isOpen } = this.state;
+
+    if (prevState.selectedDays !== selectedDays && isOpen === true) {
+      this.setState(prev => ({
+        isOpen: !prev.isOpen,
+      }));
+    }
+  }
   render() {
-    const { hoverRange, selectedDays } = this.state;
+    const { hoverRange, selectedDays, isOpen } = this.state;
 
     const daysAreSelected = selectedDays.length > 0;
 
@@ -65,22 +91,23 @@ class DayPickerR extends Component {
       selectedRangeEnd: daysAreSelected && selectedDays[6],
     };
     return (
-      <div className="SelectedWeekExample">
-        <DayPicker
-          selectedDays={selectedDays}
-          showWeekNumbers
-          showOutsideDays
-          modifiers={modifiers}
-          onDayClick={this.handleDayChange}
-          onDayMouseEnter={this.handleDayEnter}
-          onDayMouseLeave={this.handleDayLeave}
-          onWeekClick={this.handleWeekClick}
-        />
-        {selectedDays.length === 7 && (
-          <div>
-            {moment(selectedDays[0]).format('MMM D')} –{' '}
-            {moment(selectedDays[6]).format('ll')}
-          </div>
+      <div className={css.wrapWeekPicker}>
+        <button onClick={this.handleToogle} type="button">
+          {moment(selectedDays[0]).format('MMM D')} –{' '}
+          {moment(selectedDays[6]).format('ll')}
+        </button>
+        {isOpen && (
+          <DayPicker
+            className={css.weekPicker}
+            selectedDays={selectedDays}
+            showWeekNumbers
+            showOutsideDays
+            modifiers={modifiers}
+            onDayClick={this.handleDayChange}
+            onDayMouseEnter={this.handleDayEnter}
+            onDayMouseLeave={this.handleDayLeave}
+            onWeekClick={this.handleWeekClick}
+          />
         )}
 
         <Helmet>
@@ -132,4 +159,4 @@ class DayPickerR extends Component {
   }
 }
 
-export default DayPickerR;
+export default WeekPicker;
