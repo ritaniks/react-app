@@ -1,9 +1,23 @@
+@import '../../../assets/css/variables.scss';
+
 h1 {
   color: #495057;
-  width: 874px;
+  max-width: 874px;
   text-align: center;
 }
-.borderLeft {
-  border-left: 1px solid blue;
-  padding: 0 10px;
+
+.border2 {
+  border-left: 2px solid $primary;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.375rem !important;
+  }
+}
+
+@media (max-width: 991px) {
+  div > .border2 {
+    margin-bottom: 1rem;
+  }
 }

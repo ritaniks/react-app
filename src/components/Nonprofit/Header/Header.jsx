@@ -4,12 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Logo from '../../Header/parts/Logo';
 
-// import css from './Header.module.scss';
+import css from './Header.module.scss';
 
 const Header = () => {
   return (
     <div>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="primary" variant="dark" className={`mb-6 ${css.header}`}>
         <Navbar.Brand href="#home" className="mr-auto">
           <Logo />
         </Navbar.Brand>

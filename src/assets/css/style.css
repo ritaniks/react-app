@@ -36,6 +36,11 @@ img {
   margin-bottom: 4rem;
 }
 
+/* custom border width */
+.border-2 {
+  border-width: 2px !important;
+}
+
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
