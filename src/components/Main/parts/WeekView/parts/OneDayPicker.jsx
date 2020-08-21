@@ -4,7 +4,7 @@ import DayPicker from 'react-day-picker';
 import moment from 'moment';
 // import cn from 'classnames';
 import { ButtonGroup, Button } from 'react-bootstrap';
-import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
+// import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
 import { ReactComponent as ArrowL } from '../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../assets/img/main/arrows/chevron-right.svg';
 import css from './OneDayPicker.module.scss';
