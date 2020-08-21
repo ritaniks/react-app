@@ -4,7 +4,6 @@ import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/BarChartWeekView';
 import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
-import HeaderWeekView from './parts/HeaderWeekView';
 import WeekPicker from './parts/WeekPicker';
 import OneDayPicker from './parts/OneDayPicker';
 
@@ -31,8 +30,6 @@ const WeekView = () => {
       <div>
         <ModalWeekView />
       </div>
-
-      <HeaderWeekView />
 
       <WeekPicker />
       <OneDayPicker />
