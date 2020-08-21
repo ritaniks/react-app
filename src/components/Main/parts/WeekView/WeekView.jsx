@@ -1,9 +1,14 @@
 import React from 'react';
-// import css from './WeekView.module.scss';
+
 import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/BarChartWeekView';
 import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
+import WeekPicker from './parts/WeekPicker';
+import OneDayPicker from './parts/OneDayPicker';
+
+// import css from './WeekView.module.scss';
+import '../../../../assets/css/_custom.scss';
 
 const WeekView = () => {
   return (
@@ -25,6 +30,9 @@ const WeekView = () => {
       <div>
         <ModalWeekView />
       </div>
+
+      <WeekPicker />
+      <OneDayPicker />
     </div>
   );
 };

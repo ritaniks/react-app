@@ -8,6 +8,7 @@ import { switchIcon, links } from './navbarConfig';
 import Logo from './Logo';
 
 import css from './NavBar.module.scss';
+import '../../../assets/css/_custom.scss';
 
 const NavBar = ({ open, checkNewRoute }) => {
   return (
