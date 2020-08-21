@@ -52,7 +52,6 @@ class WeekPicker extends Component {
     });
   };
   handleToogle = () => {
-    const { isOpen } = this.state;
     this.setState(prev => ({
       isOpen: !prev.isOpen,
     }));
