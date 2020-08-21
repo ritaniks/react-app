@@ -11,7 +11,7 @@ const user = {
   users: [],
 };
 
-const App = ({ fetchTest }) => {
+const App = () => {
   return (
     <div className={` ${css.wrapApp}`}>
       <header className={css.header}>
