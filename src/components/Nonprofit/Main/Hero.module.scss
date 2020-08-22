@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-.border2 {
+.borderLeft2 {
   border-left: 2px solid $primary;
 }
 
@@ -17,7 +17,7 @@ h1 {
 }
 
 @media (max-width: 991px) {
-  div > .border2 {
+  div > .borderLeft2 {
     margin-bottom: 1rem;
   }
 }
