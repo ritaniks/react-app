@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //   users: [],
 // };
 
-const App = ({ fetchTest }) => {
+const App = () => {
   return (
     <div className={`${css.wrapApp}`}>
       <Nonprofit />
