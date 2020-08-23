@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const user = {
   name: 'Kristina',
   admin: true,
-  auth: false,
+  auth: true,
   users: [],
 };
 

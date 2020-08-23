@@ -130,6 +130,7 @@ const WeekPicker2 = () => {
       </ButtonGroup>
       {isOpen && (
         <DayPicker
+          initialMonth={selectedDays[0]}
           className={css.weekPicker}
           selectedDays={selectedDays}
           showWeekNumbers
