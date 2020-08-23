@@ -12,15 +12,6 @@ import OneDayPicker from './parts/OneDayPicker';
 import '../../../../assets/css/_custom.scss';
 
 const WeekView = e => {
-  const handleDropdownBtn = e => {
-    console.log(e.target.getAttribute('role') === 'button');
-    console.log(e.target.getAttribute('role'), 'button222');
-    console.log(e.currentTarget, 'button333');
-
-    if (e.target.getAttribute('role') === 'button') {
-      e.stopPropagation();
-    }
-  };
   return (
     <div className="d-flex flex-column">
       <div className="d-flex justify-content-between">
