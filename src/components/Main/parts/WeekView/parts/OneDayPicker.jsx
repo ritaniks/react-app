@@ -79,6 +79,7 @@ const OneDayPicker = () => {
       {isOpen && (
         <DayPicker
           className={css.dayPicker}
+          initialMonth={selectedDay}
           selectedDays={selectedDay}
           showWeekNumbers
           showOutsideDays

@@ -7,20 +7,13 @@ import ModalWeekView from './parts/ModalWeekView';
 import WeekPicker from './parts/WeekPicker';
 import OneDayPicker from './parts/OneDayPicker';
 
-// import useWindowSize from '../../../hooks/useWindowSize';
-
 // import css from './WeekView.module.scss';
+
 import '../../../../assets/css/_custom.scss';
 
-const WeekView = () => {
-  // const size = useWindowSize();
-  // console.log(size);
-
+const WeekView = e => {
   return (
     <div className="d-flex flex-column">
-      {/* {size.width} - width
-      {' ------ '}
-      {size.height}- height */}
       <div className="d-flex justify-content-between">
         <div>
           <DateAndClock />
