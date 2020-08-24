@@ -7,7 +7,7 @@ html {
 
 html {
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
 }
 *,
@@ -39,6 +39,28 @@ img {
 /* custom border width */
 .border-2 {
   border-width: 2px !important;
+}
+
+/* containerTL */
+.containerTL {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .containerTL {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .containerTL {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .containerTL {
+    width: 1170px;
+  }
 }
 
 /*! `Custom` Bootstrap 4 theme */

@@ -1,0 +1,74 @@
+.footer {
+  background-color: #0e0e0e;
+  color: #777;
+  padding: 1.25rem 0 0 0;
+}
+
+.aboutUs {
+  margin: 0 0 10px;
+}
+.contactUs {
+  margin: 0 0 10px;
+}
+.contactLink {
+  padding: 0 5px;
+  color: #fff;
+}
+.contactLink:hover,
+.contactLink:focus {
+  text-decoration: none;
+  transition: ease-in 0.2s;
+  color: #23527c;
+}
+.wrapSocial a {
+  display: inline-block;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  text-align: center;
+  line-height: 2rem;
+  margin-right: 10px;
+}
+.title {
+  font-size: 16px;
+  color: #fff;
+}
+.description {
+  font-size: 13px;
+}
+.icon {
+  width: 1rem;
+  height: 1rem;
+  fill: #777;
+}
+.copyright {
+  background-color: #060606;
+}
+.copyright div p {
+  display: inline;
+}
+.logo {
+  margin-right: 20px;
+  padding: 0.25rem 0;
+  display: inline-block;
+}
+.logo a svg {
+  padding: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .info {
+    display: flex;
+  }
+  .aboutUs {
+    flex: 1;
+    padding: 0 2rem 0 1rem;
+  }
+  .contactUs {
+    flex: 1;
+  }
+  .logo {
+    padding: 0;
+  }
+}
