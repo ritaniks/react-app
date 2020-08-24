@@ -1,0 +1,35 @@
+@import '../../../../assets/css/variables.scss';
+
+h1 {
+  color: #495057;
+  max-width: 874px;
+  text-align: center;
+}
+
+.borderLeft2 {
+  border-left: 2px solid $primary;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.heroImg {
+  background-image: url(../../../../assets/img/nonprofit/hero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.375rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  div > .borderLeft2 {
+    margin-bottom: 1rem;
+  }
+}
