@@ -4,28 +4,17 @@ import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/BarChartWeekView';
 import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
-import HeaderWeekView from './parts/HeaderWeekView';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
-import DayPicker from './parts/DayPicker';
-import DayPickerInput2 from './parts/DayPickerInput2';
-import DayPicker3 from './parts/DayPicker3';
+import WeekPicker from './parts/WeekPicker';
+import OneDayPicker from './parts/OneDayPicker';
 
 // import css from './WeekView.module.scss';
+
 import '../../../../assets/css/_custom.scss';
 
 const WeekView = e => {
-  const handleDropdownBtn = e => {
-    console.log(e.target.getAttribute('role') === 'button');
-    console.log(e.target.getAttribute('role'), 'button222');
-    console.log(e.currentTarget, 'button333');
-
-    if (e.target.getAttribute('role') === 'button') {
-      e.stopPropagation();
-    }
-  };
   return (
     <div className="d-flex flex-column">
-      {/* <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between">
         <div>
           <DateAndClock />
         </div>
@@ -33,7 +22,6 @@ const WeekView = e => {
           <h3>Timesheet for _userName_ Week View</h3>
         </div>
       </div>
-
       <div>
         <BarChart />
         <DoughnutChart />
@@ -41,24 +29,9 @@ const WeekView = e => {
       <div>Table</div>
       <div>
         <ModalWeekView />
-      </div> */}
-
-      {/* <HeaderWeekView /> */}
-
-      <DropdownButton
-        onClick={handleDropdownBtn}
-        menuRole="menu"
-        id="dropdown-basic-button"
-        title="Picker"
-      >
-        <Dropdown.Item>
-          <DayPicker />
-        </Dropdown.Item>
-      </DropdownButton>
-      <hr />
-      <DayPickerInput2 />
-      <hr />
-      <DayPicker3 />
+      </div>
+      <WeekPicker />
+      <OneDayPicker />
     </div>
   );
 };

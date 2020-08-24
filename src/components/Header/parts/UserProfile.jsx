@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import { Dropdown } from 'react-bootstrap';
 import { ReactComponent as Logout } from '../../../assets/img/header/logout.svg';
@@ -34,9 +34,9 @@ const UserProfile = ({ user }) => {
           {!auth && (
             <Dropdown.Item className={css.item} href="#/action-1">
               <User className={css.icon} />
-              <Link to="/login">
-                <span> Login</span>
-              </Link>
+              {/* <Link to="/login"> */}
+              <span> Login</span>
+              {/* </Link> */}
             </Dropdown.Item>
           )}
 
