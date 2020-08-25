@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './Reviews.module.scss';
 
@@ -10,6 +11,16 @@ const review = [{ desr: '000000' }, { desr: '111111' }, { desr: '222222' }];
 const OneSlide = ({ descr }) => {
   return <div className={css.oneRewiev}>{descr}</div>;
 };
+
+const DeviceWidth = () => {
+  const size = useWindowSize();
+  return size.width < 768 ? 1 : 2;
+};
+
+// const Reviews2 = () => {
+//   const size = useWindowSize();
+//   return size.width < 768 ? 1 : 2;
+// };
 
 class Reviews extends Component {
   state = {
@@ -26,7 +37,8 @@ class Reviews extends Component {
   };
   render() {
     const { slides } = this.state;
-    console.log(slides, 'slides');
+    // console.log(slides, 'slides');
+    // console.log(size, 'size');
     return (
       <div>
         <Carousel
@@ -53,6 +65,9 @@ class Reviews extends Component {
     }
     .BrainhubCarousel__arrows:hover:enabled {
         background-color: #0083cd;
+    }
+    .BrainhubCarousel .BrainhubCarousel__trackContainer .BrainhubCarousel__track{
+        padding: 10px 0;
     }
     `}
           </style>
