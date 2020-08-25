@@ -40,6 +40,28 @@ img {
   border-width: 2px !important;
 }
 
+/* containerTL */
+.containerTL {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .containerTL {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .containerTL {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .containerTL {
+    width: 1170px;
+  }
+}
+
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)

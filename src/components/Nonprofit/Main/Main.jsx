@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container } from 'react-bootstrap';
 import Hero from './parts/Hero';
+import Reviews from './parts/Reviews';
 
 import m1grantor2x from '../../../assets/img/nonprofit/m1grantor@2x.png';
 import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
@@ -30,6 +31,7 @@ const Main = () => {
           <img src={m1grantor2x} alt="Grantor" style={{ width: ' 100%' }} />
         </picture>
       </Container>
+      <Reviews />
     </main>
   );
 };
