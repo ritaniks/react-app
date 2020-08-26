@@ -5,10 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import SectionTitle from './SectionTitle';
-
-import HeroImgD from '../../../../assets/img/nonprofit/hero.png';
-import HeroImgM from '../../../../assets/img/nonprofit/hero-mobile@2x.png';
+import HeroImgD from '../../../../assets/img/nonprofit/dhero.png';
+import HeroImgM from '../../../../assets/img/nonprofit/mhero@2x.png';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -73,7 +71,6 @@ const Hero = () => {
       {size.width > 768 && (
         <img src={HeroImgD} alt="hero-img-desktop" className={css.img} />
       )}
-      <SectionTitle />
     </div>
   );
 };
