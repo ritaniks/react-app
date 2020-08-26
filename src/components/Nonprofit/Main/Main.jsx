@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
+import NonProfitOrganization from './parts/NonProfitOrganization';
 
 import m1grantor2x from '../../../assets/img/nonprofit/m1grantor@2x.png';
 import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
@@ -30,6 +31,9 @@ const Main = () => {
           <source media="(min-width: 992px)" srcSet={d1grantor} />
           <img src={m1grantor2x} alt="Grantor" style={{ width: ' 100%' }} />
         </picture>
+      </Container>
+      <Container>
+        <NonProfitOrganization />
       </Container>
       <Reviews />
     </main>
