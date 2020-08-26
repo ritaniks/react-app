@@ -31,7 +31,10 @@ const Footer = () => {
                 (800) 239-2201
               </a>
               or e-mail
-              <a className={css.contactLink} href="mailto:sales@timeledger.com">
+              <a
+                className={css.contactLink}
+                href="mailto:support@timeledger.com"
+              >
                 support@timeledger.com
               </a>
             </p>
