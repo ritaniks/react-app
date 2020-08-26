@@ -11,10 +11,10 @@ import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
 import m1grantor from '../../../assets/img/nonprofit/m1grantor.png';
 import d1grantor2x from '../../../assets/img/nonprofit/d1grantor@2x.png';
 
-import m2nonprofit2x from '../../../assets/img/nonprofit/m2nonprofit@2x.png';
-import d2nonprofit from '../../../assets/img/nonprofit/d2nonprofit.png';
-import m2nonprofit from '../../../assets/img/nonprofit/m2nonprofit.png';
-import d2nonprofit2x from '../../../assets/img/nonprofit/d2nonprofit@2x.png';
+import m2nonprofit2x from '../../../assets/img/nonprofit/s1m2nonprofit@2x.png';
+import d2nonprofit from '../../../assets/img/nonprofit/s1d2nonprofit.png';
+import m2nonprofit from '../../../assets/img/nonprofit/s1m2nonprofit.png';
+import d2nonprofit2x from '../../../assets/img/nonprofit/s1d2nonprofit@2x.png';
 
 import m3customizevoc2x from '../../../assets/img/nonprofit/m3customize-voc@2x.png';
 import d3customizevoc from '../../../assets/img/nonprofit/d3customize-voc.png';
@@ -43,7 +43,7 @@ const Main = () => {
             <img
               src={m1grantor2x}
               alt="Grantor"
-              style={{ maxHeight: '500px' }}
+              style={{ maxWidth: '100%' }}
               srcSet={m1grantor}
             />
           </picture>
