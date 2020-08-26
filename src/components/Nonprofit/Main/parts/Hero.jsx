@@ -5,8 +5,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import HeroImgD from '../../../../assets/img/nonprofit/dhero.png';
-import HeroImgM from '../../../../assets/img/nonprofit/mhero@2x.png';
+import mhero2x from '../../../../assets/img/nonprofit/mhero@2x.png';
+import dhero from '../../../../assets/img/nonprofit/dhero.png';
+import mhero from '../../../../assets/img/nonprofit/mhero.png';
+import dhero2x from '../../../../assets/img/nonprofit/dhero@2x.png';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -18,7 +20,7 @@ const Hero = () => {
   return (
     <div>
       <Container className="mb-4">
-        <h1 className={`mx-auto mb-4 ${css.hero}`}>
+        <h1 className={`mx-auto mb-4 ${css.titleH1}`}>
           TimeLedger includes specialized features for Non-Profit Organizations
           that sharply reduce administrative reporting time
         </h1>
@@ -46,31 +48,39 @@ const Hero = () => {
         </div>
         <Row>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 ${css.borderLeft2}`}>
+            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
               Easily allocates time and expenses across multiple grants and
               funding sources.
             </div>
           </Col>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 ${css.borderLeft2}`}>
-              Meets all non-profit auditing requirements. We definitely need
-              additional sentence here.
+            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
+              Meets all non-profit auditing requirements including Single Audit
+              and Program-Specific Auditing.
             </div>
           </Col>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 ${css.borderLeft2}`}>
+            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
               TimeLedger’s extensive reports include specialized non-profit
               reports that distribute fringe pool expenses by user and project.
             </div>
           </Col>
         </Row>
       </Container>
-      {size.width < 768 && (
-        <img src={HeroImgM} alt="hero-img-mobile" className={css.img} />
-      )}
-      {size.width > 768 && (
-        <img src={HeroImgD} alt="hero-img-desktop" className={css.img} />
-      )}
+      <Container fluid className="p-0">
+        <Row className="d-flex justify-content-center">
+          <picture>
+            <source media="(min-width: 1600px)" srcSet={dhero2x} />
+            <source media="(min-width: 768px)" srcSet={dhero} />
+            <img
+              src={mhero2x}
+              alt="Grantor"
+              style={{ width: '100%' }}
+              srcSet={mhero}
+            />
+          </picture>
+        </Row>
+      </Container>
     </div>
   );
 };

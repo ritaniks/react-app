@@ -1,4 +1,5 @@
-import React, { Component, useState } from 'react';
+/* eslint-disable react/jsx-key */
+import React, { useState } from 'react';
 
 import Helmet from 'react-helmet';
 import Carousel from '@brainhubeu/react-carousel';
@@ -8,6 +9,7 @@ import useWindowSize from '../../../hooks/useWindowSize';
 import css from './Reviews.module.scss';
 
 // const review = [{ desr: '000000' }, { desr: '111111' }, { desr: '222222' }];
+// eslint-disable-next-line react/prop-types
 const OneSlide = ({ descr }) => {
   return <div className={css.oneRewiev}>{descr}</div>;
 };
@@ -15,14 +17,15 @@ const OneSlide = ({ descr }) => {
 const Reviews = () => {
   const diviceWidth = useWindowSize().width;
   const [value, setValue] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [slides, setSlides] = useState([
     <OneSlide descr="Good company 1" />,
     <OneSlide descr="Good company 2" />,
     <OneSlide descr="Good company 3" />,
   ]);
 
-  const handleChange = value => {
-    setValue(value);
+  const handleChange = val => {
+    setValue(val);
   };
 
   return (
