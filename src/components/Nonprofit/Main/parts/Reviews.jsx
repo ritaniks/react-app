@@ -26,30 +26,30 @@ class Reviews extends Component {
   state = {
     value: 0,
     slides: [
-      <OneSlide descr="Good company 1" />,
-      <OneSlide descr="Good company 2" />,
-      <OneSlide descr="Good company 3" />,
+      <OneSlide key="1" descr="Good company 1" />,
+      <OneSlide key="2" descr="Good company 2" />,
+      <OneSlide key="3" descr="Good company 3" />,
     ],
   };
 
   handleChange = value => {
     this.setState({ value });
   };
+
   render() {
-    const { slides } = this.state;
+    const { slides, value } = this.state;
     // console.log(slides, 'slides');
     // console.log(size, 'size');
     return (
       <div>
         <Carousel
           dots
-          infinite={true}
-          arrows={true}
+          infinite
           slidesPerPage={2}
           //   autoPlay={5000}
-          stopAutoPlayOnHover={true}
-          value={this.state.value}
-          slides={this.state.slides}
+          stopAutoPlayOnHover
+          value={value}
+          slides={slides}
           onChange={this.handleChange}
         />
 
