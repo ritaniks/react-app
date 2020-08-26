@@ -35,7 +35,7 @@ const Footer = () => {
                 className={css.contactLink}
                 href="mailto:support@timeledger.com"
               >
-                sales@timeledger.com
+                support@timeledger.com
               </a>
             </p>
             <h3 className={css.title}>Follow Us</h3>
