@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import Helmet from 'react-helmet';
 import Carousel from '@brainhubeu/react-carousel';
@@ -7,55 +7,41 @@ import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './Reviews.module.scss';
 
-const review = [{ desr: '000000' }, { desr: '111111' }, { desr: '222222' }];
+// const review = [{ desr: '000000' }, { desr: '111111' }, { desr: '222222' }];
 const OneSlide = ({ descr }) => {
   return <div className={css.oneRewiev}>{descr}</div>;
 };
 
-const DeviceWidth = () => {
-  const size = useWindowSize();
-  return size.width < 768 ? 1 : 2;
-};
+const Reviews = () => {
+  const diviceWidth = useWindowSize().width;
+  const [value, setValue] = useState(0);
+  const [slides, setSlides] = useState([
+    <OneSlide descr="Good company 1" />,
+    <OneSlide descr="Good company 2" />,
+    <OneSlide descr="Good company 3" />,
+  ]);
 
-// const Reviews2 = () => {
-//   const size = useWindowSize();
-//   return size.width < 768 ? 1 : 2;
-// };
-
-class Reviews extends Component {
-  state = {
-    value: 0,
-    slides: [
-      <OneSlide descr="Good company 1" />,
-      <OneSlide descr="Good company 2" />,
-      <OneSlide descr="Good company 3" />,
-    ],
+  const handleChange = value => {
+    setValue(value);
   };
 
-  handleChange = value => {
-    this.setState({ value });
-  };
-  render() {
-    const { slides } = this.state;
-    // console.log(slides, 'slides');
-    // console.log(size, 'size');
-    return (
-      <div>
-        <Carousel
-          dots
-          infinite={true}
-          arrows={true}
-          slidesPerPage={2}
-          //   autoPlay={5000}
-          stopAutoPlayOnHover={true}
-          value={this.state.value}
-          slides={this.state.slides}
-          onChange={this.handleChange}
-        />
+  return (
+    <div>
+      <Carousel
+        dots
+        infinite
+        // arrows
+        slidesPerPage={diviceWidth > 768 ? 2 : 1}
+        //   autoPlay={5000}
+        stopAutoPlayOnHover
+        value={value}
+        slides={slides}
+        onChange={handleChange}
+      />
 
-        <Helmet>
-          <style>
-            {`
+      <Helmet>
+        <style>
+          {`
     .BrainhubCarousel__dots .BrainhubCarousel__dot  {
         background: none;
     }
@@ -70,11 +56,10 @@ class Reviews extends Component {
         padding: 10px 0;
     }
     `}
-          </style>
-        </Helmet>
-      </div>
-    );
-  }
-}
+        </style>
+      </Helmet>
+    </div>
+  );
+};
 
 export default Reviews;
