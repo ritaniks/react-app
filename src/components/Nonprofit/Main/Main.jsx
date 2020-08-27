@@ -2,6 +2,7 @@ import React from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
@@ -32,19 +33,25 @@ const Main = () => {
       <Hero />
       <Container>
         <div className={`mx-auto text-center mb-4 ${css.title}`}>
-          <h2 className={`mb-md-3 ${css.titleH2}`}>Grantor Report</h2>
-          Users can enter in their time they worked on different programs that
-          feed into our Grantor report, which can be generated with one-click.
+          <h3 className={`mb-md-3 ${css.titleH3}`}>
+            Over 14,800 Customers Trust TimeLedger
+          </h3>
+        </div>
+        <div className={`mx-auto text-center mb-4 ${css.title}`}>
+          <h2 className={`mb-md-3 ${css.titleH2}`}>
+            Labor automatically allocated across grants/funding sources
+          </h2>
+          Users can enter their time by grant or funding source.
         </div>
         <Row className="d-flex justify-content-center mb-6">
           <picture className="d-flex justify-contnet-center">
             <source media="(min-width: 1600px)" srcSet={d1grantor2x} />
             <source media="(min-width: 768px)" srcSet={d1grantor} />
             <img
-              src={m1grantor2x}
+              src={m1grantor}
               alt="Grantor"
               style={{ maxWidth: '100%' }}
-              srcSet={m1grantor}
+              srcSet={m1grantor2x}
             />
           </picture>
         </Row>
@@ -56,32 +63,35 @@ const Main = () => {
           With automatic Fringe Pool disbursement by project and user resource.
         </div>
         <Row className="d-flex justify-content-md-end justify-content-center mb-6">
-          <picture className="d-flex justify-contnet-center">
-            <source media="(min-width: 1600px)" srcSet={d2nonprofit2x} />
-            <source media="(min-width: 768px)" srcSet={d2nonprofit} />
-            <img
-              src={m2nonprofit2x}
-              alt="Grantor"
-              style={{ maxHeight: '500px' }}
-              srcSet={m2nonprofit}
-            />
-          </picture>
+          <Col />
+          <Col xs={12} md={9}>
+            <picture className="d-flex justify-contnet-center">
+              <source media="(min-width: 1600px)" srcSet={d2nonprofit2x} />
+              <source media="(min-width: 768px)" srcSet={d2nonprofit} />
+              <img
+                src={m2nonprofit}
+                alt="Grantor"
+                style={{ maxWidth: '100%' }}
+                srcSet={m2nonprofit2x}
+              />
+            </picture>
+          </Col>
         </Row>
 
         <div className={`mx-auto text-center mb-4 ${css.title}`}>
           <h2 className={`mb-md-3 ${css.titleH2}`}>Customizable vocabulary</h2>
-          Gets your people quickly adopting TimeLedger by using your existing
-          terms for users, clients, grants, and funding sources.
+          Get fast user adoption by using your terms for users, clients, grants,
+          and funding sources.
         </div>
         <Row className="d-flex justify-content-center mb-6">
           <picture className="d-flex justify-contnet-center">
             <source media="(min-width: 1600px)" srcSet={d3customizevoc2x} />
             <source media="(min-width: 768px)" srcSet={d3customizevoc} />
             <img
-              src={m3customizevoc2x}
+              src={m3customizevoc}
               alt="Grantor"
-              style={{ maxHeight: '500px' }}
-              srcSet={m3customizevoc}
+              style={{ width: '100%' }}
+              srcSet={m3customizevoc2x}
             />
           </picture>
         </Row>

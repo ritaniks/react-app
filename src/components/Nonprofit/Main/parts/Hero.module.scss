@@ -2,18 +2,22 @@
 
 .titleH1 {
   color: #495057;
-  max-width: 874px;
+  max-width: 800px;
   text-align: center;
   font-weight: 700;
 }
 
-.borderLeft2 {
+.feature {
   border-left: 2px solid $primary;
+  font-size: 18px;
 }
 
 @media (max-width: 767px) {
   .titleH1 {
     font-size: 22px;
     line-height: 28px;
+  }
+  .feature {
+    font-size: 15px;
   }
 }

@@ -21,8 +21,7 @@ const Hero = () => {
     <div>
       <Container className="mb-4">
         <h1 className={`mx-auto mb-4 ${css.titleH1}`}>
-          TimeLedger includes specialized features for Non-Profit Organizations
-          that sharply reduce administrative reporting time
+          Easily create Non-Profit Organization reports with TimeLedger
         </h1>
         <div
           className={`mb-6 justify-content-md-center d-md-flex ${
@@ -48,19 +47,19 @@ const Hero = () => {
         </div>
         <Row>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
+            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
               Easily allocates time and expenses across multiple grants and
               funding sources.
             </div>
           </Col>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
+            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
               Meets all non-profit auditing requirements including Single Audit
               and Program-Specific Auditing.
             </div>
           </Col>
           <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.borderLeft2}`}>
+            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
               TimeLedger’s extensive reports include specialized non-profit
               reports that distribute fringe pool expenses by user and project.
             </div>
@@ -73,10 +72,10 @@ const Hero = () => {
             <source media="(min-width: 1600px)" srcSet={dhero2x} />
             <source media="(min-width: 768px)" srcSet={dhero} />
             <img
-              src={mhero2x}
+              src={mhero}
               alt="Grantor"
               style={{ width: '100%' }}
-              srcSet={mhero}
+              srcSet={mhero2x}
             />
           </picture>
         </Row>
