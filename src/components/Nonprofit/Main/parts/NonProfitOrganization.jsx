@@ -15,7 +15,6 @@ const reportArr = [
 ];
 
 const NonProfitOrganization = () => {
-  console.log(nonProfitOrg[0], 'nonProfitOrg');
   return (
     <>
       <Tab.Container
