@@ -5,7 +5,7 @@ import { Tab, Nav, Col, Row } from 'react-bootstrap';
 import ImageResize from './ImageResize';
 import { nonProfitOrg } from './imageHelper';
 
-// import css from './NonProfitOrganization.module.scss';
+import css from './NonProfitOrganization.module.scss';
 
 const reportArr = [
   { name: 'Detailed', img: nonProfitOrg[0] },
@@ -23,6 +23,15 @@ const NonProfitOrganization = () => {
         defaultActiveKey={reportArr[0].name}
       >
         <Row>
+          <Col sm={5}>
+            <Nav variant="pills" className={`${css.border} flex-column`}>
+              {reportArr.map((el, index) => (
+                <Nav.Item key={index}>
+                  <Nav.Link eventKey={el.name}>{el.name}</Nav.Link>
+                </Nav.Item>
+              ))}
+            </Nav>
+          </Col>
           <Col sm={7}>
             <Tab.Content>
               {reportArr.map((el, index) => (
@@ -31,15 +40,6 @@ const NonProfitOrganization = () => {
                 </Tab.Pane>
               ))}
             </Tab.Content>
-          </Col>
-          <Col sm={5}>
-            <Nav variant="pills" className="flex-column">
-              {reportArr.map((el, index) => (
-                <Nav.Item key={index}>
-                  <Nav.Link eventKey={el.name}>{el.name}</Nav.Link>
-                </Nav.Item>
-              ))}
-            </Nav>
           </Col>
         </Row>
       </Tab.Container>
