@@ -16,8 +16,8 @@ import m2nonprofit2x from '../../../../assets/img/nonprofit/m2nonprofit@2x.png';
 
 import d3customizeVoc from '../../../../assets/img/nonprofit/d3customize-voc.png';
 import d3customizeVoc2x from '../../../../assets/img/nonprofit/d3customize-voc@2x.png';
-import m3customizeVoc from '../../../../assets/img/nonprofit/m3customize-voc-1.png';
-import m3customizeVoc2x from '../../../../assets/img/nonprofit/m3customize-voc-1@2x.png';
+import m3customizeVoc from '../../../../assets/img/nonprofit/m3customize-voc.png';
+import m3customizeVoc2x from '../../../../assets/img/nonprofit/m3customize-voc@2x.png';
 
 // eSignatures
 
