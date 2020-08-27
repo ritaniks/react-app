@@ -1,9 +1,19 @@
 @import '../../../assets/css/variables.scss';
 
-h2 {
-  color: $primary;
+.title {
+  max-width: 40rem;
 }
 
-.title {
-  max-width: 46rem;
+.titleH2 {
+  color: $primary;
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 46px;
+}
+
+@media (max-width: 767px) {
+  .titleH2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
