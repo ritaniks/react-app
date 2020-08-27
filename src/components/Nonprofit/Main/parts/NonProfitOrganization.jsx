@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+/*eslint-disable*/
+import React from 'react';
 
-import { Tab, Nav, Col, Row, Button } from 'react-bootstrap';
-// import css from './NonProfitOrganization.module.scss';
+import { Tab, Nav, Col, Row } from 'react-bootstrap';
+import ImageResize from './ImageResize';
 import { nonProfitOrg } from './imageHelper';
 
+// import css from './NonProfitOrganization.module.scss';
+
 const reportArr = [
-  { name: 'Detailed' },
-  { name: 'Detailed / Collapsed Fringe Rows' },
-  { name: 'Summary' },
-  { name: 'Summary / Collapsed Fringe Rows', img: [] },
+  { name: 'Detailed', img: [nonProfitOrg[0]] },
+  { name: 'Detailed / Collapsed Fringe Rows', img: [nonProfitOrg[1]] },
+  { name: 'Summary', img: [nonProfitOrg[2]] },
+  { name: 'Summary / Collapsed Fringe Rows', img: [nonProfitOrg[3]] },
 ];
 
 const NonProfitOrganization = () => {
-  console.log(nonProfitOrg[0][0], 'd');
   return (
     <>
       <img src={nonProfitOrg[3][1]} />
@@ -25,7 +27,7 @@ const NonProfitOrganization = () => {
             <Tab.Content>
               {reportArr.map((el, index) => (
                 <Tab.Pane key={index} eventKey={el.name}>
-                  (index={index}) {el.name}
+                  <ImageResize path={reportArr[index].img} />
                 </Tab.Pane>
               ))}
             </Tab.Content>

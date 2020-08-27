@@ -1,4 +1,5 @@
-import React, { Component, useState } from 'react';
+/*eslint-disable*/
+import React, { useState } from 'react';
 
 import Helmet from 'react-helmet';
 import Carousel from '@brainhubeu/react-carousel';
