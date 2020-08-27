@@ -96,11 +96,11 @@ const Main = () => {
             />
           </picture>
         </Row>
+        <Reviews />
       </Container>
       <Container>
         <NonProfitOrganization />
       </Container>
-      <Reviews />
     </main>
   );
 };

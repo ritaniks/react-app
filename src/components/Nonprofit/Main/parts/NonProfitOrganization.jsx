@@ -18,7 +18,6 @@ const NonProfitOrganization = () => {
   console.log(nonProfitOrg[0], 'nonProfitOrg');
   return (
     <>
-      <img src={nonProfitOrg[3][1]} />
       <Tab.Container
         id="left-tabs-example"
         defaultActiveKey={reportArr[0].name}
