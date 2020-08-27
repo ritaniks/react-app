@@ -1,16 +1,19 @@
 import React from 'react';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 import Logo from '../../Header/parts/Logo';
 import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/social/facebook.svg';
-import { ReactComponent as Twitter } from '../../../assets/img/nonprofit/social/twitter.svg';
 import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/social/linkedin.svg';
 
 import css from './Footer.module.scss';
+// import { findAllByDisplayValue } from '@testing-library/react';
 
 const Footer = () => {
   return (
     <footer className={css.footer}>
-      <div className="containerTL">
+      <Container>
         <div className={css.info}>
           <div className={css.aboutUs}>
             <h3 className={css.title}>About Us</h3>
@@ -30,38 +33,42 @@ const Footer = () => {
               <a className={css.contactLink} href="tel:+18002392201">
                 (800) 239-2201
               </a>
-              or e-mail
-              <a
-                className={css.contactLink}
-                href="mailto:support@timeledger.com"
-              >
-                support@timeledger.com
-              </a>
+              <span className="d-flex flex-nowrap-reverse">
+                Or e-mail:
+                <a
+                  className={css.contactLink}
+                  href="mailto:support@timeledger.com"
+                >
+                  support@timeledger.com
+                </a>
+              </span>
             </p>
             <h3 className={css.title}>Follow Us</h3>
             <div className={css.wrapSocial}>
               <a href="https://www.timeledger.com/">
                 <Facebook className={css.icon} />
               </a>
-              <a href="https://www.timeledger.com/">
+              {/* <a href="https://www.timeledger.com/">
                 <Twitter className={css.icon} />
-              </a>
+              </a> */}
               <a href="https://www.timeledger.com/">
                 <LinkedIn className={css.icon} />
               </a>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
       <div className={css.copyright}>
-        <div className="containerTL">
-          <div className={css.logo}>
-            <Logo />
-          </div>
-          <p className={css.description}>
-            © Copyright 2019. All Rights Reserved.
-          </p>
-        </div>
+        <Container>
+          <Row className="p-3">
+            <div className={css.logo}>
+              <Logo />
+            </div>
+            <div className={`align-self-center ${css.description}`}>
+              © Copyright 2019. All Rights Reserved.
+            </div>
+          </Row>
+        </Container>
       </div>
     </footer>
   );
