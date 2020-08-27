@@ -46,7 +46,7 @@ img {
 }
 
 /* containerTL */
-.containerTL {
+/* .containerTL {
   margin: 0 auto;
   padding: 15px;
 }
@@ -65,7 +65,7 @@ img {
   .containerTL {
     width: 1170px;
   }
-}
+} */
 
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
