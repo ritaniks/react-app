@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
+import NonProfitOrganization from './parts/NonProfitOrganization';
 
 import m1grantor2x from '../../../assets/img/nonprofit/m1grantor@2x.png';
 import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
@@ -95,6 +96,9 @@ const Main = () => {
             />
           </picture>
         </Row>
+      </Container>
+      <Container>
+        <NonProfitOrganization />
       </Container>
       <Reviews />
     </main>
