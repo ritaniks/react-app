@@ -33,8 +33,8 @@ const Reviews = () => {
         infinite
         // arrows
         slidesPerPage={diviceWidth > 768 ? 2 : 1}
-        //   autoPlay={5000}
-        stopAutoPlayOnHover
+        // autoPlay={2000}
+        // stopAutoPlayOnHover
         value={value}
         slides={slides}
         onChange={handleChange}
