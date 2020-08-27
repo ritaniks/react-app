@@ -10,7 +10,7 @@ import css from './Footer.module.scss';
 const Footer = () => {
   return (
     <footer className={css.footer}>
-      <div className="containerTL">
+      <div className="container">
         <div className={css.info}>
           <div className={css.aboutUs}>
             <h3 className={css.title}>About Us</h3>
@@ -30,7 +30,7 @@ const Footer = () => {
               <a className={css.contactLink} href="tel:+18002392201">
                 (800) 239-2201
               </a>
-              or e-mail
+              or e-mail&nbsp;
               <a
                 className={css.contactLink}
                 href="mailto:support@timeledger.com"
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={css.copyright}>
-        <div className="containerTL">
+        <div className="container">
           <div className={css.logo}>
             <Logo />
           </div>
