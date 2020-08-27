@@ -58,7 +58,7 @@ const Main = () => {
         </Row>
 
         <div className={`mx-auto text-center mb-4 ${css.title}`}>
-          <h2 className={`mb-md-3 ${css.titleH2}`}>
+          <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
             Non-Profit Organization, NPO Contracts Profitability Report
           </h2>
           With automatic Fringe Pool disbursement by project and user resource.
