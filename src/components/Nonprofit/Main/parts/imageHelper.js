@@ -62,4 +62,9 @@ export const nonProfitOrg = {
   3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
 };
 
-export const nonProfitOrg2 = {};
+export const nonProfitOrg2 = {
+  0: [s1d2nonprofit, s1d2nonprofit2x, s1m2nonprofit, s1m2nonprofit2x],
+  1: [s2d2nonprofit, s2d2nonprofit2x, s2m2nonprofit, s2m2nonprofit2x],
+  2: [s3d2nonprofit, s3d2nonprofit2x, s3m2nonprofit, s3m2nonprofit2x],
+  3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
+};

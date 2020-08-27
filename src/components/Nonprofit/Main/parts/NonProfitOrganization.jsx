@@ -8,13 +8,14 @@ import { nonProfitOrg } from './imageHelper';
 // import css from './NonProfitOrganization.module.scss';
 
 const reportArr = [
-  { name: 'Detailed', img: [nonProfitOrg[0]] },
-  { name: 'Detailed / Collapsed Fringe Rows', img: [nonProfitOrg[1]] },
-  { name: 'Summary', img: [nonProfitOrg[2]] },
-  { name: 'Summary / Collapsed Fringe Rows', img: [nonProfitOrg[3]] },
+  { name: 'Detailed', img: nonProfitOrg[0] },
+  { name: 'Detailed / Collapsed Fringe Rows', img: nonProfitOrg[1] },
+  { name: 'Summary', img: nonProfitOrg[2] },
+  { name: 'Summary / Collapsed Fringe Rows', img: nonProfitOrg[3] },
 ];
 
 const NonProfitOrganization = () => {
+  console.log(nonProfitOrg[0], 'nonProfitOrg');
   return (
     <>
       <img src={nonProfitOrg[3][1]} />
