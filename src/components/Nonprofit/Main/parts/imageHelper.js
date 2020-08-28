@@ -28,10 +28,11 @@ import m5timeEntry2x from '../../../../assets/img/nonprofit/m5time-entry@2x.png'
 
 // customizableLegalAttestation
 
-import d6customizableLegalAttestation from '../../../../assets/img/nonprofit/d6customizable.png';
-import d6customizableLegalAttestation2x from '../../../../assets/img/nonprofit/d6customizable@2x.png';
-import m6customizableLegalAttestation from '../../../../assets/img/nonprofit/m6customizable.png';
-import m6customizableLegalAttestation2x from '../../../../assets/img/nonprofit/m6customizable@2x.png';
+import d6customizable from '../../../../assets/img/nonprofit/d6customizable.png';
+import d6customizable2x from '../../../../assets/img/nonprofit/d6customizable@2x.png';
+import m6customizable from '../../../../assets/img/nonprofit/m6customizable.png';
+import m6customizable2x from '../../../../assets/img/nonprofit/m6customizable@2x.png';
+
 // mobile
 
 import d7mobile from '../../../../assets/img/nonprofit/d7mobile.png';
@@ -61,6 +62,14 @@ import s4d2nonprofit2x from '../../../../assets/img/nonprofit/s4d2nonprofit@2x.p
 import s4m2nonprofit from '../../../../assets/img/nonprofit/s4m2nonprofit.png';
 import s4m2nonprofit2x from '../../../../assets/img/nonprofit/s4m2nonprofit@2x.png';
 
+// Brands
+import mercyHouse from '../../../../assets/img/nonprofit/mercy-house.png';
+import mercyHouse2x from '../../../../assets/img/nonprofit/mercy-house@2x.png';
+import theJessamine from '../../../../assets/img/nonprofit/the-jessamine-place.png';
+import theJessamine2x from '../../../../assets/img/nonprofit/the-jessamine-place@2x.png';
+import friendshipShelter from '../../../../assets/img/nonprofit/friendship-shelter.png';
+import friendshipShelter2x from '../../../../assets/img/nonprofit/friendship-shelter@2x.png';
+
 export const grantor = {
   0: [d1grantor, d1grantor2x, m1grantor, m1grantor2x],
 };
@@ -77,13 +86,8 @@ export const timeEntry = {
   0: [d5timeEntry, d5timeEntry2x, m5timeEntry, m5timeEntry2x],
 };
 
-export const customizableLegalAttestation = {
-  0: [
-    d6customizableLegalAttestation,
-    d6customizableLegalAttestation2x,
-    m6customizableLegalAttestation,
-    m6customizableLegalAttestation2x,
-  ],
+export const customizable = {
+  0: [d6customizable, d6customizable2x, m6customizable, m6customizable2x],
 };
 
 export const mobile = {
@@ -95,4 +99,15 @@ export const nonProfitOrg = {
   1: [s2d2nonprofit, s2d2nonprofit2x, s2m2nonprofit, s2m2nonprofit2x],
   2: [s3d2nonprofit, s3d2nonprofit2x, s3m2nonprofit, s3m2nonprofit2x],
   3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
+};
+
+export const brands = {
+  0: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x],
+  1: [theJessamine, theJessamine2x, theJessamine, theJessamine2x],
+  2: [
+    friendshipShelter,
+    friendshipShelter2x,
+    friendshipShelter,
+    friendshipShelter2x,
+  ],
 };

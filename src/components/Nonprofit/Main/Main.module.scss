@@ -5,19 +5,25 @@
 }
 
 .titleH2 {
-  color: $primary;
+  color: var(--primary);
   font-weight: 900;
   font-size: 35px;
   line-height: 46px;
 }
 
 .titleH3 {
-  color: grey;
+  color: var(--gray-dark);
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {
   .titleH2 {
     font-size: 20px;
     line-height: 26px;
+  }
+
+  .titleH3 {
+    font-size: 18px;
+    line-height: 24px;
   }
 }
