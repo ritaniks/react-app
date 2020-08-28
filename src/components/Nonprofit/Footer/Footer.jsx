@@ -13,11 +13,7 @@ import css from './Footer.module.scss';
 const Footer = () => {
   return (
     <footer className={css.footer}>
-<<<<<<< HEAD
-      <div className="container">
-=======
       <Container>
->>>>>>> NonProfit
         <div className={css.info}>
           <div className={css.aboutUs}>
             <h3 className={css.title}>About Us</h3>
@@ -63,16 +59,6 @@ const Footer = () => {
         </div>
       </Container>
       <div className={css.copyright}>
-<<<<<<< HEAD
-        <div className="container">
-          <div className={css.logo}>
-            <Logo />
-          </div>
-          <p className={css.description}>
-            © Copyright 2019. All Rights Reserved.
-          </p>
-        </div>
-=======
         <Container>
           <Row className="p-3">
             <div className={css.logo}>
@@ -83,7 +69,6 @@ const Footer = () => {
             </div>
           </Row>
         </Container>
->>>>>>> NonProfit
       </div>
     </footer>
   );
