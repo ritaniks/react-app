@@ -87,7 +87,8 @@ img {
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
-  --gray-dark: #343a40;
+  --gray-dark: #495057;
+  --gray-darker: #343a40;
   --primary: #0083cd;
   --secondary: #c4c9ce;
   --success: #00a65a;
@@ -96,6 +97,7 @@ img {
   --danger: #e44655;
   --light: #eef0f2;
   --dark: #212121;
+  --black: #000000;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
