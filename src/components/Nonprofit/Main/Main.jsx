@@ -152,7 +152,7 @@ const Main = () => {
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>Testimonials</h2>
           </div>
-          <Reviews />
+          <Reviews brands={brands} />
         </Container>
       </Container>
 

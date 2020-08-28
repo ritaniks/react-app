@@ -13,7 +13,6 @@ import dhero2x from '../../../../assets/img/nonprofit/dhero@2x.png';
 import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './Hero.module.scss';
-// import '../../../assets/css/variables.scss';
 
 const Hero = () => {
   const size = useWindowSize();
@@ -66,7 +65,7 @@ const Hero = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid className="p-0">
+      <Container fluid className={`${css.hero} p-0`}>
         <Row className="d-flex justify-content-center">
           <picture>
             <source media="(min-width: 1600px)" srcSet={dhero2x} />

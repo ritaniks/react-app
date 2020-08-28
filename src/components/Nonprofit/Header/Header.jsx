@@ -8,18 +8,18 @@ import Logo from '../../Header/parts/Logo';
 
 import useWindowSize from '../../hooks/useWindowSize';
 
-import css from './Header.module.scss';
+// import css from './Header.module.scss';
 
 const Header = () => {
   const size = useWindowSize();
   return (
     <header>
-      <Container fluid>
+      <Container>
         <Navbar
           fixed="top"
           bg="primary"
           variant="dark"
-          className={`mb-6 px-3 px-md-4 shadow-sm ${css.header} ${
+          className={`mb-6 px-3 px-md-4 shadow-sm ${
             size.width < 768 && 'mb-5'
           }`}
         >

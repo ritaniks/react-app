@@ -3,25 +3,41 @@ import React, { useState } from 'react';
 
 import Helmet from 'react-helmet';
 import Carousel from '@brainhubeu/react-carousel';
+import ImageResize from './ImageResize';
 import '@brainhubeu/react-carousel/lib/style.css';
+
+import { ReactComponent as Quotes } from '../../../../assets/img/nonprofit/quote-left.svg';
+
 import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './Reviews.module.scss';
 
-// const review = [{ desr: '000000' }, { desr: '111111' }, { desr: '222222' }];
-// eslint-disable-next-line react/prop-types
-const OneSlide = ({ descr }) => {
-  return <div className={css.oneRewiev}>{descr}</div>;
+const OneSlide = ({ descr, path }) => {
+  const diviceWidth = useWindowSize().width;
+  return (
+    <div className={`${css.oneRewiev} ${diviceWidth < 1200 ? 'p-4' : 'p-6'}`}>
+      <div className={css.wrapIcon}>
+        <Quotes />
+      </div>
+      <p>{descr}</p>
+      <ImageResize path={path} />
+    </div>
+  );
 };
 
-const Reviews = () => {
+const Reviews = ({ brands }) => {
   const diviceWidth = useWindowSize().width;
   const [value, setValue] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [slides, setSlides] = useState([
-    <OneSlide descr="TimeLedger's grant allocation report saves us 5 hours a week in reporting time.  We love it." />,
-    <OneSlide descr="We can easily allocate Fringe Pool expenses to grants using the TimeLedger Non-Profit Summary Reports." />,
-    <OneSlide descr="Good company 3" />,
+    <OneSlide
+      path={brands[0].img}
+      descr="TimeLedger's grant allocation report saves us 5 hours a week in reporting time.  We love it."
+    />,
+    <OneSlide
+      path={brands[1].img}
+      descr="We can easily allocate Fringe Pool expenses to grants using the TimeLedger Non-Profit Summary Reports."
+    />,
+    <OneSlide path={brands[2].img} descr="Good company)." />,
   ]);
 
   const handleChange = val => {
