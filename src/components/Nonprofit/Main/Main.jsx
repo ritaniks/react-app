@@ -15,11 +15,6 @@ import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
 import m1grantor from '../../../assets/img/nonprofit/m1grantor.png';
 import d1grantor2x from '../../../assets/img/nonprofit/d1grantor@2x.png';
 
-import m2nonprofit2x from '../../../assets/img/nonprofit/s1m2nonprofit@2x.png';
-import d2nonprofit from '../../../assets/img/nonprofit/s1d2nonprofit.png';
-import m2nonprofit from '../../../assets/img/nonprofit/s1m2nonprofit.png';
-import d2nonprofit2x from '../../../assets/img/nonprofit/s1d2nonprofit@2x.png';
-
 import m3customizevoc2x from '../../../assets/img/nonprofit/m3customize-voc@2x.png';
 import d3customizevoc from '../../../assets/img/nonprofit/d3customize-voc.png';
 import m3customizevoc from '../../../assets/img/nonprofit/m3customize-voc.png';
@@ -28,8 +23,6 @@ import d3customizevoc2x from '../../../assets/img/nonprofit/d3customize-voc@2x.p
 import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './Main.module.scss';
-
-const brandsArr = [{ img: brands[0] }, { img: brands[1] }, { img: brands[2] }];
 
 const Main = () => {
   const size = useWindowSize();
@@ -43,11 +36,12 @@ const Main = () => {
           </h3>
         </div>
         <Row>
-          <Col xs={12} lg={4}>
-            {brandsArr.map((brand, index) => (
-              <ImageResize path={brands} key={index} />
-            ))}
-          </Col>
+          {brands.map((brand, index) => (
+            <Col xs={12} lg={4} key={index}>
+              <ImageResize path={brand.img} />
+            </Col>
+          ))}
+
           <Col xs={12} lg={4}>
             <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
               Meets all non-profit auditing requirements including Single Audit
@@ -107,7 +101,6 @@ const Main = () => {
         </Row>
         <Reviews />
       </Container>
-      <Reviews />
     </main>
   );
 };

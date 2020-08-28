@@ -101,13 +101,15 @@ export const nonProfitOrg = {
   3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
 };
 
-export const brands = {
-  0: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x],
-  1: [theJessamine, theJessamine2x, theJessamine, theJessamine2x],
-  2: [
-    friendshipShelter,
-    friendshipShelter2x,
-    friendshipShelter,
-    friendshipShelter2x,
-  ],
-};
+export const brands = [
+  { img: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x] },
+  { img: [theJessamine, theJessamine2x, theJessamine, theJessamine2x] },
+  {
+    img: [
+      friendshipShelter,
+      friendshipShelter2x,
+      friendshipShelter,
+      friendshipShelter2x,
+    ],
+  },
+];
