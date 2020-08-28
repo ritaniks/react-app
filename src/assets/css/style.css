@@ -1,14 +1,10 @@
 @import './normalize.css';
 @import '../fonts/fonts.css';
 @import './variables.scss';
-html {
-  box-sizing: border-box;
-}
 
 html {
   box-sizing: border-box;
-  width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 *,
 *::before,
@@ -17,22 +13,81 @@ html {
 }
 
 body {
+  padding-top: 66px;
+  width: 100%;
+  min-width: 320px;
   margin: 0;
   font-family: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  overflow-x: auto;
 }
 
 img {
   display: block;
 }
 
+/* custom font size */
 .f0875 {
   font-size: 0.875rem;
 }
 
+/* custom indents */
+.mb-6 {
+  margin-bottom: 4rem;
+}
+.mt-6 {
+  margin-top: 4rem;
+}
+
+.pb-6 {
+  padding-bottom: 4rem;
+}
+.pt-6 {
+  padding-top: 4rem;
+}
+
+.py-6 {
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+}
+
+.p-6 {
+  padding: 4rem;
+}
+
+/* customBG */
+.sectionbg {
+  background-color: #f8f9fa;
+}
+
+/* custom border width */
+.border-2 {
+  border-width: 2px !important;
+}
+
+/* containerTL */
+/* .containerTL {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .containerTL {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .containerTL {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .containerTL {
+    width: 1170px;
+  }
+} */
+
 /*! `Custom` Bootstrap 4 theme */
-/*!
+@import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -51,7 +106,8 @@ img {
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
-  --gray-dark: #343a40;
+  --gray-dark: #495057;
+  --gray-darker: #343a40;
   --primary: #0083cd;
   --secondary: #c4c9ce;
   --success: #00a65a;
@@ -60,28 +116,19 @@ img {
   --danger: #e44655;
   --light: #eef0f2;
   --dark: #212121;
+  --black: #000000;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
 }
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+
 article,
 aside,
 figcaption,
@@ -95,8 +142,7 @@ section {
   display: block;
 }
 body {
-  /* margin: 0; */
-  /* font-family: 'Mulish'; */
+  margin: 0;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -252,7 +298,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+
   font-size: inherit;
   line-height: inherit;
 }
@@ -330,7 +376,6 @@ progress {
   -webkit-appearance: none;
 }
 ::-webkit-file-upload-button {
-  font: inherit;
   -webkit-appearance: button;
 }
 output {
@@ -359,7 +404,6 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: 'Mulish';
   font-weight: 500;
   line-height: 1.2;
 }
@@ -4369,7 +4413,6 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4477,7 +4520,6 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;

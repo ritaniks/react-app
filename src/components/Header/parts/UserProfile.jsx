@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
 
 import { Dropdown } from 'react-bootstrap';
 import { ReactComponent as Logout } from '../../../assets/img/header/logout.svg';
@@ -8,6 +9,8 @@ import { ReactComponent as User } from '../../../assets/img/header/user.svg';
 import css from './UserProfile.module.scss';
 
 const UserProfile = ({ user }) => {
+  const { auth } = user;
+
   return (
     <div className={`${css.wrapUserProfile}`}>
       <Dropdown>
@@ -18,7 +21,7 @@ const UserProfile = ({ user }) => {
           title="Equantive Inc. #235"
         >
           <User className={css.userIcon} />
-          <span> {user.name}</span>
+          {auth ? <span> {user.name} </span> : <span> info </span>}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -27,14 +30,28 @@ const UserProfile = ({ user }) => {
           </Dropdown.Header>
 
           <Dropdown.Divider />
-          <Dropdown.Item className={css.item} href="#/action-1">
-            <User className={css.icon} />
-            <span> Profile</span>
-          </Dropdown.Item>
-          <Dropdown.Item className={css.item} href="#/action-2">
-            <Logout className={css.icon} />
-            <span> Logout</span>
-          </Dropdown.Item>
+
+          {!auth && (
+            <Dropdown.Item className={css.item} href="#/action-1">
+              <User className={css.icon} />
+              {/* <Link to="/login"> */}
+              <span> Login</span>
+              {/* </Link> */}
+            </Dropdown.Item>
+          )}
+
+          {auth && (
+            <Dropdown.Item className={css.item} href="#/action-1">
+              <User className={css.icon} />
+              <span> Profile</span>
+            </Dropdown.Item>
+          )}
+          {auth && (
+            <Dropdown.Item className={css.item} href="#/action-2">
+              <Logout className={css.icon} />
+              <span> Logout</span>
+            </Dropdown.Item>
+          )}
         </Dropdown.Menu>
       </Dropdown>
     </div>
@@ -43,6 +60,7 @@ const UserProfile = ({ user }) => {
 UserProfile.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    auth: PropTypes.bool.isRequired,
   }).isRequired,
 };
 

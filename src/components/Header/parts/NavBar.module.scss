@@ -4,11 +4,12 @@
   background-color: $blue;
   height: 100%;
   display: flex;
-  // padding: 0 20px;
 }
 .wrapLogo {
   height: 4.75rem;
   display: none;
+  background-color: transparent;
+  border: none;
 }
 
 .navLink {
@@ -65,10 +66,6 @@
   }
 }
 
-.bgDashbord {
-  background-color: $blue-active;
-}
-
 .dropdown button {
   background-color: transparent !important;
   border: none;
@@ -77,6 +74,9 @@
 }
 .dropdown button:focus {
   box-shadow: none !important;
+}
+.dropdownItem {
+  padding: 0 !important;
 }
 
 .link {
@@ -100,7 +100,7 @@
   }
   .navLink,
   .dropdown button {
-    padding: 5px 2rem 5px 2rem;
+    padding: 5px 1.5rem 5px 2rem;
   }
 }
 @media (max-width: 800px) {

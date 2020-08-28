@@ -1,0 +1,21 @@
+.wrapDayPicker {
+  position: relative;
+}
+
+.wrapCalendar {
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+}
+
+.dayPicker {
+  position: absolute;
+  top: 2.75rem;
+  left: 0;
+  z-index: 1;
+}
+.wrapIcon {
+  width: 2rem;
+  padding: 0 0.5rem !important;
+  border: 1px solid lightgray;
+  fill: grey;
+}

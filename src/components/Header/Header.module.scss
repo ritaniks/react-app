@@ -1,4 +1,4 @@
-@import '../../assets/css/variables.scss';
+@import '../../assets/css/custom.scss';
 
 .wrapHeader {
 }
@@ -19,7 +19,7 @@
 
   height: 4rem;
   padding: 0 20px;
-  background-color: $blue;
+  background-color: $primary;
 }
 .menuIcon {
   height: 25px;
