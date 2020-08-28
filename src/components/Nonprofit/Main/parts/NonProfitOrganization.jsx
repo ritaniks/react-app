@@ -86,7 +86,10 @@ const NonProfitOrganization = () => {
       <Tab.Container id="left-tabs-example" activeKey={switcher}>
         <Row>
           <Col sm={5}>
-            <Nav variant="pills" className={`${css.border} flex-column`}>
+            <Nav
+              variant="pills"
+              className={`${css.border} flex-column mb-4 mb-md-0`}
+            >
               {reportArr.map((el, index) => (
                 <Nav.Item key={el.id} onClick={handleClick}>
                   <Nav.Link eventKey={el.name}>{el.name}</Nav.Link>
