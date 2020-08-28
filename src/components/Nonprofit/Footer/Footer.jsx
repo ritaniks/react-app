@@ -8,7 +8,6 @@ import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/social
 import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/social/linkedin.svg';
 
 import css from './Footer.module.scss';
-// import { findAllByDisplayValue } from '@testing-library/react';
 
 const Footer = () => {
   return (
@@ -48,9 +47,6 @@ const Footer = () => {
               <a href="https://www.timeledger.com/">
                 <Facebook className={css.icon} />
               </a>
-              {/* <a href="https://www.timeledger.com/">
-                <Twitter className={css.icon} />
-              </a> */}
               <a href="https://www.timeledger.com/">
                 <LinkedIn className={css.icon} />
               </a>

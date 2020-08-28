@@ -1,5 +1,3 @@
-@import '../../../../assets/css/variables.scss';
-
 .titleH1 {
   color: #495057;
   max-width: 800px;
@@ -8,8 +6,11 @@
 }
 
 .feature {
-  border-left: 2px solid $primary;
+  border-left: 2px solid var(--primary);
   font-size: 18px;
+}
+.hero {
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {
