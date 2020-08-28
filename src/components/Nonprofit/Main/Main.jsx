@@ -170,7 +170,7 @@ const Main = () => {
               <h2 className={`mb-md-3 text-white ${css.titleH2}`}>
                 Free up your managers&apos; time for more important tasks
               </h2>
-              <ul className={css.liP}>
+              <ul className={`mb-4 ${css.liP}`}>
                 <li>
                   TimeLedger helps free up your managers by automating
                   management of employee productivity
