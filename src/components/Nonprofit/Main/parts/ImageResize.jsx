@@ -17,7 +17,7 @@ const ImageResize = ({ path }) => {
 };
 
 ImageResize.propTypes = {
-  path: PropTypes.array.isRequired,
+  path: PropTypes.arrayOf().isRequired,
 };
 
 export default ImageResize;
