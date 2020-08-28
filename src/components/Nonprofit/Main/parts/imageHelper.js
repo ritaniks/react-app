@@ -102,7 +102,12 @@ export const nonProfitOrg = {
 };
 
 export const brands = {
-  0: [mercyHouse, mercyHouse2x],
-  1: [theJessamine, theJessamine2x],
-  2: [friendshipShelter, friendshipShelter2x],
+  0: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x],
+  1: [theJessamine, theJessamine2x, theJessamine, theJessamine2x],
+  2: [
+    friendshipShelter,
+    friendshipShelter2x,
+    friendshipShelter,
+    friendshipShelter2x,
+  ],
 };
