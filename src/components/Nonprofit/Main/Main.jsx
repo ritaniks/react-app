@@ -24,8 +24,6 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './Main.module.scss';
 
-const brandsArr = [{ img: brands[0] }, { img: brands[1] }, { img: brands[2] }];
-
 const Main = () => {
   const size = useWindowSize();
   return (
@@ -38,8 +36,8 @@ const Main = () => {
           </h3>
         </div>
         <Row>
-          {brandsArr.map((brand, index) => (
-            <Col xs={12} lg={4} key={index} className="align-self-center px-4">
+          {brands.map((brand, index) => (
+            <Col xs={12} lg={4} key={index}>
               <ImageResize path={brand.img} />
             </Col>
           ))}

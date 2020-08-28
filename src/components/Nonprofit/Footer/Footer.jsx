@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
           <div className={css.contactUs}>
             <h3 className={css.title}>Contact Us</h3>
-            <p className={css.description}>
+            <p className={`${css.description} ${css.noWrap}`}>
               Call us
               <a className={css.contactLink} href="tel:+18002392201">
                 (800) 239-2201
