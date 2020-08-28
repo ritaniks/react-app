@@ -35,7 +35,7 @@ const Main = () => {
             Over 14,800 Customers Trust TimeLedger
           </h3>
         </div>
-        <Row>
+        <Row className="align-items-md-end">
           {brands.map((brand, index) => (
             <Col xs={12} lg={4} key={index}>
               <ImageResize path={brand.img} />
