@@ -70,6 +70,10 @@ import theJessamine2x from '../../../../assets/img/nonprofit/the-jessamine-place
 import friendshipShelter from '../../../../assets/img/nonprofit/friendship-shelter.png';
 import friendshipShelter2x from '../../../../assets/img/nonprofit/friendship-shelter@2x.png';
 
+// CTO
+import teamRemote from '../../../../assets/img/nonprofit/team-remote-puzzles.png';
+import teamRemote2x from '../../../../assets/img/nonprofit/team-remote-puzzles@2x.png';
+
 export const grantor = {
   0: [d1grantor, d1grantor2x, m1grantor, m1grantor2x],
 };
@@ -101,6 +105,20 @@ export const nonProfitOrg = {
   3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
 };
 
+// export const brands = {
+//   0: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x],
+//   1: [theJessamine, theJessamine2x, theJessamine, theJessamine2x],
+//   2: [
+//     friendshipShelter,
+//     friendshipShelter2x,
+//     friendshipShelter,
+//     friendshipShelter2x,
+//   ],
+// };
+
+export const teamImg = {
+  0: [teamRemote, teamRemote2x, teamRemote, teamRemote2x],
+};
 export const brands = [
   { img: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x] },
   { img: [theJessamine, theJessamine2x, theJessamine, theJessamine2x] },
