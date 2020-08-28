@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Tab, Nav, Col, Row } from 'react-bootstrap';
 import ImageResize from './ImageResize';
@@ -15,6 +15,30 @@ const reportArr = [
 ];
 
 const NonProfitOrganization = () => {
+  const [switcher, setSwitcher] = useState(reportArr[0].name);
+
+  useEffect(() => {
+    let timerId;
+
+    // reportArr.map(el => {
+    //   timerId = setInterval(() => {
+    //     // console.log(el.name, 'el.name');
+    //     setSwitcher(el.name);
+    //   }, 4000);
+    // });
+    reportArr.map(el => {
+      timerId = setTimeout(() => {
+        console.log(el.name, 'el.name');
+        // setSwitcher(el.name);
+      }, 4000);
+    });
+
+    return () => {
+      // setSwitcher();
+      clearInterval(timerId);
+    };
+  }, []);
+
   return (
     <>
       <Tab.Container
