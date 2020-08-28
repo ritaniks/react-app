@@ -3,22 +3,22 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
 import ImageResize from './parts/ImageResize';
-import { brands } from './parts/imageHelper';
-
-import m1grantor2x from '../../../assets/img/nonprofit/m1grantor@2x.png';
-import d1grantor from '../../../assets/img/nonprofit/d1grantor.png';
-import m1grantor from '../../../assets/img/nonprofit/m1grantor.png';
-import d1grantor2x from '../../../assets/img/nonprofit/d1grantor@2x.png';
-
-import m3customizevoc2x from '../../../assets/img/nonprofit/m3customize-voc@2x.png';
-import d3customizevoc from '../../../assets/img/nonprofit/d3customize-voc.png';
-import m3customizevoc from '../../../assets/img/nonprofit/m3customize-voc.png';
-import d3customizevoc2x from '../../../assets/img/nonprofit/d3customize-voc@2x.png';
+import {
+  brands,
+  grantor,
+  customizeVoc,
+  eSignatures,
+  timeEntry,
+  customizable,
+  mobile,
+  teamImg,
+} from './parts/imageHelper';
 
 import useWindowSize from '../../hooks/useWindowSize';
 
@@ -27,10 +27,10 @@ import css from './Main.module.scss';
 const Main = () => {
   const size = useWindowSize();
   return (
-    <main className={size.width < 768 ? 'mt-4' : 'mt-6'}>
+    <main>
       <Hero />
       <Container>
-        <div className={`mx-auto text-center mb-4 ${css.title}`}>
+        <div className={`mx-auto text-center mb-2 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
           </h3>
@@ -41,65 +41,181 @@ const Main = () => {
               <ImageResize path={brand.img} />
             </Col>
           ))}
-
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Meets all non-profit auditing requirements including Single Audit
-              and Program-Specific Auditing.
-            </div>
-          </Col>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              TimeLedger’s extensive reports include specialized non-profit
-              reports that distribute fringe pool expenses by user and project.
-            </div>
-          </Col>
         </Row>
+      </Container>
+
+      <Container className={size.width < 768 ? 'py-4' : 'py-6'}>
         <div className={`mx-auto text-center mb-4 ${css.title}`}>
           <h2 className={`mb-md-3 ${css.titleH2}`}>
             Labor automatically allocated across grants/funding sources
           </h2>
           Users can enter their time by grant or funding source.
         </div>
-        <Row className="d-flex justify-content-center mb-6">
-          <picture className="d-flex justify-contnet-center">
-            <source media="(min-width: 1600px)" srcSet={d1grantor2x} />
-            <source media="(min-width: 768px)" srcSet={d1grantor} />
-            <img
-              src={m1grantor}
-              alt="Grantor"
-              style={{ maxWidth: '100%' }}
-              srcSet={m1grantor2x}
-            />
-          </picture>
+        <Row className="d-flex justify-content-center">
+          <ImageResize path={grantor[0]} />
         </Row>
-        <div className={`mx-auto text-center mb-4 mt-6 ${css.title}`}>
-          <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
-            Non-Profit Organization, NPO Contracts Profitability Report
-          </h2>
-          With automatic Fringe Pool disbursement by project and user resource.
-        </div>
+      </Container>
 
-        <NonProfitOrganization />
+      <Container
+        fluid
+        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      >
+        <Container>
+          <div className={`mx-auto text-center mb-4 ${css.title}`}>
+            <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
+              Non-Profit Organization, NPO Contracts Profitability Report
+            </h2>
+            With automatic Fringe Pool disbursement by project and user
+            resource.
+          </div>
+          <NonProfitOrganization />
+        </Container>
+      </Container>
 
-        <div className={`mx-auto text-center mb-4 mt-6 ${css.title}`}>
+      <Container className={size.width < 768 ? 'py-4' : 'py-6'}>
+        <div className={`mx-auto text-center mb-4 ${css.title}`}>
           <h2 className={`mb-md-3 ${css.titleH2}`}>Customizable vocabulary</h2>
           Get fast user adoption by using your terms for users, clients, grants,
           and funding sources.
         </div>
-        <Row className="d-flex justify-content-center mb-6">
-          <picture className="d-flex justify-contnet-center">
-            <source media="(min-width: 1600px)" srcSet={d3customizevoc2x} />
-            <source media="(min-width: 768px)" srcSet={d3customizevoc} />
-            <img
-              src={m3customizevoc}
-              alt="Grantor"
-              style={{ width: '100%' }}
-              srcSet={m3customizevoc2x}
-            />
-          </picture>
+        <Row className="d-flex justify-content-center">
+          <ImageResize path={customizeVoc[0]} />
         </Row>
-        <Reviews />
+      </Container>
+
+      <Container
+        fluid
+        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      >
+        <Container>
+          <div className={`mx-auto text-center mb-4 ${css.title}`}>
+            <h2 className={`mb-md-3 ${css.titleH2}`}>
+              Users can quickly confirm timesheets by E-Signature
+            </h2>
+            Allow users to upload their signature so they can easily be added to
+            their approved timesheets.
+          </div>
+          <Row className="d-flex justify-content-center">
+            <ImageResize path={eSignatures[0]} />
+          </Row>
+        </Container>
+      </Container>
+
+      <Container className={size.width < 768 ? 'py-4' : 'py-6'}>
+        <div className={`mx-auto text-center mb-4 ${css.title}`}>
+          <h2 className={`mb-md-3 ${css.titleH2}`}>
+            Add a time entry in seconds
+          </h2>
+          Your users learn to make time and expense entries in 5 minutes.
+        </div>
+        <Row className="d-flex justify-content-center">
+          <ImageResize path={timeEntry[0]} />
+        </Row>
+      </Container>
+
+      <Container
+        fluid
+        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      >
+        <Container>
+          <div className={`mx-auto text-center mb-4 ${css.title}`}>
+            <h2 className={`mb-md-3 ${css.titleH2}`}>
+              Comply with labor laws using our customizable timesheet
+              attestation
+            </h2>
+          </div>
+          <Row className="d-flex justify-content-center">
+            <ImageResize path={customizable[0]} />
+          </Row>
+        </Container>
+      </Container>
+
+      <Container className={size.width < 768 ? 'py-4' : 'py-6'}>
+        <div className={`mx-auto text-center mb-4 ${css.title}`}>
+          <h2 className={`mb-md-3 ${css.titleH2}`}>
+            Easily access TimeLedger <br /> from any mobile device
+          </h2>
+          TimeLedger has a simple mobile app that can be used on any device
+          (iPhone, Android Phones, iPads, and other tablets) to allow your
+          people to enter time and expense entries anywhere.
+        </div>
+        <Row className="d-flex justify-content-center">
+          <ImageResize path={mobile[0]} />
+        </Row>
+      </Container>
+
+      <Container
+        fluid
+        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      >
+        <Container>
+          <div className={`mx-auto text-center mb-4 ${css.title}`}>
+            <h2 className={`mb-md-3 ${css.titleH2}`}>Testimonials</h2>
+          </div>
+          <Reviews />
+        </Container>
+      </Container>
+
+      {/* Blue section */}
+      <Container
+        fluid
+        className={`bg-primary ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      >
+        <Container>
+          <Row>
+            <Col xs={12} md={6}>
+              <ImageResize path={teamImg[0]} />
+            </Col>
+            <Col xs={12} md={6} className="text-white">
+              <h2 className={`mb-md-3 text-white ${css.titleH2}`}>
+                Free up your managers&apos; time for more important tasks
+              </h2>
+              <ul className={css.liP}>
+                <li>
+                  TimeLedger helps free up your managers by automating
+                  management of employee productivity
+                </li>
+                <li>
+                  Set unlimited time and monetary budget alerts for each grant
+                  or funding source.
+                </li>
+                <li>
+                  Optionally break out funding alerts between labor and
+                  expenses.
+                </li>
+                <li>
+                  Get automated alerts sent for breaks and meals to comply with
+                  applicable labor laws.
+                </li>
+                <li>
+                  Managers can instantly get a real-time view of “who’s working
+                  on what”
+                </li>
+                <li>
+                  Analyze historical trends with TimeLedger’s dashboard
+                  summaries.
+                </li>
+              </ul>
+              <Button
+                variant="light"
+                size="lg"
+                className={`px-5 ${size.width < 768 && 'btn-block'}`}
+              >
+                Chat with us
+              </Button>
+              <span className="p-2 p-md-3 d-flex d-md-inline justify-content-center">
+                or
+              </span>
+              <Button
+                variant="warning"
+                size="lg"
+                className={size.width < 768 && 'btn-block'}
+              >
+                Start your Free Trial Now
+              </Button>
+            </Col>
+          </Row>
+        </Container>
       </Container>
     </main>
   );

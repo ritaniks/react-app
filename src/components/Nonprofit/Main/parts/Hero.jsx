@@ -18,7 +18,7 @@ import css from './Hero.module.scss';
 const Hero = () => {
   const size = useWindowSize();
   return (
-    <div>
+    <div className={`sectionbg ${size.width < 768 ? 'pt-4' : 'pt-6'}`}>
       <Container className="mb-4">
         <h1 className={`mx-auto mb-4 ${css.titleH1}`}>
           Easily create Non-Profit Organization reports with TimeLedger

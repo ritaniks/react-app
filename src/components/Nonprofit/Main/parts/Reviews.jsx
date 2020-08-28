@@ -19,8 +19,8 @@ const Reviews = () => {
   const [value, setValue] = useState(0);
   // eslint-disable-next-line no-unused-vars
   const [slides, setSlides] = useState([
-    <OneSlide descr="Good company 1" />,
-    <OneSlide descr="Good company 2" />,
+    <OneSlide descr="TimeLedger's grant allocation report saves us 5 hours a week in reporting time.  We love it." />,
+    <OneSlide descr="We can easily allocate Fringe Pool expenses to grants using the TimeLedger Non-Profit Summary Reports." />,
     <OneSlide descr="Good company 3" />,
   ]);
 

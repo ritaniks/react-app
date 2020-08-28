@@ -19,7 +19,7 @@ const Header = () => {
           fixed="top"
           bg="primary"
           variant="dark"
-          className={`mb-6 px-3 px-md-4 ${css.header} ${
+          className={`mb-6 px-3 px-md-4 shadow-sm ${css.header} ${
             size.width < 768 && 'mb-5'
           }`}
         >
