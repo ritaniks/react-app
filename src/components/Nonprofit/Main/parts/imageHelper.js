@@ -70,6 +70,10 @@ import theJessamine2x from '../../../../assets/img/nonprofit/the-jessamine-place
 import friendshipShelter from '../../../../assets/img/nonprofit/friendship-shelter.png';
 import friendshipShelter2x from '../../../../assets/img/nonprofit/friendship-shelter@2x.png';
 
+// CTO
+import teamRemote from '../../../../assets/img/nonprofit/team-remote-puzzles.png';
+import teamRemote2x from '../../../../assets/img/nonprofit/team-remote-puzzles@2x.png';
+
 export const grantor = {
   0: [d1grantor, d1grantor2x, m1grantor, m1grantor2x],
 };
@@ -110,4 +114,8 @@ export const brands = {
     friendshipShelter,
     friendshipShelter2x,
   ],
+};
+
+export const teamImg = {
+  0: [teamRemote, teamRemote2x, teamRemote, teamRemote2x],
 };
