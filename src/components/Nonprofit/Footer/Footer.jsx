@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className={css.footer}>
       <Container>
-        <div className={css.info}>
+        <div className={`py-4 ${css.info}`}>
           <div className={css.aboutUs}>
             <h3 className={css.title}>About Us</h3>
             <p className={css.description}>
@@ -56,7 +56,7 @@ const Footer = () => {
       </Container>
       <div className={css.copyright}>
         <Container>
-          <Row className="p-3">
+          <Row>
             <div className={css.logo}>
               <Logo />
             </div>

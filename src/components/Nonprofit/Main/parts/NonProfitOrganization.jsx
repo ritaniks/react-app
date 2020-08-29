@@ -85,7 +85,7 @@ const NonProfitOrganization = () => {
     <>
       <Tab.Container id="left-tabs-example" activeKey={switcher}>
         <Row>
-          <Col sm={5}>
+          <Col xs={12} md={4}>
             <Nav
               variant="pills"
               className={`${css.border} flex-column mb-4 mb-md-0`}
@@ -97,7 +97,7 @@ const NonProfitOrganization = () => {
               ))}
             </Nav>
           </Col>
-          <Col sm={7}>
+          <Col xs={12} md={8} className="p-0">
             <Tab.Content>
               {reportArr.map((el, index) => (
                 <Collapse key={el.id} in={true}>

@@ -47,7 +47,7 @@ const Hero = () => {
         <Row>
           <Col xs={12} lg={4}>
             <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Easily allocates time and expenses across multiple grants and
+              Quickly allocates time and expenses across multiple grants and
               funding sources.
             </div>
           </Col>
