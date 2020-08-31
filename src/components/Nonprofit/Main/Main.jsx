@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
+import WaveAnimation from './parts/WaveAnimation';
 import ImageResize from './parts/ImageResize';
 import {
   brands,
@@ -28,6 +29,7 @@ const Main = () => {
   const size = useWindowSize();
   return (
     <main>
+      <WaveAnimation />
       <Hero size={size} />
       <Container>
         <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
