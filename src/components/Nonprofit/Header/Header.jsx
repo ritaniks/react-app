@@ -18,7 +18,6 @@ const Header = () => {
         <Navbar
           fixed="top"
           bg="primary"
-          variant="dark"
           className={`mb-6 px-3 px-md-4 shadow-sm ${
             size.width < 768 && 'mb-5'
           }`}
@@ -33,12 +32,14 @@ const Header = () => {
             }`}
           >
             Demo
-          </Button>{' '}
+          </Button>
           <Button
             variant="warning"
             className={size.width < 768 ? 'btn-sm' : 'btn'}
           >
-            Start Free Trial
+            <a href="https://www.timeledger.com/free-trial-landing">
+              Start Free Trial
+            </a>
           </Button>
         </Navbar>
       </Container>

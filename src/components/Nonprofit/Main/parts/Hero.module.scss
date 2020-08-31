@@ -1,9 +1,16 @@
 .titleH1 {
-  color: #495057;
-  max-width: 800px;
+  color: var(--gray-dark);
+  max-width: 700px;
   text-align: center;
   font-weight: 700;
 }
+
+.titleH3 {
+  color: var(--gray-dark);
+  font-size: 26px;
+  font-weight: 600;
+}
+
 .carousel {
   & ul {
     padding: 0 !important;
@@ -13,8 +20,10 @@
   }
 }
 .feature {
-  border-left: 2px solid var(--primary);
+  border-left: 3px solid var(--primary);
   font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-dark);
   padding-left: 5px;
 }
 .hero {
@@ -25,6 +34,10 @@
   .titleH1 {
     font-size: 22px;
     line-height: 28px;
+  }
+  .titleH3 {
+    font-size: 18px;
+    max-width: 300px;
   }
   .feature {
     font-size: 15px;

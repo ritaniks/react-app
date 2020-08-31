@@ -5,7 +5,7 @@ import Main from './Main/Main';
 import Nonprofit from './Nonprofit/Nonprofit';
 
 import css from './App.module.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const user = {
   name: 'Kristina',
