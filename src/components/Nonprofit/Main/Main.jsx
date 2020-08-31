@@ -72,6 +72,7 @@ const Main = () => {
             With automatic Fringe Pool disbursement by project and user
             resource.
           </div>
+          {/* <NonProfitOrganization /> */}
           <NonProfitOrganization />
         </Container>
       </Container>
