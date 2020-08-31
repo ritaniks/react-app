@@ -28,7 +28,7 @@ const Main = () => {
   const size = useWindowSize();
   return (
     <main>
-      <Hero />
+      <Hero size={size} />
       <Container>
         <div className={`mx-auto text-center mb-2 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>

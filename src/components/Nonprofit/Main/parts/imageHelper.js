@@ -1,3 +1,10 @@
+// hero
+
+import dhero from '../../../../assets/img/nonprofit/dhero.png';
+import dhero2x from '../../../../assets/img/nonprofit/dhero@2x.png';
+import mhero from '../../../../assets/img/nonprofit/mhero.png';
+import mhero2x from '../../../../assets/img/nonprofit/mhero@2x.png';
+
 // grantor
 
 import d1grantor from '../../../../assets/img/nonprofit/d1grantor.png';
@@ -74,6 +81,9 @@ import friendshipShelter2x from '../../../../assets/img/nonprofit/friendship-she
 import teamRemote from '../../../../assets/img/nonprofit/team-remote-puzzles.png';
 import teamRemote2x from '../../../../assets/img/nonprofit/team-remote-puzzles@2x.png';
 
+export const hero = {
+  0: [dhero, dhero2x, mhero, mhero2x],
+};
 export const grantor = {
   0: [d1grantor, d1grantor2x, m1grantor, m1grantor2x],
 };

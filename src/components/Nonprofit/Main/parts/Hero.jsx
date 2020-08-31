@@ -3,12 +3,11 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
+import Carousel from '@brainhubeu/react-carousel';
 
-import mhero2x from '../../../../assets/img/nonprofit/mhero@2x.png';
-import dhero from '../../../../assets/img/nonprofit/dhero.png';
-import mhero from '../../../../assets/img/nonprofit/mhero.png';
-import dhero2x from '../../../../assets/img/nonprofit/dhero@2x.png';
+import ImageResize from './ImageResize';
+import { hero } from './imageHelper';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -44,7 +43,41 @@ const Hero = () => {
             Start Free Trial
           </Button>
         </div>
-        <Row>
+
+        <Carousel
+          className={css.carousel}
+          infinite
+          autoPlay={size.width < 768 ? 3000 : null}
+          stopAutoPlayOnHover
+          slidesPerPage={size.width > 768 ? 3 : 1}
+        >
+          <p className={css.feature}>
+            Easily allocates time and expenses across multiple grants and
+            funding sources.
+          </p>
+          <p className={css.feature}>
+            Meets all non-profit auditing requirements including Single Audit
+            and Program-Specific Auditing.
+          </p>
+          <p className={css.feature}>
+            TimeLedger’s extensive reports include specialized non-profit
+            reports that distribute fringe pool expenses by user and project.
+          </p>
+        </Carousel>
+      </Container>
+      <Container fluid className={`${css.hero} p-0`}>
+        <Row className="d-flex justify-content-center">
+          <ImageResize path={hero[0]} />
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
+export default Hero;
+
+{
+  /* <Row>
           <Col xs={12} lg={4}>
             <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
               Easily allocates time and expenses across multiple grants and
@@ -63,24 +96,5 @@ const Hero = () => {
               reports that distribute fringe pool expenses by user and project.
             </div>
           </Col>
-        </Row>
-      </Container>
-      <Container fluid className={`${css.hero} p-0`}>
-        <Row className="d-flex justify-content-center">
-          <picture>
-            <source media="(min-width: 1600px)" srcSet={dhero2x} />
-            <source media="(min-width: 768px)" srcSet={dhero} />
-            <img
-              src={mhero}
-              alt="Grantor"
-              style={{ width: '100%' }}
-              srcSet={mhero2x}
-            />
-          </picture>
-        </Row>
-      </Container>
-    </div>
-  );
-};
-
-export default Hero;
+        </Row> */
+}
