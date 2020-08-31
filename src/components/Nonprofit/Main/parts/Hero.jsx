@@ -18,12 +18,15 @@ const Hero = () => {
   const size = useWindowSize();
   return (
     <div className={`sectionbg ${size.width < 768 ? 'pt-4' : 'pt-6'}`}>
-      <Container className="mb-4">
-        <h1 className={`mx-auto mb-4 ${css.titleH1}`}>
-          Easily create Non-Profit Organization reports with TimeLedger
+      <Container className="mb-2 mb-md-4">
+        <h1 className={`mx-auto mb-2 mb-md-3 ${css.titleH1}`}>
+          TimeLedger is built to help your Non-Profit Organization
         </h1>
+        <h3 className={`text-center mx-auto mb-3 mb-md-4 ${css.titleH3}`}>
+          Get Grant and Funding Reports with One Click!
+        </h3>
         <div
-          className={`mb-6 justify-content-md-center d-md-flex ${
+          className={`mb-md-5 justify-content-md-center d-md-flex ${
             size.width < 768 && 'mb-4'
           }`}
         >

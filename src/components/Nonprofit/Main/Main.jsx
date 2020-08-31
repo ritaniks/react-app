@@ -30,7 +30,7 @@ const Main = () => {
     <main>
       <Hero />
       <Container>
-        <div className={`mx-auto text-center mb-2 ${css.title}`}>
+        <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
           </h3>
