@@ -3,7 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
+import Col from 'react-bootstrap/Col';
 import Carousel from '@brainhubeu/react-carousel';
 
 import ImageResize from './ImageResize';
@@ -17,12 +17,15 @@ const Hero = () => {
   const size = useWindowSize();
   return (
     <div className={`sectionbg ${size.width < 768 ? 'pt-4' : 'pt-6'}`}>
-      <Container className="mb-4">
-        <h1 className={`mx-auto mb-4 ${css.titleH1}`}>
-          Easily create Non-Profit Organization reports with TimeLedger
+      <Container className="mb-2 mb-md-4">
+        <h1 className={`mx-auto mb-2 mb-md-3 ${css.titleH1}`}>
+          TimeLedger is built to help your Non-Profit Organization
         </h1>
+        <h3 className={`text-center mx-auto mb-3 mb-md-4 ${css.titleH3}`}>
+          Get Grant and Funding Reports with One Click!
+        </h3>
         <div
-          className={`mb-6 justify-content-md-center d-md-flex ${
+          className={`mb-md-5 justify-content-md-center d-md-flex ${
             size.width < 768 && 'mb-4'
           }`}
         >
@@ -43,27 +46,35 @@ const Hero = () => {
             Start Free Trial
           </Button>
         </div>
-
-        <Carousel
-          className={css.carousel}
-          infinite
-          autoPlay={size.width < 768 ? 3000 : null}
-          stopAutoPlayOnHover
-          slidesPerPage={size.width > 768 ? 3 : 1}
-        >
-          <p className={css.feature}>
-            Easily allocates time and expenses across multiple grants and
-            funding sources.
-          </p>
-          <p className={css.feature}>
-            Meets all non-profit auditing requirements including Single Audit
-            and Program-Specific Auditing.
-          </p>
-          <p className={css.feature}>
-            TimeLedger’s extensive reports include specialized non-profit
-            reports that distribute fringe pool expenses by user and project.
-          </p>
-        </Carousel>
+        <Row>
+          <Carousel
+            className={css.carousel}
+            infinite
+            autoPlay={size.width < 768 ? 3000 : null}
+            stopAutoPlayOnHover
+            slidesPerPage={size.width > 768 ? 3 : 1}
+          >
+            <Col>
+              <p className={css.feature}>
+                Easily allocates time and expenses across multiple grants and
+                funding sources.
+              </p>
+            </Col>
+            <Col>
+              <p className={css.feature}>
+                Meets all non-profit auditing requirements including Single
+                Audit and Program-Specific Auditing.
+              </p>
+            </Col>
+            <Col>
+              <p className={css.feature}>
+                TimeLedger’s extensive reports include specialized non-profit
+                reports that distribute fringe pool expenses by user and
+                project.
+              </p>
+            </Col>
+          </Carousel>
+        </Row>
       </Container>
       <Container fluid className={`${css.hero} p-0`}>
         <Row className="d-flex justify-content-center">
@@ -75,26 +86,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-{
-  /* <Row>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Easily allocates time and expenses across multiple grants and
-              funding sources.
-            </div>
-          </Col>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Meets all non-profit auditing requirements including Single Audit
-              and Program-Specific Auditing.
-            </div>
-          </Col>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              TimeLedger’s extensive reports include specialized non-profit
-              reports that distribute fringe pool expenses by user and project.
-            </div>
-          </Col>
-        </Row> */
-}

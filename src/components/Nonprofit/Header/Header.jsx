@@ -18,7 +18,6 @@ const Header = () => {
         <Navbar
           fixed="top"
           bg="primary"
-          variant="dark"
           className={`mb-6 px-3 px-md-4 shadow-sm ${
             size.width < 768 && 'mb-5'
           }`}
