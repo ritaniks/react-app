@@ -5,9 +5,7 @@ import ImageResize from './ImageResize';
 import { nonProfitOrg } from './imageHelper';
 
 const NonProfOrg = () => {
-    return (
-        
-    );
-}
+  return <>NonProfOrg</>;
+};
 
 export default NonProfOrg;
