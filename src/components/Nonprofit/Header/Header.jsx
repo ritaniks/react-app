@@ -32,12 +32,14 @@ const Header = () => {
             }`}
           >
             Demo
-          </Button>{' '}
+          </Button>
           <Button
             variant="warning"
             className={size.width < 768 ? 'btn-sm' : 'btn'}
           >
-            Start Free Trial
+            <a href="https://www.timeledger.com/free-trial-landing">
+              Start Free Trial
+            </a>
           </Button>
         </Navbar>
       </Container>

@@ -221,7 +221,9 @@ const Main = () => {
                 size="lg"
                 className={size.width < 1200 && 'btn-block'}
               >
-                Start your Free Trial Now
+                <a href="https://www.timeledger.com/free-trial-landing">
+                  Start your Free Trial Now
+                </a>
               </Button>
             </Col>
           </Row>

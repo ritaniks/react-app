@@ -25,6 +25,12 @@ img {
   display: block;
 }
 
+a,
+a:hover {
+  color: #212121;
+  text-decoration: none;
+}
+
 /* custom font size */
 .f0875 {
   font-size: 0.875rem;
@@ -64,28 +70,6 @@ img {
   border-width: 2px !important;
 }
 
-/* containerTL */
-/* .containerTL {
-  margin: 0 auto;
-  padding: 15px;
-}
-
-@media (min-width: 768px) {
-  .containerTL {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .containerTL {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .containerTL {
-    width: 1170px;
-  }
-} */
-
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -122,11 +106,6 @@ img {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 article,
@@ -226,7 +205,7 @@ sub {
 sup {
   top: -0.5em;
 }
-a {
+/* a {
   color: #0083cd;
   text-decoration: none;
   background-color: transparent;
@@ -234,7 +213,7 @@ a {
 a:hover {
   color: #005281;
   text-decoration: underline;
-}
+} */
 a:not([href]) {
   color: inherit;
   text-decoration: none;
