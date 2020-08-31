@@ -75,26 +75,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-{
-  /* <Row>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Easily allocates time and expenses across multiple grants and
-              funding sources.
-            </div>
-          </Col>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              Meets all non-profit auditing requirements including Single Audit
-              and Program-Specific Auditing.
-            </div>
-          </Col>
-          <Col xs={12} lg={4}>
-            <div className={`pl-2 mb-3 mb-md-0 ${css.feature}`}>
-              TimeLedger’s extensive reports include specialized non-profit
-              reports that distribute fringe pool expenses by user and project.
-            </div>
-          </Col>
-        </Row> */
-}
