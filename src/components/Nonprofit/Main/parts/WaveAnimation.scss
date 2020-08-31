@@ -9,41 +9,41 @@
     fill: var(--primary);
   }
 
-  & .gooeff {
-    filter: url(#goo);
+  // & .gooeff {
+  //   filter: url(#goo);
 
-    & .drop {
-      fill: var(--col-deepblue);
-      // xfill: #99000055;
-      animation: drop 3.2s linear infinite normal;
-      stroke: var(--col-deepblue);
-      stroke-width: 0.5;
-      transform: translateY(25px);
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-    }
-    & .drop1 {
-    }
-    & .drop2 {
-      animation-delay: 3s;
-      animation-duration: 3s;
-    }
-    & .drop3 {
-      animation-delay: -2s;
-      animation-duration: 3.4s;
-    }
-    & .drop4 {
-      animation-delay: 1.7s;
-    }
-    & .drop5 {
-      animation-delay: 2.7s;
-      animation-duration: 3.1s;
-    }
-    & .drop6 {
-      animation-delay: -2.1s;
-      animation-duration: 3.2s;
-    }
-  }
+  //   & .drop {
+  //     fill: var(--col-deepblue);
+  //     // xfill: #99000055;
+  //     animation: drop 3.2s linear infinite normal;
+  //     stroke: var(--col-deepblue);
+  //     stroke-width: 0.5;
+  //     transform: translateY(25px);
+  //     transform-box: fill-box;
+  //     transform-origin: 50% 100%;
+  //   }
+  //   & .drop1 {
+  //   }
+  //   & .drop2 {
+  //     animation-delay: 3s;
+  //     animation-duration: 3s;
+  //   }
+  //   & .drop3 {
+  //     animation-delay: -2s;
+  //     animation-duration: 3.4s;
+  //   }
+  //   & .drop4 {
+  //     animation-delay: 1.7s;
+  //   }
+  //   & .drop5 {
+  //     animation-delay: 2.7s;
+  //     animation-duration: 3.1s;
+  //   }
+  //   & .drop6 {
+  //     animation-delay: -2.1s;
+  //     animation-duration: 3.2s;
+  //   }
+  // }
 
   & #wave2 {
     animation-duration: 5s;
