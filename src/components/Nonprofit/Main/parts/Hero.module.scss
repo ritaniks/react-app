@@ -1,5 +1,5 @@
 .titleH1 {
-  color: #495057;
+  color: var(--gray-dark);
   max-width: 700px;
   text-align: center;
   font-weight: 700;
@@ -15,6 +15,7 @@
   border-left: 3px solid var(--primary);
   font-size: 18px;
   font-weight: 700;
+  color: var(--gray-dark);
 }
 .hero {
   overflow: hidden;
