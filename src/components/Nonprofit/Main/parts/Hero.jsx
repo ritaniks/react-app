@@ -52,7 +52,7 @@ const Hero = () => {
           <Carousel
             className={css.carousel}
             infinite
-            autoPlay={size.width < 768 ? 3000 : null}
+            autoPlay={size.width < 768 ? 5000 : null}
             stopAutoPlayOnHover
             slidesPerPage={size.width > 768 ? 3 : 1}
           >
