@@ -43,7 +43,9 @@ const Hero = () => {
             size="lg"
             className={size.width < 768 && 'btn-block'}
           >
-            Start Free Trial
+            <a href="https://www.timeledger.com/free-trial-landing">
+              Start Free Trial
+            </a>
           </Button>
         </div>
         <Row>

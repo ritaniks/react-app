@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
+import WaveAnimation from './parts/WaveAnimation';
 import ImageResize from './parts/ImageResize';
 import {
   brands,
@@ -28,6 +29,7 @@ const Main = () => {
   const size = useWindowSize();
   return (
     <main>
+      <WaveAnimation />
       <Hero size={size} />
       <Container>
         <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
@@ -37,7 +39,7 @@ const Main = () => {
         </div>
         <Row className="align-items-md-end">
           {brands.map((brand, index) => (
-            <Col xs={12} lg={4} key={index} className="align-self-center">
+            <Col xs={12} lg={4} key={index}>
               <ImageResize path={brand.img} />
             </Col>
           ))}
@@ -221,7 +223,9 @@ const Main = () => {
                 size="lg"
                 className={size.width < 1200 && 'btn-block'}
               >
-                Start your Free Trial Now
+                <a href="https://www.timeledger.com/free-trial-landing">
+                  Start your Free Trial Now
+                </a>
               </Button>
             </Col>
           </Row>
