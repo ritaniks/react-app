@@ -11,11 +11,20 @@
   font-weight: 600;
 }
 
+.carousel {
+  & ul {
+    padding: 0 !important;
+  }
+  & ul li {
+    padding-left: 1px;
+  }
+}
 .feature {
   border-left: 3px solid var(--primary);
   font-size: 18px;
   font-weight: 700;
   color: var(--gray-dark);
+  padding-left: 5px;
 }
 .hero {
   overflow: hidden;

@@ -28,14 +28,14 @@ const Main = () => {
   const size = useWindowSize();
   return (
     <main>
-      <Hero />
+      <Hero size={size} />
       <Container>
         <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
           </h3>
         </div>
-        <Row>
+        <Row className="align-items-md-end">
           {brands.map((brand, index) => (
             <Col xs={12} lg={4} key={index} className="align-self-center">
               <ImageResize path={brand.img} />
