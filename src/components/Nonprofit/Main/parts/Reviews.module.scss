@@ -20,3 +20,13 @@
   fill: var(--primary);
   margin-bottom: 10px;
 }
+
+// Carousel
+.wrapCarousel {
+  & div ul li button {
+    background: none;
+  }
+  & div div div ul li {
+    padding: 10px 0;
+  }
+}

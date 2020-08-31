@@ -1,15 +1,8 @@
 .footer {
   background-color: #0e0e0e;
   color: #777;
-  padding: 1.25rem 0 0 0;
 }
 
-.aboutUs {
-  margin: 0 0 10px;
-}
-.contactUs {
-  margin: 0 0 10px;
-}
 .contactLink {
   padding: 0 5px;
   color: #fff;
@@ -47,10 +40,8 @@
   fill: #777;
 }
 .copyright {
-  background-color: #060606;
-}
-.copyright div p {
-  display: inline;
+  background-color: var(--black);
+  padding: 15px;
 }
 .logo {
   margin-right: 20px;
@@ -71,8 +62,5 @@
   }
   .contactUs {
     flex: 1;
-  }
-  .logo {
-    padding: 0;
   }
 }
