@@ -15,13 +15,7 @@ const Header = () => {
   return (
     <header>
       <Container>
-        <Navbar
-          fixed="top"
-          bg="primary"
-          className={`mb-6 px-3 px-md-4 shadow-sm ${
-            size.width < 768 && 'mb-5'
-          }`}
-        >
+        <Navbar fixed="top" bg="primary" className={`px-3 px-md-4 shadow-sm `}>
           <Navbar.Brand className="mr-auto">
             <Logo />
           </Navbar.Brand>
