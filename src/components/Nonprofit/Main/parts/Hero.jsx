@@ -84,7 +84,7 @@ const Hero = () => {
       </Container>
 
       <Container fluid className={`${css.hero} p-0`}>
-        <Row className="d-flex justify-content-center">
+        <Row className={`d-flex justify-content-center ${css.heroImg}`}>
           <WaveHero />
           <ImageResize path={hero[0]} />
         </Row>
