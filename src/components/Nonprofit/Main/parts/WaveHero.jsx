@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as Wave } from '../../../../assets/img/nonprofit/wave.svg';
-import css from './WaveHero.scss';
+import './WaveHero.scss';
 
 const WaveHero = () => {
   return (
