@@ -17,16 +17,16 @@ class NonProfitOrganization extends Component {
   state = {
     value: 0,
     slides: [
-      <ImageResize path={nonProfitOrg[0]} />,
-      <ImageResize path={nonProfitOrg[1]} />,
-      <ImageResize path={nonProfitOrg[2]} />,
-      <ImageResize path={nonProfitOrg[3]} />,
+      <ImageResize key="0" path={nonProfitOrg[0]} />,
+      <ImageResize key="1" path={nonProfitOrg[1]} />,
+      <ImageResize key="2" path={nonProfitOrg[2]} />,
+      <ImageResize key="3" path={nonProfitOrg[3]} />,
     ],
     thumbnails: [
-      <p>{reportArr[0]}</p>,
-      <p>{reportArr[1]}</p>,
-      <p>{reportArr[2]}</p>,
-      <p>{reportArr[3]}</p>,
+      <p key="4">{reportArr[0]}</p>,
+      <p key="5">{reportArr[1]}</p>,
+      <p key="6">{reportArr[2]}</p>,
+      <p key="7">{reportArr[3]}</p>,
     ],
   };
 
@@ -51,7 +51,7 @@ class NonProfitOrganization extends Component {
           slides={slides}
           onChange={this.onchange}
           infinite
-          autoPlay={3000}
+          autoPlay={4000}
           stopAutoPlayOnHover
         />
         <Helmet>
