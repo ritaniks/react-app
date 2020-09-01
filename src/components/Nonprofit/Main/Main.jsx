@@ -28,7 +28,7 @@ import css from './Main.module.scss';
 const Main = () => {
   const size = useWindowSize();
   return (
-    <main>
+    <main className={css.main}>
       <WaveAnimation />
       <Hero size={size} />
       <Container>
