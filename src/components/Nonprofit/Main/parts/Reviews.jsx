@@ -9,7 +9,7 @@ import useWindowSize from '../../../hooks/useWindowSize';
 import css from './Reviews.module.scss';
 import '@brainhubeu/react-carousel/lib/style.css';
 
-const OneSlide = ({ descr, path }) => {
+const OneSlide = ({ descr, name }) => {
   const diviceWidth = useWindowSize().width;
   return (
     <div className={`${css.oneRewiev} ${diviceWidth < 1200 ? 'p-4' : 'p-6'}`}>
@@ -17,7 +17,7 @@ const OneSlide = ({ descr, path }) => {
         <Quotes />
       </div>
       <p>{descr}</p>
-      <ImageResize path={path} />
+      <p className="font-weight-bold pt-2 pt-md-4">{name}</p>
     </div>
   );
 };
@@ -27,14 +27,14 @@ const Reviews = ({ brands }) => {
   const [value, setValue] = useState(0);
   const [slides, setSlides] = useState([
     <OneSlide
-      path={brands[0].img}
       descr="TimeLedger's grant allocation report saves us 5 hours a week in reporting time.  We love it."
+      name="Odin Rose"
     />,
     <OneSlide
-      path={brands[1].img}
       descr="We can easily allocate Fringe Pool expenses to grants using the TimeLedger Non-Profit Summary Reports."
+      name="Melany Fuller"
     />,
-    <OneSlide path={brands[2].img} descr="Good company)." />,
+    <OneSlide descr="Good company! Highly recommend!" name="Stanley Black" />,
   ]);
 
   const handleChange = val => {
