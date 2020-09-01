@@ -1,6 +1,7 @@
 .animation {
   width: 100%;
-  overflow: visible;
+  // overflow: visible;
+  position: absolute;
 
   & .wave {
     animation: wave 3s linear;
