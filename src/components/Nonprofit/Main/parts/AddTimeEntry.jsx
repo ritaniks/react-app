@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
-import Helmet from 'react-helmet';
 
 import ImageResize from './ImageResize';
 import { addTimeEntry } from './imageHelper';
-import css from './AddTimeEntry.module.scss';
+import css from './NonProfitAndTimeEntry.module.scss';
 
 const reportArr = [
   'Easy to enter time',
@@ -71,21 +70,6 @@ class AddTimeEntry extends Component {
           value={value}
           onChange={this.onchange}
         />
-
-        <Helmet>
-          <style>{`
-            .BrainhubCarousel__thumbnail--selected {
-                color: #fff;
-                background-color: #0083cd !important;
-            }
-            .BrainhubCarousel__dots .BrainhubCarousel__thumbnail{
-                opacity: 1;
-            }
-            .BrainhubCarousel__dots .BrainhubCarousel__thumbnail:hover{
-                background-color: var(--light);
-            }
-          `}</style>
-        </Helmet>
       </div>
     );
   }

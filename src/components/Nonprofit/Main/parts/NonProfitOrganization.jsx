@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import ImageResize from './ImageResize';
 import { nonProfitOrg } from './imageHelper';
-import css from './NonProfitOrganization.module.scss';
+import css from './NonProfitAndTimeEntry.module.scss';
 
 const reportArr = [
   'Detailed',
@@ -65,6 +65,9 @@ class NonProfitOrganization extends Component {
             }
             .BrainhubCarousel__dots .BrainhubCarousel__thumbnail:hover{
                 background-color: var(--light);
+            }
+            .BrainhubCarouselItem{
+              padding: 0 2px;
             }
           `}</style>
         </Helmet>
