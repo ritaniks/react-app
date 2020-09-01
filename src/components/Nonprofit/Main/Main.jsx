@@ -9,7 +9,6 @@ import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
 import AddTimeEntry from './parts/AddTimeEntry';
-// import WaveAnimation from './parts/WaveAnimation';
 import ImageResize from './parts/ImageResize';
 import {
   brands,

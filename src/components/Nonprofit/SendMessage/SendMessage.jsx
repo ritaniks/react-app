@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { ReactComponent as Close } from '../../../assets/img/nonprofit/social/close.svg';
+// import { ReactComponent as Chat } from '../../../assets/img/nonprofit/social/chat.svg';
 import css from './SendMessage.module.scss';
 
 const SendMessage = () => {
@@ -13,23 +16,37 @@ const SendMessage = () => {
   return (
     <div className={css.sendMessage}>
       <Button variant="primary" onClick={handleClick}>
-        SendMessage
+        Send Message
       </Button>
 
       {isOpen && (
         <div className={css.wrapForm}>
-          <div className={css.wrapHead}>
+          <div className={css.formHead}>
             <h4>Send message</h4>
             <p>
               Please fill out the form below and we will get back to you as soon
               as possible.
             </p>
+            <div className={css.wrapClose} onClick={handleClick}>
+              <Close />
+            </div>
           </div>
-          <form className={css.form}>
-            <Button variant="primary" onClick={handleClick}>
-              Submit
-            </Button>
-          </form>
+          <Form className={css.form}>
+            <div className={css.formBorder}>
+              <Form.Group controlId="formMessageEmail">
+                <Form.Control type="email" placeholder="* Email" />
+              </Form.Group>
+              <Form.Group controlId="formMessagePassword">
+                <Form.Control type="password" placeholder="* Password" />
+              </Form.Group>
+              <Button className="w-100" variant="primary" type="submit">
+                Submit
+              </Button>
+            </div>
+          </Form>
+          {/* <form className={css.form}>
+            <Button variant="primary">Submit</Button>
+          </form> */}
         </div>
       )}
     </div>
