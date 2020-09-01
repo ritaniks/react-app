@@ -8,14 +8,14 @@ import Button from 'react-bootstrap/Button';
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
-import WaveAnimation from './parts/WaveAnimation';
+import AddTimeEntry from './parts/AddTimeEntry';
+// import WaveAnimation from './parts/WaveAnimation';
 import ImageResize from './parts/ImageResize';
 import {
   brands,
   grantor,
   customizeVoc,
   eSignatures,
-  timeEntry,
   customizable,
   mobile,
   teamImg,
@@ -29,7 +29,6 @@ const Main = () => {
   const size = useWindowSize();
   return (
     <main>
-      <WaveAnimation />
       <Hero size={size} />
       <Container>
         <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
@@ -39,7 +38,7 @@ const Main = () => {
         </div>
         <Row className="align-items-md-end">
           {brands.map((brand, index) => (
-            <Col xs={12} lg={4} key={index}>
+            <Col xs={12} lg={4} key={index} className="px-5 pb-1">
               <ImageResize path={brand.img} />
             </Col>
           ))}
@@ -54,7 +53,7 @@ const Main = () => {
             </h2>
             Users can enter their time by grant or funding source.
           </div>
-          <Row className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-center m-0">
             <ImageResize path={grantor[0]} />
           </Row>
         </Container>
@@ -72,7 +71,6 @@ const Main = () => {
             With automatic Fringe Pool disbursement by project and user
             resource.
           </div>
-          {/* <NonProfitOrganization /> */}
           <NonProfitOrganization />
         </Container>
       </Container>
@@ -86,7 +84,7 @@ const Main = () => {
             Get fast user adoption by using your terms for users, clients,
             grants, and funding sources.
           </div>
-          <Row className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-center m-0">
             <ImageResize path={customizeVoc[0]} />
           </Row>
         </Container>
@@ -104,7 +102,7 @@ const Main = () => {
             Allow users to upload their signature so they can easily be added to
             their approved timesheets.
           </div>
-          <Row className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-center m-0">
             <ImageResize path={eSignatures[0]} />
           </Row>
         </Container>
@@ -118,9 +116,7 @@ const Main = () => {
             </h2>
             Your users learn to make time and expense entries in 5 minutes.
           </div>
-          <Row className="d-flex justify-content-center">
-            <ImageResize path={timeEntry[0]} />
-          </Row>
+          <AddTimeEntry />
         </Container>
       </Container>
 
@@ -135,7 +131,7 @@ const Main = () => {
               attestation
             </h2>
           </div>
-          <Row className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-center m-0">
             <ImageResize path={customizable[0]} />
           </Row>
         </Container>
@@ -151,7 +147,7 @@ const Main = () => {
             (iPhone, Android Phones, iPads, and other tablets) to allow your
             people to enter time and expense entries anywhere.
           </div>
-          <Row className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-center m-0">
             <ImageResize path={mobile[0]} />
           </Row>
         </Container>

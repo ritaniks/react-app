@@ -26,13 +26,6 @@ import d4eSignatures2x from '../../../../assets/img/nonprofit/d4e-signatures@2x.
 import m4eSignatures from '../../../../assets/img/nonprofit/m4e-signatures.png';
 import m4eSignatures2x from '../../../../assets/img/nonprofit/m4e-signatures@2x.png';
 
-// timeEntry
-
-import d5timeEntry from '../../../../assets/img/nonprofit/d5time-entry.png';
-import d5timeEntry2x from '../../../../assets/img/nonprofit/d5time-entry@2x.png';
-import m5timeEntry from '../../../../assets/img/nonprofit/m5time-entry.png';
-import m5timeEntry2x from '../../../../assets/img/nonprofit/m5time-entry@2x.png';
-
 // customizableLegalAttestation
 
 import d6customizable from '../../../../assets/img/nonprofit/d6customizable.png';
@@ -46,6 +39,38 @@ import d7mobile from '../../../../assets/img/nonprofit/d7mobile.png';
 import d7mobile2x from '../../../../assets/img/nonprofit/d7mobile@2x.png';
 import m7mobile from '../../../../assets/img/nonprofit/m7mobile.png';
 import m7mobile2x from '../../../../assets/img/nonprofit/m7mobile@2x.png';
+
+// addTimeEntry
+// 0
+import c0d5timeEntry from '../../../../assets/img/nonprofit/c0d5time-entry.png';
+import c0d5timeEntry2x from '../../../../assets/img/nonprofit/c0d5time-entry@2x.png';
+import c0m5timeEntry from '../../../../assets/img/nonprofit/c0m5time-entry.png';
+import c0m5timeEntry2x from '../../../../assets/img/nonprofit/c0m5time-entry@2x.png';
+// 1
+import c1d5timeEntry from '../../../../assets/img/nonprofit/c1d5time-entry.png';
+import c1d5timeEntry2x from '../../../../assets/img/nonprofit/c1d5time-entry@2x.png';
+import c1m5timeEntry from '../../../../assets/img/nonprofit/c1m5time-entry.png';
+import c1m5timeEntry2x from '../../../../assets/img/nonprofit/c1m5time-entry@2x.png';
+// 3
+import c3d5timeEntry from '../../../../assets/img/nonprofit/c3d5time-entry.png';
+import c3d5timeEntry2x from '../../../../assets/img/nonprofit/c3d5time-entry@2x.png';
+import c3m5timeEntry from '../../../../assets/img/nonprofit/c3m5time-entry.png';
+import c3m5timeEntry2x from '../../../../assets/img/nonprofit/c3m5time-entry@2x.png';
+// // 1
+// import s2d2nonprofit from '../../../../assets/img/nonprofit/s2d2nonprofit.png';
+// import s2d2nonprofit2x from '../../../../assets/img/nonprofit/s2d2nonprofit@2x.png';
+// import s2m2nonprofit from '../../../../assets/img/nonprofit/s2m2nonprofit.png';
+// import s2m2nonprofit2x from '../../../../assets/img/nonprofit/s2m2nonprofit@2x.png';
+// // 2
+// import s3d2nonprofit from '../../../../assets/img/nonprofit/s3d2nonprofit.png';
+// import s3d2nonprofit2x from '../../../../assets/img/nonprofit/s3d2nonprofit@2x.png';
+// import s3m2nonprofit from '../../../../assets/img/nonprofit/s3m2nonprofit.png';
+// import s3m2nonprofit2x from '../../../../assets/img/nonprofit/s3m2nonprofit@2x.png';
+// // 3
+// import s4d2nonprofit from '../../../../assets/img/nonprofit/s4d2nonprofit.png';
+// import s4d2nonprofit2x from '../../../../assets/img/nonprofit/s4d2nonprofit@2x.png';
+// import s4m2nonprofit from '../../../../assets/img/nonprofit/s4m2nonprofit.png';
+// import s4m2nonprofit2x from '../../../../assets/img/nonprofit/s4m2nonprofit@2x.png';
 
 // NonProfitOrganization
 // 0
@@ -96,10 +121,6 @@ export const eSignatures = {
   0: [d4eSignatures, d4eSignatures2x, m4eSignatures, m4eSignatures2x],
 };
 
-export const timeEntry = {
-  0: [d5timeEntry, d5timeEntry2x, m5timeEntry, m5timeEntry2x],
-};
-
 export const customizable = {
   0: [d6customizable, d6customizable2x, m6customizable, m6customizable2x],
 };
@@ -113,6 +134,19 @@ export const nonProfitOrg = {
   1: [s2d2nonprofit, s2d2nonprofit2x, s2m2nonprofit, s2m2nonprofit2x],
   2: [s3d2nonprofit, s3d2nonprofit2x, s3m2nonprofit, s3m2nonprofit2x],
   3: [s4d2nonprofit, s4d2nonprofit2x, s4m2nonprofit, s4m2nonprofit2x],
+};
+
+export const addTimeEntry = {
+  0: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  1: [c1d5timeEntry, c1d5timeEntry2x, c1m5timeEntry, c1m5timeEntry2x],
+  2: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  3: [c3d5timeEntry, c3d5timeEntry2x, c3m5timeEntry, c3m5timeEntry2x],
+  4: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  5: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  6: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  7: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  8: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  9: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
 };
 
 export const teamImg = {
