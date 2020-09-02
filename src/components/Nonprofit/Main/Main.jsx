@@ -1,10 +1,5 @@
 import React from 'react';
 
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Button from 'react-bootstrap/Button';
-
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
@@ -177,25 +172,21 @@ const Main = () => {
       </div>
 
       {/* Blue section */}
-      <div
-        className={`container-fluid bg-primary ${
-          size.width < 768 ? 'py-4' : 'py-6'
-        }`}
-      >
+      <div className="container-fluid bg-primary ">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6">
               <ImageResize path={teamImg[0]} />
             </div>
-            <div className="col-12 col-md-6 text-white">
+            <div
+              className={`col-12 col-md-6 text-white ${
+                size.width < 768 ? 'py-4' : 'py-6'
+              }`}
+            >
               <h2 className={`mb-md-3 text-white ${css.titleH2}`}>
                 Free up your managers&apos; time for more important tasks
               </h2>
               <ul className={`mb-4 ${css.liP}`}>
-                <li>
-                  TimeLedger helps free up your managers by automating
-                  management of employee productivity
-                </li>
                 <li>
                   Set unlimited time and monetary budget alerts for each grant
                   or funding source.
