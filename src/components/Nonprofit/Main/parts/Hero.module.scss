@@ -10,6 +10,13 @@
   font-size: 26px;
   font-weight: 600;
 }
+.demo {
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
+}
 
 .carousel {
   & ul {

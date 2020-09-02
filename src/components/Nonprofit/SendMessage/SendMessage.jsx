@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as Close } from '../../../assets/img/nonprofit/svg/close.svg';
 import { ReactComponent as Chat } from '../../../assets/img/nonprofit/svg/chat.svg';
 
@@ -6,19 +7,12 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './SendMessage.module.scss';
 
-const SendMessage = () => {
+const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
   const size = useWindowSize().width;
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    console.log('click');
-    setIsOpen(!isOpen);
-  };
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('submit');
-    setIsOpen(!isOpen);
+    setIsOpenChat(!isOpenChat);
   };
 
   return (
@@ -27,7 +21,7 @@ const SendMessage = () => {
         {size > 768 ? 'Send Message' : <Chat />}
       </button>
 
-      {isOpen && (
+      {isOpenChat && (
         <div className={css.wrapForm}>
           <div className={css.formHead}>
             <h4>Send message</h4>
@@ -91,6 +85,11 @@ const SendMessage = () => {
       )}
     </div>
   );
+};
+SendMessage.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  isOpenChat: PropTypes.bool.isRequired,
+  setIsOpenChat: PropTypes.func.isRequired,
 };
 
 export default SendMessage;

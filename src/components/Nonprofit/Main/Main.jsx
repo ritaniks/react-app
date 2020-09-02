@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
@@ -19,8 +20,9 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './Main.module.scss';
 
-const Main = () => {
+const Main = ({ handleClick }) => {
   const size = useWindowSize();
+
   return (
     <main className={css.main}>
       <Hero size={size} />
@@ -210,6 +212,7 @@ const Main = () => {
               </ul>
               <button
                 type="button"
+                onClick={handleClick}
                 className={`btn btn-light btn-lg px-5 ${
                   size.width < 1200 && 'btn-block'
                 }`}
@@ -235,6 +238,10 @@ const Main = () => {
       </div>
     </main>
   );
+};
+
+Main.propTypes = {
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Main;

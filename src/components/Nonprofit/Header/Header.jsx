@@ -3,6 +3,8 @@ import React from 'react';
 import Logo from '../../common/Logo/Logo';
 import useWindowSize from '../../hooks/useWindowSize';
 
+import css from './Header.module.scss';
+
 const Header = () => {
   const size = useWindowSize();
   return (
@@ -17,7 +19,10 @@ const Header = () => {
             size.width < 768 ? 'd-none' : 'd-block'
           }`}
         >
-          <a href="https://www.timeledger.com/time-tracking-tool-demo#demo-form">
+          <a
+            className={css.demo}
+            href="https://www.timeledger.com/time-tracking-tool-demo#demo-form"
+          >
             Schedule a demo
           </a>
         </button>
