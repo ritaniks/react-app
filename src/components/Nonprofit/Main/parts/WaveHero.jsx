@@ -5,7 +5,7 @@ import './WaveHero.scss';
 const WaveHero = () => {
   return (
     <>
-      <Wave className="animation" alt="tmp" />
+      <Wave className="animationWave" alt="tmp" />
     </>
   );
 };
