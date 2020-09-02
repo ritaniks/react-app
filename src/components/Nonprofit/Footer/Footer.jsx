@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-
 import Logo from '../../Header/parts/Logo';
 import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/social/facebook.svg';
 import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/social/linkedin.svg';
@@ -12,8 +9,8 @@ import css from './Footer.module.scss';
 const Footer = () => {
   return (
     <footer className={css.footer}>
-      <Container fluid>
-        <Container>
+      <div className="container-fluid">
+        <div className="container">
           <div className={`py-4 ${css.info}`}>
             <div className={css.aboutUs}>
               <h3 className={css.title}>About Us</h3>
@@ -54,20 +51,20 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </Container>
-        <div className={css.copyright}>
-          <Container>
-            <Row>
-              <div className={css.logo}>
-                <Logo />
-              </div>
-              <div className={`align-self-center ${css.description}`}>
-                © Copyright 2019. All Rights Reserved.
-              </div>
-            </Row>
-          </Container>
         </div>
-      </Container>
+      </div>
+      <div className={css.copyright}>
+        <div className="container ">
+          <div className="row">
+            <div className={css.logo}>
+              <Logo />
+            </div>
+            <div className={`align-self-center ${css.description}`}>
+              © Copyright 2019. All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
