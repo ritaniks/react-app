@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { ReactComponent as Close } from '../../../assets/img/nonprofit/social/close.svg';
-// import { ReactComponent as Chat } from '../../../assets/img/nonprofit/social/chat.svg';
+import { ReactComponent as Chat } from '../../../assets/img/nonprofit/social/chat.svg';
+
+import useWindowSize from '../../hooks/useWindowSize';
+
 import css from './SendMessage.module.scss';
 
 const SendMessage = () => {
+  const size = useWindowSize().width;
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     console.log('click');
     setIsOpen(!isOpen);
   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('submit');
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className={css.sendMessage}>
-      <Button variant="primary" onClick={handleClick}>
-        Send Message
-      </Button>
+      <button type="button" onClick={handleClick} className="btn btn-primary">
+        {size > 768 ? 'Send Message' : <Chat />}
+      </button>
 
       {isOpen && (
         <div className={css.wrapForm}>
@@ -31,22 +39,53 @@ const SendMessage = () => {
               <Close />
             </div>
           </div>
-          <Form className={css.form}>
+          <form onSubmit={handleSubmit} className={css.form}>
             <div className={css.formBorder}>
-              <Form.Group controlId="formMessageEmail">
-                <Form.Control type="email" placeholder="* Email" />
-              </Form.Group>
-              <Form.Group controlId="formMessagePassword">
-                <Form.Control type="password" placeholder="* Password" />
-              </Form.Group>
-              <Button className="w-100" variant="primary" type="submit">
+              <div className={`${css.formItem} w-100`}>
+                <input
+                  id="chatEmail"
+                  className={css.formInput}
+                  type="email"
+                  required
+                  placeholder="* Email"
+                />
+                <label htmlFor="chatEmail" className={css.formLabel}>
+                  * Email
+                </label>
+              </div>
+
+              <div className={`${css.formItem} w-100`}>
+                <input
+                  id="chatPassword"
+                  className={css.formInput}
+                  type="password"
+                  required
+                  placeholder="* Password"
+                />
+                <label htmlFor="chatPassword" className={css.formLabel}>
+                  * Password
+                </label>
+              </div>
+
+              <div className={`${css.formItem} w-100`}>
+                <textarea
+                  id="chatMessage"
+                  className={css.formInput}
+                  title="Message"
+                  maxlength="500"
+                  placeholder="* Message"
+                  rows="3"
+                ></textarea>
+                <label htmlFor="chatMessage" className={css.formLabel}>
+                  * Message
+                </label>
+              </div>
+
+              <button type="submit" className="btn btn-primary w-100">
                 Submit
-              </Button>
+              </button>
             </div>
-          </Form>
-          {/* <form className={css.form}>
-            <Button variant="primary">Submit</Button>
-          </form> */}
+          </form>
         </div>
       )}
     </div>
