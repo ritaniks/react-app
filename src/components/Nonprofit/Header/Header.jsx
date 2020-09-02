@@ -1,46 +1,37 @@
 import React from 'react';
 
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-
-import Logo from '../../Header/parts/Logo';
-
+import Logo from '../../common/Logo/Logo';
 import useWindowSize from '../../hooks/useWindowSize';
 
-// import css from './Header.module.scss';
+import css from './Header.module.scss';
 
 const Header = () => {
   const size = useWindowSize();
   return (
-    <header>
-      <Container>
-        <Navbar
-          fixed="top"
-          bg="primary"
-          className={`mb-6 px-3 px-md-4 shadow-sm ${
-            size.width < 768 && 'mb-5'
+    <header className={'container'}>
+      <nav className="navbar bg-primary px-3 px-md-4 shadow-sm fixed-top">
+        <div className="navbar-brand mr-auto" href="#">
+          <Logo />
+        </div>
+        <button
+          type="button"
+          className={`btn btn-outline-light mr-sm-3 ${
+            size.width < 768 ? 'd-none' : 'd-block'
           }`}
         >
-          <Navbar.Brand className="mr-auto">
-            <Logo />
-          </Navbar.Brand>
-          <Button
-            variant="outline-light"
-            className={`mr-sm-3 px-4 ${
-              size.width < 768 ? 'd-none' : 'd-block'
-            }`}
+          <a
+            className={css.demo}
+            href="https://www.timeledger.com/time-tracking-tool-demo#demo-form"
           >
-            Demo
-          </Button>{' '}
-          <Button
-            variant="warning"
-            className={size.width < 768 ? 'btn-sm' : 'btn'}
-          >
+            Schedule a demo
+          </a>
+        </button>
+        <button type="button" className={`btn btn-warning `}>
+          <a href="https://www.timeledger.com/free-trial-landing">
             Start Free Trial
-          </Button>
-        </Navbar>
-      </Container>
+          </a>
+        </button>
+      </nav>
     </header>
   );
 };

@@ -1,20 +1,16 @@
 import React from 'react';
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
 import NonProfitOrganization from './parts/NonProfitOrganization';
+import AddTimeEntry from './parts/AddTimeEntry';
 import ImageResize from './parts/ImageResize';
 import {
   brands,
   grantor,
   customizeVoc,
   eSignatures,
-  timeEntry,
   customizable,
   mobile,
   teamImg,
@@ -24,45 +20,49 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './Main.module.scss';
 
-const Main = () => {
+const Main = ({ handleClick }) => {
   const size = useWindowSize();
+
   return (
-    <main>
+    <main className={css.main}>
       <Hero size={size} />
-      <Container>
-        <div className={`mx-auto text-center mb-2 pt-3 ${css.title}`}>
+      <div className="container">
+        <div className={`mx-auto text-center mb-2 pt-5 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
           </h3>
         </div>
-        <Row className="align-items-md-end">
+        <div className="row align-items-md-end">
           {brands.map((brand, index) => (
-            <Col xs={12} lg={4} key={index} className="align-self-center">
+            <div key={index} className="col-12 col-lg-4 px-5 pb-1">
               <ImageResize path={brand.img} />
-            </Col>
+            </div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Labor automatically */}
+      <div className={`container-fluid ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Labor automatically allocated across grants/funding sources
             </h2>
             Users can enter their time by grant or funding source.
           </div>
-          <Row className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={grantor[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Non-Profit Organization */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
               Non-Profit Organization, NPO Contracts Profitability Report
@@ -71,11 +71,12 @@ const Main = () => {
             resource.
           </div>
           <NonProfitOrganization />
-        </Container>
-      </Container>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Customizable vocabulary */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Customizable vocabulary
@@ -83,17 +84,19 @@ const Main = () => {
             Get fast user adoption by using your terms for users, clients,
             grants, and funding sources.
           </div>
-          <Row className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={customizeVoc[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Users can quickly confirm */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Users can quickly confirm timesheets by E-Signature
@@ -101,45 +104,47 @@ const Main = () => {
             Allow users to upload their signature so they can easily be added to
             their approved timesheets.
           </div>
-          <Row className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={eSignatures[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Add a time entry in seconds */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Add a time entry in seconds
             </h2>
             Your users learn to make time and expense entries in 5 minutes.
           </div>
-          <Row className="d-flex justify-content-center">
-            <ImageResize path={timeEntry[0]} />
-          </Row>
-        </Container>
-      </Container>
+          <AddTimeEntry />
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Comply with labor laws using our */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Comply with labor laws using our customizable timesheet
               attestation
             </h2>
           </div>
-          <Row className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={customizable[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/*  Easily access TimeLedger from any mobile device */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Easily access TimeLedger <br /> from any mobile device
@@ -148,43 +153,52 @@ const Main = () => {
             (iPhone, Android Phones, iPads, and other tablets) to allow your
             people to enter time and expense entries anywhere.
           </div>
-          <Row className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={mobile[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Testimonials */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>Testimonials</h2>
           </div>
           <Reviews brands={brands} />
-        </Container>
-      </Container>
+        </div>
+      </div>
 
       {/* Blue section */}
-      <Container
-        fluid
-        className={`bg-primary ${size.width < 768 ? 'py-4' : 'py-6'}`}
-      >
-        <Container>
-          <Row>
-            <Col xs={12} md={6}>
-              <ImageResize path={teamImg[0]} />
-            </Col>
-            <Col xs={12} md={6} className="text-white">
+      <div className="container-fluid bg-primary ">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <picture>
+                <source media="(min-width: 1200px)" srcSet={teamImg[1]} />
+                <source media="(min-width: 992px)" srcSet={teamImg[3]} />
+                <source media="(min-width: 768px)" srcSet={teamImg[2]} />
+                <source media="(max-width: 767px)" srcSet={teamImg[0]} />
+                <img
+                  src={teamImg[0]}
+                  alt={teamImg[0]}
+                  style={{ width: ' 100%' }}
+                />
+              </picture>
+            </div>
+            <div
+              className={`col-12 col-md-6 text-white ${
+                size.width < 768 ? 'py-4' : 'py-6'
+              }`}
+            >
               <h2 className={`mb-md-3 text-white ${css.titleH2}`}>
                 Free up your managers&apos; time for more important tasks
               </h2>
               <ul className={`mb-4 ${css.liP}`}>
-                <li>
-                  TimeLedger helps free up your managers by automating
-                  management of employee productivity
-                </li>
                 <li>
                   Set unlimited time and monetary budget alerts for each grant
                   or funding source.
@@ -206,29 +220,38 @@ const Main = () => {
                   summaries.
                 </li>
               </ul>
-              <Button
-                variant="light"
-                size="lg"
-                className={`px-5 ${size.width < 1200 && 'btn-block'}`}
+              <button
+                type="button"
+                onClick={handleClick}
+                className={`btn btn-light btn-lg px-5 ${
+                  size.width < 1200 && 'btn-block'
+                }`}
               >
                 Chat with us
-              </Button>
+              </button>
               <span className="p-2 p-lg-3 d-flex d-xl-inline justify-content-center">
                 or
               </span>
-              <Button
-                variant="warning"
-                size="lg"
-                className={size.width < 1200 && 'btn-block'}
+              <button
+                type="button"
+                className={`btn btn-warning btn-lg ${
+                  size.width < 1200 && 'btn-block'
+                }`}
               >
-                Start your Free Trial Now
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+                <a href="https://www.timeledger.com/free-trial-landing">
+                  Start your Free Trial Now
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
+};
+
+Main.propTypes = {
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Main;

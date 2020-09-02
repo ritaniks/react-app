@@ -10,6 +10,13 @@
   font-size: 26px;
   font-weight: 600;
 }
+.demo {
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
+}
 
 .carousel {
   & ul {
@@ -24,10 +31,18 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--gray-dark);
-  padding-left: 5px;
+  padding-left: 8px;
 }
 .hero {
   overflow: hidden;
+}
+
+.heroImg {
+  position: relative;
+  & picture {
+    z-index: 2;
+    max-width: 90%;
+  }
 }
 
 @media (max-width: 767px) {

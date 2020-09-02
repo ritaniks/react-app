@@ -9,7 +9,6 @@
 }
 .contactLink:hover,
 .contactLink:focus {
-  text-decoration: none;
   transition: ease-in 0.2s;
   color: #23527c;
 }
@@ -41,15 +40,15 @@
 }
 .copyright {
   background-color: var(--black);
-  padding: 15px;
+  padding: 10px 25px;
 }
 .logo {
   margin-right: 20px;
   padding: 0.25rem 0;
   display: inline-block;
-}
-.logo a svg {
-  padding: 0.25rem;
+  & a svg {
+    padding: 0.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -62,5 +61,11 @@
   }
   .contactUs {
     flex: 1;
+  }
+}
+
+@media (min-width: 576px) {
+  .logo a {
+    padding: 0 0 0 0.75rem;
   }
 }
