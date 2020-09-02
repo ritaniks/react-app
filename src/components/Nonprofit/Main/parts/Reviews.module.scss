@@ -1,0 +1,33 @@
+.oneRewiev {
+  height: 100%;
+  width: 94%;
+  border-radius: 10px;
+  box-shadow: 0 0 0.65rem rgba(0, 0, 0, 0.15);
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.oneRewiev p {
+  color: #495057;
+  margin: 0;
+  display: table-row;
+  height: 100%;
+  font-size: 14px;
+}
+
+.wrapIcon {
+  width: 2rem;
+  fill: var(--primary);
+  margin-bottom: 10px;
+}
+
+// Carousel
+.wrapCarousel {
+  & div ul li button {
+    background: none;
+  }
+  & div div div ul li {
+    padding: 10px 0;
+  }
+}
