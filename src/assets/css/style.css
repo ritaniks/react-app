@@ -69,13 +69,6 @@ a:hover {
   border-width: 2px !important;
 }
 
-/*! `Custom` Bootstrap 4 theme */
-@import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css); /*!
- * Bootstrap v4.5.0 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

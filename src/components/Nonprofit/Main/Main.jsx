@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
@@ -177,7 +177,6 @@ const Main = () => {
       </div>
 
       {/* Blue section */}
-
       <div
         className={`container-fluid bg-primary ${
           size.width < 768 ? 'py-4' : 'py-6'
@@ -185,10 +184,10 @@ const Main = () => {
       >
         <div className="container">
           <div className="row">
-            <Col xs={12} md={6}>
+            <div className="col-12 col-md-6">
               <ImageResize path={teamImg[0]} />
-            </Col>
-            <Col xs={12} md={6} className="text-white">
+            </div>
+            <div className="col-12 col-md-6 text-white">
               <h2 className={`mb-md-3 text-white ${css.titleH2}`}>
                 Free up your managers&apos; time for more important tasks
               </h2>
@@ -218,26 +217,28 @@ const Main = () => {
                   summaries.
                 </li>
               </ul>
-              <Button
-                variant="light"
-                size="lg"
-                className={`px-5 ${size.width < 1200 && 'btn-block'}`}
+              <button
+                type="button"
+                className={`btn btn-light btn-lg px-5 ${
+                  size.width < 1200 && 'btn-block'
+                }`}
               >
                 Chat with us
-              </Button>
+              </button>
               <span className="p-2 p-lg-3 d-flex d-xl-inline justify-content-center">
                 or
               </span>
-              <Button
-                variant="warning"
-                size="lg"
-                className={size.width < 1200 && 'btn-block'}
+              <button
+                type="button"
+                className={`btn btn-warning btn-lg ${
+                  size.width < 1200 && 'btn-block'
+                }`}
               >
                 <a href="https://www.timeledger.com/free-trial-landing">
                   Start your Free Trial Now
                 </a>
-              </Button>
-            </Col>
+              </button>
+            </div>
           </div>
         </div>
       </div>

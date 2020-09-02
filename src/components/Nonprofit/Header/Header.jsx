@@ -36,9 +36,9 @@ const Header = () => {
         </Navbar>
       </Container> */}
       <nav className="navbar bg-primary px-3 px-md-4 shadow-sm fixed-top">
-        <a class="navbar-brand mr-auto" href="#">
+        <div className="navbar-brand mr-auto" href="#">
           <Logo />
-        </a>
+        </div>
         <button
           type="button"
           className={`btn btn-outline-light mr-sm-3 ${
