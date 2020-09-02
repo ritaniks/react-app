@@ -61,7 +61,7 @@ const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
                 </label>
               </div>
               <button type="submit" className="btn btn-primary w-100">
-                Submit
+                Start Chat
               </button>
             </div>
           </form>
