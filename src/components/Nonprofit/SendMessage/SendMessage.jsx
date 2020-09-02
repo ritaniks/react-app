@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ReactComponent as Close } from '../../../assets/img/nonprofit/social/close.svg';
-import { ReactComponent as Chat } from '../../../assets/img/nonprofit/social/chat.svg';
+import { ReactComponent as Close } from '../../../assets/img/nonprofit/svg/close.svg';
+import { ReactComponent as Chat } from '../../../assets/img/nonprofit/svg/chat.svg';
 
 import useWindowSize from '../../hooks/useWindowSize';
 
