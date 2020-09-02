@@ -39,7 +39,9 @@ const Hero = () => {
                 size.width < 768 && 'btn-block'
               }`}
             >
-              Demo
+              <a href="https://www.timeledger.com/time-tracking-tool-demo#demo-form">
+                Schedule a demo
+              </a>
             </Button>
             <Button
               variant="warning"
@@ -47,7 +49,7 @@ const Hero = () => {
               className={size.width < 768 && 'btn-block'}
             >
               <a href="https://www.timeledger.com/free-trial-landing">
-                Start Free Trial
+                Start your Free Trial Now
               </a>
             </Button>
           </div>
@@ -84,7 +86,7 @@ const Hero = () => {
       </Container>
 
       <Container fluid className={`${css.hero} p-0`}>
-        <Row className="d-flex justify-content-center">
+        <Row className={`d-flex justify-content-center ${css.heroImg}`}>
           <WaveHero />
           <ImageResize path={hero[0]} />
         </Row>
