@@ -21,11 +21,11 @@ const Header = () => {
           </Navbar.Brand>
           <Button
             variant="outline-light"
-            className={`mr-sm-3 px-4 ${
-              size.width < 768 ? 'd-none' : 'd-block'
-            }`}
+            className={`mr-sm-3 ${size.width < 768 ? 'd-none' : 'd-block'}`}
           >
-            Demo
+            <a href="https://www.timeledger.com/time-tracking-tool-demo#demo-form">
+              Schedule a demo
+            </a>
           </Button>
           <Button
             variant="warning"

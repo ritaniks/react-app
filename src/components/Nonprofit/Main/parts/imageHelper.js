@@ -51,26 +51,46 @@ import c1d5timeEntry from '../../../../assets/img/nonprofit/c1d5time-entry.png';
 import c1d5timeEntry2x from '../../../../assets/img/nonprofit/c1d5time-entry@2x.png';
 import c1m5timeEntry from '../../../../assets/img/nonprofit/c1m5time-entry.png';
 import c1m5timeEntry2x from '../../../../assets/img/nonprofit/c1m5time-entry@2x.png';
+// 2
+import c2d5timeEntry from '../../../../assets/img/nonprofit/c2d5time-entry.png';
+import c2d5timeEntry2x from '../../../../assets/img/nonprofit/c2d5time-entry@2x.png';
+import c2m5timeEntry from '../../../../assets/img/nonprofit/c2m5time-entry.png';
+import c2m5timeEntry2x from '../../../../assets/img/nonprofit/c2m5time-entry@2x.png';
 // 3
 import c3d5timeEntry from '../../../../assets/img/nonprofit/c3d5time-entry.png';
 import c3d5timeEntry2x from '../../../../assets/img/nonprofit/c3d5time-entry@2x.png';
 import c3m5timeEntry from '../../../../assets/img/nonprofit/c3m5time-entry.png';
 import c3m5timeEntry2x from '../../../../assets/img/nonprofit/c3m5time-entry@2x.png';
-// // 1
-// import s2d2nonprofit from '../../../../assets/img/nonprofit/s2d2nonprofit.png';
-// import s2d2nonprofit2x from '../../../../assets/img/nonprofit/s2d2nonprofit@2x.png';
-// import s2m2nonprofit from '../../../../assets/img/nonprofit/s2m2nonprofit.png';
-// import s2m2nonprofit2x from '../../../../assets/img/nonprofit/s2m2nonprofit@2x.png';
-// // 2
-// import s3d2nonprofit from '../../../../assets/img/nonprofit/s3d2nonprofit.png';
-// import s3d2nonprofit2x from '../../../../assets/img/nonprofit/s3d2nonprofit@2x.png';
-// import s3m2nonprofit from '../../../../assets/img/nonprofit/s3m2nonprofit.png';
-// import s3m2nonprofit2x from '../../../../assets/img/nonprofit/s3m2nonprofit@2x.png';
-// // 3
-// import s4d2nonprofit from '../../../../assets/img/nonprofit/s4d2nonprofit.png';
-// import s4d2nonprofit2x from '../../../../assets/img/nonprofit/s4d2nonprofit@2x.png';
-// import s4m2nonprofit from '../../../../assets/img/nonprofit/s4m2nonprofit.png';
-// import s4m2nonprofit2x from '../../../../assets/img/nonprofit/s4m2nonprofit@2x.png';
+// 4
+import c4d5timeEntry from '../../../../assets/img/nonprofit/c4d5time-entry.png';
+import c4d5timeEntry2x from '../../../../assets/img/nonprofit/c4d5time-entry@2x.png';
+import c4m5timeEntry from '../../../../assets/img/nonprofit/c4m5time-entry.png';
+import c4m5timeEntry2x from '../../../../assets/img/nonprofit/c4m5time-entry@2x.png';
+// 5
+import c5d5timeEntry from '../../../../assets/img/nonprofit/c5d5time-entry.png';
+import c5d5timeEntry2x from '../../../../assets/img/nonprofit/c5d5time-entry@2x.png';
+import c5m5timeEntry from '../../../../assets/img/nonprofit/c5m5time-entry.png';
+import c5m5timeEntry2x from '../../../../assets/img/nonprofit/c5m5time-entry@2x.png';
+// 6
+import c6d5timeEntry from '../../../../assets/img/nonprofit/c6d5time-entry.png';
+import c6d5timeEntry2x from '../../../../assets/img/nonprofit/c6d5time-entry@2x.png';
+import c6m5timeEntry from '../../../../assets/img/nonprofit/c6m5time-entry.png';
+import c6m5timeEntry2x from '../../../../assets/img/nonprofit/c6m5time-entry@2x.png';
+// 7
+import c7d5timeEntry from '../../../../assets/img/nonprofit/c7d5time-entry.png';
+import c7d5timeEntry2x from '../../../../assets/img/nonprofit/c7d5time-entry@2x.png';
+import c7m5timeEntry from '../../../../assets/img/nonprofit/c7m5time-entry.png';
+import c7m5timeEntry2x from '../../../../assets/img/nonprofit/c7m5time-entry@2x.png';
+// 8
+import c8d5timeEntry from '../../../../assets/img/nonprofit/c8d5time-entry.png';
+import c8d5timeEntry2x from '../../../../assets/img/nonprofit/c8d5time-entry@2x.png';
+import c8m5timeEntry from '../../../../assets/img/nonprofit/c8m5time-entry.png';
+import c8m5timeEntry2x from '../../../../assets/img/nonprofit/c8m5time-entry@2x.png';
+// 9
+import c9d5timeEntry from '../../../../assets/img/nonprofit/c9d5time-entry.png';
+import c9d5timeEntry2x from '../../../../assets/img/nonprofit/c9d5time-entry@2x.png';
+import c9m5timeEntry from '../../../../assets/img/nonprofit/c9m5time-entry.png';
+import c9m5timeEntry2x from '../../../../assets/img/nonprofit/c9m5time-entry@2x.png';
 
 // NonProfitOrganization
 // 0
@@ -139,14 +159,14 @@ export const nonProfitOrg = {
 export const addTimeEntry = {
   0: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
   1: [c1d5timeEntry, c1d5timeEntry2x, c1m5timeEntry, c1m5timeEntry2x],
-  2: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  2: [c2d5timeEntry, c2d5timeEntry2x, c2m5timeEntry, c2m5timeEntry2x],
   3: [c3d5timeEntry, c3d5timeEntry2x, c3m5timeEntry, c3m5timeEntry2x],
-  4: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
-  5: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
-  6: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
-  7: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
-  8: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
-  9: [c0d5timeEntry, c0d5timeEntry2x, c0m5timeEntry, c0m5timeEntry2x],
+  4: [c4d5timeEntry, c4d5timeEntry2x, c4m5timeEntry, c4m5timeEntry2x],
+  5: [c5d5timeEntry, c5d5timeEntry2x, c5m5timeEntry, c5m5timeEntry2x],
+  6: [c6d5timeEntry, c6d5timeEntry2x, c6m5timeEntry, c6m5timeEntry2x],
+  7: [c7d5timeEntry, c7d5timeEntry2x, c7m5timeEntry, c7m5timeEntry2x],
+  8: [c8d5timeEntry, c8d5timeEntry2x, c8m5timeEntry, c8m5timeEntry2x],
+  9: [c9d5timeEntry, c9d5timeEntry2x, c9m5timeEntry, c9m5timeEntry2x],
 };
 
 export const teamImg = {
