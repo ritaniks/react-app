@@ -75,6 +75,7 @@ const SendMessage = () => {
                   maxlength="500"
                   placeholder="* Message"
                   rows="3"
+                  required
                 ></textarea>
                 <label htmlFor="chatMessage" className={css.formLabel}>
                   * Message
