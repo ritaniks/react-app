@@ -29,40 +29,43 @@ const Main = () => {
   return (
     <main className={css.main}>
       <Hero size={size} />
-      <Container>
+      <div className="container">
         <div className={`mx-auto text-center mb-2 pt-5 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
           </h3>
         </div>
-        <Row className="align-items-md-end">
+        <div className="row align-items-md-end">
           {brands.map((brand, index) => (
-            <Col xs={12} lg={4} key={index} className="px-5 pb-1">
+            <div key={index} className="col-12 col-lg-4 px-5 pb-1">
               <ImageResize path={brand.img} />
-            </Col>
+            </div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Labor automatically */}
+      <div className={`container-fluid ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Labor automatically allocated across grants/funding sources
             </h2>
             Users can enter their time by grant or funding source.
           </div>
-          <Row className="d-flex justify-content-center m-0">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={grantor[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Non-Profit Organization */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
               Non-Profit Organization, NPO Contracts Profitability Report
@@ -71,11 +74,12 @@ const Main = () => {
             resource.
           </div>
           <NonProfitOrganization />
-        </Container>
-      </Container>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Customizable vocabulary */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Customizable vocabulary
@@ -83,17 +87,19 @@ const Main = () => {
             Get fast user adoption by using your terms for users, clients,
             grants, and funding sources.
           </div>
-          <Row className="d-flex justify-content-center m-0">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={customizeVoc[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Users can quickly confirm */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Users can quickly confirm timesheets by E-Signature
@@ -101,14 +107,15 @@ const Main = () => {
             Allow users to upload their signature so they can easily be added to
             their approved timesheets.
           </div>
-          <Row className="d-flex justify-content-center m-0">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={eSignatures[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/* Add a time entry in seconds */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Add a time entry in seconds
@@ -116,28 +123,31 @@ const Main = () => {
             Your users learn to make time and expense entries in 5 minutes.
           </div>
           <AddTimeEntry />
-        </Container>
-      </Container>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Comply with labor laws using our */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Comply with labor laws using our customizable timesheet
               attestation
             </h2>
           </div>
-          <Row className="d-flex justify-content-center m-0">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={customizable[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container fluid className={size.width < 768 ? 'py-4' : 'py-6'}>
-        <Container>
+      {/*  Easily access TimeLedger from any mobile device */}
+      <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Easily access TimeLedger <br /> from any mobile device
@@ -146,31 +156,35 @@ const Main = () => {
             (iPhone, Android Phones, iPads, and other tablets) to allow your
             people to enter time and expense entries anywhere.
           </div>
-          <Row className="d-flex justify-content-center m-0">
+          <div className="d-flex justify-content-center m-0 row">
             <ImageResize path={mobile[0]} />
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
 
-      <Container
-        fluid
-        className={`sectionbg ${size.width < 768 ? 'py-4' : 'py-6'}`}
+      {/* Testimonials */}
+      <div
+        className={`container-fluid sectionbg ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
+        <div className="container">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>Testimonials</h2>
           </div>
           <Reviews brands={brands} />
-        </Container>
-      </Container>
+        </div>
+      </div>
 
       {/* Blue section */}
-      <Container
-        fluid
-        className={`bg-primary ${size.width < 768 ? 'py-4' : 'py-6'}`}
+
+      <div
+        className={`container-fluid bg-primary ${
+          size.width < 768 ? 'py-4' : 'py-6'
+        }`}
       >
-        <Container>
-          <Row>
+        <div className="container">
+          <div className="row">
             <Col xs={12} md={6}>
               <ImageResize path={teamImg[0]} />
             </Col>
@@ -224,9 +238,9 @@ const Main = () => {
                 </a>
               </Button>
             </Col>
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
     </main>
   );
 };

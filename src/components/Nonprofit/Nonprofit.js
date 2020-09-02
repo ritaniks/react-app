@@ -12,10 +12,7 @@ const Nonprofit = () => {
       <Header />
       <Main />
       <Footer />
-      {/* <div className={css.sendMessage}>
-        {' '} */}
       <SendMessage />
-      {/* </div> */}
     </div>
   );
 };
