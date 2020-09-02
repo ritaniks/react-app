@@ -60,22 +60,6 @@ const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
                   * Password
                 </label>
               </div>
-
-              {/* <div className={`${css.formItem} w-100`}>
-                <textarea
-                  id="chatMessage"
-                  className={css.formInput}
-                  title="Message"
-                  maxlength="500"
-                  placeholder="* Message"
-                  rows="3"
-                  required
-                ></textarea>
-                <label htmlFor="chatMessage" className={css.formLabel}>
-                  * Message
-                </label>
-              </div> */}
-
               <button type="submit" className="btn btn-primary w-100">
                 Submit
               </button>
