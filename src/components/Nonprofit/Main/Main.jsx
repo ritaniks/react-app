@@ -178,7 +178,17 @@ const Main = ({ handleClick }) => {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6">
-              <ImageResize path={teamImg[0]} />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet={teamImg[1]} />
+                <source media="(min-width: 992px)" srcSet={teamImg[3]} />
+                <source media="(min-width: 768px)" srcSet={teamImg[2]} />
+                <source media="(max-width: 767px)" srcSet={teamImg[0]} />
+                <img
+                  src={teamImg[0]}
+                  alt={teamImg[0]}
+                  style={{ width: ' 100%' }}
+                />
+              </picture>
             </div>
             <div
               className={`col-12 col-md-6 text-white ${

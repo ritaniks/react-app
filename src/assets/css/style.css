@@ -64,8 +64,3 @@ a:hover {
 .sectionbg {
   background-color: #f8f9fa;
 }
-
-/* custom border width */
-.border-2 {
-  border-width: 2px !important;
-}

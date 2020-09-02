@@ -18,16 +18,16 @@ const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
   return (
     <div className={css.sendMessage}>
       <button type="button" onClick={handleClick} className="btn btn-primary">
-        {size > 768 ? 'Send Message' : <Chat />}
+        {size > 768 ? 'Click to chat!' : <Chat />}
       </button>
 
       {isOpenChat && (
         <div className={css.wrapForm}>
           <div className={css.formHead}>
-            <h4>Send message</h4>
+            <h4>Click to chat!</h4>
             <p>
-              Please fill out the form below and we will get back to you as soon
-              as possible.
+              We are live and ready to chat with you now. Type something to
+              start a live chat.
             </p>
             <div className={css.wrapClose} onClick={handleClick}>
               <Close />
@@ -61,7 +61,7 @@ const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
                 </label>
               </div>
 
-              <div className={`${css.formItem} w-100`}>
+              {/* <div className={`${css.formItem} w-100`}>
                 <textarea
                   id="chatMessage"
                   className={css.formInput}
@@ -74,7 +74,7 @@ const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
                 <label htmlFor="chatMessage" className={css.formLabel}>
                   * Message
                 </label>
-              </div>
+              </div> */}
 
               <button type="submit" className="btn btn-primary w-100">
                 Submit
