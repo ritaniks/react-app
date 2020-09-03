@@ -1,7 +1,5 @@
-@import '../../../assets/css/variables.scss';
-
 .nav {
-  background-color: $blue;
+  background-color: var(--primary);
   height: 100%;
   display: flex;
 }
@@ -15,18 +13,19 @@
 .navLink {
   height: 3rem;
   padding: 5px 2rem 5px 3rem;
-  color: $white;
+  color: var(--white);
   display: flex;
   align-items: center;
 
   &:hover,
   :focus {
-    color: $white;
+    color: var(--white);
     text-decoration: none;
   }
 
   &:active {
-    color: $white;
+    color: var(--white);
+    background-color: transparent;
   }
 }
 .wrapLink {
@@ -44,7 +43,7 @@
   z-index: 1;
   height: 15px;
   width: 15px;
-  fill: white;
+  fill: var(--white);
 }
 
 .navLinkIn {
@@ -52,6 +51,7 @@
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  height: 100%;
 
   &:hover,
   :focus {
@@ -61,8 +61,8 @@
   }
 
   &:active {
-    color: $white;
-    background-color: #dce1ea;
+    color: var(--white);
+    // background-color: #dce1ea;
   }
 }
 
@@ -86,11 +86,11 @@
   }
 
   & div a:active {
-    background-color: #dce1ea;
+    background-color: transparent;
   }
 
   &:hover {
-    background-color: $blue-hover;
+    background-color: #006ba7;
   }
 }
 
@@ -149,13 +149,13 @@
     width: 100% !important;
     border: 0;
     border-radius: 0;
-    background: $blue;
+    background: var(--blue);
     margin: 0;
     padding: 0;
   }
 
   .navLinkIn {
-    color: #fff;
+    color: var(--white);
   }
 
   .icon {

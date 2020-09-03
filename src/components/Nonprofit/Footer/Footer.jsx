@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Logo from '../../Header/parts/Logo';
-import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/social/facebook.svg';
-import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/social/linkedin.svg';
+import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/svg/facebook.svg';
+import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/svg/linkedin.svg';
 
 import css from './Footer.module.scss';
 

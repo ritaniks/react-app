@@ -10,7 +10,7 @@ import css from './App.module.scss';
 const user = {
   name: 'Kristina',
   admin: true,
-  auth: false,
+  auth: true,
   users: [],
 };
 
