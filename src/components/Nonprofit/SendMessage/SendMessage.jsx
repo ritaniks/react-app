@@ -1,39 +1,33 @@
-import React, { useState } from 'react';
-import { ReactComponent as Close } from '../../../assets/img/nonprofit/social/close.svg';
-import { ReactComponent as Chat } from '../../../assets/img/nonprofit/social/chat.svg';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ReactComponent as Close } from '../../../assets/img/nonprofit/svg/close.svg';
+import { ReactComponent as Chat } from '../../../assets/img/nonprofit/svg/chat.svg';
 
 import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './SendMessage.module.scss';
 
-const SendMessage = () => {
+const SendMessage = ({ handleClick, isOpenChat, setIsOpenChat }) => {
   const size = useWindowSize().width;
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    console.log('click');
-    setIsOpen(!isOpen);
-  };
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('submit');
-    setIsOpen(!isOpen);
+    setIsOpenChat(!isOpenChat);
   };
 
   return (
     <div className={css.sendMessage}>
       <button type="button" onClick={handleClick} className="btn btn-primary">
-        {size > 768 ? 'Send Message' : <Chat />}
+        {size > 768 ? 'Click to chat!' : <Chat />}
       </button>
 
-      {isOpen && (
+      {isOpenChat && (
         <div className={css.wrapForm}>
           <div className={css.formHead}>
-            <h4>Send message</h4>
+            <h4>Click to chat!</h4>
             <p>
-              Please fill out the form below and we will get back to you as soon
-              as possible.
+              We are live and ready to chat with you now. Type something to
+              start a live chat.
             </p>
             <div className={css.wrapClose} onClick={handleClick}>
               <Close />
@@ -66,24 +60,8 @@ const SendMessage = () => {
                   * Password
                 </label>
               </div>
-
-              <div className={`${css.formItem} w-100`}>
-                <textarea
-                  id="chatMessage"
-                  className={css.formInput}
-                  title="Message"
-                  maxlength="500"
-                  placeholder="* Message"
-                  rows="3"
-                  required
-                ></textarea>
-                <label htmlFor="chatMessage" className={css.formLabel}>
-                  * Message
-                </label>
-              </div>
-
               <button type="submit" className="btn btn-primary w-100">
-                Submit
+                Start Chat
               </button>
             </div>
           </form>
@@ -91,6 +69,11 @@ const SendMessage = () => {
       )}
     </div>
   );
+};
+SendMessage.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  isOpenChat: PropTypes.bool.isRequired,
+  setIsOpenChat: PropTypes.func.isRequired,
 };
 
 export default SendMessage;

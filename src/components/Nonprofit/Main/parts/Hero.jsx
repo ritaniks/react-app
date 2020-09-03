@@ -32,7 +32,10 @@ const Hero = () => {
                 size.width < 768 && 'btn-block'
               }`}
             >
-              <a href="https://www.timeledger.com/time-tracking-tool-demo#demo-form">
+              <a
+                className={css.demo}
+                href="https://www.timeledger.com/time-tracking-tool-demo#demo-form"
+              >
                 Schedule a demo
               </a>
             </button>

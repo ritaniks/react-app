@@ -125,6 +125,8 @@ import friendshipShelter2x from '../../../../assets/img/nonprofit/friendship-she
 // CTO
 import teamRemote from '../../../../assets/img/nonprofit/team-remote-puzzles.png';
 import teamRemote2x from '../../../../assets/img/nonprofit/team-remote-puzzles@2x.png';
+import teamRemoteV from '../../../../assets/img/nonprofit/team-remote-puzzlesV.png';
+import teamRemoteV2 from '../../../../assets/img/nonprofit/team-remote-puzzlesV2.png';
 
 export const hero = {
   0: [dhero, dhero2x, mhero, mhero2x],
@@ -169,9 +171,8 @@ export const addTimeEntry = {
   9: [c9d5timeEntry, c9d5timeEntry2x, c9m5timeEntry, c9m5timeEntry2x],
 };
 
-export const teamImg = {
-  0: [teamRemote, teamRemote2x, teamRemote, teamRemote2x],
-};
+export const teamImg = [teamRemote, teamRemote2x, teamRemoteV, teamRemoteV2];
+
 export const brands = [
   { img: [mercyHouse, mercyHouse2x, mercyHouse, mercyHouse2x] },
   { img: [theJessamine, theJessamine2x, theJessamine, theJessamine2x] },

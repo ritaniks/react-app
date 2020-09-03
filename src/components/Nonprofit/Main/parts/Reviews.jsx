@@ -1,9 +1,8 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import ImageResize from './ImageResize';
 import Carousel from '@brainhubeu/react-carousel';
 
-import { ReactComponent as Quotes } from '../../../../assets/img/nonprofit/quote-left.svg';
+import { ReactComponent as Quotes } from '../../../../assets/img/nonprofit/svg/quote-left.svg';
 import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './Reviews.module.scss';
