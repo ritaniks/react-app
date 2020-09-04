@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from '../../common/Logo/Logo';
+import Logo from '../../Header/parts/Logo';
 import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/svg/facebook.svg';
 import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/svg/linkedin.svg';
 

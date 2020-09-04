@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Hero from './parts/Hero';
 import Reviews from './parts/Reviews';
@@ -19,8 +20,9 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 import css from './Main.module.scss';
 
-const Main = () => {
+const Main = ({ handleClick }) => {
   const size = useWindowSize();
+
   return (
     <main className={css.main}>
       <Hero size={size} />
@@ -176,7 +178,17 @@ const Main = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6">
-              <ImageResize path={teamImg[0]} />
+              <picture>
+                <source media="(min-width: 1200px)" srcSet={teamImg[1]} />
+                <source media="(min-width: 992px)" srcSet={teamImg[3]} />
+                <source media="(min-width: 768px)" srcSet={teamImg[2]} />
+                <source media="(max-width: 767px)" srcSet={teamImg[0]} />
+                <img
+                  src={teamImg[0]}
+                  alt={teamImg[0]}
+                  style={{ width: ' 100%' }}
+                />
+              </picture>
             </div>
             <div
               className={`col-12 col-md-6 text-white ${
@@ -210,6 +222,7 @@ const Main = () => {
               </ul>
               <button
                 type="button"
+                onClick={handleClick}
                 className={`btn btn-light btn-lg px-5 ${
                   size.width < 1200 && 'btn-block'
                 }`}
@@ -235,6 +248,10 @@ const Main = () => {
       </div>
     </main>
   );
+};
+
+Main.propTypes = {
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Main;
