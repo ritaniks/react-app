@@ -1,0 +1,112 @@
+.sendMessage {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  z-index: 2;
+
+  & > button {
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #e9e9e9;
+  }
+}
+.wrapForm {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+  z-index: 5;
+}
+.formHead {
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #e9e9e9;
+  position: relative;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 14px;
+  & h4 {
+    font-size: 15px;
+  }
+  & p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+.wrapClose {
+  width: 1rem;
+  fill: #fff;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  cursor: pointer;
+}
+
+// Form
+.form {
+  padding: 20px;
+}
+.formBorder {
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  padding: 16px 15px;
+}
+
+.formItem {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 15px;
+  border-style: solid;
+  border-color: #d0d0d0;
+  border-width: 2px;
+  color: #656565;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 5px;
+  resize: none;
+}
+
+.formInput + .formLabel {
+  color: #918f8f;
+  display: none;
+}
+.formInput:focus + .formLabel {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  display: block;
+}
+
+.formInput:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.formInput:focus:-moz-placeholder {
+  color: transparent;
+} /* FF 4-18 */
+.formInput:focus::-moz-placeholder {
+  color: transparent;
+} /* FF 19+ */
+.formInput:focus:-ms-input-placeholder {
+  color: transparent;
+} /* IE 10+ */
+
+@media (max-width: 767px) {
+  .sendMessage {
+    bottom: 10px;
+    & > button {
+      padding: 0.5rem;
+      width: 3.5rem;
+      fill: #fff;
+      border-radius: 50%;
+    }
+  }
+}
