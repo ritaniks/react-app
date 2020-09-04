@@ -1,12 +1,13 @@
 import React from 'react';
-import { ReactComponent as LogoSite } from '../../../assets/img/nonprofit/svg/logo.svg';
+import { NavLink } from 'react-router-dom';
+import { ReactComponent as LogoSite } from '../../../assets/img/header/logo.svg';
 import css from './Logo.module.scss';
 
 const Logo = () => {
   return (
-    <a href="/">
+    <NavLink to="/" exact>
       <LogoSite className={css.logo} />
-    </a>
+    </NavLink>
   );
 };
 
