@@ -10,11 +10,11 @@ import GroupBtn from './parts/GroupBtn';
 import SelectEmployee from './parts/SelectEmployee';
 import OpenChartBtn from './parts/OpenChartBtn';
 
-import css from './WeekView.module.scss';
+import css from './TimeEntry.module.scss';
 
 import '../../../../assets/css/_custom.scss';
 
-const WeekView = e => {
+const TimeEntry = () => {
   const [activeBtn, setActiveBtn] = useState({
     period: false,
     week: true,
@@ -25,8 +25,8 @@ const WeekView = e => {
     <>
       {/* this is for future global*/}
       {/* <div>
-          <DateAndClock />
-        </div> */}
+                  <DateAndClock />
+                </div> */}
 
       <div className={css.top}>
         <div className={css.settings}>
@@ -42,8 +42,8 @@ const WeekView = e => {
         <button className={css.addUser}>start "+ "</button>
       </div>
       {/* <div>
-          table
-        </div> */}
+                  table
+                </div> */}
 
       {/* ============================================= */}
       <div>
@@ -60,4 +60,4 @@ const WeekView = e => {
   );
 };
 
-export default WeekView;
+export default TimeEntry;
