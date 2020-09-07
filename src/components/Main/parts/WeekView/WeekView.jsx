@@ -6,7 +6,9 @@ import DoughnutChart from './parts/DoughnutChartWeekView';
 import ModalWeekView from './parts/ModalWeekView';
 import WeekPicker from './parts/WeekPicker';
 import OneDayPicker from './parts/OneDayPicker';
-// import WeekPicker from './parts/WeekPicker';
+import GroupBtn from './parts/GroupBtn';
+import SelectEmployee from './parts/SelectEmployee';
+import OpenChartBtn from './parts/OpenChartBtn';
 
 import css from './WeekView.module.scss';
 
@@ -20,43 +22,30 @@ const WeekView = e => {
   });
 
   return (
-    <div className="d-flex flex-column">
-      <div className="d-flex justify-content-between">
-        {/* this is for future global*/}
-
-        <div>
-          <WeekPicker />
-        </div>
-        {/* <div>
+    <div>
+      {/* this is for future global*/}
+      {/* <div>
           <DateAndClock />
         </div> */}
-        <div>
-          <div className={css.settings}>
-            {/* <> calendar </> */}
-            {/* div -> Chart for  tottal  week hours (billable, non-bilable)*/}
-            {/* <div> in
-                      select to choose employee 
-                      button day & week
-            </div> */}
 
-            <div className="btn-group" role="group" aria-label="Basic example">
-              <button type="button" className="btn btn-secondary bg-light">
-                Period
-              </button>
-              <button type="button" className="btn btn-secondary bg-light">
-                Week
-              </button>
-              <button type="button" className="btn btn-secondary bg-light">
-                Day
-              </button>
-            </div>
+      <div className={css.top}>
+        <div className={css.settings}>
+          <div className={`${css.topLeft} `}>
+            <WeekPicker />
+            <OpenChartBtn />
           </div>
-          <button className={css.addUser}>start "+ "</button>
+          <div className={`${css.topRight} `}>
+            <SelectEmployee />
+            <GroupBtn />
+          </div>
         </div>
-        {/* <div>
+        <button className={css.addUser}>start "+ "</button>
+      </div>
+      {/* <div>
           table
         </div> */}
-      </div>
+
+      {/* ============================================= */}
       <div>
         <BarChart />
         <DoughnutChart />
