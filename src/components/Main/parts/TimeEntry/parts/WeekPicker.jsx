@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
+import CurrentDayBtn from './CurrentDayBtn';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
 import { ReactComponent as ArrowL } from '../../../../../assets/img/main/arrows/chevron-left.svg';
@@ -128,6 +129,8 @@ const WeekPicker2 = () => {
           <ArrowR />
         </Button>
       </ButtonGroup>
+
+      <CurrentDayBtn />
       {isOpen && (
         <DayPicker
           initialMonth={selectedDays[0]}

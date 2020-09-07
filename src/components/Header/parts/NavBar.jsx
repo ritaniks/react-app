@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { switchIcon, links } from './navbarConfig';
 import Logo from './Logo';
 
@@ -23,47 +22,17 @@ const NavBar = ({ open, checkNewRoute }) => {
         </button>
 
         {links.map(link => {
-          if (link.link === 'link') {
-            return (
-              <div key={link.id} className={css.wrapLink}>
-                {switchIcon(link.icon)}
-                <NavLink
-                  className={cn(css.navLink, css.link)}
-                  to={link.route}
-                  exact
-                  onClick={() => checkNewRoute()}
-                >
-                  {link.name}
-                </NavLink>
-              </div>
-            );
-          }
           return (
             <div key={link.id} className={css.wrapLink}>
               {switchIcon(link.icon)}
-
-              <DropdownButton
-                id="dropdown-basic-button"
-                className={`${css.link} ${css.dropdown} `}
-                title={link.title}
+              <NavLink
+                className={cn(css.navLink, css.link)}
+                to={link.route}
+                exact
+                onClick={() => checkNewRoute()}
               >
-                {link.routes.map((r, index) => (
-                  <Dropdown.Item
-                    as="button"
-                    key={index}
-                    className={css.dropdownItem}
-                  >
-                    <NavLink
-                      className={css.navLinkIn}
-                      to={r.route}
-                      exact
-                      onClick={() => checkNewRoute()}
-                    >
-                      {r.name}
-                    </NavLink>
-                  </Dropdown.Item>
-                ))}
-              </DropdownButton>
+                {link.name}
+              </NavLink>
             </div>
           );
         })}
