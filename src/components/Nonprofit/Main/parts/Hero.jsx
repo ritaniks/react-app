@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div className={`sectionbg ${size.width < 768 ? 'pt-4' : 'pt-6'}`}>
       <div className="container-fluid">
-        <div className="container mb-2 mb-md-4">
+        <div className={`container ${css.topHero}`}>
           <h1 className={`mx-auto mb-2 mb-md-3 ${css.titleH1}`}>
             TimeLedger is built to help your Non-Profit Organization
           </h1>
