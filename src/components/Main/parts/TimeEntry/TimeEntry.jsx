@@ -25,8 +25,8 @@ const TimeEntry = () => {
     <>
       {/* this is for future global*/}
       {/* <div>
-                  <DateAndClock />
-                </div> */}
+                      <DateAndClock />
+          </div> */}
 
       <div className={css.top}>
         <div className={css.settings}>
@@ -35,8 +35,8 @@ const TimeEntry = () => {
             <OpenChartBtn />
           </div>
           <div className={`${css.topRight} `}>
-            <SelectEmployee />
-            <GroupBtn />
+            <SelectEmployee className={css.select} />
+            <GroupBtn className={css.wrapGroupBtn} />
           </div>
         </div>
         {/* button + */}
