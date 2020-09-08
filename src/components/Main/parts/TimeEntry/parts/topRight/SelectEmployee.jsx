@@ -30,18 +30,18 @@ const SortableMultiValue = SortableElement(props => {
 });
 const SortableSelect = SortableContainer(Select);
 
-const SelectEmployee = props => {
+const SelectEmployee = () => {
   const [selected, setSelected] = useState([]);
 
-  const valueRef = useRef(props.value);
-  valueRef.current = props.value;
+  // const valueRef = useRef(props.value);
+  // valueRef.current = props.value;
 
-  const isSelectAllSelected = () =>
-    valueRef.current.length === props.options.length;
+  // const isSelectAllSelected = () =>
+  //   valueRef.current.length === props.options.length;
 
-  const isOptionSelected = option =>
-    valueRef.current.some(({ value }) => value === option.value) ||
-    isSelectAllSelected();
+  // const isOptionSelected = option =>
+  //   valueRef.current.some(({ value }) => value === option.value) ||
+  //   isSelectAllSelected();
 
   // const getOptions = () => [selectAllOption, ...props.options];
 
@@ -74,7 +74,7 @@ const SelectEmployee = props => {
           MultiValue: SortableMultiValue,
         }}
         closeMenuOnSelect={false}
-        menuPosition="absolute"
+        // menuPosition="absolute"
         // isOptionSelected={isOptionSelected}
         // inputValue="select user"
       />
