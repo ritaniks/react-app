@@ -1,9 +1,9 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-import css from './BarChartWeekView.module.scss';
+import css from './BarChart.module.scss';
 
-const BarChartWeekView = () => {
+const BarChart = () => {
   const data = {
     labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [
@@ -79,4 +79,4 @@ const BarChartWeekView = () => {
   );
 };
 
-export default BarChartWeekView;
+export default BarChart;
