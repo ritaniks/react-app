@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import Select, { components } from 'react-select';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import { colourOptions } from './helperSelectEmployee';
-import css from './SelectEmployee.module.scss';
+// import css from './SelectEmployee.module.scss';
 
-// import css from './SelectEmployee.module.scss'
-
-const selectAllOption = {
-  value: '<SELECT_ALL>',
-  label: 'All users',
-};
+// const selectAllOption = {
+//   value: '<SELECT_ALL>',
+//   label: 'All users',
+// };
 
 function arrayMove(array, from, to) {
   array = array.slice();
@@ -35,6 +33,18 @@ const SortableSelect = SortableContainer(Select);
 const SelectEmployee = () => {
   const [selected, setSelected] = useState([]);
 
+  // const valueRef = useRef(props.value);
+  // valueRef.current = props.value;
+
+  // const isSelectAllSelected = () =>
+  //   valueRef.current.length === props.options.length;
+
+  // const isOptionSelected = option =>
+  //   valueRef.current.some(({ value }) => value === option.value) ||
+  //   isSelectAllSelected();
+
+  // const getOptions = () => [selectAllOption, ...props.options];
+
   const onChange = selectedOptions => setSelected(selectedOptions);
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
@@ -46,7 +56,7 @@ const SelectEmployee = () => {
     );
   };
 
-  const getOptions = () => [selectAllOption, ...colourOptions];
+  // const getOptions = () => [selectAllOption, ...colourOptions];
   return (
     <>
       <SortableSelect
@@ -56,15 +66,16 @@ const SelectEmployee = () => {
         distance={4}
         getHelperDimensions={({ node }) => node.getBoundingClientRect()}
         isMulti
-        // options={colourOptions}
-        options={getOptions()}
+        options={colourOptions}
+        // options={getOptions()}
         value={selected}
         onChange={onChange}
         components={{
           MultiValue: SortableMultiValue,
         }}
         closeMenuOnSelect={false}
-        menuPosition="absolute"
+        // menuPosition="absolute"
+        // isOptionSelected={isOptionSelected}
         // inputValue="select user"
       />
     </>
