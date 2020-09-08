@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 // import DateAndClock from './parts/DateAndClock';
-import BarChart from './parts/BarChartWeekView';
-import DoughnutChart from './parts/DoughnutChartWeekView';
-import ModalWeekView from './parts/ModalWeekView';
-import WeekPicker from './parts/WeekPicker';
-import OneDayPicker from './parts/OneDayPicker';
-import GroupBtn from './parts/GroupBtn';
-import SelectEmployee from './parts/SelectEmployee';
-import OpenChartBtn from './parts/OpenChartBtn';
+import BarChart from './parts/charts/BarChart';
+import DoughnutChart from './parts/charts/DoughnutChart';
+// import ModalWeekView from './parts/+ModalWeekView';
+import WeekPicker from './parts/topRight/WeekPicker';
+import GroupBtn from './parts/topRight/GroupBtn';
+import SelectEmployee from './parts/topRight/SelectEmployee';
+import OpenChartBtn from './parts/charts/OpenChartBtn';
+import AddUser from './parts/AddUser';
 
 import css from './TimeEntry.module.scss';
 
@@ -25,8 +25,8 @@ const TimeEntry = () => {
     <>
       {/* this is for future global*/}
       {/* <div>
-                  <DateAndClock />
-                </div> */}
+                      <DateAndClock />
+          </div> */}
 
       <div className={css.top}>
         <div className={css.settings}>
@@ -35,27 +35,26 @@ const TimeEntry = () => {
             <OpenChartBtn />
           </div>
           <div className={`${css.topRight} `}>
-            <SelectEmployee />
-            <GroupBtn />
+            <SelectEmployee className={css.select} />
+            <GroupBtn className={css.wrapGroupBtn} />
           </div>
         </div>
-        <button className={css.addUser}>start "+ "</button>
+        {/* button + */}
+
+        <div className={css.wrapCharts}>
+          <BarChart />
+          <DoughnutChart />
+        </div>
+        <AddUser />
       </div>
-      {/* <div>
-                  table
-                </div> */}
+      <div>
+        {/* to do table */}
+        Table
+      </div>
 
       {/* ============================================= */}
-      <div>
-        <BarChart />
-        <DoughnutChart />
-      </div>
-      <div>Table</div>
-      <div>
-        <ModalWeekView />
-      </div>
-      <WeekPicker />
-      <OneDayPicker />
+
+      {/* <ModalWeekView /> */}
     </>
   );
 };

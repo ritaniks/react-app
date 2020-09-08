@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Doughnut } from 'react-chartjs-2';
 
-import css from './DoughnutChartWeekView.module.scss';
+import css from './DoughnutChart.module.scss';
 
-const DoughnutChartWeekView = () => {
+const DoughnutChart = () => {
   const data = {
     labels: ['Billable', 'Non-Billable'],
     datasets: [
@@ -58,4 +58,4 @@ const DoughnutChartWeekView = () => {
   );
 };
 
-export default DoughnutChartWeekView;
+export default DoughnutChart;

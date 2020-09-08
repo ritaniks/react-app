@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
-import CurrentDayBtn from './CurrentDayBtn';
+import CurrentDayBtn from '../topLeft/CurrentDayBtn';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
-import { ReactComponent as ArrowL } from '../../../../../assets/img/main/arrows/chevron-left.svg';
-import { ReactComponent as ArrowR } from '../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
+import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
 
 import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
