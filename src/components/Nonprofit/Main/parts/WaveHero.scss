@@ -1,8 +1,9 @@
 .animationWave {
-  width: 100%;
-  overflow: visible;
+  width: 100vw;
+  overflow: hidden;
   position: absolute;
   bottom: 0;
+  // left: 0;
   z-index: 1;
   path {
     animation: waveAnim 7s linear infinite forwards;
