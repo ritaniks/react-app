@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import Select, { components } from 'react-select';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
