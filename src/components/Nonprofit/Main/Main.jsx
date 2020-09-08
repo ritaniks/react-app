@@ -26,7 +26,7 @@ const Main = ({ handleClick }) => {
   return (
     <main>
       <Hero size={size} />
-      <div className={`container `}>
+      <div className={`container mx-auto`}>
         <div className={`mx-auto text-center mb-2 pt-5 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
@@ -43,7 +43,7 @@ const Main = ({ handleClick }) => {
 
       {/* Labor automatically */}
       <div className={`container-fluid ${size.width < 768 ? 'py-4' : 'py-6'}`}>
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Labor automatically allocated across grants/funding sources
@@ -62,7 +62,7 @@ const Main = ({ handleClick }) => {
           size.width < 768 ? 'py-4' : 'py-6'
         }`}
       >
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 text-primary ${css.titleH2}`}>
               Non-Profit Organization, NPO Contracts Profitability Report
@@ -76,7 +76,7 @@ const Main = ({ handleClick }) => {
 
       {/* Customizable vocabulary */}
       <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Customizable vocabulary
@@ -96,7 +96,7 @@ const Main = ({ handleClick }) => {
           size.width < 768 ? 'py-4' : 'py-6'
         }`}
       >
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Users can quickly confirm timesheets by E-Signature
@@ -112,7 +112,7 @@ const Main = ({ handleClick }) => {
 
       {/* Add a time entry in seconds */}
       <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Add a time entry in seconds
@@ -129,7 +129,7 @@ const Main = ({ handleClick }) => {
           size.width < 768 ? 'py-4' : 'py-6'
         }`}
       >
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Comply with labor laws using our customizable timesheet
@@ -144,7 +144,7 @@ const Main = ({ handleClick }) => {
 
       {/*  Easily access TimeLedger from any mobile device */}
       <div className={`container-fluid  ${size.width < 768 ? 'py-4' : 'py-6'}`}>
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>
               Easily access TimeLedger <br /> from any mobile device
@@ -165,7 +165,7 @@ const Main = ({ handleClick }) => {
           size.width < 768 ? 'py-4' : 'py-6'
         }`}
       >
-        <div className="container">
+        <div className="container mx-auto">
           <div className={`mx-auto text-center mb-4 ${css.title}`}>
             <h2 className={`mb-md-3 ${css.titleH2}`}>Testimonials</h2>
           </div>
@@ -175,7 +175,7 @@ const Main = ({ handleClick }) => {
 
       {/* Blue section */}
       <div className="container-fluid bg-primary ">
-        <div className="container">
+        <div className="container mx-auto">
           <div className="row">
             <div className="col-12 col-md-6">
               <picture>
