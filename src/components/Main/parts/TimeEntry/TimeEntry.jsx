@@ -7,7 +7,7 @@ import DoughnutChart from './parts/charts/DoughnutChart';
 import WeekPicker from './parts/topRight/WeekPicker';
 import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
-import OpenChartBtn from './parts/charts/OpenChartBtn';
+import ChartBtn from './parts/topLeft/ChartBtn';
 import AddUser from './parts/AddUser';
 
 import css from './TimeEntry.module.scss';
@@ -15,11 +15,17 @@ import css from './TimeEntry.module.scss';
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
-  const [activeBtn, setActiveBtn] = useState({
-    period: false,
-    week: true,
-    day: false,
-  });
+  // const [activeBtn, setActiveBtn] = useState({
+  //   period: false,
+  //   week: true,
+  //   day: false,
+  // });
+
+  const [isChartOpen, setIsChartOpen] = useState(true);
+
+  const handleCartBtn = () => {
+    setIsChartOpen(!isChartOpen);
+  };
 
   return (
     <>
@@ -32,7 +38,7 @@ const TimeEntry = () => {
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             <WeekPicker />
-            <OpenChartBtn />
+            <ChartBtn handleCartBtn={handleCartBtn} isChartOpen={isChartOpen} />
           </div>
           <div className={`${css.topRight} `}>
             <SelectEmployee className={css.select} />
@@ -40,11 +46,13 @@ const TimeEntry = () => {
           </div>
         </div>
         {/* button + */}
+        {isChartOpen && (
+          <div className={css.wrapCharts}>
+            <BarChart />
+            <DoughnutChart />
+          </div>
+        )}
 
-        <div className={css.wrapCharts}>
-          <BarChart />
-          <DoughnutChart />
-        </div>
         <AddUser />
       </div>
       <div>
