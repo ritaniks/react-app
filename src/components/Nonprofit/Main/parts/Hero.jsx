@@ -82,7 +82,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={`${css.hero}  container-fluid`}>
+      <div className={`${css.hero} container-fluid`}>
         <div className={`d-flex justify-content-center  ${css.heroImg}`}>
           <WaveHero />
           <ImageResize path={hero[0]} />
