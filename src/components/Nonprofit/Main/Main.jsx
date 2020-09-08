@@ -24,9 +24,9 @@ const Main = ({ handleClick }) => {
   const size = useWindowSize();
 
   return (
-    <main className={css.main}>
+    <main>
       <Hero size={size} />
-      <div className="container">
+      <div className={`container `}>
         <div className={`mx-auto text-center mb-2 pt-5 ${css.title}`}>
           <h3 className={`mb-md-3 ${css.titleH3}`}>
             Over 14,800 Customers Trust TimeLedger
