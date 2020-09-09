@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../../common/Logo/Logo';
 import { ReactComponent as Facebook } from '../../../assets/img/nonprofit/svg/facebook.svg';
 import { ReactComponent as LinkedIn } from '../../../assets/img/nonprofit/svg/linkedin.svg';
+import moment from 'moment';
 
 import css from './Footer.module.scss';
 
@@ -60,7 +61,7 @@ const Footer = () => {
               <Logo />
             </div>
             <div className={`align-self-center ${css.description}`}>
-              © Copyright 2019. All Rights Reserved.
+              © Copyright {moment().format('YYYY')}. All Rights Reserved.
             </div>
           </div>
         </div>
