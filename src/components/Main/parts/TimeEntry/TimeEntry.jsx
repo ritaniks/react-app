@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 
-// import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/charts/BarChart';
 import DoughnutChart from './parts/charts/DoughnutChart';
-// import ModalWeekView from './parts/+ModalWeekView';
-import WeekPicker from './parts/topRight/WeekPicker';
+import WeekPicker from './parts/topLeft/WeekPicker';
+import OneDayPicker from './parts/topLeft/OneDayPicker';
 import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddUser from './parts/AddUser';
+
+// import ModalWeekView from './parts/+ModalWeekView';
+// import DateAndClock from './parts/DateAndClock';
 
 import css from './TimeEntry.module.scss';
 
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
-  // const [activeBtn, setActiveBtn] = useState({
-  //   period: false,
-  //   week: true,
-  //   day: false,
-  // });
+  const [checkBtn, setCheckBtn] = useState('period');
 
   const [isChartOpen, setIsChartOpen] = useState(true);
 
@@ -38,11 +36,17 @@ const TimeEntry = () => {
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             <WeekPicker />
+            <OneDayPicker />
+
             <ChartBtn handleCartBtn={handleCartBtn} isChartOpen={isChartOpen} />
           </div>
           <div className={`${css.topRight} `}>
             <SelectEmployee className={css.select} />
-            <GroupBtn className={css.wrapGroupBtn} />
+            <GroupBtn
+              className={css.wrapGroupBtn}
+              checkBtn={checkBtn}
+              setCheckBtn={setCheckBtn}
+            />
           </div>
         </div>
         {/* button + */}

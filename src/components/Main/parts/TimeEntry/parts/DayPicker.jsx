@@ -79,6 +79,7 @@ class DayPickerR extends Component {
           onDayMouseEnter={this.handleDayEnter}
           onDayMouseLeave={this.handleDayLeave}
           onWeekClick={this.handleWeekClick}
+          // todayButton
         />
         {selectedDays.length === 7 && (
           <div>
