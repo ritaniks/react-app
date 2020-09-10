@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import css from './GroupBtn.module.scss';
 
-const BtnGroup = () => {
-  const [checkBtn, setCheckBtn] = useState('period');
-
+const BtnGroup = ({ checkBtn, setCheckBtn }) => {
   const handleClick = e => {
     setCheckBtn(e.target.id);
   };
@@ -16,7 +15,6 @@ const BtnGroup = () => {
         onClick={handleClick}
         className={cn(
           checkBtn === 'period' ? `${css.active} btn ` : `${css.btn} btn `,
-          // checkBtn === 'period' ? `${css.active} btn ` : `${css.btn} btn `,
         )}
         type="button"
       >
@@ -28,9 +26,6 @@ const BtnGroup = () => {
         onClick={handleClick}
         className={cn(
           checkBtn === 'week' ? `${css.active} btn ` : `${css.btn} btn `,
-          // checkBtn === 'week'
-          //   ? `${css.active} ${css.btn} btn `
-          //   : `${css.btn} btn `,
         )}
       >
         Week
@@ -39,8 +34,6 @@ const BtnGroup = () => {
       <label
         onClick={handleClick}
         className={cn(
-          // checkBtn === 'day'
-          // ? `${css.active} ${css.btn} btn `
           checkBtn === 'day' ? `${css.active} btn ` : `${css.btn} btn `,
         )}
       >
@@ -49,6 +42,10 @@ const BtnGroup = () => {
       </label>
     </div>
   );
+};
+BtnGroup.propTypes = {
+  checkBtn: PropTypes.string.isRequired,
+  setCheckBtn: PropTypes.func.isRequired,
 };
 
 export default BtnGroup;
