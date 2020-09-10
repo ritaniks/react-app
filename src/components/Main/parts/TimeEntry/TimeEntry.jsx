@@ -21,7 +21,7 @@ const TimeEntry = () => {
 
   const [isChartOpen, setIsChartOpen] = useState(true);
 
-  const handleCartBtn = () => {
+  const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
 
@@ -38,7 +38,10 @@ const TimeEntry = () => {
             <WeekPicker />
             <OneDayPicker />
 
-            <ChartBtn handleCartBtn={handleCartBtn} isChartOpen={isChartOpen} />
+            <ChartBtn
+              handleChartBtn={handleChartBtn}
+              isChartOpen={isChartOpen}
+            />
           </div>
           <div className={`${css.topRight} `}>
             <SelectEmployee className={css.select} />
@@ -59,7 +62,7 @@ const TimeEntry = () => {
 
         <AddUser />
       </div>
-      <div>
+      <div className={css.table}>
         {/* to do table */}
         Table
       </div>
