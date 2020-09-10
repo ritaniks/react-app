@@ -4,16 +4,13 @@
   margin-right: 0.75rem;
   width: 180px;
   padding: 0 !important;
-  outline: 1px solid rgba(101, 142, 208, 0.4) !important;
-  outline-style: auto !important;
+  box-shadow: none !important;
 
   &:hover,
   &:focus {
     background-color: var(--light);
-    font-weight: 700;
   }
   &:active {
     background-color: var(--secondary);
-    color: var(--white) !important;
   }
 }

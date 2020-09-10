@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 import css from './ChartBtn.module.scss';
 
-const ChartBtn = ({ handleCartBtn, isChartOpen }) => {
+const ChartBtn = ({ handleChartBtn, isChartOpen }) => {
   return (
     <button
-      onClick={handleCartBtn}
+      onClick={handleChartBtn}
       type="button"
       className={`btn btn-primary ${css.wrapBtn}`}
     >
-      ChartBtn
+      {isChartOpen ? 'Hide' : 'Show'}
     </button>
   );
 };
 
 ChartBtn.propTypes = {
-  handleCartBtn: PropTypes.func.isRequired,
+  handleChartBtn: PropTypes.func.isRequired,
   isChartOpen: PropTypes.bool.isRequired,
 };
 
