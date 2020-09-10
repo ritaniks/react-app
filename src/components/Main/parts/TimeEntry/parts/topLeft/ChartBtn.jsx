@@ -10,7 +10,7 @@ const ChartBtn = ({ handleCartBtn, isChartOpen }) => {
       type="button"
       className={`btn btn-primary ${css.wrapBtn}`}
     >
-      ChartBtn
+      show
     </button>
   );
 };

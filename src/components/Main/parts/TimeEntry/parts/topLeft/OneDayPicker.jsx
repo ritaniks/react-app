@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import CurrentDayBtn from './CurrentDayBtn';
-import { ButtonGroup, Button } from 'react-bootstrap';
 // import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';

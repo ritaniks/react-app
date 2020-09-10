@@ -17,7 +17,7 @@ import css from './TimeEntry.module.scss';
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
-  const [checkBtn, setCheckBtn] = useState('period');
+  const [checkBtn, setCheckBtn] = useState('week');
 
   const [isChartOpen, setIsChartOpen] = useState(true);
 
