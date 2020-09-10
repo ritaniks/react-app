@@ -15,6 +15,18 @@ const BtnGroup = () => {
         Day
       </button>
     </div>
+    // <div className="btn-group" data-toggle="buttons">
+    //   <label className="btn btn-primary active">Apple</label>
+    //   <input type="radio" name="options" id="option1" checked />
+    //   <label className="btn btn-primary">
+    //     Samsung
+    //     <input type="radio" name="options" id="option2" />
+    //   </label>
+    //   <label className="btn btn-primary">
+    //     Sony
+    //     <input type="radio" name="options" id="option3" />
+    //   </label>
+    // </div>
   );
 };
 
