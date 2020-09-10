@@ -1,32 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import cn from 'classnames';
 
-// import css from './GroupBtn.module.scss';
+import css from './GroupBtn.module.scss';
 
 const BtnGroup = () => {
+  const [checkBtn, setCheckBtn] = useState('period');
+
+  const handleClick = e => {
+    setCheckBtn(e.target.id);
+  };
+
   return (
-    <div className="btn-group" role="group" aria-label="Basic example">
-      <button type="button" className="btn btn-secondary bg-light">
+    <div className="btn-group" data-toggle="buttons">
+      <label
+        onClick={handleClick}
+        className={cn(
+          checkBtn === 'period' ? `${css.active} btn ` : `${css.btn} btn `,
+          // checkBtn === 'period' ? `${css.active} btn ` : `${css.btn} btn `,
+        )}
+        type="button"
+      >
         Period
-      </button>
-      <button type="button" className="btn btn-secondary bg-light">
+        <input className={css.hide} type="radio" name="options" id="period" />
+      </label>
+
+      <label
+        onClick={handleClick}
+        className={cn(
+          checkBtn === 'week' ? `${css.active} btn ` : `${css.btn} btn `,
+          // checkBtn === 'week'
+          //   ? `${css.active} ${css.btn} btn `
+          //   : `${css.btn} btn `,
+        )}
+      >
         Week
-      </button>
-      <button type="button" className="btn btn-secondary bg-light">
+        <input className={css.hide} type="radio" name="options" id="week" />
+      </label>
+      <label
+        onClick={handleClick}
+        className={cn(
+          // checkBtn === 'day'
+          // ? `${css.active} ${css.btn} btn `
+          checkBtn === 'day' ? `${css.active} btn ` : `${css.btn} btn `,
+        )}
+      >
         Day
-      </button>
+        <input className={css.hide} type="radio" name="options" id="day" />
+      </label>
     </div>
-    // <div className="btn-group" data-toggle="buttons">
-    //   <label className="btn btn-primary active">Apple</label>
-    //   <input type="radio" name="options" id="option1" checked />
-    //   <label className="btn btn-primary">
-    //     Samsung
-    //     <input type="radio" name="options" id="option2" />
-    //   </label>
-    //   <label className="btn btn-primary">
-    //     Sony
-    //     <input type="radio" name="options" id="option3" />
-    //   </label>
-    // </div>
   );
 };
 
