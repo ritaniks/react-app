@@ -64,3 +64,19 @@ a:hover {
 .sectionbg {
   background-color: #f8f9fa;
 }
+
+/* for IPhone dont change font-size */
+html,
+body,
+form,
+fieldset,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-text-size-adjust: none;
+}
