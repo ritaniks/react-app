@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import CurrentDayBtn from './CurrentDayBtn';
+import Helmet from 'react-helmet';
 // import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
@@ -53,47 +54,59 @@ const OneDayPicker = () => {
   };
 
   return (
-    <div ref={node} className={css.wrapDayPicker}>
-      <div
-        className={`btn-group ${css.wrapGroup}`}
-        role="group"
-        aria-label="Basic example"
-      >
-        <button
-          onClick={handleBackDay}
-          type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
+    <>
+      <div ref={node} className={css.wrapDayPicker}>
+        <div
+          className={`btn-group ${css.wrapGroup}`}
+          role="group"
+          aria-label="Basic example"
         >
-          <ArrowL />
-        </button>
-        <button
-          onClick={handleToogle}
-          type="button"
-          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-        >
-          {convertDate}
-        </button>
-        <button
-          onClick={handleNextDay}
-          type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
-        >
-          <ArrowR />
-        </button>
-      </div>
-      <CurrentDayBtn />
+          <button
+            onClick={handleBackDay}
+            type="button"
+            className={`btn btn-light ${css.wrapIcon}`}
+          >
+            <ArrowL />
+          </button>
+          <button
+            onClick={handleToogle}
+            type="button"
+            className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+          >
+            {convertDate}
+          </button>
+          <button
+            onClick={handleNextDay}
+            type="button"
+            className={`btn btn-light ${css.wrapIcon}`}
+          >
+            <ArrowR />
+          </button>
+        </div>
+        <CurrentDayBtn />
 
-      {isOpen && (
-        <DayPicker
-          className={css.dayPicker}
-          initialMonth={selectedDay}
-          selectedDays={selectedDay}
-          showWeekNumbers
-          showOutsideDays
-          onDayClick={handleChange}
-        />
-      )}
-    </div>
+        {isOpen && (
+          <DayPicker
+            className={css.dayPicker}
+            initialMonth={selectedDay}
+            selectedDays={selectedDay}
+            showWeekNumbers
+            showOutsideDays
+            onDayClick={handleChange}
+          />
+        )}
+      </div>
+      <Helmet>
+        <style>{`
+  
+      .DayPicker-Months{
+        background-color: #F8F9FA;
+        border: 1px solid lightgray;
+        border-radius: 0.25rem;
+      }
+    `}</style>
+      </Helmet>
+    </>
   );
 };
 
