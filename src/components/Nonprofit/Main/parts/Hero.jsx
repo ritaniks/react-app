@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div className={`sectionbg ${size.width < 768 ? 'pt-4' : 'pt-6'}`}>
       <div className="container-fluid">
-        <div className="container mb-2 mb-md-4">
+        <div className="container mx-auto">
           <h1 className={`mx-auto mb-2 mb-md-3 ${css.titleH1}`}>
             TimeLedger is built to help your Non-Profit Organization
           </h1>
@@ -82,8 +82,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={`${css.hero} p-0 container-fluid`}>
-        <div className={`d-flex justify-content-center row ${css.heroImg}`}>
+      <div className={`${css.hero} container-fluid`}>
+        <div className={`d-flex justify-content-center  ${css.heroImg}`}>
           <WaveHero />
           <ImageResize path={hero[0]} />
         </div>

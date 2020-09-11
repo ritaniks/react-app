@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
-import { ButtonGroup, Button } from 'react-bootstrap';
+import CurrentDayBtn from '../topLeft/CurrentDayBtn';
 
-import { ReactComponent as ArrowL } from '../../../../../assets/img/main/arrows/chevron-left.svg';
-import { ReactComponent as ArrowR } from '../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
+import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
 
 import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
@@ -69,6 +69,7 @@ const WeekPicker2 = () => {
       return;
     }
     // outside click
+    setIsOpen(true);
     setIsOpen(false);
   };
 
@@ -108,26 +109,36 @@ const WeekPicker2 = () => {
 
   return (
     <div ref={node} className={`${css.wrapWeekPicker} SelectedWeek`}>
-      <ButtonGroup className={css.wrapCalendar}>
-        <Button
+      <div
+        className={`btn-group ${css.wrapCalendar}`}
+        role="group"
+        aria-label="Basic example"
+      >
+        <button
           onClick={handlePrevWeek}
-          variant="light"
-          className={css.wrapIcon}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon}`}
         >
           <ArrowL />
-        </Button>
-        <Button onClick={handleToogle} variant="light">
+        </button>
+        <button
+          onClick={handleToogle}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+        >
           {moment(selectedDays[0]).format('MMM D')} –{' '}
           {moment(selectedDays[6]).format('ll')}
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={handleNextWeek}
-          variant="light"
-          className={css.wrapIcon}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon}`}
         >
           <ArrowR />
-        </Button>
-      </ButtonGroup>
+        </button>
+      </div>
+
+      <CurrentDayBtn />
       {isOpen && (
         <DayPicker
           initialMonth={selectedDays[0]}
@@ -152,38 +163,33 @@ const WeekPicker2 = () => {
     }
     .SelectedWeek .DayPicker-Day {
       outline: none;
-      border: 1px solid transparent;
+      border-radius: 0 !important;
+
     }
     .SelectedWeek .DayPicker-Day--hoverRange {
       background-color: #EFEFEF !important;
     }
 
     .SelectedWeek .DayPicker-Day--selectedRange {
-      background-color: #fff7ba !important;
-      border-top-color: #FFEB3B;
-      border-bottom-color: #FFEB3B;
-      border-left-color: #fff7ba;
-      border-right-color: #fff7ba;
+      background-color: #c7e5f6 !important;
+      border-top: 1px solid  var(--primary);
+      border-bottom: 1px solid  var(--primary);
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeStart {
-      background-color: #FFEB3B !important;
-      border-left: 1px solid #FFEB3B;
+      background-color: var(--primary) !important;
+
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeEnd {
-      background-color: #FFEB3B !important;
-      border-right: 1px solid #FFEB3B;
-    }
+      background-color: var(--primary) !important;
+     }
 
     .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
     .SelectedWeek .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
-      border-radius: 0 !important;
-      color: black !important;
+      color: black !important ;
     }
-    .SelectedWeek .DayPicker-Day--hoverRange:hover {
-      border-radius: 0 !important;
-    }
+
     .DayPicker-Months{
       background-color: #F8F9FA;
       border: 1px solid lightgray;

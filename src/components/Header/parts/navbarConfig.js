@@ -30,77 +30,36 @@ export function switchIcon(icon) {
 export const links = [
   {
     id: '1',
-    link: 'link',
     route: '/',
     name: 'Dashboard',
     icon: 'Dashboard',
   },
   {
     id: '2',
-    link: 'linkIn',
-    title: 'Time Entry',
     icon: 'Clock',
-    routes: [
-      {
-        route: '/week_view',
-        name: 'Week View',
-      },
-      {
-        route: '/timesheet_period_view',
-        name: 'Timesheet Period View',
-      },
-      {
-        route: '/day_view',
-        name: 'Day View',
-      },
-    ],
+    route: '/time_entry',
+    name: 'Time Entry',
   },
   {
     id: '3',
-    link: 'linkIn',
-    title: 'Expenses',
     icon: 'Dollar',
-    routes: [
-      {
-        route: '/enter_expenses',
-        name: 'Enter Expenses',
-      },
-      {
-        route: '/view_expenses',
-        name: 'View Expenses',
-      },
-      {
-        route: '/expense_detail_report',
-        name: 'Expense Detail Report',
-      },
-    ],
+    route: '/expenses',
+    name: 'Expenses',
   },
   {
     id: '4',
-    link: 'linkIn',
-    title: 'Reports',
     icon: 'ChartPie',
-    routes: [
-      {
-        route: '/administrative_reports',
-        name: 'Administrative Reports',
-      },
-      {
-        route: '/your_reports',
-        name: 'Your Reports',
-      },
-    ],
+    route: '/report',
+    name: 'Report',
   },
   {
     id: '5',
-    link: 'link',
     route: '/maintenance',
     name: 'Maintenance',
     icon: 'Briefcase',
   },
   {
     id: '6',
-    link: 'link',
     route: '/settings',
     name: 'Settings',
     icon: 'Settings',

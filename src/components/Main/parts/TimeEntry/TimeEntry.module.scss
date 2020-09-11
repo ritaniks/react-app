@@ -1,0 +1,26 @@
+.settings {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+}
+.topLeft {
+  display: flex;
+}
+.topRight {
+  display: flex;
+  justify-content: flex-end;
+  width: 500px;
+  min-width: 500px;
+
+  & div:first-child {
+    min-width: 200px;
+    height: 100%;
+    line-height: 2;
+    margin-right: 0.4rem;
+    // TO DO fix all users & width select... with multi checks
+    // & div:last-child {
+    // }
+  }
+}
+.wrapCharts {
+}

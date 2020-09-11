@@ -1,6 +1,5 @@
-@import './normalize.css';
 @import '../fonts/fonts.css';
-@import './variables.scss';
+@import './normalize.css';
 @import './bootstrap-grid.css';
 @import './bootstrap.css';
 @import './_custom.scss';
@@ -9,6 +8,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+
 *,
 *::before,
 *::after {

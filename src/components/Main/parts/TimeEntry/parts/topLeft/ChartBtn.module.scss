@@ -1,0 +1,19 @@
+.wrapBtn {
+  border: 1px solid lightgray !important;
+  border-radius: 0.25rem !important;
+  outline: 1px solid rgba(101, 142, 208, 0.4) !important;
+  outline-style: auto !important;
+  display: flex !important;
+  box-shadow: none !important;
+
+  & p {
+    margin: auto 0 !important;
+    width: 2.5rem;
+  }
+}
+.wrapIcon {
+  width: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
