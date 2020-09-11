@@ -35,8 +35,10 @@ const TimeEntry = () => {
       <div className={css.top}>
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            <WeekPicker />
-            <OneDayPicker />
+            {/* switcher */}
+            {/*  &&  TO-DO -> PeriodPicker} */}
+            {(checkBtn === 'week' || checkBtn === 'period') && <WeekPicker />}
+            {checkBtn === 'day' && <OneDayPicker />}
 
             <ChartBtn
               handleChartBtn={handleChartBtn}

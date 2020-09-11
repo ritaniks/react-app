@@ -20,9 +20,9 @@ const OneDayPicker = () => {
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
-  //   useEffect(() => {
-  //     // setIsOpen(false);
-  //   }, [selectedDay]);
+  useEffect(() => {
+    setIsOpen(false);
+  }, [selectedDay]);
 
   const handleClick = e => {
     if (node.current.contains(e.target)) {
@@ -74,7 +74,7 @@ const OneDayPicker = () => {
           {convertDate}
         </button>
         <button
-          onClick={handleBackDay}
+          onClick={handleNextDay}
           type="button"
           className={`btn btn-light ${css.wrapIcon}`}
         >
