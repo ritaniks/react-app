@@ -48,7 +48,6 @@ const WeekPicker2 = () => {
 
   useEffect(() => {
     setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
-    setIsOpen(true);
 
     document.addEventListener('mousedown', handleClick);
     return () => {
@@ -58,7 +57,7 @@ const WeekPicker2 = () => {
 
   useEffect(() => {
     if (isOpen) {
-      // setIsOpen(false);
+      setIsOpen(false);
     }
     // eslint-disable-next-line
   }, [selectedDays]);
