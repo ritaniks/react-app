@@ -48,6 +48,7 @@ const WeekPicker2 = () => {
 
   useEffect(() => {
     setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
+    setIsOpen(true);
 
     document.addEventListener('mousedown', handleClick);
     return () => {
@@ -57,7 +58,7 @@ const WeekPicker2 = () => {
 
   useEffect(() => {
     if (isOpen) {
-      setIsOpen(false);
+      // setIsOpen(false);
     }
     // eslint-disable-next-line
   }, [selectedDays]);
@@ -69,6 +70,7 @@ const WeekPicker2 = () => {
       return;
     }
     // outside click
+    setIsOpen(true);
     setIsOpen(false);
   };
 
@@ -162,28 +164,32 @@ const WeekPicker2 = () => {
     }
     .SelectedWeek .DayPicker-Day {
       outline: none;
-      border: 1px solid transparent;
+      border-radius: 0 !important;
+
     }
     .SelectedWeek .DayPicker-Day--hoverRange {
       background-color: #EFEFEF !important;
+      border-radius: 5px
     }
 
     .SelectedWeek .DayPicker-Day--selectedRange {
-      background-color: #fff7ba !important;
-      border-top-color: #FFEB3B;
-      border-bottom-color: #FFEB3B;
-      border-left-color: #fff7ba;
-      border-right-color: #fff7ba;
+      background-color: #c7e5f6 !important;
+      border-top: 1px solid  var(--primary);
+      border-bottom: 1px solid  var(--primary);
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeStart {
-      background-color: #FFEB3B !important;
-      border-left: 1px solid #FFEB3B;
+      background-color: var(--primary) !important;
+      border-radius: 50% 0 0 50% !important;
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeEnd {
-      background-color: #FFEB3B !important;
-      border-right: 1px solid #FFEB3B;
+      background-color: var(--primary) !important;
+      border-radius: 0 50% 50% 0 !important;
+    }
+
+    .DayPicker-Day--outside {
+      color: #d3e0dd !important;
     }
 
     .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
