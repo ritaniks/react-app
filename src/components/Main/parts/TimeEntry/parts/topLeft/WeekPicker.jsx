@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
 import CurrentDayBtn from '../topLeft/CurrentDayBtn';
-import { ButtonGroup, Button } from 'react-bootstrap';
 
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
@@ -109,26 +108,34 @@ const WeekPicker2 = () => {
 
   return (
     <div ref={node} className={`${css.wrapWeekPicker} SelectedWeek`}>
-      <ButtonGroup className={css.wrapCalendar}>
-        <Button
+      <div
+        className={`btn-group ${css.wrapCalendar}`}
+        role="group"
+        aria-label="Basic example"
+      >
+        <button
           onClick={handlePrevWeek}
-          variant="light"
-          className={css.wrapIcon}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon}`}
         >
           <ArrowL />
-        </Button>
-        <Button onClick={handleToogle} variant="light">
+        </button>
+        <button
+          onClick={handleToogle}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+        >
           {moment(selectedDays[0]).format('MMM D')} –{' '}
           {moment(selectedDays[6]).format('ll')}
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={handleNextWeek}
-          variant="light"
-          className={css.wrapIcon}
+          type="button"
+          className={`btn btn-light ${css.wrapIcon}`}
         >
           <ArrowR />
-        </Button>
-      </ButtonGroup>
+        </button>
+      </div>
 
       <CurrentDayBtn />
       {isOpen && (
