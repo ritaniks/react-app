@@ -49,6 +49,8 @@ const WeekPicker2 = () => {
   useEffect(() => {
     setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
 
+    // console.log(modifiers.selectedRangeEnd, 'selectedRangeEnd');
+
     document.addEventListener('mousedown', handleClick);
     return () => {
       document.removeEventListener('mousedown', handleClick);

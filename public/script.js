@@ -21,5 +21,5 @@ function updateOrientation() {
       contentType += 'flipped';
       break;
   }
-  document.getElementById('page_wrapper').setAttribute('class', contentType);
+  document.getElementById('root').setAttribute('class', contentType);
 }
