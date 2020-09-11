@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ReactComponent as ChartIcon } from '../../../../../../assets/img/main/chart-btn.svg';
 
 import css from './ChartBtn.module.scss';
 
@@ -10,7 +11,11 @@ const ChartBtn = ({ handleChartBtn, isChartOpen }) => {
       type="button"
       className={`btn btn-primary ${css.wrapBtn}`}
     >
-      {isChartOpen ? 'Hide' : 'Show'}
+      <p>{isChartOpen ? 'Hide' : 'Show'}</p>
+
+      <div className={css.wrapIcon}>
+        <ChartIcon />
+      </div>
     </button>
   );
 };
