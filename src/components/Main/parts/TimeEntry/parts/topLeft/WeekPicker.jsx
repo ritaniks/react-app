@@ -178,19 +178,16 @@ const WeekPicker2 = () => {
 
     .SelectedWeek .DayPicker-Day--selectedRangeStart {
       background-color: var(--primary) !important;
-      border-radius: 50% 0 0 50% !important;
+
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeEnd {
       background-color: var(--primary) !important;
-      border-radius: 0 50% 50% 0 !important;
-
-    }
+     }
 
     .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
     .SelectedWeek .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
-      color: black !important;
-      // color: white !important;
+      color: black !important ;
     }
 
     .DayPicker-Months{
