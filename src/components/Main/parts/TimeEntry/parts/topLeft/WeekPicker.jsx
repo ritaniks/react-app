@@ -169,7 +169,6 @@ const WeekPicker2 = () => {
     }
     .SelectedWeek .DayPicker-Day--hoverRange {
       background-color: #EFEFEF !important;
-      border-radius: 5px
     }
 
     .SelectedWeek .DayPicker-Day--selectedRange {
@@ -188,18 +187,11 @@ const WeekPicker2 = () => {
       border-radius: 0 50% 50% 0 !important;
     }
 
-    .DayPicker-Day--outside {
-      color: #d3e0dd !important;
-    }
-
     .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
     .SelectedWeek .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
-      border-radius: 0 !important;
       color: black !important;
     }
-    .SelectedWeek .DayPicker-Day--hoverRange:hover {
-      border-radius: 0 !important;
-    }
+
     .DayPicker-Months{
       background-color: #F8F9FA;
       border: 1px solid lightgray;
