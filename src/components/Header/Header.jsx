@@ -42,9 +42,11 @@ const Header = ({ user }) => {
       <div className={css.wrapInfoHeader}>
         <Burger onClick={() => hendleOpen()} className={`${css.menuIcon}`} />
         <Logo />
+
         <div className={css.wrapNav} ref={node}>
           <NavBar checkNewRoute={checkNewRoute} open={open} />
         </div>
+
         <UserProfile user={user} />
       </div>
     </div>

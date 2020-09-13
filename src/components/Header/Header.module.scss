@@ -7,7 +7,7 @@
   align-items: center;
   height: 4rem;
   padding: 0 20px;
-  background-color: var(--primary);
+  background-color: var(--dark);
 }
 .menuIcon {
   height: 25px;
@@ -19,10 +19,6 @@
   height: 100%;
 }
 @media (min-width: 768px) {
-  .wrapInfoHeader {
-    background-color: var(--dark);
-  }
-
   .menuIcon {
     display: none;
   }

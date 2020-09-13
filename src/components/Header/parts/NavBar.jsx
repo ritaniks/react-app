@@ -24,13 +24,14 @@ const NavBar = ({ open, checkNewRoute }) => {
         {links.map(link => {
           return (
             <div key={link.id} className={css.wrapLink}>
-              {switchIcon(link.icon)}
               <NavLink
                 className={cn(css.navLink, css.link)}
                 to={link.route}
                 exact
                 onClick={() => checkNewRoute()}
               >
+                {switchIcon(link.icon)}
+
                 {link.name}
               </NavLink>
             </div>
