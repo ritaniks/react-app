@@ -12,11 +12,12 @@
 }
 
 .navLink {
-  height: 3rem;
+  height: 100%;
   padding: 5px 2rem 5px 3rem;
   color: var(--white);
   display: flex;
   align-items: center;
+  background-color: #212121;
 
   &:hover,
   :focus {
@@ -58,7 +59,7 @@
   }
 
   &:hover {
-    background-color: #006ba7;
+    background-color: var(--gray-darker);
   }
 }
 
