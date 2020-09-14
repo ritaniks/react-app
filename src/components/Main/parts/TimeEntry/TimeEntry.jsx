@@ -7,7 +7,7 @@ import OneDayPicker from './parts/topLeft/OneDayPicker';
 import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
-import AddUser from './parts/AddUser';
+import AddRow from './parts/AddRow';
 
 // import ModalWeekView from './parts/+ModalWeekView';
 // import DateAndClock from './parts/DateAndClock';
@@ -62,7 +62,7 @@ const TimeEntry = () => {
           </div>
         )}
 
-        <AddUser />
+        <AddRow />
       </div>
       <div className={css.table}>
         {/* to do table */}

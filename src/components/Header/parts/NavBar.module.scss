@@ -1,6 +1,6 @@
 .nav {
-  background-color: var(--primary);
-  height: 100%;
+  background-color: var(--dark);
+  height: 3rem;
   display: flex;
   min-width: 12rem;
 }
@@ -11,40 +11,8 @@
   border: none;
 }
 
-.navLink {
-  height: 3rem;
-  padding: 5px 2rem 5px 3rem;
-  color: var(--white);
-  display: flex;
-  align-items: center;
-
-  &:hover,
-  :focus {
-    color: var(--white);
-    text-decoration: none;
-  }
-
-  &:active {
-    color: var(--white);
-    background-color: transparent;
-  }
-}
 .wrapLink {
-  position: relative;
-}
-
-.icon {
-  position: absolute;
-  top: 50%;
-  left: 25px;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-  z-index: 1;
-  height: 15px;
-  width: 15px;
-  fill: var(--white);
+  height: 4rem;
 }
 
 .link {
@@ -58,24 +26,65 @@
   }
 
   &:hover {
-    background-color: #006ba7;
+    background-color: var(--gray-darker);
+  }
+}
+.navLink {
+  height: 100%;
+  padding: 5px 2rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  background-color: #212121;
+  white-space: nowrap;
+
+  &:hover,
+  :focus {
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  &:active {
+    color: var(--white);
+    background-color: transparent;
+  }
+
+  & .icon {
+    margin-right: 1rem;
+    height: 15px;
+    width: 15px;
+    fill: var(--white);
   }
 }
 
-@media (max-width: 900px) {
-  .icon {
-    left: 16px;
-  }
+@media (max-width: 1254px) {
   .navLink {
-    padding: 5px 1.5rem 5px 2rem;
+    padding: 5px 1rem;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 1054px) {
   .icon {
+    margin-right: 0.5rem !important;
+  }
+}
+@media (max-width: 1000px) {
+  .navLink {
+    padding: 5px 0.75rem;
+  }
+}
+@media (max-width: 954px) {
+  & .icon {
     display: none;
   }
+}
+@media (max-width: 900px) {
   .navLink {
-    padding: 5px 1.5rem 5px 1.5rem;
+    padding: 5px 0.75rem;
+  }
+}
+@media (max-width: 920px) {
+  .navLink {
+    padding: 5px 0.5rem;
   }
 }
 
@@ -84,8 +93,8 @@
     position: absolute;
     flex-direction: column;
     top: 0;
+    left: 0;
     height: 100vh;
-    display: flex;
     z-index: 2;
 
     &_visible {
@@ -103,15 +112,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
 
-  .icon {
-    display: block;
-    top: 24px;
-    left: 25px;
+    &:hover,
+    &:focus {
+      background-color: var(--gray-darker);
+    }
   }
 
   .navLink {
-    padding: 0.5rem 0 0.5rem 3rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+
+    & .icon {
+      display: block;
+      top: 24px;
+      left: 25px;
+    }
   }
 }
