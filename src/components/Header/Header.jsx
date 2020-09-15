@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import AlertMessage from './parts/AlertMessage';
 import Logo from './parts/Logo';
 import NavBar from './parts/NavBar';
-import cn from 'classnames';
 
 import UserProfile from './parts/UserProfile';
 import { ReactComponent as Burger } from '../../assets/img/header/burger.svg';
@@ -16,7 +15,6 @@ const Header = ({ user }) => {
   const node = useRef();
 
   const hendleOpen = () => {
-    // console.log(open, 'open');
     setOpen(!open);
   };
 
