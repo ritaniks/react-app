@@ -9,10 +9,12 @@ import Logo from './Logo';
 import css from './NavBar.module.scss';
 import '../../../assets/css/_custom.scss';
 
-const NavBar = ({ open, checkNewRoute }) => {
+const NavBar = ({ open, checkNewRoute, node }) => {
+  // ref={node}
+
   return (
     <>
-      <nav className={cn(css.nav, !open && css.nav_visible)}>
+      <nav ref={node} className={cn(css.nav, !open && css.nav_visible)}>
         <button
           type="button"
           className={css.wrapLogo}

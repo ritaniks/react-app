@@ -5,21 +5,25 @@
 }
 .topLeft {
   display: flex;
+  justify-content: flex-start;
+  flex: 1;
 }
+
 .topRight {
   display: flex;
   justify-content: flex-end;
-  width: 500px;
-  min-width: 500px;
+  flex: 1;
+  align-items: stretch;
+  height: 100%;
 
   & div:first-child {
-    min-width: 200px;
-    height: 100%;
-    line-height: 2;
-    margin-right: 0.4rem;
-    // TO DO fix all users & width select... with multi checks
-    // & div:last-child {
-    // }
+    min-width: 7rem;
+    margin-right: 0.25rem;
+  }
+
+  & div div {
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 }
 .wrapCharts {

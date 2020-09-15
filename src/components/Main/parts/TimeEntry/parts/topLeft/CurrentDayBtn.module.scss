@@ -5,6 +5,12 @@
   width: 180px;
   padding: 0 !important;
   box-shadow: none !important;
+  width: 2.5rem;
+
+  .wrapIcon svg {
+    height: 1.5rem;
+    fill: grey;
+  }
 
   &:hover,
   &:focus {

@@ -2,10 +2,11 @@
   margin: 0 !important;
   border: 1px solid lightgray !important;
   border-radius: 0.25rem !important;
-  width: 100px !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
+  font-size: 10px !important;
+  color: grey !important;
 
   &:hover,
   &:focus {
@@ -14,13 +15,11 @@
   &:active {
     background-color: #d4d1d1e1 !important;
     margin: 0 !important;
-    width: 100px !important;
   }
 }
 .active {
   margin: 0 !important;
   background-color: #eef0f2 !important;
-  width: 100px !important;
   outline: 1px solid rgba(101, 142, 208, 0.4);
   outline-style: auto;
   display: flex !important;
@@ -30,3 +29,7 @@
 .hide {
   display: none;
 }
+
+// display: flex !important;
+// align-items: center;
+// justify-content: center;

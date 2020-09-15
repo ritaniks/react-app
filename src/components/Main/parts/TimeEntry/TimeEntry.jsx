@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 
 import BarChart from './parts/charts/BarChart';
 import DoughnutChart from './parts/charts/DoughnutChart';
+
+import PeriodPicker from './parts/topLeft/PeriodPicker';
 import WeekPicker from './parts/topLeft/WeekPicker';
 import OneDayPicker from './parts/topLeft/OneDayPicker';
+
 import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
 
-// import ModalWeekView from './parts/+ModalWeekView';
 // import DateAndClock from './parts/DateAndClock';
 
 import css from './TimeEntry.module.scss';
@@ -32,13 +34,15 @@ const TimeEntry = () => {
                       <DateAndClock />
           </div> */}
 
+      {/*  */}
+
       <div className={css.top}>
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            {/* switcher */}
-            {/*  &&  TO-DO -> PeriodPicker} */}
-            {(checkBtn === 'week' || checkBtn === 'period') && <WeekPicker />}
-            {checkBtn === 'day' && <OneDayPicker />}
+            {/* switcher date*/}
+            {checkBtn === 'period' && <PeriodPicker checkBtn={checkBtn} />}
+            {checkBtn === 'week' && <WeekPicker checkBtn={checkBtn} />}
+            {checkBtn === 'day' && <OneDayPicker checkBtn={checkBtn} />}
 
             <ChartBtn
               handleChartBtn={handleChartBtn}
@@ -54,7 +58,7 @@ const TimeEntry = () => {
             />
           </div>
         </div>
-        {/* button + */}
+
         {isChartOpen && (
           <div className={css.wrapCharts}>
             <BarChart />
@@ -68,10 +72,6 @@ const TimeEntry = () => {
         {/* to do table */}
         Table
       </div>
-
-      {/* ============================================= */}
-
-      {/* <ModalWeekView /> */}
     </>
   );
 };
