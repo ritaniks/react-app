@@ -31,6 +31,8 @@ const TimeEntry = () => {
                       <DateAndClock />
           </div> */}
 
+      {/*  */}
+
       <div className={css.top}>
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
@@ -53,6 +55,9 @@ const TimeEntry = () => {
             />
           </div>
         </div>
+
+        {/*  */}
+
         {/* button + */}
         {isChartOpen && (
           <div className={css.wrapCharts}>

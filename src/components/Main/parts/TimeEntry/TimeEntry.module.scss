@@ -2,15 +2,19 @@
   display: flex;
   justify-content: space-between;
   height: 2.5rem;
+  // width: 100vw;
 }
 .topLeft {
   display: flex;
+  justify-content: flex-start;
+  flex: 1;
 }
 .topRight {
   display: flex;
   justify-content: flex-end;
-  width: 500px;
-  min-width: 500px;
+  flex: 1;
+  // width: 500px;
+  // min-width: 500px;
 
   & div:first-child {
     min-width: 200px;
