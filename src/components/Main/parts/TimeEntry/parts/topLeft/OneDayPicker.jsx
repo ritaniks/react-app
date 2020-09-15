@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import CurrentDayBtn from './CurrentDayBtn';
 import Helmet from 'react-helmet';
-// import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
 import css from './OneDayPicker.module.scss';
 
-const OneDayPicker = () => {
+const OneDayPicker = ({ checkBtn }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
@@ -83,7 +83,7 @@ const OneDayPicker = () => {
             <ArrowR />
           </button>
         </div>
-        <CurrentDayBtn />
+        <CurrentDayBtn checkBtn={checkBtn} />
 
         {isOpen && (
           <DayPicker
@@ -108,6 +108,10 @@ const OneDayPicker = () => {
       </Helmet>
     </>
   );
+};
+
+OneDayPicker.propTypes = {
+  checkBtn: PropTypes.string.isRequired,
 };
 
 export default OneDayPicker;

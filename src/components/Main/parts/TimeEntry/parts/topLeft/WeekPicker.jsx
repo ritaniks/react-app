@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
@@ -26,7 +27,7 @@ function getWeekRange(date) {
   };
 }
 
-const WeekPicker2 = () => {
+const WeekPicker = ({ checkBtn }) => {
   const node = useRef();
   const [hoverRange, setHoverRange] = useState(undefined);
   const [selectedDays, setSelectedDays] = useState([]);
@@ -138,7 +139,7 @@ const WeekPicker2 = () => {
         </button>
       </div>
 
-      <CurrentDayBtn />
+      <CurrentDayBtn checkBtn={checkBtn} />
       {isOpen && (
         <DayPicker
           initialMonth={selectedDays[0]}
@@ -200,5 +201,8 @@ const WeekPicker2 = () => {
     </div>
   );
 };
+WeekPicker.propTypes = {
+  checkBtn: PropTypes.string.isRequired,
+};
 
-export default WeekPicker2;
+export default WeekPicker;
