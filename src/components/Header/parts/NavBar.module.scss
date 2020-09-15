@@ -1,6 +1,5 @@
 .nav {
   background-color: var(--dark);
-  height: 3rem;
   display: flex;
   min-width: 12rem;
 }
@@ -104,7 +103,6 @@
       clip: rect(1px 1px 1px 1px);
       clip: rect(1px, 1px, 1px, 1px);
       white-space: nowrap;
-      display: none;
     }
   }
 
@@ -112,6 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    // display: none !important;
 
     &:hover,
     &:focus {

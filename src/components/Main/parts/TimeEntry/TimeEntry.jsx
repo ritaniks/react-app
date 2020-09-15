@@ -9,7 +9,6 @@ import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
 
-// import ModalWeekView from './parts/+ModalWeekView';
 // import DateAndClock from './parts/DateAndClock';
 
 import css from './TimeEntry.module.scss';
@@ -68,10 +67,6 @@ const TimeEntry = () => {
         {/* to do table */}
         Table
       </div>
-
-      {/* ============================================= */}
-
-      {/* <ModalWeekView /> */}
     </>
   );
 };
