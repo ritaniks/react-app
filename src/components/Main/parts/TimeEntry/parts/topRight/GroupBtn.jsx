@@ -10,7 +10,7 @@ const BtnGroup = ({ checkBtn, setCheckBtn }) => {
   };
 
   return (
-    <div className="btn-group" data-toggle="buttons">
+    <div className={`${css.groupBtn} btn-group`} data-toggle="buttons">
       <label
         onClick={handleClick}
         className={cn(

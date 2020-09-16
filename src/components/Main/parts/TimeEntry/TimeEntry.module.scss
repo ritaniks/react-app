@@ -10,14 +10,11 @@
 }
 
 .topRight {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
-  align-items: stretch;
+  position: relative;
   margin: auto 0;
 
   & div:first-child {
-    min-width: 7rem;
+    min-width: 5rem;
     margin-right: 0.25rem;
   }
 
@@ -27,4 +24,12 @@
   }
 }
 .wrapCharts {
+}
+
+@media (min-width: 768px) {
+  .topRight {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+  }
 }

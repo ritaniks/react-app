@@ -38,9 +38,8 @@ const TimeEntry = () => {
     <>
       {/* this is for future global*/}
 
-      {widthDivice < 768 && <SelectedDate />}
-
       <div className={css.top}>
+        {widthDivice < 768 && <SelectedDate />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             {/* switcher date*/}
@@ -56,12 +55,12 @@ const TimeEntry = () => {
             />
           </div>
           <div className={`${css.topRight} `}>
-            <SelectEmployee className={css.select} />
             <GroupBtn
               className={css.wrapGroupBtn}
               checkBtn={checkBtn}
               setCheckBtn={setCheckBtn}
             />
+            <SelectEmployee className={css.select} />
           </div>
         </div>
 

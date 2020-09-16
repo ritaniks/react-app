@@ -1,3 +1,8 @@
+.groupBtn {
+  position: absolute !important;
+  top: -3rem;
+  right: 0;
+}
 .btn {
   margin: 0 !important;
   border: 1px solid lightgray !important;
@@ -30,6 +35,9 @@
   display: none;
 }
 
-// display: flex !important;
-// align-items: center;
-// justify-content: center;
+@media (min-width: 768px) {
+  .groupBtn {
+    position: relative !important;
+    top: 0;
+  }
+}

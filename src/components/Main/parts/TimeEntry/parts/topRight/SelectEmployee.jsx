@@ -17,16 +17,20 @@ const SelectEmployee = () => {
   const handleChange = employee => {
     setEmployee(employee);
 
-    console.log(`Option selected:`, employee);
+    // console.log(`Option selected:`, employee);
   };
 
   return (
-    <Select
-      placeholder="Select employee"
-      value={employee}
-      onChange={handleChange}
-      options={options}
-    />
+    <>
+      <Select
+        // placeholder="Select employee"
+        value={employee}
+        onChange={handleChange}
+        options={options}
+      />
+
+      {/* <button>user </button> */}
+    </>
   );
 };
 
