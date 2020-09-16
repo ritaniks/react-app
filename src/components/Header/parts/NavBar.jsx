@@ -10,8 +10,6 @@ import css from './NavBar.module.scss';
 import '../../../assets/css/_custom.scss';
 
 const NavBar = ({ open, checkNewRoute, node }) => {
-  // ref={node}
-
   return (
     <>
       <nav ref={node} className={cn(css.nav, !open && css.nav_visible)}>

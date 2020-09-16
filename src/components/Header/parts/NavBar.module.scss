@@ -4,7 +4,6 @@
   min-width: 12rem;
 }
 .wrapLogo {
-  // height: 4.75rem;
   display: none;
   background-color: transparent;
   border: none;
@@ -106,6 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 
     &:hover,
     &:focus {
