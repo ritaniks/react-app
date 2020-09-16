@@ -1,4 +1,9 @@
-// .icon {
-//   width: 1.5rem;
-//   height: 1.5rem;
-// }
+.select {
+  margin-right: 0px;
+}
+
+@media (min-width: 768px) {
+  .select {
+    margin-right: 0.75rem;
+  }
+}

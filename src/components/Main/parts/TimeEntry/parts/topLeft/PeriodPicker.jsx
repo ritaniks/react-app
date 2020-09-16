@@ -7,7 +7,7 @@ import CurrentDayBtn from './CurrentDayBtn';
 
 // import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 // import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
-import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
+// import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
 
 import css from './PeriodPicker.module.scss';
 
@@ -119,7 +119,7 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
           type="button"
           className={`btn btn-light ${css.wrapIcon} ${css.date}`}
         >
-          сonvertDate
+          Period Date
         </button>
 
         {/* <button

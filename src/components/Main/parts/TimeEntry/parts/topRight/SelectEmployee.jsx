@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 // import { ReactComponent as User } from '../../../../../../assets/img/header/user.svg';
 
-// import css from './SelectEmployee.module.scss';
+import css from './SelectEmployee.module.scss';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -23,6 +23,7 @@ const SelectEmployee = () => {
   return (
     <>
       <Select
+        className={css.select}
         // placeholder="Select employee"
         value={employee}
         onChange={handleChange}
