@@ -39,5 +39,9 @@
   .groupBtn {
     position: relative !important;
     top: 0;
+
+    & label:last-child {
+      margin-right: 0.75rem !important;
+    }
   }
 }

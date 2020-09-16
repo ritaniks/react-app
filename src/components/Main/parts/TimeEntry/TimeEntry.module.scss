@@ -4,6 +4,7 @@
   height: 2.5rem;
 }
 .topLeft {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   flex: 1;
@@ -15,7 +16,6 @@
 
   & div:first-child {
     min-width: 5rem;
-    margin-right: 0.25rem;
   }
 
   & div div {
