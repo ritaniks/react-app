@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker, { DateUtils } from 'react-day-picker';
-import moment from 'moment';
+// import moment from 'moment';
 import Helmet from 'react-helmet';
-import CurrentDayBtn from './CurrentDayBtn';
+// import CurrentDayBtn from './CurrentDayBtn';
 
 // import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 // import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
@@ -18,7 +18,7 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
   const [to, setTo] = useState(null);
   const [enteredTo, setEnteredTo] = useState(null);
 
-  const convertDate = moment(from).format('ll');
+  // const convertDate = moment(from).format('ll');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
