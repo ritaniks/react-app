@@ -7,6 +7,7 @@ import CurrentDayBtn from '../topLeft/CurrentDayBtn';
 
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
 
 import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
@@ -27,7 +28,7 @@ function getWeekRange(date) {
   };
 }
 
-const WeekPicker = ({ checkBtn }) => {
+const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
   const node = useRef();
   const [hoverRange, setHoverRange] = useState(undefined);
   const [selectedDays, setSelectedDays] = useState([]);
@@ -70,7 +71,7 @@ const WeekPicker = ({ checkBtn }) => {
       return;
     }
     // outside click
-    setIsOpen(true);
+    // setIsOpen(true);
     setIsOpen(false);
   };
 
@@ -111,7 +112,7 @@ const WeekPicker = ({ checkBtn }) => {
   return (
     <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
       <div
-        className={`btn-group order-md-1 ${css.wrapCalendar}`}
+        className={`btn-group ${css.wrapCalendar}`}
         role="group"
         aria-label="Basic example"
       >
@@ -122,14 +123,26 @@ const WeekPicker = ({ checkBtn }) => {
         >
           <ArrowL />
         </button>
-        <button
-          onClick={handleToogle}
-          type="button"
-          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-        >
-          {moment(selectedDays[0]).format('MMM D')} –{' '}
-          {moment(selectedDays[6]).format('ll')}
-        </button>
+        {widthDivice < 900 ? (
+          <button
+            onClick={handleToogle}
+            type="button"
+            className={`btn btn-light ${css.wrapIcon}`}
+          >
+            <Calendar />
+          </button>
+        ) : (
+          <button
+            onClick={handleToogle}
+            type="button"
+            className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+          >
+            {moment(selectedDays[0]).format('MMM D')} –{' '}
+            {moment(selectedDays[6]).format('ll')}
+          </button>
+        )}
+        {/* {widthDivice > 768 &&} */}
+
         <button
           onClick={handleNextWeek}
           type="button"
@@ -202,8 +215,11 @@ const WeekPicker = ({ checkBtn }) => {
     </div>
   );
 };
+
 WeekPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
+  widthDivice: PropTypes.number,
+  // selectedDate: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default WeekPicker;

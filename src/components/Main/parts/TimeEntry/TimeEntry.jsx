@@ -11,39 +11,43 @@ import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
+import SelectedDate from './parts/topLeft/SelectedDate';
 
-import DateAndClock from './parts/DateAndClock';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './TimeEntry.module.scss';
 
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
+  const widthDivice = useWindowSize().width;
+
+  // Check btn
   const [checkBtn, setCheckBtn] = useState('week');
-
-  const [isChartOpen, setIsChartOpen] = useState(true);
-
-  // const [selectedDate, setSelectedDate] = useState("Date"); // new Date()
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
+  // is Chart Open
+  const [isChartOpen, setIsChartOpen] = useState(true);
+
+  // selected Date
+  // const [selectedDate, setSelectedDate] = useState(new Date()); // by default new Date()
 
   return (
     <>
       {/* this is for future global*/}
-      <div>
-        <DateAndClock />
-      </div>
 
-      {/*  */}
+      {widthDivice < 768 && <SelectedDate />}
 
       <div className={css.top}>
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             {/* switcher date*/}
             {checkBtn === 'period' && <PeriodPicker checkBtn={checkBtn} />}
-            {checkBtn === 'week' && <WeekPicker checkBtn={checkBtn} />}
+            {checkBtn === 'week' && (
+              <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
             {checkBtn === 'day' && <OneDayPicker checkBtn={checkBtn} />}
 
             <ChartBtn
