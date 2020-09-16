@@ -2,15 +2,9 @@
   border: 1px solid lightgray !important;
   border-radius: 0.25rem !important;
   margin-right: 0.75rem;
-  width: 180px;
-  padding: 0 !important;
+  padding: 0.4rem 0.8rem !important;
+  white-space: nowrap;
   box-shadow: none !important;
-  width: 2.5rem;
-
-  .wrapIcon svg {
-    height: 1.5rem;
-    fill: grey;
-  }
 
   &:hover,
   &:focus {

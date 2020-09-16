@@ -109,9 +109,9 @@ const WeekPicker = ({ checkBtn }) => {
   };
 
   return (
-    <div ref={node} className={`${css.wrapWeekPicker} SelectedWeek`}>
+    <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
       <div
-        className={`btn-group ${css.wrapCalendar}`}
+        className={`btn-group order-md-1 ${css.wrapCalendar}`}
         role="group"
         aria-label="Basic example"
       >
@@ -140,6 +140,7 @@ const WeekPicker = ({ checkBtn }) => {
       </div>
 
       <CurrentDayBtn checkBtn={checkBtn} />
+
       {isOpen && (
         <DayPicker
           initialMonth={selectedDays[0]}

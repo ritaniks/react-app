@@ -7,13 +7,13 @@ import css from './CurrentDayBtn.module.scss';
 const CurrentDayBtn = ({ checkBtn }) => {
   return (
     <button type="button" className={`btn ${css.wrapBtn}`}>
-      <div className={css.wrapIcon}>
+      {/* <div className={css.wrapIcon}> 
         <Calendar />
-      </div>
+      </div> */}
 
-      {/* {checkBtn === 'week' && <p>CurrentWeek</p>}
-      {checkBtn === 'day' && <p>CurrentDay</p>}
-      {checkBtn === 'period' && <p>CurrentPeriod</p>} */}
+      {checkBtn === 'week' && <p>Current Week</p>}
+      {checkBtn === 'day' && <p>Current Day</p>}
+      {checkBtn === 'period' && <p>Current Period</p>}
     </button>
   );
 };

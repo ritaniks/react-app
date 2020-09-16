@@ -12,7 +12,7 @@ import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
 
-// import DateAndClock from './parts/DateAndClock';
+import DateAndClock from './parts/DateAndClock';
 
 import css from './TimeEntry.module.scss';
 
@@ -23,6 +23,8 @@ const TimeEntry = () => {
 
   const [isChartOpen, setIsChartOpen] = useState(true);
 
+  // const [selectedDate, setSelectedDate] = useState("Date"); // new Date()
+
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
@@ -30,9 +32,9 @@ const TimeEntry = () => {
   return (
     <>
       {/* this is for future global*/}
-      {/* <div>
-                      <DateAndClock />
-          </div> */}
+      <div>
+        <DateAndClock />
+      </div>
 
       {/*  */}
 
