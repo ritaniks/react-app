@@ -14,7 +14,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
 
-  const convertDate = moment(selectedDay).format('ll');
+  const convertDate = moment(new Date()).format('ll');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);

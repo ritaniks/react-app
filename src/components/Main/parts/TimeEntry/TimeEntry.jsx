@@ -43,7 +43,9 @@ const TimeEntry = () => {
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             {/* switcher Pickers*/}
-            {checkBtn === 'period' && <PeriodPicker checkBtn={checkBtn} />}
+            {checkBtn === 'period' && (
+              <PeriodPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
             {checkBtn === 'week' && (
               <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />
             )}
