@@ -42,7 +42,7 @@ const TimeEntry = () => {
         {widthDivice < 768 && <SelectedDate />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            {/* switcher date*/}
+            {/* switcher Pickers*/}
             {checkBtn === 'period' && <PeriodPicker checkBtn={checkBtn} />}
             {checkBtn === 'week' && (
               <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />

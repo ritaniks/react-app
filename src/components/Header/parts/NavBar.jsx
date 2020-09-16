@@ -25,7 +25,7 @@ const NavBar = ({ open, checkNewRoute, node }) => {
 
         {links.map(link => {
           return (
-            <div key={link.id} className={css.wrapLink}>
+            <div key={link.id}>
               <NavLink
                 className={cn(css.navLink, css.link)}
                 to={link.route}

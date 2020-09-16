@@ -4,14 +4,10 @@
   min-width: 12rem;
 }
 .wrapLogo {
-  height: 4.75rem;
+  // height: 4.75rem;
   display: none;
   background-color: transparent;
   border: none;
-}
-
-.wrapLink {
-  height: 4rem;
 }
 
 .link {
@@ -58,7 +54,7 @@
 
 @media (max-width: 1254px) {
   .navLink {
-    padding: 5px 1rem;
+    padding: 0 1rem;
   }
 }
 @media (max-width: 1054px) {
@@ -68,7 +64,7 @@
 }
 @media (max-width: 1000px) {
   .navLink {
-    padding: 5px 0.75rem;
+    padding: 0 0.75rem;
   }
 }
 @media (max-width: 954px) {
@@ -78,12 +74,12 @@
 }
 @media (max-width: 900px) {
   .navLink {
-    padding: 5px 0.75rem;
+    padding: 0 0.75rem;
   }
 }
 @media (max-width: 920px) {
   .navLink {
-    padding: 5px 0.5rem;
+    padding: 0 0.5rem;
   }
 }
 
