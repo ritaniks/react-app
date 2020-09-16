@@ -6,9 +6,10 @@ import CurrentDayBtn from './CurrentDayBtn';
 import Helmet from 'react-helmet';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
 import css from './OneDayPicker.module.scss';
 
-const OneDayPicker = ({ checkBtn }) => {
+const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
@@ -68,13 +69,25 @@ const OneDayPicker = ({ checkBtn }) => {
           >
             <ArrowL />
           </button>
-          <button
-            onClick={handleToogle}
-            type="button"
-            className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-          >
-            {convertDate}
-          </button>
+
+          {widthDivice < 900 ? (
+            <button
+              onClick={handleToogle}
+              type="button"
+              className={`btn btn-light ${css.wrapIcon}`}
+            >
+              <Calendar />
+            </button>
+          ) : (
+            <button
+              onClick={handleToogle}
+              type="button"
+              className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+            >
+              {convertDate}
+            </button>
+          )}
+
           <button
             onClick={handleNextDay}
             type="button"
@@ -112,6 +125,7 @@ const OneDayPicker = ({ checkBtn }) => {
 
 OneDayPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
+  widthDivice: PropTypes.number,
 };
 
 export default OneDayPicker;

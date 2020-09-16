@@ -47,7 +47,9 @@ const TimeEntry = () => {
             {checkBtn === 'week' && (
               <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />
             )}
-            {checkBtn === 'day' && <OneDayPicker checkBtn={checkBtn} />}
+            {checkBtn === 'day' && (
+              <OneDayPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
 
             <ChartBtn
               handleChartBtn={handleChartBtn}
