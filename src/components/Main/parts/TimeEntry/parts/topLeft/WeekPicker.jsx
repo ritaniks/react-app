@@ -141,7 +141,6 @@ const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
             {moment(selectedDays[6]).format('ll')}
           </button>
         )}
-        {/* {widthDivice > 768 &&} */}
 
         <button
           onClick={handleNextWeek}

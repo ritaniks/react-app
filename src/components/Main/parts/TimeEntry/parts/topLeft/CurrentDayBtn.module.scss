@@ -9,10 +9,14 @@
   & p {
     margin: 0;
     color: var(--primary);
+    text-decoration: none;
 
     &:hover,
     &:focus {
       text-decoration: underline;
+    }
+    &:active {
+      color: var(--dark);
     }
   }
 }
