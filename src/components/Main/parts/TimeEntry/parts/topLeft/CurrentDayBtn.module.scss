@@ -1,22 +1,45 @@
 .wrapBtn {
-  border: 1px solid lightgray !important;
-  border-radius: 0.25rem !important;
-  margin-right: 0.75rem;
-  width: 180px;
   padding: 0 !important;
+  white-space: nowrap;
   box-shadow: none !important;
-  width: 2.5rem;
+  position: absolute;
+  top: -1.25rem;
+  line-height: 0.8 !important;
 
-  .wrapIcon svg {
-    height: 1.5rem;
-    fill: grey;
-  }
+  & p {
+    margin: 0;
+    color: var(--primary);
+    text-decoration: none;
 
-  &:hover,
-  &:focus {
-    background-color: var(--light);
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+    &:active {
+      color: var(--dark);
+    }
   }
-  &:active {
-    background-color: var(--secondary);
+}
+
+@media (min-width: 768px) {
+  .wrapBtn {
+    position: relative;
+    top: 0;
+    border: 1px solid lightgray !important;
+    border-radius: 0.25rem !important;
+    margin-right: 0.75rem;
+    padding: 0.4rem 0.8rem !important;
+
+    & p {
+      color: var(--dark);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--light);
+    }
+    &:active {
+      background-color: var(--secondary);
+    }
   }
 }

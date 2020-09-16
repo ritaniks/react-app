@@ -10,8 +10,6 @@ import css from './NavBar.module.scss';
 import '../../../assets/css/_custom.scss';
 
 const NavBar = ({ open, checkNewRoute, node }) => {
-  // ref={node}
-
   return (
     <>
       <nav ref={node} className={cn(css.nav, !open && css.nav_visible)}>
@@ -25,7 +23,7 @@ const NavBar = ({ open, checkNewRoute, node }) => {
 
         {links.map(link => {
           return (
-            <div key={link.id} className={css.wrapLink}>
+            <div key={link.id}>
               <NavLink
                 className={cn(css.navLink, css.link)}
                 to={link.route}

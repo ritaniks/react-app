@@ -1,0 +1,16 @@
+.wrapPeriodPicker {
+  position: relative;
+}
+.wrapIcon {
+}
+.date {
+  display: inline-block;
+  height: 100%;
+  margin-right: 0.75rem;
+}
+.periodPicker {
+  position: absolute;
+  top: 2.75rem;
+  left: 0;
+  z-index: 1;
+}

@@ -1,2 +1,9 @@
-// .select {
-// }
+.select {
+  margin-right: 0px;
+}
+
+@media (min-width: 768px) {
+  .select {
+    margin-right: 0.75rem;
+  }
+}

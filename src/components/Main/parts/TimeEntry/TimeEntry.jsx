@@ -11,38 +11,47 @@ import GroupBtn from './parts/topRight/GroupBtn';
 import SelectEmployee from './parts/topRight/SelectEmployee';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
+import SelectedDate from './parts/topLeft/SelectedDate';
 
-// import DateAndClock from './parts/DateAndClock';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './TimeEntry.module.scss';
 
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
-  const [checkBtn, setCheckBtn] = useState('week');
+  const widthDivice = useWindowSize().width;
 
-  const [isChartOpen, setIsChartOpen] = useState(true);
+  // Check btn
+  const [checkBtn, setCheckBtn] = useState('week');
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
+  // is Chart Open
+  const [isChartOpen, setIsChartOpen] = useState(true);
+
+  // selected Date
+  // const [selectedDate, setSelectedDate] = useState(new Date()); // by default new Date()
 
   return (
     <>
       {/* this is for future global*/}
-      {/* <div>
-                      <DateAndClock />
-          </div> */}
-
-      {/*  */}
 
       <div className={css.top}>
+        {widthDivice < 768 && <SelectedDate />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            {/* switcher date*/}
-            {checkBtn === 'period' && <PeriodPicker checkBtn={checkBtn} />}
-            {checkBtn === 'week' && <WeekPicker checkBtn={checkBtn} />}
-            {checkBtn === 'day' && <OneDayPicker checkBtn={checkBtn} />}
+            {/* switcher Pickers*/}
+            {checkBtn === 'period' && (
+              <PeriodPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
+            {checkBtn === 'week' && (
+              <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
+            {checkBtn === 'day' && (
+              <OneDayPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+            )}
 
             <ChartBtn
               handleChartBtn={handleChartBtn}
@@ -50,12 +59,12 @@ const TimeEntry = () => {
             />
           </div>
           <div className={`${css.topRight} `}>
-            <SelectEmployee className={css.select} />
             <GroupBtn
               className={css.wrapGroupBtn}
               checkBtn={checkBtn}
               setCheckBtn={setCheckBtn}
             />
+            <SelectEmployee className={css.select} />
           </div>
         </div>
 

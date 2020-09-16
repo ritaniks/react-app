@@ -8,7 +8,7 @@ import css from './Header.module.scss';
 const Header = () => {
   const size = useWindowSize();
   return (
-    <header className={'container'}>
+    <header className="container">
       <nav className="navbar bg-primary px-3 px-md-4 shadow-sm fixed-top">
         <div className="navbar-brand mr-auto" href="#">
           <Logo />

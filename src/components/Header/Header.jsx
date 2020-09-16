@@ -37,13 +37,12 @@ const Header = ({ user }) => {
   }, []);
 
   return (
-    <div className={css.wrapHeader}>
+    <div>
       <AlertMessage />
       <div className={css.wrapInfoHeader}>
         <Burger onClick={() => hendleOpen()} className={css.menuIcon} />
         <Logo />
 
-        {/* <> */}
         <NavBar checkNewRoute={checkNewRoute} open={open} node={node} />
         <button
           type="button"
@@ -52,7 +51,6 @@ const Header = ({ user }) => {
         >
           <Logo />
         </button>
-        {/* </> */}
 
         <UserProfile user={user} />
       </div>
