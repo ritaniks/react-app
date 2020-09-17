@@ -22,7 +22,7 @@ const PeriodPicker = ({ setSelectedDate }) => {
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 
-    setSelectedDate(moment(new Date()).format('ll'));
+    setSelectedDate(moment(new Date()).format('MMM Do'));
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
@@ -33,7 +33,7 @@ const PeriodPicker = ({ setSelectedDate }) => {
     if (!from) {
       return;
     }
-    setSelectedDate(moment(from).format('ll'));
+    setSelectedDate(moment(from).format('MMM Do'));
     // eslint-disable-next-line
   }, [from]);
 
@@ -41,9 +41,9 @@ const PeriodPicker = ({ setSelectedDate }) => {
     if (!enteredTo) {
       return;
     }
-    const parseDate = `${moment(from).format('MMM D')} – ${moment(
+    const parseDate = `${moment(from).format('MMM Do')} – ${moment(
       enteredTo,
-    ).format('ll')}`;
+    ).format('MMM Do')}`;
     setSelectedDate(parseDate);
     // eslint-disable-next-line
   }, [enteredTo]);

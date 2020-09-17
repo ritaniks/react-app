@@ -26,7 +26,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   useEffect(() => {
     setIsOpen(false);
 
-    const parseDate = moment(selectedDay).format('ll');
+    const parseDate = moment(selectedDay).format('MMM Do');
     setViewDate(parseDate);
     setSelectedDate(parseDate);
     // eslint-disable-next-line

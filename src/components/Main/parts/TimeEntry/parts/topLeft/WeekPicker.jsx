@@ -65,9 +65,9 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
       setIsOpen(false);
     }
 
-    const parseDate = `${moment(selectedDays[0]).format('MMM D')} – ${moment(
+    const parseDate = `${moment(selectedDays[0]).format('MMM Do')} – ${moment(
       selectedDays[6],
-    ).format('ll')}`;
+    ).format('MMM Do')}`;
 
     setViewDate(parseDate);
 
