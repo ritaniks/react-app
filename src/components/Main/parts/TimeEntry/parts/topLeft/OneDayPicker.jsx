@@ -9,21 +9,27 @@ import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arro
 import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
 import css from './OneDayPicker.module.scss';
 
-const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
+const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
-
-  const convertDate = moment(new Date()).format('ll');
+  const [viewDate, setViewDate] = useState('');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
+
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
+
   useEffect(() => {
     setIsOpen(false);
+
+    const parseDate = moment(selectedDay).format('ll');
+    setViewDate(parseDate);
+    setSelectedDate(parseDate);
+    // eslint-disable-next-line
   }, [selectedDay]);
 
   const handleClick = e => {
@@ -70,7 +76,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
             <ArrowL />
           </button>
 
-          {widthDivice < 900 ? (
+          {widthDivice < 768 ? (
             <button
               onClick={handleToogle}
               type="button"
@@ -84,7 +90,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
               type="button"
               className={`btn btn-light ${css.wrapIcon} ${css.date}`}
             >
-              {convertDate}
+              {viewDate}
             </button>
           )}
 
@@ -126,6 +132,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
 OneDayPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
   widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
 };
 
 export default OneDayPicker;

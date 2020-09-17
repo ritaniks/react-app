@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import moment from 'moment';
 import Helmet from 'react-helmet';
-import CurrentDayBtn from './CurrentDayBtn';
+// import CurrentDayBtn from './CurrentDayBtn';
 
 // import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 // import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
@@ -11,21 +11,42 @@ import CurrentDayBtn from './CurrentDayBtn';
 
 import css from './PeriodPicker.module.scss';
 
-const PeriodPicker = ({ widthDivice = 320 }) => {
+const PeriodPicker = ({ setSelectedDate }) => {
+  // widthDivice = 320,
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [enteredTo, setEnteredTo] = useState(null);
 
-  const convertDate = moment(from).format('ll');
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
+
+    setSelectedDate(moment(new Date()).format('ll'));
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
+    // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (!from) {
+      return;
+    }
+    setSelectedDate(moment(from).format('ll'));
+    // eslint-disable-next-line
+  }, [from]);
+
+  useEffect(() => {
+    if (!enteredTo) {
+      return;
+    }
+    const parseDate = `${moment(from).format('MMM D')} – ${moment(
+      enteredTo,
+    ).format('ll')}`;
+    setSelectedDate(parseDate);
+    // eslint-disable-next-line
+  }, [enteredTo]);
 
   const handleClick = e => {
     if (node.current.contains(e.target)) {
@@ -58,7 +79,6 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
   const handleDayClick = day => {
     if (from && to && day >= from && day <= to) {
       handleResetClick();
-
       return;
     }
     if (isSelectingFirstDay(from, to, day)) {
@@ -78,7 +98,7 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
   };
 
   const modifiers = { start: from, end: enteredTo };
-  // const disabledDays = { before: from };
+  const disabledDays = { before: from };
   const selectedDays = [from, { from, to: enteredTo }];
 
   return (
@@ -138,7 +158,7 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
               // numberOfMonths={2}
               fromMonth={from}
               selectedDays={selectedDays}
-              // disabledDays={disabledDays}
+              disabledDays={disabledDays}
               modifiers={modifiers}
               onDayClick={handleDayClick}
               onDayMouseEnter={handleDayMouseEnter}
@@ -182,7 +202,8 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
 
 PeriodPicker.propTypes = {
   // checkBtn: PropTypes.string.isRequired,
-  widthDivice: PropTypes.number,
+  // widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
 };
 
 export default PeriodPicker;

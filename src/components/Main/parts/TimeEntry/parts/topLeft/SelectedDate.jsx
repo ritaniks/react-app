@@ -1,13 +1,11 @@
 import React from 'react';
-import moment from 'moment';
 
 import css from './SelectedDate.module.scss';
 
-const SelectedDate = () => {
+const SelectedDate = ({ selectedDate }) => {
   return (
     <>
-      <p className={css.date}> Today is {moment().format('ll')}</p>
-      {/* <p> It is {moment().format('LT')}</p> */}
+      <p className={css.date}>{selectedDate}</p>
     </>
   );
 };
