@@ -76,7 +76,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
             <ArrowL />
           </button>
 
-          {widthDivice < 900 ? (
+          {widthDivice < 768 ? (
             <button
               onClick={handleToogle}
               type="button"
