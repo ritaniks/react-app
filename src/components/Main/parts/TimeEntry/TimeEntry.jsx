@@ -31,13 +31,11 @@ const TimeEntry = () => {
   // is Chart Open
   const [isChartOpen, setIsChartOpen] = useState(true);
 
-  // selected Date
-  const [selectedDate, setSelectedDate] = useState('today'); // by default new Date()
+  // selected Date for all Pickers
+  const [selectedDate, setSelectedDate] = useState(''); // by default new Date()
 
   return (
     <>
-      {/* this is for future global*/}
-
       <div className={css.top}>
         {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>

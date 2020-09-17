@@ -16,8 +16,6 @@ const SelectEmployee = () => {
 
   const handleChange = employee => {
     setEmployee(employee);
-
-    // console.log(`Option selected:`, employee);
   };
 
   return (

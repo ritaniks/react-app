@@ -13,22 +13,23 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
-
-  const convertDate = moment(new Date()).format('ll');
+  const [viewDate, setViewDate] = useState('');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 
-    // TO DO
-    setSelectedDate('day');
-
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     setIsOpen(false);
+
+    const parseDate = moment(selectedDay).format('ll');
+    setViewDate(parseDate);
+    setSelectedDate(parseDate);
+    // eslint-disable-next-line
   }, [selectedDay]);
 
   const handleClick = e => {
@@ -89,7 +90,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
               type="button"
               className={`btn btn-light ${css.wrapIcon} ${css.date}`}
             >
-              {convertDate}
+              {viewDate}
             </button>
           )}
 

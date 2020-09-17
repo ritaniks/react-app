@@ -28,17 +28,16 @@ function getWeekRange(date) {
   };
 }
 
-const WeekPicker = ({
-  checkBtn,
-  widthDivice = 320,
-  setSelectedDate = null,
-}) => {
+const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [hoverRange, setHoverRange] = useState(undefined);
   const [selectedDays, setSelectedDays] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [viewDate, setViewDate] = useState('');
 
   const daysAreSelected = selectedDays.length > 0;
+
+  // let parseDate = '';
 
   const modifiers = {
     hoverRange,
@@ -55,20 +54,24 @@ const WeekPicker = ({
   useEffect(() => {
     setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
 
-    // TO DO
-    setSelectedDate('week');
-
     document.addEventListener('mousedown', handleClick);
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (isOpen) {
       setIsOpen(false);
     }
+
+    const parseDate = `${moment(selectedDays[0]).format('MMM D')} – ${moment(
+      selectedDays[6],
+    ).format('ll')}`;
+
+    setViewDate(parseDate);
+
+    setSelectedDate(parseDate);
     // eslint-disable-next-line
   }, [selectedDays]);
 
@@ -144,8 +147,7 @@ const WeekPicker = ({
             type="button"
             className={`btn btn-light ${css.wrapIcon} ${css.date}`}
           >
-            {moment(selectedDays[0]).format('MMM D')} –{' '}
-            {moment(selectedDays[6]).format('ll')}
+            {viewDate}
           </button>
         )}
 

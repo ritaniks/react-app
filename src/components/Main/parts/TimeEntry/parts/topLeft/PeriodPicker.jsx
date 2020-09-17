@@ -19,8 +19,6 @@ const PeriodPicker = ({ setSelectedDate }) => {
   const [to, setTo] = useState(null);
   const [enteredTo, setEnteredTo] = useState(null);
 
-  // const convertDate = moment(from).format('ll');
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 
@@ -29,7 +27,7 @@ const PeriodPicker = ({ setSelectedDate }) => {
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   const handleClick = e => {
