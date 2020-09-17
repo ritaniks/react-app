@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker, { DateUtils } from 'react-day-picker';
-// import moment from 'moment';
+import moment from 'moment';
 import Helmet from 'react-helmet';
 // import CurrentDayBtn from './CurrentDayBtn';
 
@@ -22,13 +22,31 @@ const PeriodPicker = ({ setSelectedDate }) => {
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 
-    // TO DO
-    setSelectedDate('period');
+    setSelectedDate(moment(new Date()).format('ll'));
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (!from) {
+      return;
+    }
+    setSelectedDate(moment(from).format('ll'));
+    // eslint-disable-next-line
+  }, [from]);
+
+  useEffect(() => {
+    if (!enteredTo) {
+      return;
+    }
+    const parseDate = `${moment(from).format('MMM D')} – ${moment(
+      enteredTo,
+    ).format('ll')}`;
+    setSelectedDate(parseDate);
+    // eslint-disable-next-line
+  }, [enteredTo]);
 
   const handleClick = e => {
     if (node.current.contains(e.target)) {
@@ -61,7 +79,6 @@ const PeriodPicker = ({ setSelectedDate }) => {
   const handleDayClick = day => {
     if (from && to && day >= from && day <= to) {
       handleResetClick();
-
       return;
     }
     if (isSelectingFirstDay(from, to, day)) {
@@ -81,7 +98,7 @@ const PeriodPicker = ({ setSelectedDate }) => {
   };
 
   const modifiers = { start: from, end: enteredTo };
-  // const disabledDays = { before: from };
+  const disabledDays = { before: from };
   const selectedDays = [from, { from, to: enteredTo }];
 
   return (
@@ -141,7 +158,7 @@ const PeriodPicker = ({ setSelectedDate }) => {
               // numberOfMonths={2}
               fromMonth={from}
               selectedDays={selectedDays}
-              // disabledDays={disabledDays}
+              disabledDays={disabledDays}
               modifiers={modifiers}
               onDayClick={handleDayClick}
               onDayMouseEnter={handleDayMouseEnter}

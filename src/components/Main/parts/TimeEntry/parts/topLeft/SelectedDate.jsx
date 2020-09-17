@@ -5,7 +5,7 @@ import css from './SelectedDate.module.scss';
 const SelectedDate = ({ selectedDate }) => {
   return (
     <>
-      <p className={css.date}>Is {selectedDate}</p>
+      <p className={css.date}>{selectedDate}</p>
     </>
   );
 };
