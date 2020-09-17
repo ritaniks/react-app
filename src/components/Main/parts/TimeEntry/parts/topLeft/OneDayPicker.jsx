@@ -9,7 +9,7 @@ import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arro
 import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
 import css from './OneDayPicker.module.scss';
 
-const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
+const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
@@ -18,9 +18,14 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
+
+    // TO DO
+    setSelectedDate('day');
+
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     setIsOpen(false);
@@ -126,6 +131,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320 }) => {
 OneDayPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
   widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
 };
 
 export default OneDayPicker;

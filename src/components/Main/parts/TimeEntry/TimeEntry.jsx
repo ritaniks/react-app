@@ -32,25 +32,37 @@ const TimeEntry = () => {
   const [isChartOpen, setIsChartOpen] = useState(true);
 
   // selected Date
-  // const [selectedDate, setSelectedDate] = useState(new Date()); // by default new Date()
+  const [selectedDate, setSelectedDate] = useState('today'); // by default new Date()
 
   return (
     <>
       {/* this is for future global*/}
 
       <div className={css.top}>
-        {widthDivice < 768 && <SelectedDate />}
+        {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
             {/* switcher Pickers*/}
             {checkBtn === 'period' && (
-              <PeriodPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+              <PeriodPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
             )}
             {checkBtn === 'week' && (
-              <WeekPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+              <WeekPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
             )}
             {checkBtn === 'day' && (
-              <OneDayPicker checkBtn={checkBtn} widthDivice={widthDivice} />
+              <OneDayPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
             )}
 
             <ChartBtn

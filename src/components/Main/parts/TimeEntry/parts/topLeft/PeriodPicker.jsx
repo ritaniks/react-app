@@ -11,7 +11,8 @@ import Helmet from 'react-helmet';
 
 import css from './PeriodPicker.module.scss';
 
-const PeriodPicker = ({ widthDivice = 320 }) => {
+const PeriodPicker = ({ setSelectedDate }) => {
+  // widthDivice = 320,
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [from, setFrom] = useState(null);
@@ -22,9 +23,13 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
+
+    // TO DO
+    setSelectedDate('period');
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick = e => {
@@ -182,7 +187,8 @@ const PeriodPicker = ({ widthDivice = 320 }) => {
 
 PeriodPicker.propTypes = {
   // checkBtn: PropTypes.string.isRequired,
-  widthDivice: PropTypes.number,
+  // widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
 };
 
 export default PeriodPicker;

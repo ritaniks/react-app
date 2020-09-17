@@ -6,7 +6,7 @@ import Select from 'react-select';
 import css from './SelectEmployee.module.scss';
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'chocolate', label: 'Chocolate chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
 ];
@@ -30,7 +30,7 @@ const SelectEmployee = () => {
         options={options}
       />
 
-      {/* <button>user </button> */}
+      {/* <button>user</button> */}
     </>
   );
 };

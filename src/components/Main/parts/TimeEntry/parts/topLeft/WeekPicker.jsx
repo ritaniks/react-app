@@ -28,7 +28,11 @@ function getWeekRange(date) {
   };
 }
 
-const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
+const WeekPicker = ({
+  checkBtn,
+  widthDivice = 320,
+  setSelectedDate = null,
+}) => {
   const node = useRef();
   const [hoverRange, setHoverRange] = useState(undefined);
   const [selectedDays, setSelectedDays] = useState([]);
@@ -51,10 +55,14 @@ const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
   useEffect(() => {
     setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
 
+    // TO DO
+    setSelectedDate('week');
+
     document.addEventListener('mousedown', handleClick);
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -71,7 +79,6 @@ const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
       return;
     }
     // outside click
-    // setIsOpen(true);
     setIsOpen(false);
   };
 
@@ -218,6 +225,7 @@ const WeekPicker = ({ checkBtn, widthDivice = 320 }) => {
 WeekPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
   widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
   // selectedDate: PropTypes.instanceOf(Date).isRequired,
 };
 
