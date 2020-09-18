@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const ImageResize = ({ path }) => {
   return (
     <picture>
-      <source media="(min-width: 2000px)" sizes="50vw" srcSet={path[1]} />
       <source media="(min-width: 992px)" srcSet={path[0]} />
+      <source media="(min-width: 2000px)" sizes="50vw" srcSet={path[1]} />
       <img
         src={path[2]}
-        alt={path[0]}
+        alt={path[1]}
         srcSet={path[3]}
         style={{ width: ' 100%' }}
       />
