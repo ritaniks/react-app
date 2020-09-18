@@ -60,6 +60,10 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
     setSelectedDay(tomorrow);
   };
 
+  const handleCurrentDay = () => {
+    setSelectedDay(new Date());
+  };
+
   return (
     <>
       <div ref={node} className={css.wrapDayPicker}>
@@ -102,7 +106,8 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
             <ArrowR />
           </button>
         </div>
-        <CurrentDayBtn checkBtn={checkBtn} />
+
+        <CurrentDayBtn onClick={handleCurrentDay} checkBtn={checkBtn} />
 
         {isOpen && (
           <DayPicker

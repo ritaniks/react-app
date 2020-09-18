@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import css from './CurrentDayBtn.module.scss';
 
-const CurrentDayBtn = ({ checkBtn }) => {
+const CurrentDayBtn = ({ checkBtn, onClick }) => {
   return (
-    <button type="button" className={`btn ${css.wrapBtn}`}>
+    <button type="button" onClick={onClick} className={`btn ${css.wrapBtn}`}>
       {checkBtn === 'week' && <p>Current Week</p>}
       {checkBtn === 'day' && <p>Current Day</p>}
       {checkBtn === 'period' && <p>Current Period</p>}

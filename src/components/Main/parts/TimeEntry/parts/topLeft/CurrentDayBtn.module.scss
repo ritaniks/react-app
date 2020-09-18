@@ -4,6 +4,7 @@
   box-shadow: none !important;
   position: absolute;
   top: -1.25rem;
+  left: 0;
   line-height: 0.8 !important;
 
   & p {
@@ -25,6 +26,7 @@
     border-radius: 0.25rem !important;
     margin-right: 0.75rem;
     padding: 0.4rem 0.8rem !important;
+    height: 100%;
 
     & p {
       color: var(--dark);

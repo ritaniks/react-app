@@ -119,6 +119,10 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
     setSelectedDays(newSelectedDays);
   };
 
+  const handleCurrentWeek = () => {
+    setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
+  };
+
   return (
     <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
       <div
@@ -160,7 +164,7 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
         </button>
       </div>
 
-      <CurrentDayBtn checkBtn={checkBtn} />
+      <CurrentDayBtn onClick={handleCurrentWeek} checkBtn={checkBtn} />
 
       {isOpen && (
         <DayPicker

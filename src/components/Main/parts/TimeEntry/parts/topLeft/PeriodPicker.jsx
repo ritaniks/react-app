@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import moment from 'moment';
 import Helmet from 'react-helmet';
-// import CurrentDayBtn from './CurrentDayBtn';
+import CurrentDayBtn from './CurrentDayBtn';
 
 // import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 // import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
@@ -11,7 +11,7 @@ import Helmet from 'react-helmet';
 
 import css from './PeriodPicker.module.scss';
 
-const PeriodPicker = ({ setSelectedDate }) => {
+const PeriodPicker = ({ setSelectedDate, checkBtn }) => {
   // widthDivice = 320,
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
@@ -97,6 +97,14 @@ const PeriodPicker = ({ setSelectedDate }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleCurrentPeriod = () => {
+    setSelectedDate(moment(new Date()).format('MMM Do'));
+    setIsOpen(false);
+    setFrom(null);
+    setTo(null);
+    setEnteredTo(null);
+  };
+
   const modifiers = { start: from, end: enteredTo };
   const disabledDays = { before: from };
   const selectedDays = [from, { from, to: enteredTo }];
@@ -134,13 +142,16 @@ const PeriodPicker = ({ setSelectedDate }) => {
             сonvertDate 
           </button>
         )} */}
+
         <button
           onClick={handleToogle}
           type="button"
-          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
+          className={`btn btn-light ${css.date}`} // ${css.wrapIcon}
         >
           Period Date
         </button>
+
+        <CurrentDayBtn onClick={handleCurrentPeriod} checkBtn={checkBtn} />
 
         {/* <button
             onClick={handleNextDay}
