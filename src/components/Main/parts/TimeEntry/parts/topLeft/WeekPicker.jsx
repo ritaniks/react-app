@@ -130,7 +130,7 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
         <div
           onClick={handlePrevWeek}
           type="button"
-          className={`${css.arrowIcon} ${css.wrapIcon}`}
+          className={`${css.arrowIconL} ${css.wrapIcon}`}
         >
           <ArrowL />
         </div>
@@ -154,7 +154,7 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
         <div
           onClick={handleNextWeek}
           type="button"
-          className={`${css.arrowIcon} ${css.wrapIcon}`}
+          className={`${css.arrowIconR} ${css.wrapIcon}`}
         >
           <ArrowR />
         </div>
