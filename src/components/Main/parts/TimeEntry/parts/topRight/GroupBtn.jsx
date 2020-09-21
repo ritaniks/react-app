@@ -10,11 +10,13 @@ const BtnGroup = ({ checkBtn, setCheckBtn }) => {
   };
 
   return (
-    <div className={`${css.groupBtn} btn-group`} data-toggle="buttons">
+    <div className={css.groupBtn} data-toggle="buttons">
       <label
         onClick={handleClick}
         className={cn(
-          checkBtn === 'period' ? `${css.active} btn ` : `${css.btn} btn `,
+          checkBtn === 'period'
+            ? `${css.btn} ${css.active} ${css.leftBtn}`
+            : `${css.btn} ${css.leftBtn}`,
         )}
         type="button"
       >
@@ -25,7 +27,7 @@ const BtnGroup = ({ checkBtn, setCheckBtn }) => {
       <label
         onClick={handleClick}
         className={cn(
-          checkBtn === 'week' ? `${css.active} btn ` : `${css.btn} btn `,
+          checkBtn === 'week' ? `${css.btn} ${css.active} ` : css.btn,
         )}
       >
         Week
@@ -34,7 +36,9 @@ const BtnGroup = ({ checkBtn, setCheckBtn }) => {
       <label
         onClick={handleClick}
         className={cn(
-          checkBtn === 'day' ? `${css.active} btn ` : `${css.btn} btn `,
+          checkBtn === 'day'
+            ? `${css.btn} ${css.active} ${css.rightBtn}`
+            : `${css.btn} ${css.rightBtn}`,
         )}
       >
         Day

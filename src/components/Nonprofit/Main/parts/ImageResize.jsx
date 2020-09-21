@@ -8,7 +8,7 @@ const ImageResize = ({ path }) => {
       <img
         src={path[2]}
         alt={path[0]}
-        srcSet={(`${path[2]}`, `${path[3]} 2x`)}
+        srcSet={`${path[2]}, ${path[3]} 2x`}
         style={{ width: ' 100%' }}
       />
     </picture>

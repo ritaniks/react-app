@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
 import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
+import { ReactComponent as ArrowB } from '../../../../../../assets/img/main/arrows/arrow-bottom.svg';
 import css from './OneDayPicker.module.scss';
 
 const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
@@ -26,7 +27,7 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   useEffect(() => {
     setIsOpen(false);
 
-    const parseDate = moment(selectedDay).format('ll');
+    const parseDate = moment(selectedDay).format('MMM Do');
     setViewDate(parseDate);
     setSelectedDate(parseDate);
     // eslint-disable-next-line
@@ -60,49 +61,49 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
     setSelectedDay(tomorrow);
   };
 
+  const handleCurrentDay = () => {
+    setSelectedDay(new Date());
+  };
+
   return (
     <>
       <div ref={node} className={css.wrapDayPicker}>
-        <div
-          className={`btn-group ${css.wrapGroup}`}
-          role="group"
-          aria-label="Basic example"
-        >
-          <button
+        <div className={`${css.wrapGroup}`}>
+          <div
             onClick={handleBackDay}
             type="button"
-            className={`btn btn-light ${css.wrapIcon}`}
+            className={`${css.wrapIcon} ${css.arrowIconL}`}
           >
             <ArrowL />
-          </button>
+          </div>
 
           {widthDivice < 768 ? (
-            <button
+            <div
               onClick={handleToogle}
               type="button"
-              className={`btn btn-light ${css.wrapIcon}`}
+              className={`${css.wrapIcon} ${css.date}`}
             >
               <Calendar />
-            </button>
+              <div className={css.wrapArrowBottom}>
+                <ArrowB />
+              </div>
+            </div>
           ) : (
-            <button
-              onClick={handleToogle}
-              type="button"
-              className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-            >
+            <div onClick={handleToogle} type="button" className={`${css.date}`}>
               {viewDate}
-            </button>
+            </div>
           )}
 
-          <button
+          <div
             onClick={handleNextDay}
             type="button"
-            className={`btn btn-light ${css.wrapIcon}`}
+            className={`${css.wrapIcon} ${css.arrowIconR}`}
           >
             <ArrowR />
-          </button>
+          </div>
         </div>
-        <CurrentDayBtn checkBtn={checkBtn} />
+
+        <CurrentDayBtn onClick={handleCurrentDay} checkBtn={checkBtn} />
 
         {isOpen && (
           <DayPicker
