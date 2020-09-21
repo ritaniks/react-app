@@ -5,7 +5,7 @@ import css from './CurrentDayBtn.module.scss';
 
 const CurrentDayBtn = ({ checkBtn, onClick }) => {
   return (
-    <button type="button" onClick={onClick} className={`btn ${css.wrapBtn}`}>
+    <button type="button" onClick={onClick} className={`${css.btn}`}>
       {checkBtn === 'week' && <p>Current Week</p>}
       {checkBtn === 'day' && <p>Current Day</p>}
       {checkBtn === 'period' && <p>Current Period</p>}
