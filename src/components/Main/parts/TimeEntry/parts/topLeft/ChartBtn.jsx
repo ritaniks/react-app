@@ -9,7 +9,7 @@ const ChartBtn = ({ handleChartBtn, isChartOpen }) => {
     <button
       onClick={handleChartBtn}
       type="button"
-      className={`btn btn-primary order-md-3 ${css.wrapBtn}`}
+      className={`btn btn-primary  ${css.wrapBtn}`}
     >
       <p>{isChartOpen ? 'Hide' : 'Show'}</p>
 

@@ -1,12 +1,19 @@
 .wrapWeekPicker {
   position: relative;
   display: flex;
+  height: 31px;
 }
 
 .wrapCalendar {
   display: flex;
   border-radius: 0.25rem;
   margin-right: 0.75rem;
+  border: 2px solid #ced4da;
+  background-color: #f8f9fa;
+
+  & div:hover {
+    background-color: #e9ecef !important;
+  }
 }
 .weekPicker {
   position: absolute;
@@ -15,11 +22,36 @@
   z-index: 1;
 }
 .wrapIcon {
-  width: 2rem;
   padding: 0 0.5rem !important;
-  fill: grey;
   box-shadow: none !important;
+  display: flex !important;
+  justify-content: space-between;
+  fill: var(--gray-dark);
+
+  & svg {
+    width: 15px;
+    padding: 2px;
+  }
+}
+
+.arrowIcon {
+  width: 40px;
+  display: flex;
+  justify-content: center;
 }
 .date {
-  width: 12rem;
+  display: inline-block;
+  white-space: nowrap;
+  border-left: 2px solid #ced4da !important;
+  border-right: 2px solid #ced4da !important;
+  min-width: 55px;
+  padding: 0 0.5rem !important;
+
+  & .wrapArrowBottom svg {
+    padding: 0 0.125rem;
+  }
+
+  & svg {
+    padding: 0;
+  }
 }
