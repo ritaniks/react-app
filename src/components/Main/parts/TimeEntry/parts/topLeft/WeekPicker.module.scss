@@ -11,7 +11,12 @@
     border: 1px solid #ced4da;
     background-color: #f8f9fa;
 
-    & .wrapIcon:hover {
+    & .wrapIcon:hover,
+    & .wrapIcon:focus {
+      background-color: #e9ecef !important;
+    }
+    & .date:hover,
+    & .date:focus {
       background-color: #e9ecef !important;
     }
   }
@@ -29,7 +34,7 @@
   display: flex !important;
   justify-content: space-between;
   fill: var(--gray-dark);
-  height: 30px;
+  height: 28px;
 
   & svg {
     width: 15px;
@@ -56,6 +61,9 @@
   border-right: 1px solid #ced4da !important;
   min-width: 55px;
   padding: 0 0.5rem !important;
+  height: 28px;
+  display: flex;
+  align-items: center;
 
   & .wrapArrowBottom svg {
     padding: 0 0.2rem;
