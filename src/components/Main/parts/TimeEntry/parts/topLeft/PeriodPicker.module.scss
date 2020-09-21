@@ -1,15 +1,14 @@
 .wrapPeriodPicker {
   position: relative;
+  display: flex;
   height: 31px;
 }
 .date {
-  // display: inline-block;
   white-space: nowrap;
   height: 100%;
   margin-right: 0.75rem;
   line-height: 1.2 !important;
   border-radius: 0.25rem;
-
   border: 1px solid #ced4da;
   background-color: #f8f9fa;
 
