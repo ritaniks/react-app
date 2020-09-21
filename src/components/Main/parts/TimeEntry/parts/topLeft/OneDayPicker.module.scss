@@ -1,9 +1,25 @@
 .wrapDayPicker {
   position: relative;
   display: flex;
+  height: 31px;
 
   & .wrapGroup {
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
     margin-right: 0.75rem;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+
+    & .wrapIcon:hover,
+    & .wrapIcon:focus {
+      background-color: #e9ecef !important;
+    }
+
+    & .date:hover,
+    & .date:focus {
+      background-color: #e9ecef !important;
+    }
   }
 }
 
@@ -14,12 +30,46 @@
   z-index: 1;
 }
 .wrapIcon {
-  width: 2rem;
-  padding: 0 0.5rem !important;
-  border: 1px solid lightgray;
-  fill: grey;
-  box-shadow: none !important;
+  padding: 0 0.5rem;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  fill: var(--gray-dark);
+  height: 28px;
+
+  & svg {
+    width: 15px;
+    padding: 2px;
+  }
+}
+.arrowIconL {
+  border-radius: 0.22rem 0 0 0.22rem;
+}
+.arrowIconR {
+  border-radius: 0 0.22rem 0.22rem 0;
+}
+
+.arrowIconL,
+.arrowIconR {
+  width: 40px;
+  display: flex;
+  justify-content: center;
 }
 .date {
-  width: 150px;
+  border-left: 1px solid #ced4da !important;
+  border-right: 1px solid #ced4da !important;
+  white-space: nowrap;
+  min-width: 55px;
+  padding: 0 0.5rem !important;
+  height: 28px;
+  display: flex;
+  align-items: center;
+
+  & svg {
+    padding: 0;
+  }
+
+  & .wrapArrowBottom svg {
+    padding: 0 0.2rem;
+  }
 }

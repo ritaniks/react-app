@@ -8,6 +8,7 @@ import CurrentDayBtn from '../topLeft/CurrentDayBtn';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
 import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
+import { ReactComponent as ArrowB } from '../../../../../../assets/img/main/arrows/arrow-bottom.svg';
 
 import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
@@ -65,9 +66,9 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
       setIsOpen(false);
     }
 
-    const parseDate = `${moment(selectedDays[0]).format('MMM D')} – ${moment(
+    const parseDate = `${moment(selectedDays[0]).format('MMM Do')} – ${moment(
       selectedDays[6],
-    ).format('ll')}`;
+    ).format('MMM Do')}`;
 
     setViewDate(parseDate);
 
@@ -119,48 +120,47 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
     setSelectedDays(newSelectedDays);
   };
 
+  const handleCurrentWeek = () => {
+    setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
+  };
+
   return (
     <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
-      <div
-        className={`btn-group ${css.wrapCalendar}`}
-        role="group"
-        aria-label="Basic example"
-      >
-        <button
+      <div className={`${css.wrapCalendar}`}>
+        <div
           onClick={handlePrevWeek}
           type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
+          className={`${css.arrowIconL} ${css.wrapIcon}`}
         >
           <ArrowL />
-        </button>
+        </div>
         {widthDivice < 900 ? (
-          <button
+          <div
             onClick={handleToogle}
             type="button"
-            className={`btn btn-light ${css.wrapIcon}`}
+            className={`${css.wrapIcon} ${css.date}`}
           >
             <Calendar />
-          </button>
+            <div className={css.wrapArrowBottom}>
+              <ArrowB />
+            </div>
+          </div>
         ) : (
-          <button
-            onClick={handleToogle}
-            type="button"
-            className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-          >
+          <div onClick={handleToogle} type="button" className={`${css.date}`}>
             {viewDate}
-          </button>
+          </div>
         )}
 
-        <button
+        <div
           onClick={handleNextWeek}
           type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
+          className={`${css.arrowIconR} ${css.wrapIcon}`}
         >
           <ArrowR />
-        </button>
+        </div>
       </div>
 
-      <CurrentDayBtn checkBtn={checkBtn} />
+      <CurrentDayBtn onClick={handleCurrentWeek} checkBtn={checkBtn} />
 
       {isOpen && (
         <DayPicker
