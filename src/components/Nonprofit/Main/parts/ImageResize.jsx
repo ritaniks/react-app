@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ImageResize = ({ path }) => {
   return (
     <picture>
-      <source media="(min-width: 992px)" srcSet={`${path[0]}, ${path[1]} 2x`} />
+      <source media="(min-width: 768px)" srcSet={`${path[0]}, ${path[1]} 2x`} />
       <img
         src={path[2]}
         alt={path[0]}
