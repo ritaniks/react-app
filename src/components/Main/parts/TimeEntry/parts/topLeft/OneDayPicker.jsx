@@ -1,28 +1,36 @@
 import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import CurrentDayBtn from './CurrentDayBtn';
 import Helmet from 'react-helmet';
-// import { ReactComponent as Calendar } from '../../../../../assets/img/main/calendar.svg';
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
+import { ReactComponent as ArrowB } from '../../../../../../assets/img/main/arrows/arrow-bottom.svg';
 import css from './OneDayPicker.module.scss';
 
-const OneDayPicker = () => {
+const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState(new Date());
-
-  const convertDate = moment(selectedDay).format('ll');
+  const [viewDate, setViewDate] = useState('');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
+
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
+
   useEffect(() => {
     setIsOpen(false);
+
+    const parseDate = moment(selectedDay).format('MMM Do');
+    setViewDate(parseDate);
+    setSelectedDate(parseDate);
+    // eslint-disable-next-line
   }, [selectedDay]);
 
   const handleClick = e => {
@@ -53,37 +61,49 @@ const OneDayPicker = () => {
     setSelectedDay(tomorrow);
   };
 
+  const handleCurrentDay = () => {
+    setSelectedDay(new Date());
+  };
+
   return (
     <>
       <div ref={node} className={css.wrapDayPicker}>
-        <div
-          className={`btn-group ${css.wrapGroup}`}
-          role="group"
-          aria-label="Basic example"
-        >
-          <button
+        <div className={`${css.wrapGroup}`}>
+          <div
             onClick={handleBackDay}
             type="button"
-            className={`btn btn-light ${css.wrapIcon}`}
+            className={`${css.wrapIcon} ${css.arrowIconL}`}
           >
             <ArrowL />
-          </button>
-          <button
-            onClick={handleToogle}
-            type="button"
-            className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-          >
-            {convertDate}
-          </button>
-          <button
+          </div>
+
+          {widthDivice < 768 ? (
+            <div
+              onClick={handleToogle}
+              type="button"
+              className={`${css.wrapIcon} ${css.date}`}
+            >
+              <Calendar />
+              <div className={css.wrapArrowBottom}>
+                <ArrowB />
+              </div>
+            </div>
+          ) : (
+            <div onClick={handleToogle} type="button" className={`${css.date}`}>
+              {viewDate}
+            </div>
+          )}
+
+          <div
             onClick={handleNextDay}
             type="button"
-            className={`btn btn-light ${css.wrapIcon}`}
+            className={`${css.wrapIcon} ${css.arrowIconR}`}
           >
             <ArrowR />
-          </button>
+          </div>
         </div>
-        <CurrentDayBtn />
+
+        <CurrentDayBtn onClick={handleCurrentDay} checkBtn={checkBtn} />
 
         {isOpen && (
           <DayPicker
@@ -108,6 +128,12 @@ const OneDayPicker = () => {
       </Helmet>
     </>
   );
+};
+
+OneDayPicker.propTypes = {
+  checkBtn: PropTypes.string.isRequired,
+  widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
 };
 
 export default OneDayPicker;

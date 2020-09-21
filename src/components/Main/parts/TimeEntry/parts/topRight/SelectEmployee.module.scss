@@ -1,3 +1,10 @@
 .select {
-  width: 100px;
+  // margin-right: 0px;
+  height: 31px;
+}
+
+@media (min-width: 768px) {
+  .select {
+    margin-right: 0.75rem;
+  }
 }

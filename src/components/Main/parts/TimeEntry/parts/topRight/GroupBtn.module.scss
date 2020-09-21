@@ -1,32 +1,51 @@
+.groupBtn {
+  position: absolute !important;
+  top: -3rem;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+
+  & label:not(:last-child) {
+    border-right: 1px solid #ced4da;
+  }
+}
 .btn {
-  margin: 0 !important;
-  border: 1px solid lightgray !important;
-  border-radius: 0.25rem !important;
-  width: 100px !important;
-  display: flex !important;
+  margin: 0;
+  padding: 0.25rem;
+  display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 13px;
+  height: 28.5px;
 
   &:hover,
   &:focus {
     background-color: var(--light);
   }
   &:active {
-    background-color: #d4d1d1e1 !important;
-    margin: 0 !important;
-    width: 100px !important;
+    background-color: #e9ecef;
   }
 }
 .active {
-  margin: 0 !important;
-  background-color: #eef0f2 !important;
-  width: 100px !important;
-  outline: 1px solid rgba(101, 142, 208, 0.4);
-  outline-style: auto;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  background-color: #eef0f2;
 }
 .hide {
   display: none;
+}
+
+.leftBtn {
+  border-radius: 0.22rem 0 0 0.22rem;
+}
+.rightBtn {
+  border-radius: 0 0.22rem 0.22rem 0;
+}
+
+@media (min-width: 768px) {
+  .groupBtn {
+    position: relative !important;
+    top: 0;
+  }
 }

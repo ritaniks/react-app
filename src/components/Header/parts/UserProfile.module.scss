@@ -1,13 +1,3 @@
-// .wrapUserProfile {
-//   padding: 0px;
-
-//   @media (max-width: 767px) {
-//     & div button:after,
-//     div button span {
-//       display: none;
-//     }
-//   }
-// }
 .userName {
   padding: 0 !important;
   color: white !important;
@@ -43,13 +33,12 @@
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 954px) {
   .userIcon {
     display: none;
   }
 }
-
-@media (max-width: 767px) {
+@media (max-width: 954px) {
   .wrapUserProfile div button:after,
   .wrapUserProfile div button span {
     display: none;

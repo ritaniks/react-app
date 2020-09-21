@@ -1,7 +1,10 @@
 .wrapMain {
   height: 80vh;
-  padding: 20px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  padding: 10px;
+}
+
+@media (min-width: 400px) {
+  .wrapMain {
+    padding: 20px;
+  }
 }

@@ -34,9 +34,7 @@ const UserProfile = ({ user }) => {
           {!auth && (
             <Dropdown.Item className={css.item} href="#/action-1">
               <User className={css.icon} />
-              {/* <Link to="/login"> */}
               <span> Login</span>
-              {/* </Link> */}
             </Dropdown.Item>
           )}
 

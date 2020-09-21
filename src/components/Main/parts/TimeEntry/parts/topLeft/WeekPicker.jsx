@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
@@ -6,6 +7,8 @@ import CurrentDayBtn from '../topLeft/CurrentDayBtn';
 
 import { ReactComponent as ArrowL } from '../../../../../../assets/img/main/arrows/chevron-left.svg';
 import { ReactComponent as ArrowR } from '../../../../../../assets/img/main/arrows/chevron-right.svg';
+import { ReactComponent as Calendar } from '../../../../../../assets/img/main/calendar.svg';
+import { ReactComponent as ArrowB } from '../../../../../../assets/img/main/arrows/arrow-bottom.svg';
 
 import css from './WeekPicker.module.scss';
 import 'react-day-picker/lib/style.css';
@@ -26,13 +29,16 @@ function getWeekRange(date) {
   };
 }
 
-const WeekPicker2 = () => {
+const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   const node = useRef();
   const [hoverRange, setHoverRange] = useState(undefined);
   const [selectedDays, setSelectedDays] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [viewDate, setViewDate] = useState('');
 
   const daysAreSelected = selectedDays.length > 0;
+
+  // let parseDate = '';
 
   const modifiers = {
     hoverRange,
@@ -59,6 +65,14 @@ const WeekPicker2 = () => {
     if (isOpen) {
       setIsOpen(false);
     }
+
+    const parseDate = `${moment(selectedDays[0]).format('MMM Do')} – ${moment(
+      selectedDays[6],
+    ).format('MMM Do')}`;
+
+    setViewDate(parseDate);
+
+    setSelectedDate(parseDate);
     // eslint-disable-next-line
   }, [selectedDays]);
 
@@ -69,7 +83,6 @@ const WeekPicker2 = () => {
       return;
     }
     // outside click
-    setIsOpen(true);
     setIsOpen(false);
   };
 
@@ -107,38 +120,48 @@ const WeekPicker2 = () => {
     setSelectedDays(newSelectedDays);
   };
 
+  const handleCurrentWeek = () => {
+    setSelectedDays(getWeekDays(getWeekRange(new Date()).from));
+  };
+
   return (
-    <div ref={node} className={`${css.wrapWeekPicker} SelectedWeek`}>
-      <div
-        className={`btn-group ${css.wrapCalendar}`}
-        role="group"
-        aria-label="Basic example"
-      >
-        <button
+    <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
+      <div className={`${css.wrapCalendar}`}>
+        <div
           onClick={handlePrevWeek}
           type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
+          className={`${css.arrowIconL} ${css.wrapIcon}`}
         >
           <ArrowL />
-        </button>
-        <button
-          onClick={handleToogle}
-          type="button"
-          className={`btn btn-light ${css.wrapIcon} ${css.date}`}
-        >
-          {moment(selectedDays[0]).format('MMM D')} –{' '}
-          {moment(selectedDays[6]).format('ll')}
-        </button>
-        <button
+        </div>
+        {widthDivice < 900 ? (
+          <div
+            onClick={handleToogle}
+            type="button"
+            className={`${css.wrapIcon} ${css.date}`}
+          >
+            <Calendar />
+            <div className={css.wrapArrowBottom}>
+              <ArrowB />
+            </div>
+          </div>
+        ) : (
+          <div onClick={handleToogle} type="button" className={`${css.date}`}>
+            {viewDate}
+          </div>
+        )}
+
+        <div
           onClick={handleNextWeek}
           type="button"
-          className={`btn btn-light ${css.wrapIcon}`}
+          className={`${css.arrowIconR} ${css.wrapIcon}`}
         >
           <ArrowR />
-        </button>
+        </div>
       </div>
 
-      <CurrentDayBtn />
+      <CurrentDayBtn onClick={handleCurrentWeek} checkBtn={checkBtn} />
+
       {isOpen && (
         <DayPicker
           initialMonth={selectedDays[0]}
@@ -201,4 +224,11 @@ const WeekPicker2 = () => {
   );
 };
 
-export default WeekPicker2;
+WeekPicker.propTypes = {
+  checkBtn: PropTypes.string.isRequired,
+  widthDivice: PropTypes.number,
+  setSelectedDate: PropTypes.func.isRequired,
+  // selectedDate: PropTypes.instanceOf(Date).isRequired,
+};
+
+export default WeekPicker;

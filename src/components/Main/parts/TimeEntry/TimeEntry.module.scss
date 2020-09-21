@@ -4,23 +4,34 @@
   height: 2.5rem;
 }
 .topLeft {
+  position: relative;
   display: flex;
+  justify-content: flex-start;
+  flex: 1;
 }
+
 .topRight {
+  position: relative;
+  margin: auto 0;
   display: flex;
-  justify-content: flex-end;
-  width: 500px;
-  min-width: 500px;
+  flex-direction: row-reverse;
+  // height: 31px;
 
   & div:first-child {
-    min-width: 200px;
-    height: 100%;
-    line-height: 2;
-    margin-right: 0.4rem;
-    // TO DO fix all users & width select... with multi checks
-    // & div:last-child {
-    // }
+    min-width: 5rem;
+  }
+
+  & div div {
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 }
 .wrapCharts {
+}
+
+@media (min-width: 768px) {
+  .topRight {
+    display: flex;
+    flex: 1;
+  }
 }

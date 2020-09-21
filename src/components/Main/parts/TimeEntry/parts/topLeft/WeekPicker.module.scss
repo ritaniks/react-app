@@ -1,14 +1,27 @@
 .wrapWeekPicker {
   position: relative;
   display: flex;
+  height: 31px;
+
+  & .wrapCalendar {
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+    margin-right: 0.75rem;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+
+    & .wrapIcon:hover,
+    & .wrapIcon:focus {
+      background-color: #e9ecef !important;
+    }
+    & .date:hover,
+    & .date:focus {
+      background-color: #e9ecef !important;
+    }
+  }
 }
 
-.wrapCalendar {
-  display: flex;
-  border: 1px solid lightgray;
-  border-radius: 0.25rem;
-  margin-right: 0.75rem;
-}
 .weekPicker {
   position: absolute;
   top: 2.75rem;
@@ -16,11 +29,47 @@
   z-index: 1;
 }
 .wrapIcon {
-  width: 2rem;
   padding: 0 0.5rem !important;
-  fill: grey;
   box-shadow: none !important;
+  display: flex !important;
+  justify-content: space-between;
+  fill: var(--gray-dark);
+  height: 28px;
+
+  & svg {
+    width: 15px;
+    padding: 2px;
+  }
+}
+
+.arrowIconL {
+  border-radius: 0.22rem 0 0 0.22rem;
+}
+.arrowIconR {
+  border-radius: 0 0.22rem 0.22rem 0;
+}
+
+.arrowIconL,
+.arrowIconR {
+  width: 40px;
+  display: flex;
+  justify-content: center;
 }
 .date {
-  width: 12rem;
+  white-space: nowrap;
+  border-left: 1px solid #ced4da !important;
+  border-right: 1px solid #ced4da !important;
+  min-width: 55px;
+  padding: 0 0.5rem !important;
+  height: 28px;
+  display: flex;
+  align-items: center;
+
+  & .wrapArrowBottom svg {
+    padding: 0 0.2rem;
+  }
+
+  & svg {
+    padding: 0;
+  }
 }
