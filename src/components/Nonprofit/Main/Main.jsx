@@ -34,7 +34,7 @@ const Main = ({ handleClick }) => {
         </div>
         <div className="align-items-md-end">
           {brands.map((brand, index) => (
-            <div key={index} className="col-12 col-lg-4 px-5 pb-1">
+            <div key={index} className="col-10 col-lg-4 px-5 pb-1">
               <ImageResize path={brand.img} />
             </div>
           ))}
