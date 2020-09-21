@@ -146,7 +146,7 @@ const PeriodPicker = ({ setSelectedDate, checkBtn }) => {
         <button
           onClick={handleToogle}
           type="button"
-          className={`btn btn-light ${css.date}`} // ${css.wrapIcon}
+          className={`${css.date}`} // ${css.wrapIcon}
         >
           Period Date
         </button>
