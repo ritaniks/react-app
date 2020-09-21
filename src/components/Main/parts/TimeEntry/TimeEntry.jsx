@@ -23,7 +23,7 @@ const TimeEntry = () => {
   const widthDivice = useWindowSize().width;
 
   // Check btn
-  const [checkBtn, setCheckBtn] = useState('period');
+  const [checkBtn, setCheckBtn] = useState('week');
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
