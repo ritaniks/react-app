@@ -22,7 +22,7 @@
 }
 .wrapList {
   position: absolute;
-  top: 32px;
+  top: 2.25rem;
   right: 0;
   border: 1px solid lightgray;
   border-radius: 0.25rem;
@@ -34,8 +34,14 @@
 
   & li {
     &:hover {
-      background-color: red;
+      background-color: tomato;
       margin-left: -1px;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapSelectUserBtn {
+    margin-right: 0.75rem;
   }
 }

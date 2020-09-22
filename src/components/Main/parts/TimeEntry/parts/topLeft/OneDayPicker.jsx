@@ -124,6 +124,13 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
         border: 1px solid lightgray;
         border-radius: 0.25rem;
       }
+      .DayPicker-Day {
+        border-radius: 0 !important;
+      }
+      // change color for selected day
+      // .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+      //   color: #212121 !important;
+      // }
     `}</style>
       </Helmet>
     </>
