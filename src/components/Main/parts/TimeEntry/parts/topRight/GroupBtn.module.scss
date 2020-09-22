@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   border-radius: 0.25rem;
+  background-color: var(--bg-gray);
 
   & label:not(:last-child) {
     margin-left: -1px;

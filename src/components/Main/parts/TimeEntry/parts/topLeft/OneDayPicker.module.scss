@@ -8,8 +8,7 @@
     align-items: center;
     border-radius: 0.25rem;
     margin-right: 0.75rem;
-    // border: 1px solid #ced4da;
-    background-color: #f8f9fa;
+    background-color: var(--bg-gray);
 
     & .wrapIcon:hover,
     & .wrapIcon:focus {
