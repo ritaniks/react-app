@@ -228,7 +228,6 @@ WeekPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
   widthDivice: PropTypes.number,
   setSelectedDate: PropTypes.func.isRequired,
-  // selectedDate: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default WeekPicker;
