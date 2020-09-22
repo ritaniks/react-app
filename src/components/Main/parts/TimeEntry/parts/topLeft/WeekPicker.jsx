@@ -134,7 +134,7 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
         >
           <ArrowL />
         </div>
-        {widthDivice < 900 ? (
+        {widthDivice < 768 ? (
           <div
             onClick={handleToogle}
             type="button"
@@ -201,9 +201,8 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
 
     .SelectedWeek .DayPicker-Day--selectedRangeStart {
       background-color: var(--primary) !important;
-
+      
     }
-
     .SelectedWeek .DayPicker-Day--selectedRangeEnd {
       background-color: var(--primary) !important;
      }
@@ -228,7 +227,6 @@ WeekPicker.propTypes = {
   checkBtn: PropTypes.string.isRequired,
   widthDivice: PropTypes.number,
   setSelectedDate: PropTypes.func.isRequired,
-  // selectedDate: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default WeekPicker;

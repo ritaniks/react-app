@@ -8,7 +8,7 @@ import WeekPicker from './parts/topLeft/WeekPicker';
 import OneDayPicker from './parts/topLeft/OneDayPicker';
 
 import GroupBtn from './parts/topRight/GroupBtn';
-import SelectEmployee from './parts/topRight/SelectEmployee';
+import SelectUserBtn from './parts/topRight/SelectUserBtn';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
 import SelectedDate from './parts/topLeft/SelectedDate';
@@ -74,7 +74,7 @@ const TimeEntry = () => {
               checkBtn={checkBtn}
               setCheckBtn={setCheckBtn}
             />
-            <SelectEmployee className={css.select} />
+            <SelectUserBtn widthDivice={widthDivice} />
           </div>
         </div>
 
