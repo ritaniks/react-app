@@ -10,7 +10,7 @@ const user = {
   name: 'Kristina',
   admin: true,
   auth: true,
-  users: [1, 2],
+  users: [],
 };
 
 const App = () => {
