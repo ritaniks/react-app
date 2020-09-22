@@ -37,6 +37,11 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
     // outside click
     setIsOpen(false);
   };
+  const handleSelect = e => {
+    const newUser = e.target.textContent;
+    setSelectUser(newUser);
+    setIsOpen(false);
+  };
 
   return (
     <div ref={node} className={css.wrapSelectUserBtn}>
@@ -55,9 +60,9 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
 
       {isOpen && (
         <ul className={css.wrapList}>
-          <li>111</li>
-          <li>222</li>
-          <li>333</li>
+          <li onClick={handleSelect}>Jon</li>
+          <li onClick={handleSelect}>Zoi</li>
+          <li onClick={handleSelect}>Tom</li>
         </ul>
       )}
     </div>

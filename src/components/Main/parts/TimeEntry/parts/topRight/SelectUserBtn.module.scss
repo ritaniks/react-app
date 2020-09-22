@@ -33,6 +33,7 @@
   min-width: 12rem;
 
   & li {
+    cursor: pointer;
     &:hover {
       background-color: tomato;
       margin-left: -1px;
