@@ -8,7 +8,7 @@
     align-items: center;
     border-radius: 0.25rem;
     margin-right: 0.75rem;
-    border: 1px solid #ced4da;
+    // border: 1px solid #ced4da;
     background-color: #f8f9fa;
 
     & .wrapIcon:hover,
@@ -35,7 +35,9 @@
   display: flex;
   justify-content: space-between;
   fill: var(--gray-dark);
-  height: 28px;
+  height: 31px;
+  border: 1px solid #ced4da;
+  margin-left: -1px;
 
   & svg {
     width: 15px;
@@ -56,14 +58,14 @@
   justify-content: center;
 }
 .date {
-  border-left: 1px solid #ced4da !important;
-  border-right: 1px solid #ced4da !important;
   white-space: nowrap;
+  border: 1px solid #ced4da;
   min-width: 55px;
-  padding: 0 0.5rem !important;
-  height: 28px;
+  padding: 0 0.5rem;
+  height: 31px;
   display: flex;
   align-items: center;
+  margin-left: -1px;
 
   & svg {
     padding: 0;

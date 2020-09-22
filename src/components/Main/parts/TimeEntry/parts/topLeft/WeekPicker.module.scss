@@ -14,6 +14,7 @@
     & .wrapIcon:focus {
       background-color: #e9ecef !important;
     }
+
     & .date:hover,
     & .date:focus {
       background-color: #e9ecef !important;
@@ -60,7 +61,7 @@
   white-space: nowrap;
   border: 1px solid #ced4da;
   min-width: 55px;
-  padding: 0 0.5rem !important;
+  padding: 0 0.5rem;
   height: 31px;
   display: flex;
   align-items: center;
