@@ -15,11 +15,17 @@
   flex-direction: row-reverse;
 }
 .wrapCharts {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
   .topRight {
     display: flex;
     flex: 1;
+  }
+  .wrapCharts {
+    flex-direction: row;
+    justify-content: space-around;
   }
 }

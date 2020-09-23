@@ -29,7 +29,7 @@ const TimeEntry = () => {
     setIsChartOpen(!isChartOpen);
   };
   // is Chart Open
-  const [isChartOpen, setIsChartOpen] = useState(true);
+  const [isChartOpen, setIsChartOpen] = useState(false);
 
   // selected Date for all Pickers
   const [selectedDate, setSelectedDate] = useState(''); // by default new Date()

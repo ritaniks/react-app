@@ -10,6 +10,7 @@ import App from './components/App';
 import 'chartjs-plugin-labels';
 
 import './assets/css/style.css';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
