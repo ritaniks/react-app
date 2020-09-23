@@ -26,30 +26,33 @@ const AddRow = () => {
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
-        className="mymodal"
-        overlayClassName="myoverlay"
+        className="addUserModal"
+        overlayClassName="addUserOverlay"
         closeTimeoutMS={500}
       >
+        <div>My modal dialog.</div>
+        <div>My modal dialog.</div>
+        <div>My modal dialog.</div>
         <div>My modal dialog.</div>
         <button onClick={toggleModal}>Close modal</button>
       </Modal>
 
       <Helmet>
         <style>{`
-              .mymodal {
+              .addUserModal {
                     position: fixed;
-                    top: 50%;
+                    top: 25%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     border: 1px solid #ccc;
                     background: #fff;
                     overflow: auto;
-                    border-radius: 4px;
+                    border-radius: 0.25rem;
                     outline: none;
                     padding: 20px;
               }
 
-              .myoverlay {
+              .addUserOverlay {
                     position: fixed;
                     top: 0;
                     left: 0;
