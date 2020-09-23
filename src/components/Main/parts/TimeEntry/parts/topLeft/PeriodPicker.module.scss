@@ -11,9 +11,12 @@
   border-radius: 0.25rem;
   border: 1px solid #ced4da;
   background-color: #f8f9fa;
+  outline: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #e9ecef !important;
+    outline: none;
   }
 }
 .periodPicker {
