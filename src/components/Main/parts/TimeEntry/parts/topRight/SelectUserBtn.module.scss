@@ -3,6 +3,7 @@
 }
 .btn {
   display: flex;
+  align-items: center;
   border: 1px solid lightgray;
   border-radius: 0.25rem;
   background-color: var(--bg-gray);
@@ -50,8 +51,6 @@
   }
   .btn {
     height: 38px;
-    display: flex;
-    align-items: center;
   }
   .wrapList {
     left: 0;

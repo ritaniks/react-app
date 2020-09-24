@@ -9,7 +9,6 @@
   border: 1px solid #ced4da;
   background-color: #f8f9fa;
   outline: none;
-  height: 38px;
 
   &:hover,
   &:focus {
@@ -22,4 +21,10 @@
   top: 3rem;
   left: 0;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .date {
+    height: 38px;
+  }
 }
