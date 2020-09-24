@@ -16,9 +16,8 @@
 }
 .wrapIcon svg {
   fill: var(--gray-dark);
-  width: 1rem;
+  width: 1.25rem;
   height: 1rem;
-  padding: 0.075rem;
 }
 .wrapList {
   position: absolute;
@@ -48,6 +47,11 @@
 @media (min-width: 768px) {
   .wrapSelectUserBtn {
     margin-right: 0.75rem;
+  }
+  .btn {
+    height: 38px;
+    display: flex;
+    align-items: center;
   }
   .wrapList {
     left: 0;

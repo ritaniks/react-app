@@ -127,15 +127,15 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
   return (
     <div ref={node} className={`${css.wrapWeekPicker}  SelectedWeek`}>
       <div className={`${css.wrapCalendar}`}>
-        <div
+        <button
           onClick={handlePrevWeek}
           type="button"
           className={`${css.arrowIconL} ${css.wrapIcon}`}
         >
           <ArrowL />
-        </div>
+        </button>
         {widthDivice < 768 ? (
-          <div
+          <button
             onClick={handleToogle}
             type="button"
             className={`${css.wrapIcon} ${css.date}`}
@@ -144,20 +144,24 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
             <div className={css.wrapArrowBottom}>
               <ArrowB />
             </div>
-          </div>
+          </button>
         ) : (
-          <div onClick={handleToogle} type="button" className={`${css.date}`}>
+          <button
+            onClick={handleToogle}
+            type="button"
+            className={`${css.date}`}
+          >
             {viewDate}
-          </div>
+          </button>
         )}
 
-        <div
+        <button
           onClick={handleNextWeek}
           type="button"
           className={`${css.arrowIconR} ${css.wrapIcon}`}
         >
           <ArrowR />
-        </div>
+        </button>
       </div>
 
       <CurrentDayBtn onClick={handleCurrentWeek} checkBtn={checkBtn} />

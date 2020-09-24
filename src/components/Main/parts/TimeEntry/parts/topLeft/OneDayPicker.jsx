@@ -69,16 +69,16 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
     <>
       <div ref={node} className={css.wrapDayPicker}>
         <div className={`${css.wrapGroup}`}>
-          <div
+          <button
             onClick={handleBackDay}
             type="button"
             className={`${css.wrapIcon} ${css.arrowIconL}`}
           >
             <ArrowL />
-          </div>
+          </button>
 
           {widthDivice < 768 ? (
-            <div
+            <button
               onClick={handleToogle}
               type="button"
               className={`${css.wrapIcon} ${css.date}`}
@@ -87,20 +87,24 @@ const OneDayPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
               <div className={css.wrapArrowBottom}>
                 <ArrowB />
               </div>
-            </div>
+            </button>
           ) : (
-            <div onClick={handleToogle} type="button" className={`${css.date}`}>
+            <button
+              onClick={handleToogle}
+              type="button"
+              className={`${css.date}`}
+            >
               {viewDate}
-            </div>
+            </button>
           )}
 
-          <div
+          <button
             onClick={handleNextDay}
             type="button"
             className={`${css.wrapIcon} ${css.arrowIconR}`}
           >
             <ArrowR />
-          </div>
+          </button>
         </div>
 
         <CurrentDayBtn onClick={handleCurrentDay} checkBtn={checkBtn} />
