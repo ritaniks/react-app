@@ -1,6 +1,10 @@
+.top {
+  font-size: 13px;
+}
 .settings {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 .topLeft {
   position: relative;
@@ -20,6 +24,9 @@
 }
 
 @media (min-width: 768px) {
+  .top {
+    font-size: 14px;
+  }
   .topRight {
     display: flex;
     flex: 1;

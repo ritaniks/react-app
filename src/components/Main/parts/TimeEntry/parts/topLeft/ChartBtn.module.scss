@@ -6,7 +6,6 @@
 
   & p {
     margin: auto 0 !important;
-    font-size: 13px;
   }
 }
 .wrapIcon {
@@ -14,4 +13,10 @@
   display: flex;
   justify-content: flex-end;
   align-self: center;
+}
+
+@media (min-width: 768px) {
+  .wrapBtn {
+    height: 38px;
+  }
 }

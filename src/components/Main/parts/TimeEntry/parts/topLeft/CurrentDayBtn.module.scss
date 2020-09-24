@@ -2,7 +2,7 @@
   white-space: nowrap;
   outline: none !important;
   position: absolute;
-  top: -1.5rem;
+  top: -1.75rem;
   left: 0;
   border: none;
   background-color: transparent;
@@ -11,7 +11,7 @@
   & p {
     margin: 0;
     color: var(--primary);
-    font-size: 13px;
+    // font-size: 13px;
 
     &:hover,
     &:focus {
@@ -28,7 +28,7 @@
     border-radius: 0.25rem;
     margin-right: 0.75rem;
     padding: 0 0.5rem;
-    height: 31px;
+    height: 38px;
 
     &:hover,
     &:focus {
