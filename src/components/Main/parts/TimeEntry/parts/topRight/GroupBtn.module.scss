@@ -1,6 +1,6 @@
 .groupBtn {
   position: absolute !important;
-  top: -2.6rem;
+  top: -3.2rem;
   height: 31px;
   display: flex;
   align-items: center;
@@ -49,5 +49,9 @@
   .groupBtn {
     position: relative !important;
     top: 0;
+    height: 38px;
+  }
+  .btn {
+    height: 38px;
   }
 }
