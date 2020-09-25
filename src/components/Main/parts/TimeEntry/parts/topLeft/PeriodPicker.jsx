@@ -148,7 +148,7 @@ const PeriodPicker = ({ setSelectedDate, checkBtn }) => {
           type="button"
           className={`${css.date}`} // ${css.wrapIcon}
         >
-          Period Date
+          Select Period
         </button>
 
         <CurrentDayBtn onClick={handleCurrentPeriod} checkBtn={checkBtn} />

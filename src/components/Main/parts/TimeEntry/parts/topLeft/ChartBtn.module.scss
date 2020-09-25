@@ -1,11 +1,20 @@
-.wrapBtn {
-  display: flex !important;
-  box-shadow: none !important;
+.btn {
+  display: flex;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+  color: var(--white);
   height: 31px;
-  padding: 0 0.5rem !important;
+  padding: 0 0.5rem;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: #006ba7;
+  }
 
   & p {
-    margin: auto 0 !important;
+    margin: auto 0;
   }
 }
 .wrapIcon {
@@ -16,7 +25,8 @@
 }
 
 @media (min-width: 768px) {
-  .wrapBtn {
+  .btn {
     height: 38px;
+    font-size: 14px;
   }
 }
