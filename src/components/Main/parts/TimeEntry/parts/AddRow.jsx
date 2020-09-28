@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
+import { ReactComponent as Plus } from '../../../../../assets/img/main/plus.svg';
 
 import css from './AddRow.module.scss';
 
@@ -18,9 +19,9 @@ const AddRow = () => {
       <button
         onClick={toggleModal}
         type="button"
-        className={`${css.addRow} btn btn-primary`}
+        className={`${css.addRowBtn}`}
       >
-        <p>+</p>
+        <Plus />
       </button>
       <Modal
         isOpen={isOpen}

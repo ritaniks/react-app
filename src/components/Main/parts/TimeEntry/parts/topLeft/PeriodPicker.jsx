@@ -148,7 +148,7 @@ const PeriodPicker = ({ setSelectedDate, checkBtn }) => {
           type="button"
           className={`${css.date}`} // ${css.wrapIcon}
         >
-          Period Date
+          Select Period
         </button>
 
         <CurrentDayBtn onClick={handleCurrentPeriod} checkBtn={checkBtn} />
@@ -193,11 +193,15 @@ const PeriodPicker = ({ setSelectedDate, checkBtn }) => {
         <Helmet>
           <style>{`
                 .Range .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-                      background-color: #f0f8ff !important;
-                      color: #4a90e2;
+                  background-color: #c7e5f6 !important;
+                  color: #212121;
+                }
+                .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+                  background-color: #8ECCEF !important;
+                  color: #212121;
                 }
                 .Range .DayPicker-Day {
-                      border-radius: 0 !important;
+                  border-radius: 0 !important;
                 }
                 .Range .DayPicker-Months {
                   background-color: #F8F9FA;

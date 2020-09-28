@@ -199,16 +199,16 @@ const WeekPicker = ({ checkBtn, widthDivice = 320, setSelectedDate }) => {
 
     .SelectedWeek .DayPicker-Day--selectedRange {
       background-color: #c7e5f6 !important;
-      border-top: 1px solid  var(--primary);
-      border-bottom: 1px solid  var(--primary);
+      border-top: 1px solid  #8ECCEF;
+      border-bottom: 1px solid  #8ECCEF;
     }
 
     .SelectedWeek .DayPicker-Day--selectedRangeStart {
-      background-color: var(--primary) !important;
+      background-color:  #8ECCEF !important;
       
     }
     .SelectedWeek .DayPicker-Day--selectedRangeEnd {
-      background-color: var(--primary) !important;
+      background-color:  #8ECCEF !important;
      }
 
     .SelectedWeek .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,

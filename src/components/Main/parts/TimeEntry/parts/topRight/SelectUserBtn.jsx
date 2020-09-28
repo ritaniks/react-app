@@ -6,10 +6,13 @@ import { ReactComponent as ArrowIcon } from '../../../../../../assets/img/main/a
 
 import css from './SelectUserBtn.module.scss';
 
+const users = ['Jon', 'Zoi', 'Tom', 'Elize', 'Richard', 'Dzamshud'];
+
 const SelectUserBtn = ({ widthDivice = 320 }) => {
   const node = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [selectUser, setSelectUser] = useState('select');
+  const [searchWord, setSearchWord] = useState('');
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
@@ -22,6 +25,7 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
     if (isOpen) {
       setIsOpen(false);
     }
+    setSearchWord('');
     // eslint-disable-next-line
   }, [selectUser]);
 
@@ -42,6 +46,17 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
     setSelectUser(newUser);
     setIsOpen(false);
   };
+  // filter by name
+  const handleChangeInput = e => {
+    setSearchWord(e.target.value);
+  };
+
+  const filterByName = (text, el) => {
+    if (text === '') {
+      return true;
+    }
+    return el.toLowerCase().includes(text.toLowerCase());
+  };
 
   return (
     <div ref={node} className={css.wrapSelectUserBtn}>
@@ -60,9 +75,24 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
 
       {isOpen && (
         <ul className={css.wrapList}>
-          <li onClick={handleSelect}>Jon</li>
-          <li onClick={handleSelect}>Zoi</li>
-          <li onClick={handleSelect}>Tom</li>
+          <li>
+            <input
+              type="text"
+              name="search"
+              value={searchWord}
+              placeholder="Filter by name ..."
+              onChange={handleChangeInput}
+              autoComplete="off"
+              style={{ width: '100%' }}
+            />
+          </li>
+          {users.map((el, index) => (
+            <div key={index}>
+              {filterByName(searchWord, el) && (
+                <li onClick={handleSelect}>{el}</li>
+              )}
+            </div>
+          ))}
         </ul>
       )}
     </div>
