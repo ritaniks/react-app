@@ -83,6 +83,7 @@ const SelectUserBtn = ({ widthDivice = 320 }) => {
               placeholder="Filter by name ..."
               onChange={handleChangeInput}
               autoComplete="off"
+              style={{ width: '100%' }}
             />
           </li>
           {users.map((el, index) => (
