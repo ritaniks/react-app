@@ -1,7 +1,12 @@
 import React from 'react';
+import Expenses from '../Main/parts/Expenses/Expenses';
 
 const ExpensesPage = () => {
-  return <h2>Expenses Page</h2>;
+  return (
+    <>
+      <Expenses />
+    </>
+  );
 };
 
 export default ExpensesPage;
