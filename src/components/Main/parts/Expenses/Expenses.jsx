@@ -29,9 +29,9 @@ const Expenses = () => {
   return (
     <>
       <Dropdown>
-        <Item onClick={() => alert('User')}>Kristina</Item>
-        <Item onClick={() => alert('Profile')}>Profile</Item>
-        <Item onClick={() => alert('Logout')}>Logout</Item>
+        <Item onClick={() => console.log('Select User')}>Kristina</Item>
+        <Item onClick={() => console.log('Select Profile')}>Profile</Item>
+        <Item onClick={() => console.log('Select Logout')}>Logout</Item>
       </Dropdown>
     </>
   );
