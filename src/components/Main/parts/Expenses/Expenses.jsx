@@ -1,25 +1,25 @@
 import React from 'react';
 
-// import css from './Expenses.module.scss'
-const Menu = ({ children }) => {
+import css from './Expenses.module.scss';
+const Dropdown = ({ children }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [head, ...tail] = React.Children.toArray(children);
 
   return (
     <div
-      className="menu"
+      className={css.dropdown}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
       {head}
-      {isOpen && <div className="open">{tail}</div>}
+      {isOpen && <div className={css.open}>{tail}</div>}
     </div>
   );
 };
 
 const Item = ({ children, onClick }) => {
   return (
-    <div className="item" onClick={onClick}>
+    <div className={css.item} onClick={onClick}>
       {children}
     </div>
   );
@@ -28,11 +28,11 @@ const Item = ({ children, onClick }) => {
 const Expenses = () => {
   return (
     <>
-      <Menu>
-        <Item onClick={() => alert('Link one clicked!')}>Link One</Item>
-        <Item onClick={() => alert('Link two clicked!')}>Link Two</Item>
-        <Item onClick={() => alert('Link three clicked!')}>Link Three</Item>
-      </Menu>
+      <Dropdown>
+        <Item onClick={() => alert('User')}>Kristina</Item>
+        <Item onClick={() => alert('Profile')}>Profile</Item>
+        <Item onClick={() => alert('Logout')}>Logout</Item>
+      </Dropdown>
     </>
   );
 };
