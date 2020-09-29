@@ -4,7 +4,7 @@
 .btn {
   display: flex;
   align-items: center;
-  border: 1px solid lightgray;
+  border: 1px solid var(--border-gray);
   border-radius: 0.25rem;
   background-color: var(--bg-gray);
   height: 31px;
