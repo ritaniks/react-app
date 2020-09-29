@@ -12,6 +12,7 @@ import SelectUserBtn from './parts/topRight/SelectUserBtn';
 import ChartBtn from './parts/topLeft/ChartBtn';
 import AddRow from './parts/AddRow';
 import SelectedDate from './parts/topLeft/SelectedDate';
+import StartTimerBtn from './parts/topLeft/StartTimerBtn';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -23,7 +24,7 @@ const TimeEntry = () => {
   const widthDivice = useWindowSize().width;
 
   // Check btn
-  const [checkBtn, setCheckBtn] = useState('period');
+  const [checkBtn, setCheckBtn] = useState('day');
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
@@ -63,10 +64,13 @@ const TimeEntry = () => {
               />
             )}
 
-            <ChartBtn
-              handleChartBtn={handleChartBtn}
-              isChartOpen={isChartOpen}
-            />
+            {checkBtn === 'week' && (
+              <ChartBtn
+                handleChartBtn={handleChartBtn}
+                isChartOpen={isChartOpen}
+              />
+            )}
+            {checkBtn === 'day' && <StartTimerBtn />}
           </div>
           <div className={`${css.topRight} `}>
             <GroupBtn
@@ -85,12 +89,15 @@ const TimeEntry = () => {
           </div>
         )}
 
-        <AddRow />
+        {checkBtn === 'week' && <AddRow />}
       </div>
-      <div className={css.table}>
-        {/* to do table */}
-        Table
-      </div>
+
+      {checkBtn === 'week' && (
+        <div className={css.table}>
+          {/* to do table */}
+          Table
+        </div>
+      )}
     </>
   );
 };
