@@ -1,0 +1,54 @@
+.wrapAddProject {
+  display: flex;
+  position: relative;
+  margin-bottom: 0.5rem;
+
+  & .search {
+    margin-right: 0.5rem;
+    padding-right: 1.5rem;
+    flex: 1;
+    border: 1px solid var(--border-gray);
+    border-radius: 0.25rem;
+  }
+
+  & .wrapSearchIcon {
+    position: absolute;
+    top: 0.65rem;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      width: 0.75rem;
+      fill: var(--gray-darker);
+    }
+  }
+
+  & .addProjectBtn {
+    width: 31px;
+    height: 31px;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: var(--hover-primary);
+    }
+
+    & svg {
+      fill: #fff;
+      width: 0.75rem;
+    }
+  }
+}
+
+.wrapStartEndTime {
+  display: flex;
+  justify-content: space-between;
+}

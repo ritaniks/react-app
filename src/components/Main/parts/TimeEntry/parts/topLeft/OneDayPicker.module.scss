@@ -35,7 +35,7 @@
   align-items: center;
   fill: var(--gray-dark);
   height: 31px;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--border-gray);
   margin-left: -1px;
   background-color: transparent;
 
@@ -63,7 +63,7 @@
 }
 .date {
   white-space: nowrap;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--border-gray);
   min-width: 55px;
   padding: 0 0.5rem;
   height: 31px;

@@ -1,0 +1,41 @@
+.btn {
+  border: none;
+  border-radius: 0.25rem;
+  //
+  height: 31px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  & p {
+    margin: 0 0.25rem 0 0;
+    white-space: nowrap;
+  }
+}
+
+.green {
+  background-color: var(--teal);
+  fill: var(--gray-dark);
+}
+
+.red {
+  background-color: var(--red);
+  fill: #fff;
+  color: #fff;
+}
+
+.wrapIcon {
+  width: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    height: 38px;
+    font-size: 14px;
+  }
+}

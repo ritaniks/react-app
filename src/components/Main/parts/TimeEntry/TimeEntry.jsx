@@ -3,15 +3,19 @@ import React, { useState } from 'react';
 import BarChart from './parts/charts/BarChart';
 import DoughnutChart from './parts/charts/DoughnutChart';
 
+import GroupBtn from './parts/topRight/GroupBtn';
+import SelectUserBtn from './parts/topRight/SelectUserBtn';
+
 import PeriodPicker from './parts/topLeft/PeriodPicker';
 import WeekPicker from './parts/topLeft/WeekPicker';
 import OneDayPicker from './parts/topLeft/OneDayPicker';
-
-import GroupBtn from './parts/topRight/GroupBtn';
-import SelectUserBtn from './parts/topRight/SelectUserBtn';
 import ChartBtn from './parts/topLeft/ChartBtn';
-import AddRow from './parts/AddRow';
 import SelectedDate from './parts/topLeft/SelectedDate';
+import StartTimerBtn from './parts/topLeft/StartTimerBtn';
+
+import AddRow from './parts/AddRow';
+
+import Day from './parts/main/Day/Day';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -23,7 +27,7 @@ const TimeEntry = () => {
   const widthDivice = useWindowSize().width;
 
   // Check btn
-  const [checkBtn, setCheckBtn] = useState('period');
+  const [checkBtn, setCheckBtn] = useState('day');
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
@@ -36,7 +40,7 @@ const TimeEntry = () => {
 
   return (
     <>
-      <div className={css.top}>
+      <header className={css.top}>
         {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
@@ -63,10 +67,13 @@ const TimeEntry = () => {
               />
             )}
 
-            <ChartBtn
-              handleChartBtn={handleChartBtn}
-              isChartOpen={isChartOpen}
-            />
+            {checkBtn === 'week' && (
+              <ChartBtn
+                handleChartBtn={handleChartBtn}
+                isChartOpen={isChartOpen}
+              />
+            )}
+            {checkBtn === 'day' && <StartTimerBtn />}
           </div>
           <div className={`${css.topRight} `}>
             <GroupBtn
@@ -85,12 +92,22 @@ const TimeEntry = () => {
           </div>
         )}
 
-        <AddRow />
-      </div>
-      <div className={css.table}>
-        {/* to do table */}
-        Table
-      </div>
+        {checkBtn === 'week' && <AddRow />}
+      </header>
+
+      <main>
+        {checkBtn === 'week' && (
+          <div className={css.table}>
+            {/* to do table */}
+            Table
+          </div>
+        )}
+        {checkBtn === 'day' && (
+          <div className={css.wrapDay}>
+            <Day />
+          </div>
+        )}
+      </main>
     </>
   );
 };
