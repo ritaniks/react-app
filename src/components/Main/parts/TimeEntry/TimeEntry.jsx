@@ -3,16 +3,19 @@ import React, { useState } from 'react';
 import BarChart from './parts/charts/BarChart';
 import DoughnutChart from './parts/charts/DoughnutChart';
 
+import GroupBtn from './parts/topRight/GroupBtn';
+import SelectUserBtn from './parts/topRight/SelectUserBtn';
+
 import PeriodPicker from './parts/topLeft/PeriodPicker';
 import WeekPicker from './parts/topLeft/WeekPicker';
 import OneDayPicker from './parts/topLeft/OneDayPicker';
-
-import GroupBtn from './parts/topRight/GroupBtn';
-import SelectUserBtn from './parts/topRight/SelectUserBtn';
 import ChartBtn from './parts/topLeft/ChartBtn';
-import AddRow from './parts/AddRow';
 import SelectedDate from './parts/topLeft/SelectedDate';
 import StartTimerBtn from './parts/topLeft/StartTimerBtn';
+
+import AddRow from './parts/AddRow';
+
+import Day from './parts/main/Day/Day';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -37,7 +40,7 @@ const TimeEntry = () => {
 
   return (
     <>
-      <div className={css.top}>
+      <header className={css.top}>
         {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
@@ -90,14 +93,21 @@ const TimeEntry = () => {
         )}
 
         {checkBtn === 'week' && <AddRow />}
-      </div>
+      </header>
 
-      {checkBtn === 'week' && (
-        <div className={css.table}>
-          {/* to do table */}
-          Table
-        </div>
-      )}
+      <main>
+        {checkBtn === 'week' && (
+          <div className={css.table}>
+            {/* to do table */}
+            Table
+          </div>
+        )}
+        {checkBtn === 'day' && (
+          <div className={css.wrapDay}>
+            <Day />
+          </div>
+        )}
+      </main>
     </>
   );
 };

@@ -40,7 +40,6 @@ img {
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
-  --bg-gray: #f8f9fa;
   --gray-dark: #495057;
   --gray-darker: #343a40;
   --primary: #0083cd;
@@ -57,4 +56,10 @@ img {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  /* customer colors */
+  --bg-gray: #f8f9fa;
+  --hover-primary: #006ba7;
+  --border-gray: #ced4da;
+
+  /* ced4da */
 }

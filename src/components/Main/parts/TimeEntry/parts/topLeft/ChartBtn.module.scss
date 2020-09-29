@@ -10,7 +10,7 @@
   &:hover,
   &:focus {
     outline: none;
-    background-color: #006ba7;
+    background-color: var(--hover-primary);
   }
 
   & p {
