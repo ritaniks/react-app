@@ -36,7 +36,7 @@ const Day = () => {
         </button>
       </div>
 
-      <div className={css.wrapChoices}>
+      <div className={css.wrapStartEndTime}>
         <StartTime />
         <EndTime />
       </div>
