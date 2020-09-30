@@ -2,7 +2,7 @@ import React from 'react';
 
 import css from './StartEndTime.module.scss';
 
-const StartTime = () => {
+const Duration = () => {
   return (
     <>
       <select className={css.select}>
@@ -15,4 +15,4 @@ const StartTime = () => {
   );
 };
 
-export default StartTime;
+export default Duration;

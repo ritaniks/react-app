@@ -51,4 +51,13 @@
 .wrapStartEndTime {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.wrapDuration {
+  width: 100%;
+
+  & .select {
+    width: 100% !important;
+  }
 }
