@@ -40,7 +40,7 @@ const TimeEntry = () => {
 
   return (
     <>
-      <header className={css.top}>
+      <section className={css.top}>
         {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
@@ -93,9 +93,9 @@ const TimeEntry = () => {
         )}
 
         {checkBtn === 'week' && <AddRow />}
-      </header>
+      </section>
 
-      <main>
+      <section>
         {checkBtn === 'week' && (
           <div className={css.table}>
             {/* to do table */}
@@ -107,7 +107,7 @@ const TimeEntry = () => {
             <Day />
           </div>
         )}
-      </main>
+      </section>
     </>
   );
 };
