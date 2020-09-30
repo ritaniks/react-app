@@ -48,16 +48,26 @@
   }
 }
 
-.wrapStartEndTime {
+.wrapChoices {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
 .wrapDuration {
-  width: 100%;
-
-  & .select {
-    width: 100% !important;
-  }
+  margin-bottom: 0.5rem;
 }
+// .wrapDuration .select option {
+//   background-color: red;
+// }
+// .wrapDuration {
+//   width: 100%;
+
+//   & .select {
+//     width: 100% !important;
+//   }
+//   & .select option:first-child {
+//     background-color: red !important;
+//     color: green;
+//   }
+// }

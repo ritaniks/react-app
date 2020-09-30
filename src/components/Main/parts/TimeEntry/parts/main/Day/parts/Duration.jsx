@@ -6,7 +6,7 @@ const Duration = () => {
   return (
     <>
       <select className={css.select}>
-        <option value disabled selected>
+        <option value disabled selected hidden>
           Duration
         </option>
         <option>11:00</option>
