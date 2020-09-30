@@ -12,6 +12,8 @@
   background-position: right 7px center;
   background-size: 9px;
   color: var(--gray-dark);
-  min-width: 45vw;
   height: 31px;
+  display: flex;
+  flex: 1;
+  width: 45vw;
 }
