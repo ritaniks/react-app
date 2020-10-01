@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Helmet from 'react-helmet';
 
 import Modal from 'react-modal';
-import StartWizard from './parts/StartWizard';
+// import StartWizard from './parts/StartWizard';
+import StartWizard_2 from './parts/StartWizard_2/StartWizard_2';
 
 import css from './Registration.module.scss';
 
@@ -25,7 +26,8 @@ const Registration = () => {
         overlayClassName="firstTrailOverlay"
         closeTimeoutMS={400}
       >
-        <StartWizard />
+        {/* <StartWizard /> */}
+        <StartWizard_2 />
         {/* 
         BTN -> "CLOSE MODAL"
         <button onClick={toggleModal}>Close modal</button> */}
