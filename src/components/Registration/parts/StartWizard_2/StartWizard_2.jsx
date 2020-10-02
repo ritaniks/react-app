@@ -8,33 +8,25 @@ import ThirdStep from '../ThirdStep';
 import FourthStep from '../FourthStep';
 
 import css from './StartWizard_2.module.scss';
+import './StartWizard.css';
 
 const steps = [
-  { name: 'Step ', component: <FirstStep /> },
-  { name: 'Step ', component: <SecondStep /> },
-  { name: 'Step ', component: <ThirdStep /> },
-  { name: 'Step ', component: <FourthStep /> },
+  { name: 'Step 1', component: <FirstStep /> },
+  { name: 'Step 2', component: <SecondStep /> },
+  { name: 'Step 3', component: <ThirdStep /> },
+  { name: 'Step 4', component: <FourthStep /> },
 ];
 
 const Wizard_2 = () => {
   return (
     <>
-      <div className="step-progress">
-        {/* <StepZilla
+      <div className={css.step_progress}>
+        <StepZilla
           steps={steps}
           stepsNavigation={false}
-          prevBtnOnLastStep={false}
+          // prevBtnOnLastStep={false}
           startAtStep={1}
-        /> */}
-      </div>
-      <div className={css.wizard}>
-        {/* <StepZilla
-          steps={steps}
-          stepsNavigation={false}
-          prevBtnOnLastStep={false}
-          startAtStep={1}
-        /> */}
-        <StepZilla steps={steps} />
+        />
       </div>
     </>
   );
