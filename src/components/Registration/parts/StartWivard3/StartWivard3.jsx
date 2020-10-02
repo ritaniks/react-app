@@ -44,29 +44,29 @@ const StartWivard3 = () => {
           {/* <!-- progressbar --> */}
           <ul className={css.progressbar}>
             {/* id="progressbar" */}
-            <li className="active" id="signup">
+            <li className={`${css.signup} ${css.active}`}>
               <strong>Sign up</strong>
             </li>
-            <li id="invite">
+            <li className={css.invite}>
               <strong>Invite users</strong>
             </li>
-            <li id="addclients">
+            <li className={css.addclients}>
               <strong>Setup</strong>
             </li>
-            <li id="confirm">
+            <li className={css.confirm}>
               <strong>Done</strong>
             </li>
           </ul>
 
           {/* progress */}
-          {/* <div className="progress mb-4">
+          <div className={css.progress}>
             <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
+              className={`${css.progressBar} ${css.progressBarStriped} ${css.progressBarAnimated}`}
               role="progressbar"
               aria-valuemin="0"
               aria-valuemax="100"
             />
-          </div> */}
+          </div>
 
           {/* <!-- fieldsets --> */}
           {/* First step (1) */}
