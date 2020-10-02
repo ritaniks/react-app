@@ -53,7 +53,9 @@ const StartWivard_3 = () => {
                   aria-valuemax="100"
                 />
               </div>
+
               {/* <!-- fieldsets --> */}
+              {/* First step (1) */}
               <fieldset>
                 <div className="form-card">
                   <div className="form-group mb-3">
@@ -86,6 +88,7 @@ const StartWivard_3 = () => {
                   value="Next"
                 />
               </fieldset>
+              {/* Second step (2) */}
               <fieldset>
                 <div className="form-card">
                   <div className="form-group mb-3">
@@ -154,6 +157,7 @@ const StartWivard_3 = () => {
                 />
                 {/* <!--                             <input type="button" name="previous" className="previous btn btn-light mt-4 float-right mr-3" value="Previous" /> --> */}
               </fieldset>
+              {/* Third step (3) */}
               <fieldset>
                 <div className="form-card">
                   <div className="my-0 bd-callout bd-callout-warning mb-3">
@@ -340,6 +344,7 @@ const StartWivard_3 = () => {
                   value="Previous"
                 />
               </fieldset>
+              {/* Fouth step (4) */}
               <fieldset>
                 <div className="form-card">
                   <h2 className="text-success text-center">
