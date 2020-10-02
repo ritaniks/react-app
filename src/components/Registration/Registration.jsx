@@ -3,9 +3,9 @@ import Helmet from 'react-helmet';
 
 import Modal from 'react-modal';
 
-import StartWizard_3 from './parts/StartWivard_3/StartWivard_3';
+import StartWizard3 from './parts/StartWivard3/StartWivard3';
 
-import css from './Registration.module.scss';
+// import css from './Registration.module.scss';
 
 Modal.setAppElement('#root');
 
@@ -26,7 +26,7 @@ const Registration = () => {
         overlayClassName="firstTrailOverlay"
         closeTimeoutMS={400}
       >
-        <StartWizard_3 />
+        <StartWizard3 />
         {/* BTN -> "CLOSE MODAL" */}
         {/* <button onClick={toggleModal}>Close modal</button> */}
       </Modal>

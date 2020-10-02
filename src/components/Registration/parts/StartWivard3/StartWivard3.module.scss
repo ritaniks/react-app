@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.75rem;
+
+  .logo {
+  }
+
+  .login {
+  }
+
+  .logo,
+  .login {
+  }
+}
+
+// Title
+.wrapTitle {
+  text-align: center;
+  .headTitle {
+    color: var(--primary);
+    font-size: 1.25rem;
+  }
+  .headDiscription {
+    font-size: 0.75rem;
+  }
+}
+
+// progressbar
+
+.progressbar {
+  list-style: none;
+  padding: 0;
+
+  overflow: hidden;
+  color: #c4c9ce;
+
+  .active {
+    background-color: var(--primary);
+  }
+
+  #signup:before {
+    font-family: FontAwesome;
+    content: '\f13e';
+  }
+
+  #invite:before {
+    font-family: FontAwesome;
+    content: '\f234';
+  }
+
+  #addclients:before {
+    font-family: FontAwesome;
+    content: '\f085';
+  }
+
+  #confirm:before {
+    font-family: FontAwesome;
+    content: '\f00c';
+  }
+}
