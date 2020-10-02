@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Helmet from 'react-helmet';
 
 import Modal from 'react-modal';
-// import StartWizard from './parts/StartWizard';
-import StartWizard_2 from './parts/StartWizard_2/StartWizard_2';
+
+import StartWizard_3 from './parts/StartWivard_3/StartWivard_3';
 
 import css from './Registration.module.scss';
 
@@ -26,11 +26,9 @@ const Registration = () => {
         overlayClassName="firstTrailOverlay"
         closeTimeoutMS={400}
       >
-        {/* <StartWizard /> */}
-        <StartWizard_2 />
-        {/* 
-        BTN -> "CLOSE MODAL"
-        <button onClick={toggleModal}>Close modal</button> */}
+        <StartWizard_3 />
+        {/* BTN -> "CLOSE MODAL" */}
+        {/* <button onClick={toggleModal}>Close modal</button> */}
       </Modal>
       <Helmet>
         <style>{`
@@ -62,13 +60,6 @@ const Registration = () => {
       `}</style>
       </Helmet>
     </>
-    // <section className={css.wrapRegistration}>
-    //   Registration
-    //   {/* 1 step*/}
-    //   {/* 2 step*/}
-    //   {/* 3 step*/}
-    //   {/* 4 step*/}
-    // </section>
   );
 };
 
