@@ -1,0 +1,131 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.75rem;
+
+  .logo {
+  }
+
+  .login {
+  }
+
+  .logo,
+  .login {
+  }
+}
+
+// Title
+.wrapTitle {
+  text-align: center;
+  .headTitle {
+    color: var(--primary);
+    font-size: 1.25rem;
+  }
+  .headDiscription {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+// Progressbar
+
+.progressbar {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+
+  overflow: hidden;
+  color: #c4c9ce;
+
+  .active {
+    color: var(--primary);
+  }
+
+  // @mixin active {
+  //   color: var(--primary);
+  //   background-color: var(--primary);
+  // }
+  // TO-DO _ active Step color ^^^
+
+  .signup:before {
+    font-family: FontAwesome;
+    content: '\f13e';
+  }
+
+  .invite:before {
+    font-family: FontAwesome;
+    content: '\f234';
+  }
+
+  .addclients:before {
+    font-family: FontAwesome;
+    content: '\f085';
+  }
+
+  .confirm:before {
+    font-family: FontAwesome;
+    content: '\f00c';
+  }
+
+  li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: #c4c9ce;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+  }
+  li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #c4c9ce;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1;
+  }
+
+  li.active:after,
+  li:active:before {
+    background: #0083cd;
+  }
+
+  li strong {
+    font-size: 0.6rem;
+  }
+}
+
+// Progress
+.progress {
+  height: 20px;
+}
+
+.progressBar {
+  background-color: #0083cd;
+}
+
+//  like
+@keyframes like {
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-40deg);
+  }
+  85% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*
+ * Base structure
+ */

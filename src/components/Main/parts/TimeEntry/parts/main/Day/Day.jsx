@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import StartTime from './parts/StartTime';
 import EndTime from './parts/EndTime';
+import Duration from './parts/Duration';
 
 import { ReactComponent as Plus } from '../../../../../../../assets/img/main/plus.svg';
 import { ReactComponent as Search } from '../../../../../../../assets/img/main/search.svg';
@@ -38,6 +39,9 @@ const Day = () => {
       <div className={css.wrapStartEndTime}>
         <StartTime />
         <EndTime />
+      </div>
+      <div className={css.wrapDuration}>
+        <Duration />
       </div>
     </>
   );

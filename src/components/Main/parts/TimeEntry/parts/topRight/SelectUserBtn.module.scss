@@ -32,9 +32,10 @@
   margin: 0;
   min-width: 12rem;
   z-index: 1;
+  min-height: 50%;
   // to add scroll
-  // max-height: 100px;
-  // overflow-y: scroll;
+  max-height: 300px;
+  overflow-y: scroll;
 
   & li {
     cursor: pointer;
