@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import Modal from '../Modal';
+import Modal from './parts/Modal';
 
-import FirstStep from '../FirstStep';
-import SecondStep from '../SecondStep';
-import ThirdStep from '../ThirdStep';
-import FourthStep from '../FourthStep';
+import FirstStep from './parts/FirstStep';
+import SecondStep from './parts/SecondStep';
+import ThirdStep from './parts/ThirdStep';
+import FourthStep from './parts/FourthStep';
 
 import css from './StartWizard3.module.scss';
 import './-styleSW.scss';

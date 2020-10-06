@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-import NextBtn from './buttons/NextBtn';
+import NextBtn from '../../buttons/NextBtn';
 
 const FirstStep = ({ counClick, setCounClick }) => {
   return (
