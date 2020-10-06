@@ -1,25 +1,27 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
-const FirstStep = () => {
+import NextBtn from './buttons/NextBtn';
+
+const FirstStep = ({ counClick, setCounClick }) => {
   return (
     <>
-      FirstStep
-      {/* <fieldset>
+      <fieldset>
         <div className="form-card">
           <div className="form-group mb-3">
-            <label for="exampleInputEmail1">
+            <label htmlFor="exampleInputEmail">
               <b>Email is your Username</b>
             </label>
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputEmail2"
               aria-describedby="emailHelp"
               placeholder="name@example.com"
             />
           </div>
           <div className="form-group mb-0">
-            <label for="exampleInputPassword1">
+            <label htmlFor="exampleInputPassword1">
               <b>Create Password</b>
             </label>
             <input
@@ -29,13 +31,15 @@ const FirstStep = () => {
             />
           </div>
         </div>
-        <input
+        {/* <input
           type="button"
           name="next"
           className="next btn btn-primary mt-4 float-right"
           value="Next"
-        />
-      </fieldset> */}
+          // onClick={() => console.log('')}
+        /> */}
+        <NextBtn counClick={counClick} setCounClick={setCounClick} />
+      </fieldset>
     </>
   );
 };

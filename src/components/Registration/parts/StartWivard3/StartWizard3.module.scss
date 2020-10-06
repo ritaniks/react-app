@@ -1,0 +1,31 @@
+.header {
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0.75rem;
+
+    .logo {
+    }
+
+    .login {
+      color: var(--secondary);
+    }
+
+    .logo,
+    .login {
+    }
+  }
+}
+
+// Title
+.wrapTitle {
+  text-align: center;
+  .headTitle {
+    color: var(--primary);
+    font-size: 1.25rem;
+  }
+  .headDiscription {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}

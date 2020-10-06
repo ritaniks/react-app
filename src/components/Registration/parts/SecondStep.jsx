@@ -1,13 +1,16 @@
 import React from 'react';
 
-const SecondStep = () => {
+import NextBtn from './buttons/NextBtn';
+// import PrevBtn from './buttons/PrevBtn';
+import SendInvite from './buttons/SendInvite';
+
+const SecondStep = ({ counClick, setCounClick }) => {
   return (
     <>
-      SecondStep{' '}
-      {/* <fieldset>
+      <fieldset className="fieldset">
         <div className="form-card">
           <div className="form-group mb-3">
-            <label for="exampleInputEmail1">
+            <label htmlFor="exampleInputEmail1">
               <b>Invite by Email</b>
             </label>
             <input
@@ -30,8 +33,9 @@ const SecondStep = () => {
                 id="exampleRadios1"
                 value="option1"
                 checked
+                onChange={() => console.log('')}
               />
-              <label className="form-check-label" for="exampleRadios1">
+              <label className="form-check-label" htmlFor="exampleRadios1">
                 Admin
               </label>
             </div>
@@ -43,7 +47,7 @@ const SecondStep = () => {
                 id="exampleRadios2"
                 value="option2"
               />
-              <label className="form-check-label" for="exampleRadios2">
+              <label className="form-check-label" htmlFor="exampleRadios2">
                 Manager
               </label>
             </div>
@@ -55,21 +59,18 @@ const SecondStep = () => {
                 id="exampleRadios3"
                 value="option2"
               />
-              <label className="form-check-label" for="exampleRadios3">
+              <label className="form-check-label" htmlFor="exampleRadios3">
                 User
               </label>
             </div>
           </div>
-          <a className="btn btn-success btn-lg btn-block invite">Send invite</a>
+
+          <SendInvite />
         </div>
-        <input
-          type="button"
-          name="next"
-          className="next btn btn-primary mt-4 float-right"
-          value="Next"
-        />
-      </fieldset> */}
-      {/* <!--                             <input type="button" name="previous" className="previous btn btn-light mt-4 float-right mr-3" value="Previous" /> --> */}
+        {/* if you need Previous Page */}
+        {/* <PrevBtn counClick={counClick} setCounClick={setCounClick} /> */}
+        <NextBtn counClick={counClick} setCounClick={setCounClick} />
+      </fieldset>
     </>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ThirdStep = () => {
+import Submit from './buttons/Submit';
+import PrevBtn from './buttons/PrevBtn';
+
+import css from './steps.module.scss';
+
+const ThirdStep = ({ counClick, setCounClick }) => {
   return (
     <>
-      ThirdStep
-      {/* <fieldset>
+      <fieldset>
         <div className="form-card">
           <div className="my-0 bd-callout bd-callout-warning mb-3">
             You will be able to add more details by logging in to the full TL
@@ -175,19 +179,11 @@ const ThirdStep = () => {
           </ul>
         </div>
 
-        <input
-          type="button"
-          name="next"
-          className="next btn btn-success mt-4 float-right"
-          value="Submit"
-        />
-        <input
-          type="button"
-          name="previous"
-          className="previous btn btn-light mt-4 float-right mr-3"
-          value="Previous"
-        />
-      </fieldset> */}
+        <div className={css.wrapBtn}>
+          <PrevBtn counClick={counClick} setCounClick={setCounClick} />
+          <Submit counClick={counClick} setCounClick={setCounClick} />
+        </div>
+      </fieldset>
     </>
   );
 };

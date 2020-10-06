@@ -3,8 +3,7 @@ import React from 'react';
 const FourthStep = () => {
   return (
     <>
-      FourthStep
-      {/* <fieldset>
+      <fieldset>
         <div className="form-card">
           <h2 className="text-success text-center">
             <strong>Well Done!</strong>
@@ -23,7 +22,7 @@ const FourthStep = () => {
             </div>
           </div>
         </div>
-      </fieldset> */}
+      </fieldset>
     </>
   );
 };
