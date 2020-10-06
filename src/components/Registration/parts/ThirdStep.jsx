@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NextBtn from './buttons/NextBtn';
+import Submit from './buttons/Submit';
 import PrevBtn from './buttons/PrevBtn';
 
 import css from './steps.module.scss';
@@ -179,25 +179,10 @@ const ThirdStep = ({ counClick, setCounClick }) => {
           </ul>
         </div>
 
-        {/* <input
-          type="button"
-          name="next"
-          className="next btn btn-success mt-4 float-right"
-          value="Submit"
-        />
-        <input
-          type="button"
-          name="previous"
-          className="previous btn btn-light mt-4 float-right mr-3"
-          value="Previous"
-        /> */}
-
         <div className={css.wrapBtn}>
           <PrevBtn counClick={counClick} setCounClick={setCounClick} />
-          <NextBtn counClick={counClick} setCounClick={setCounClick} />
+          <Submit counClick={counClick} setCounClick={setCounClick} />
         </div>
-
-        {/* counClick={counClick} setCounClick={setCounClick} */}
       </fieldset>
     </>
   );

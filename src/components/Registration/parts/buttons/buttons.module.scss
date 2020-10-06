@@ -4,11 +4,13 @@
   padding: 0.2rem 0.5rem;
   display: flex;
   margin: 1.5rem 0;
+  font-weight: 600;
 }
 
 .btnNext {
   background-color: var(--primary);
   margin: 1.5rem 0 0 auto;
+  color: #fff;
 
   &:hover {
     opacity: 0.9;
@@ -16,8 +18,30 @@
 }
 
 .btnPrev {
+  background-color: var(--secondary);
+  align-self: start;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+.btnSend {
   background-color: var(--yellow);
   align-self: start;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  font-size: 1.25rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btnSubmit {
+  background-color: var(--yellow);
+  font-weight: 600;
 
   &:hover {
     opacity: 0.9;

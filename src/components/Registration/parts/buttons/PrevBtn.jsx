@@ -3,7 +3,7 @@ import React from 'react';
 import css from './buttons.module.scss';
 
 const PrevBtn = ({ counClick, setCounClick }) => {
-  const handleClick = e => {
+  const handleClick = () => {
     const newCount = counClick - 1;
     setCounClick(+newCount);
   };
@@ -13,7 +13,7 @@ const PrevBtn = ({ counClick, setCounClick }) => {
       className={`${css.btnPrev} ${css.buttons} previous`}
       type="button"
     >
-      PrevBtn
+      Previous
     </button>
   );
 };

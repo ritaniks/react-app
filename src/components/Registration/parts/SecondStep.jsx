@@ -1,6 +1,8 @@
 import React from 'react';
 
 import NextBtn from './buttons/NextBtn';
+// import PrevBtn from './buttons/PrevBtn';
+import SendInvite from './buttons/SendInvite';
 
 const SecondStep = ({ counClick, setCounClick }) => {
   return (
@@ -62,19 +64,13 @@ const SecondStep = ({ counClick, setCounClick }) => {
               </label>
             </div>
           </div>
-          <button className="btn btn-success btn-lg btn-block invite">
-            Send invite
-          </button>
+
+          <SendInvite />
         </div>
-        {/* <input
-          type="button"
-          name="next"
-          className="next btn btn-primary mt-4 float-right"
-          value="Next"
-        /> */}
+        {/* if you need Previous Page */}
+        {/* <PrevBtn counClick={counClick} setCounClick={setCounClick} /> */}
         <NextBtn counClick={counClick} setCounClick={setCounClick} />
       </fieldset>
-      {/* <!--                             <input type="button" name="previous" className="previous btn btn-light mt-4 float-right mr-3" value="Previous" /> --> */}
     </>
   );
 };

@@ -2,21 +2,20 @@ import React from 'react';
 
 import css from './buttons.module.scss';
 
-const NextBtn = ({ counClick, setCounClick }) => {
+const Submit = ({ counClick, setCounClick }) => {
   const handleClick = () => {
     const newCount = counClick + 1;
     setCounClick(+newCount);
   };
-
   return (
     <button
       onClick={handleClick}
-      className={`${css.btnNext} ${css.buttons} next`}
+      className={`${css.btnSubmit} ${css.buttons} next`}
       type="button"
     >
-      Next
+      Submit
     </button>
   );
 };
 
-export default NextBtn;
+export default Submit;
