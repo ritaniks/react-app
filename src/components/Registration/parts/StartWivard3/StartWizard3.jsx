@@ -14,12 +14,13 @@ import './-styleSW.scss';
 const StartWizard3 = () => {
   const [counClick, setCounClick] = useState(0);
   return (
-    <div data-gr-c-s-loaded="true">
+    <div>
+      {/* data-gr-c-s-loaded="true" */}
       <Modal />
       <div className="cover-container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
         {/* HEADER */}
         <header className={`${css.header} masthead pt-3 px-3 px-sm-4`}>
-          <div className="inner">
+          <div className={css.inner}>
             <a
               className={css.logo}
               href="https://app.timeledger.com/tl/login.asp"

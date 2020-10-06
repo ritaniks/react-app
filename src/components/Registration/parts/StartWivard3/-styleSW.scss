@@ -80,23 +80,35 @@ html {
 }
 
 #progressbar #signup:before {
-  font-family: FontAwesome;
-  content: '\f13e';
+  content: '';
+  background-image: url(../../../../assets/img/registration/unlock.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem;
 }
 
 #progressbar #invite:before {
-  font-family: FontAwesome;
-  content: '\f234';
+  content: '';
+  background-image: url(../../../../assets/img/registration/user-plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem;
 }
 
 #progressbar #addclients:before {
-  font-family: FontAwesome;
-  content: '\f085';
+  content: '';
+  background-image: url(../../../../assets/img/registration/settings.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem;
 }
 
 #progressbar #confirm:before {
-  font-family: FontAwesome;
-  content: '\f00c';
+  content: '';
+  background-image: url(../../../../assets/img/registration/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem;
 }
 
 #progressbar li:before {
@@ -109,7 +121,7 @@ html {
   background: #c4c9ce;
   border-radius: 50%;
   margin: 0 auto 10px auto;
-  padding: 2px;
+  padding: 0.5rem;
 }
 
 #progressbar li:after {
@@ -318,9 +330,12 @@ a:hover {
   transition: 1s;
   -webkit-transition: 1s;
 }
-.card-box .inner {
-  padding: 5px 10px 0 40px;
-}
+// .inner {
+//   // padding: 5px 10px 0 40px;
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0 0 0.75rem;
+// }
 .card-box h3 {
   font-size: 27px;
   font-weight: bold;
