@@ -1,6 +1,11 @@
 import React from 'react';
 
-const ThirdStep = () => {
+import NextBtn from './buttons/NextBtn';
+import PrevBtn from './buttons/PrevBtn';
+
+import css from './steps.module.scss';
+
+const ThirdStep = ({ counClick, setCounClick }) => {
   return (
     <>
       <fieldset>
@@ -174,7 +179,7 @@ const ThirdStep = () => {
           </ul>
         </div>
 
-        <input
+        {/* <input
           type="button"
           name="next"
           className="next btn btn-success mt-4 float-right"
@@ -185,7 +190,14 @@ const ThirdStep = () => {
           name="previous"
           className="previous btn btn-light mt-4 float-right mr-3"
           value="Previous"
-        />
+        /> */}
+
+        <div className={css.wrapBtn}>
+          <PrevBtn counClick={counClick} setCounClick={setCounClick} />
+          <NextBtn counClick={counClick} setCounClick={setCounClick} />
+        </div>
+
+        {/* counClick={counClick} setCounClick={setCounClick} */}
       </fieldset>
     </>
   );

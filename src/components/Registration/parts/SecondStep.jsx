@@ -2,7 +2,7 @@ import React from 'react';
 
 import NextBtn from './buttons/NextBtn';
 
-const SecondStep = () => {
+const SecondStep = ({ counClick, setCounClick }) => {
   return (
     <>
       <fieldset className="fieldset">
@@ -72,7 +72,7 @@ const SecondStep = () => {
           className="next btn btn-primary mt-4 float-right"
           value="Next"
         /> */}
-        <NextBtn />
+        <NextBtn counClick={counClick} setCounClick={setCounClick} />
       </fieldset>
       {/* <!--                             <input type="button" name="previous" className="previous btn btn-light mt-4 float-right mr-3" value="Previous" /> --> */}
     </>

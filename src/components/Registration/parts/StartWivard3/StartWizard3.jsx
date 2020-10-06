@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Modal from '../Modal';
 
@@ -12,6 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
+  const [counClick, setCounClick] = useState(0);
   return (
     <div data-gr-c-s-loaded="true">
       <Modal />
@@ -79,16 +80,22 @@ const StartWizard3 = () => {
 
             {/* <!-- fieldsets --> */}
             {/* First step (1) */}
-            <FirstStep />
+            {counClick === 0 && (
+              <FirstStep counClick={counClick} setCounClick={setCounClick} />
+            )}
 
             {/* Second step (2) */}
-            <SecondStep />
+            {counClick === 1 && (
+              <SecondStep counClick={counClick} setCounClick={setCounClick} />
+            )}
 
             {/* Third step (3) */}
-            <ThirdStep />
+            {counClick === 2 && (
+              <ThirdStep counClick={counClick} setCounClick={setCounClick} />
+            )}
 
             {/* Fouth step (4) */}
-            <FourthStep />
+            {counClick === 3 && <FourthStep />}
           </div>
         </section>
       </div>

@@ -1,8 +1,9 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
 import NextBtn from './buttons/NextBtn';
 
-const FirstStep = () => {
+const FirstStep = ({ counClick, setCounClick }) => {
   return (
     <>
       <fieldset>
@@ -37,7 +38,7 @@ const FirstStep = () => {
           value="Next"
           // onClick={() => console.log('')}
         /> */}
-        <NextBtn />
+        <NextBtn counClick={counClick} setCounClick={setCounClick} />
       </fieldset>
     </>
   );
