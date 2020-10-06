@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 import Modal from 'react-modal';
 
-import StartWizard3 from './parts/StartWivard3/StartWivard3';
+import StartWizard3 from './parts/StartWivard3/StartWizard3';
 
 // import css from './Registration.module.scss';
 
@@ -44,7 +44,8 @@ const Registration = () => {
                     outline: none;
                     padding: 20px;
                     height: 80%;
-                    width: 80%
+                    width: 80%;
+                    max-width: 800px
               }
 
               .firstTrailOverlay {

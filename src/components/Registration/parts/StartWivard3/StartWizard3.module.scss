@@ -40,6 +40,7 @@
 
   .active {
     color: var(--primary);
+    background-color: var(--primary);
   }
 
   // @mixin active {
@@ -74,7 +75,7 @@
     line-height: 45px;
     display: block;
     font-size: 20px;
-    color: #ffffff;
+    // color: #ffffff;
     background: #c4c9ce;
     border-radius: 50%;
     margin: 0 auto 10px auto;

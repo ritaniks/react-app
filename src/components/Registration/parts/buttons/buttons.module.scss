@@ -1,0 +1,25 @@
+.buttons {
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.btnNext {
+  background-color: var(--primary);
+  margin: 1.5rem 0 1.5rem auto;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btnPrev {
+  background-color: var(--yellow);
+  align-self: start;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

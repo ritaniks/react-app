@@ -3,8 +3,7 @@ import React from 'react';
 const ThirdStep = () => {
   return (
     <>
-      ThirdStep
-      {/* <fieldset>
+      <fieldset>
         <div className="form-card">
           <div className="my-0 bd-callout bd-callout-warning mb-3">
             You will be able to add more details by logging in to the full TL
@@ -187,7 +186,7 @@ const ThirdStep = () => {
           className="previous btn btn-light mt-4 float-right mr-3"
           value="Previous"
         />
-      </fieldset> */}
+      </fieldset>
     </>
   );
 };
