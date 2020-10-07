@@ -5,7 +5,7 @@ import PrevBtn from '../../buttons/PrevBtn';
 
 import css from './steps.module.scss';
 
-const ThirdStep = ({ counClick, setCounClick }) => {
+const ThirdStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset>
@@ -180,8 +180,8 @@ const ThirdStep = ({ counClick, setCounClick }) => {
         </div>
 
         <div className={css.wrapBtn}>
-          <PrevBtn counClick={counClick} setCounClick={setCounClick} />
-          <Submit counClick={counClick} setCounClick={setCounClick} />
+          <PrevBtn countClick={countClick} setCountClick={setCountClick} />
+          <Submit countClick={countClick} setCountClick={setCountClick} />
         </div>
       </fieldset>
     </>

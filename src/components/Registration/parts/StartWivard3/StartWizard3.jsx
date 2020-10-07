@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Modal from './parts/Modal';
 
@@ -12,7 +12,13 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [counClick, setCounClick] = useState(0);
+  const [countClick, setCountClick] = useState(1);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setProgress((100 / 4) * countClick);
+  }, [countClick]);
+
   return (
     <div>
       {/* data-gr-c-s-loaded="true" */}
@@ -56,13 +62,13 @@ const StartWizard3 = () => {
               <li className="active" id="signup">
                 <strong>Sign up</strong>
               </li>
-              <li id="invite">
+              <li className={countClick === 2 ? 'active' : ''} id="invite">
                 <strong>Invite users</strong>
               </li>
-              <li id="addclients">
+              <li className={countClick >= 3 ? 'active' : ''} id="addclients">
                 <strong>Setup</strong>
               </li>
-              <li id="confirm">
+              <li className={countClick >= 4 ? 'active' : ''} id="confirm">
                 <strong>Done</strong>
               </li>
             </ul>
@@ -74,29 +80,38 @@ const StartWizard3 = () => {
                 role="progressbar"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={{ width: '25%' }}
+                style={{ width: `${progress}%` }}
               ></div>
             </div>
             {/* progress */}
 
             {/* <!-- fieldsets --> */}
             {/* First step (1) */}
-            {counClick === 0 && (
-              <FirstStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 1 && (
+              <FirstStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Second step (2) */}
-            {counClick === 1 && (
-              <SecondStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 2 && (
+              <SecondStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Third step (3) */}
-            {counClick === 2 && (
-              <ThirdStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 3 && (
+              <ThirdStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Fouth step (4) */}
-            {counClick === 3 && <FourthStep />}
+            {countClick === 4 && <FourthStep />}
           </div>
         </section>
       </div>

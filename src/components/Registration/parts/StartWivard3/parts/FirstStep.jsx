@@ -3,7 +3,7 @@ import React from 'react';
 
 import NextBtn from '../../buttons/NextBtn';
 
-const FirstStep = ({ counClick, setCounClick }) => {
+const FirstStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset>
@@ -31,14 +31,7 @@ const FirstStep = ({ counClick, setCounClick }) => {
             />
           </div>
         </div>
-        {/* <input
-          type="button"
-          name="next"
-          className="next btn btn-primary mt-4 float-right"
-          value="Next"
-          // onClick={() => console.log('')}
-        /> */}
-        <NextBtn counClick={counClick} setCounClick={setCounClick} />
+        <NextBtn countClick={countClick} setCountClick={setCountClick} />
       </fieldset>
     </>
   );

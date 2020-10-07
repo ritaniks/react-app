@@ -4,7 +4,7 @@ import NextBtn from '../../buttons/NextBtn';
 // import PrevBtn from '../../buttons/PrevBtn';
 import SendInvite from '../../buttons/SendInvite';
 
-const SecondStep = ({ counClick, setCounClick }) => {
+const SecondStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset className="fieldset">
@@ -68,8 +68,8 @@ const SecondStep = ({ counClick, setCounClick }) => {
           <SendInvite />
         </div>
         {/* if you need Previous Page */}
-        {/* <PrevBtn counClick={counClick} setCounClick={setCounClick} /> */}
-        <NextBtn counClick={counClick} setCounClick={setCounClick} />
+        {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
+        <NextBtn countClick={countClick} setCountClick={setCountClick} />
       </fieldset>
     </>
   );
