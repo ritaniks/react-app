@@ -62,7 +62,7 @@ const StartWizard3 = () => {
               <li className="active" id="signup">
                 <strong>Sign up</strong>
               </li>
-              <li className={countClick === 2 ? 'active' : ''} id="invite">
+              <li className={countClick >= 2 ? 'active' : ''} id="invite">
                 <strong>Invite users</strong>
               </li>
               <li className={countClick >= 3 ? 'active' : ''} id="addclients">
