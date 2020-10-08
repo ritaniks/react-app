@@ -14,6 +14,7 @@ import './-styleSW.scss';
 const StartWizard3 = () => {
   const [countClick, setCountClick] = useState(1);
   const [progress, setProgress] = useState(0);
+  const [openModal, setOpenModal] = useState(true);
 
   useEffect(() => {
     setProgress((100 / 4) * countClick);
@@ -22,7 +23,8 @@ const StartWizard3 = () => {
   return (
     <div>
       {/* data-gr-c-s-loaded="true" */}
-      <Modal />
+      {openModal && <Modal />}
+
       <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
         {/* HEADER */}
         <header className={`${css.header}  pt-3 px-3 px-sm-4`}>
