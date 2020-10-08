@@ -12,7 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(4);
+  const [countClick, setCountClick] = useState(1);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const StartWizard3 = () => {
 
   return (
     <div>
+      {console.log(countClick, 'countClick')}
       {/* data-gr-c-s-loaded="true" */}
       <Modal />
       <div className="cover-container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">

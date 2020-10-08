@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import NextBtn from '../../../buttons/NextBtn';
 // import PrevBtn from '../../../buttons/PrevBtn';
 import SendInvite from '../../../buttons/SendInvite';
+
+// import css from './steps.module.scss';
 
 const SecondStep = ({ countClick, setCountClick }) => {
   return (
@@ -73,6 +76,11 @@ const SecondStep = ({ countClick, setCountClick }) => {
       </fieldset>
     </>
   );
+};
+
+SecondStep.propTypes = {
+  countClick: PropTypes.number.isRequired,
+  setCountClick: PropTypes.func.isRequired,
 };
 
 export default SecondStep;

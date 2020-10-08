@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Submit from '../../../buttons/Submit';
 import PrevBtn from '../../../buttons/PrevBtn';
@@ -98,6 +99,11 @@ const ThirdStep = ({ countClick, setCountClick }) => {
       </fieldset>
     </>
   );
+};
+
+ThirdStep.propTypes = {
+  countClick: PropTypes.number.isRequired,
+  setCountClick: PropTypes.func.isRequired,
 };
 
 export default ThirdStep;
