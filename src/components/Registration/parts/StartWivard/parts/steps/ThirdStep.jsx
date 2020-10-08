@@ -17,7 +17,9 @@ const ThirdStep = ({ countClick, setCountClick }) => {
     <>
       <fieldset>
         <div className="form-card">
-          <div className="my-0 bd-callout bd-callout-warning mb-3">
+          <div
+            className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
+          >
             You will be able to add more details by logging in to the full TL
             desktop version
           </div>
@@ -44,8 +46,8 @@ const ThirdStep = ({ countClick, setCountClick }) => {
             </div>
           </form>
           <h5 className="title">Clients</h5>
-          <ul id="items" className="list-group mb-3">
-            <li className="list-group-item">
+          <ul className={`${css.items} mb-3`}>
+            <li className={css.listItem}>
               Minh Hong
               <button
                 className="btn btn-danger btn-sm float-right delete"
@@ -64,8 +66,8 @@ const ThirdStep = ({ countClick, setCountClick }) => {
             </li>
           </ul>
           <h5 className="title">Projects</h5>
-          <ul className="list-group" id="items2">
-            <li className="list-group-item">
+          <ul className={`${css.items} mb-3`}>
+            <li className={css.listItem}>
               <button
                 className="btn btn-danger btn-sm float-right delete"
                 style={{ width: '2rem', height: '2rem' }}

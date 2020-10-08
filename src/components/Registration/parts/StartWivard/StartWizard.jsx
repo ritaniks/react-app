@@ -12,7 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(3);
+  const [countClick, setCountClick] = useState(1);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -21,12 +21,11 @@ const StartWizard3 = () => {
 
   return (
     <div>
-      {console.log(countClick, 'countClick')}
       {/* data-gr-c-s-loaded="true" */}
       <Modal />
-      <div className="cover-container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
+      <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
         {/* HEADER */}
-        <header className={`${css.header} masthead pt-3 px-3 px-sm-4`}>
+        <header className={`${css.header}  pt-3 px-3 px-sm-4`}>
           <div className={css.inner}>
             <a
               className={css.logo}
@@ -57,7 +56,7 @@ const StartWizard3 = () => {
             14-day Free Trial of the Fully-Featured TimeLedger
           </div>
           <div id="msform" className={css.msform}>
-            <ul id="progressbar">
+            <ul id="progressbar" className={css.progressIcon}>
               <li className="active" id="signup">
                 <strong>Sign up</strong>
               </li>
