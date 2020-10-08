@@ -82,7 +82,6 @@ const ThirdStep = ({ countClick, setCountClick }) => {
                 style={{ width: '2rem', height: '2rem' }}
               >
                 <Pen />
-                {/* <i className="fas fa-pen edit-icon"></i> */}
               </button>
               <div className="pl-3">
                 <i className="far fa-user ml-n3"></i> Mark Duffer

@@ -14,7 +14,7 @@ const FourthStep = () => {
           </h2>
 
           <div className="row justify-content-center">
-            <div className={css.thumbsUp} id="thumbs-up">
+            <div className={css.thumbsUp}>
               {/* <span className="fa fa-thumbs-up">5</span> */}
               <ThumbsUp />
             </div>

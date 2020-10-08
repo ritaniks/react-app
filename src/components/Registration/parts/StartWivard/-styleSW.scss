@@ -2,19 +2,8 @@
   font-size: 1rem;
 }
 
-#thumbs-up {
-  font-size: 3rem;
-  animation: like 0.8s ease-in-out 0.3s;
-}
-
 .form-card {
   text-align: left;
-}
-
-.card {
-  z-index: 0;
-  border: none;
-  position: relative;
 }
 
 .alert {
@@ -137,19 +126,4 @@
 .progress-bar-animated {
   -webkit-animation: progress-bar-stripes 1s linear infinite;
   animation: progress-bar-stripes 1s linear infinite;
-}
-
-@keyframes like {
-  0% {
-    transform: rotate(0deg);
-  }
-  60% {
-    transform: rotate(-40deg);
-  }
-  85% {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
 }
