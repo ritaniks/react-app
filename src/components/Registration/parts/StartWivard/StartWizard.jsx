@@ -12,7 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(1);
+  const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -52,13 +52,11 @@ const StartWizard3 = () => {
         </header>
 
         <section className={css.wrapTitle}>
-          <h2 id="heading" className={css.headTitle}>
-            Start your Free Trial Now!
-          </h2>
+          <h2 className={css.headTitle}>Start your Free Trial Now!</h2>
           <div className={css.headDiscription}>
             14-day Free Trial of the Fully-Featured TimeLedger
           </div>
-          <div id="msform">
+          <div id="msform" className={css.msform}>
             <ul id="progressbar">
               <li className="active" id="signup">
                 <strong>Sign up</strong>

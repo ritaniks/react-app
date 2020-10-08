@@ -1,11 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
 
-html {
-  height: 100%;
-}
+// html {
+//   height: 100%;
+// }
 
 .btn {
   font-weight: 600 !important;
@@ -20,32 +20,32 @@ html {
   animation: like 0.8s ease-in-out 0.3s;
 }
 
-#heading {
-  color: #0083cd;
-}
+// #heading {
+//   color: #0083cd;
+// }
 
-#msform {
-  text-align: center;
-  position: relative;
-}
+// #msform {
+//   text-align: center;
+//   position: relative;
+// }
 
-#msform fieldset {
-  background: white;
-  border: 0 none;
-  border-radius: 0.5rem;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0;
-  position: relative;
-}
+// #msform fieldset {
+//   background: white;
+//   border: 0 none;
+//   border-radius: 0.5rem;
+//   box-sizing: border-box;
+//   width: 100%;
+//   margin: 0;
+//   position: relative;
+// }
 
 .form-card {
   text-align: left;
 }
 
-#msform fieldset:not(:first-of-type) {
-  display: none;
-}
+// #msform fieldset:not(:first-of-type) {
+//   display: none;
+// }
 
 .card {
   z-index: 0;
