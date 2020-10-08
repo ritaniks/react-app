@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Submit from '../../buttons/Submit';
-import PrevBtn from '../../buttons/PrevBtn';
+import Submit from '../../../buttons/Submit';
+import PrevBtn from '../../../buttons/PrevBtn';
 
 import css from './steps.module.scss';
 

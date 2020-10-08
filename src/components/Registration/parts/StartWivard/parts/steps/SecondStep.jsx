@@ -1,8 +1,8 @@
 import React from 'react';
 
-import NextBtn from '../../buttons/NextBtn';
-// import PrevBtn from '../../buttons/PrevBtn';
-import SendInvite from '../../buttons/SendInvite';
+import NextBtn from '../../../buttons/NextBtn';
+// import PrevBtn from '../../../buttons/PrevBtn';
+import SendInvite from '../../../buttons/SendInvite';
 
 const SecondStep = ({ countClick, setCountClick }) => {
   return (
