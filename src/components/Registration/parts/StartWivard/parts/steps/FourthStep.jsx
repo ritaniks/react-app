@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { ReactComponent as ThumbsUp } from '../../../../../../assets/img/registration/thumbs-up.svg';
+
+import css from './steps.module.scss';
+
 const FourthStep = () => {
   return (
     <>
@@ -10,8 +14,9 @@ const FourthStep = () => {
           </h2>
 
           <div className="row justify-content-center">
-            <div className="text-success" id="thumbs-up">
-              <span className="fa fa-thumbs-up"></span>
+            <div className={css.thumbsUp} id="thumbs-up">
+              {/* <span className="fa fa-thumbs-up">5</span> */}
+              <ThumbsUp />
             </div>
           </div>
           <div className="row justify-content-center">
