@@ -7,7 +7,7 @@ import SecondStep from './parts/SecondStep';
 import ThirdStep from './parts/ThirdStep';
 import FourthStep from './parts/FourthStep';
 
-import css from './StartWizard3.module.scss';
+import css from './StartWizard.module.scss';
 import './-styleSW.scss';
 // import './helperSW';
 
