@@ -5,7 +5,7 @@ import NextBtn from '../../../buttons/NextBtn';
 // import PrevBtn from '../../../buttons/PrevBtn';
 import SendInvite from '../../../buttons/SendInvite';
 
-import css from './steps.module.scss';
+// import css from './steps.module.scss';
 
 const Role = {
   Admin: 'Admin',
@@ -67,7 +67,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
               checked={Role.Manager === 'Manager'}
             />
             <label htmlFor="roleManager">{Role.Manager}</label>
-            {console.log(Role['roleUser'], "Role['roleUser']")}
             <input
               type="radio"
               id="roleUser"
@@ -76,46 +75,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
               checked={Role.User === 'User'}
             />
             <label htmlFor="roleUser"> {Role.User}</label>
-            {/* <div className="row m-0 mb-4">
-              <div className="form-check mr-4">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="roleUsers"
-                  id="roleAdmin"
-                  value="Admin"
-                  checked
-                  // onChange={() => console.log('')}
-                />
-                <label className="form-check-label" htmlFor="roleAdmin">
-                  {Role.Admin}
-                </label>
-              </div>
-              <div className="form-check mr-4">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="roleUsers"
-                  id="roleManager"
-                  value="Manager"
-                />
-                <label className="form-check-label" htmlFor="roleManager">
-                  {Role.Manager}
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="roleUsers"
-                  id="roleUser"
-                  value="User"
-                />
-                <label className="form-check-label" htmlFor="roleUser">
-                  {Role.User}
-                </label>
-              </div>
-            </div> */}
 
             <SendInvite />
           </div>
