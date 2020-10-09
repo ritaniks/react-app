@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import NextBtn from '../../../buttons/NextBtn';
@@ -14,25 +14,34 @@ const Role = {
 };
 
 const SecondStep = ({ countClick, setCountClick }) => {
-  const defaulProps = {
-    userEmail: 'name@example.com',
-    userRole: Role.User,
-  };
+  const [userEmail, setUserEmail] = useState('name@example.com');
+  const [userRole, setUserRole] = useState(Role.User);
+  // const [users, setUsers] = useState([]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(defaulProps.userEmail, defaulProps.userRole);
-    console.log('handleSubmit');
+    console.log(userEmail, 'userEmail');
+    console.log(userRole, 'userRole');
+    // console.log('handleSubmit');
   };
-  const handleChange = ({ target }) => {
-    defaulProps.userEmail = target.value;
+  const handleChangeInput = ({ target }) => {
+    setUserEmail(target.value);
+    // userEmail = target.value;
   };
+  const handleChangeRole = ({ target }) => {
+    console.log(target, 'target');
+    setUserRole(target.value);
+    // userRole = target.value;
+  };
+
+  useEffect(() => {
+    console.log('object');
+  }, [userEmail, userRole]);
 
   return (
     <>
       <fieldset className="fieldset">
-        <form>
-          {/* onSubmit={handleSubmit} */}
+        <form onSubmit={handleSubmit}>
           <div className="form-card">
             <div className="form-group mb-3">
               <label htmlFor="exampleInputEmail1">
@@ -44,54 +53,55 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="name@example.com"
-                onChange={handleChange}
+                onChange={handleChangeInput}
               />
             </div>
             <div className="mb-2">
               <b>User Permissions</b>
             </div>
             <input
-              className="mr-2"
               type="radio"
               id="roleAdmin"
               name="roleUsers"
               value="Admin"
               checked={Role.Admin === 'Admin'}
+              readOnly
+              onClick={handleChangeRole}
             />
-            <label className="mr-2" htmlFor="roleAdmin">
+            <label className="mr-2 pl-2" htmlFor="roleAdmin">
               {Role.Admin}
             </label>
 
             <input
-              className="mr-2"
               type="radio"
               id="roleManager"
               name="roleUsers"
               value="Manager"
               checked={Role.Manager === 'Manager'}
+              readOnly
+              onClick={handleChangeRole}
             />
-            <label className="mr-2" htmlFor="roleManager">
+            <label className="mr-2 pl-2" htmlFor="roleManager">
               {Role.Manager}
             </label>
             <input
-              className="mr-2"
               type="radio"
               id="roleUser"
               name="roleUsers"
               value="User"
               checked={Role.User === 'User'}
+              readOnly
+              onClick={handleChangeRole}
             />
-            <label htmlFor="roleUser"> {Role.User}</label>
+            <label className="pl-2" htmlFor="roleUser">
+              {Role.User}
+            </label>
 
             <SendInvite />
           </div>
           {/* if you need Previous Page */}
           {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
-          <NextBtn
-            handleSubmit={handleSubmit}
-            countClick={countClick}
-            setCountClick={setCountClick}
-          />
+          <NextBtn countClick={countClick} setCountClick={setCountClick} />
         </form>
       </fieldset>
     </>
