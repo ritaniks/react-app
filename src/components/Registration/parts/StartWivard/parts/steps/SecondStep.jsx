@@ -5,17 +5,24 @@ import NextBtn from '../../../buttons/NextBtn';
 // import PrevBtn from '../../../buttons/PrevBtn';
 import SendInvite from '../../../buttons/SendInvite';
 
-// import css from './steps.module.scss';
+import css from './steps.module.scss';
+
+const Role = {
+  Admin: 'Admin',
+  Manager: 'Manager',
+  User: 'User',
+};
 
 const SecondStep = ({ countClick, setCountClick }) => {
   const defaulProps = {
     userEmail: 'name@example.com',
-    userRole: 'user',
+    userRole: Role.User,
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     console.log(defaulProps.userEmail, defaulProps.userRole);
+    console.log('handleSubmit');
   };
   const handleChange = ({ target }) => {
     defaulProps.userEmail = target.value;
@@ -24,7 +31,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset className="fieldset">
-        <form onSubmit={handleSubmit}>
+        <form>
+          {/* onSubmit={handleSubmit} */}
           <div className="form-card">
             <div className="form-group mb-3">
               <label htmlFor="exampleInputEmail1">
@@ -42,52 +50,82 @@ const SecondStep = ({ countClick, setCountClick }) => {
             <div className="mb-2">
               <b>User Permissions</b>
             </div>
-            <div className="row m-0 mb-4">
+            <input
+              type="radio"
+              id="roleAdmin"
+              name="roleUsers"
+              value="Admin"
+              checked={Role.Admin === 'Admin'}
+            />
+            <label htmlFor="roleAdmin">{Role.Admin}</label>
+
+            <input
+              type="radio"
+              id="roleManager"
+              name="roleUsers"
+              value="Manager"
+              checked={Role.Manager === 'Manager'}
+            />
+            <label htmlFor="roleManager">{Role.Manager}</label>
+            {console.log(Role['roleUser'], "Role['roleUser']")}
+            <input
+              type="radio"
+              id="roleUser"
+              name="roleUsers"
+              value="User"
+              checked={Role.User === 'User'}
+            />
+            <label htmlFor="roleUser"> {Role.User}</label>
+            {/* <div className="row m-0 mb-4">
               <div className="form-check mr-4">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="exampleRadios"
-                  id="exampleRadios1"
-                  value="option1"
+                  name="roleUsers"
+                  id="roleAdmin"
+                  value="Admin"
                   checked
-                  onChange={() => console.log('')}
+                  // onChange={() => console.log('')}
                 />
-                <label className="form-check-label" htmlFor="exampleRadios1">
-                  Admin
+                <label className="form-check-label" htmlFor="roleAdmin">
+                  {Role.Admin}
                 </label>
               </div>
               <div className="form-check mr-4">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="exampleRadios"
-                  id="exampleRadios2"
-                  value="option2"
+                  name="roleUsers"
+                  id="roleManager"
+                  value="Manager"
                 />
-                <label className="form-check-label" htmlFor="exampleRadios2">
-                  Manager
+                <label className="form-check-label" htmlFor="roleManager">
+                  {Role.Manager}
                 </label>
               </div>
               <div className="form-check">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="exampleRadios"
-                  id="exampleRadios3"
-                  value="option2"
+                  name="roleUsers"
+                  id="roleUser"
+                  value="User"
                 />
-                <label className="form-check-label" htmlFor="exampleRadios3">
-                  User
+                <label className="form-check-label" htmlFor="roleUser">
+                  {Role.User}
                 </label>
               </div>
-            </div>
+            </div> */}
 
             <SendInvite />
           </div>
           {/* if you need Previous Page */}
           {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
-          <NextBtn countClick={countClick} setCountClick={setCountClick} />
+          <NextBtn
+            handleSubmit={handleSubmit}
+            countClick={countClick}
+            setCountClick={setCountClick}
+          />
         </form>
       </fieldset>
     </>
