@@ -51,23 +51,30 @@ const SecondStep = ({ countClick, setCountClick }) => {
               <b>User Permissions</b>
             </div>
             <input
+              className="mr-2"
               type="radio"
               id="roleAdmin"
               name="roleUsers"
               value="Admin"
               checked={Role.Admin === 'Admin'}
             />
-            <label htmlFor="roleAdmin">{Role.Admin}</label>
+            <label className="mr-2" htmlFor="roleAdmin">
+              {Role.Admin}
+            </label>
 
             <input
+              className="mr-2"
               type="radio"
               id="roleManager"
               name="roleUsers"
               value="Manager"
               checked={Role.Manager === 'Manager'}
             />
-            <label htmlFor="roleManager">{Role.Manager}</label>
+            <label className="mr-2" htmlFor="roleManager">
+              {Role.Manager}
+            </label>
             <input
+              className="mr-2"
               type="radio"
               id="roleUser"
               name="roleUsers"
