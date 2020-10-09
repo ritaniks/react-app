@@ -20,18 +20,18 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userEmail, 'userEmailsssssss');
-    console.log(userRole, 'userRolesssss');
+    // console.log(userEmail, 'userEmailsssssss');
+    // console.log(userRole, 'userRolesssss');
 
     setUserEmail('');
     setUserRole(Role.User);
   };
   const handleChangeInput = ({ target }) => {
-    console.log(target.value, 'target1');
+    // console.log(target.value, 'target1');
     setUserEmail(target.value);
   };
   const handleChangeRole = ({ target }) => {
-    console.log(target.value, 'target2');
+    // console.log(target.value, 'target2');
     setUserRole(target.value);
   };
 
