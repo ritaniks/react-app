@@ -1,3 +1,5 @@
+// for IOS
+
 window.onload = function initialLoad() {
   updateOrientation();
 };

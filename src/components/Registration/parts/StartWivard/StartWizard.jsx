@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Modal from '../Modal';
+import Modal from './parts/Modal';
 
-import FirstStep from '../FirstStep';
-import SecondStep from '../SecondStep';
-import ThirdStep from '../ThirdStep';
-import FourthStep from '../FourthStep';
+import FirstStep from './parts/steps/FirstStep';
+import SecondStep from './parts/steps/SecondStep';
+import ThirdStep from './parts/steps/ThirdStep';
+import FourthStep from './parts/steps/FourthStep';
 
-import css from './StartWizard3.module.scss';
+import css from './StartWizard.module.scss';
 import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [counClick, setCounClick] = useState(0);
+  const [countClick, setCountClick] = useState(2);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setProgress((100 / 4) * countClick);
+  }, [countClick]);
+
   return (
     <div>
       {/* data-gr-c-s-loaded="true" */}
-      <Modal />
-      <div className="cover-container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
+      {/* <Modal /> */}
+
+      <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
         {/* HEADER */}
-        <header className={`${css.header} masthead pt-3 px-3 px-sm-4`}>
+        <header className={`${css.header}  pt-3 px-3 px-sm-4`}>
           <div className={css.inner}>
             <a
               className={css.logo}
@@ -45,24 +52,22 @@ const StartWizard3 = () => {
         </header>
 
         <section className={css.wrapTitle}>
-          <h2 id="heading" className={css.headTitle}>
-            Start your Free Trial Now!
-          </h2>
+          <h2 className={css.headTitle}>Start your Free Trial Now!</h2>
           <div className={css.headDiscription}>
             14-day Free Trial of the Fully-Featured TimeLedger
           </div>
-          <div id="msform">
-            <ul id="progressbar">
+          <div id="msform" className={css.msform}>
+            <ul id="progressbar" className={css.progressIcon}>
               <li className="active" id="signup">
                 <strong>Sign up</strong>
               </li>
-              <li id="invite">
+              <li className={countClick >= 2 ? 'active' : ''} id="invite">
                 <strong>Invite users</strong>
               </li>
-              <li id="addclients">
+              <li className={countClick >= 3 ? 'active' : ''} id="addclients">
                 <strong>Setup</strong>
               </li>
-              <li id="confirm">
+              <li className={countClick >= 4 ? 'active' : ''} id="confirm">
                 <strong>Done</strong>
               </li>
             </ul>
@@ -74,29 +79,38 @@ const StartWizard3 = () => {
                 role="progressbar"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={{ width: '25%' }}
+                style={{ width: `${progress}%` }}
               ></div>
             </div>
             {/* progress */}
 
             {/* <!-- fieldsets --> */}
             {/* First step (1) */}
-            {counClick === 0 && (
-              <FirstStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 1 && (
+              <FirstStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Second step (2) */}
-            {counClick === 1 && (
-              <SecondStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 2 && (
+              <SecondStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Third step (3) */}
-            {counClick === 2 && (
-              <ThirdStep counClick={counClick} setCounClick={setCounClick} />
+            {countClick === 3 && (
+              <ThirdStep
+                countClick={countClick}
+                setCountClick={setCountClick}
+              />
             )}
 
             {/* Fouth step (4) */}
-            {counClick === 3 && <FourthStep />}
+            {countClick === 4 && <FourthStep />}
           </div>
         </section>
       </div>

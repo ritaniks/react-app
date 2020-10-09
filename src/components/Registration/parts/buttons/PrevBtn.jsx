@@ -2,10 +2,10 @@ import React from 'react';
 
 import css from './buttons.module.scss';
 
-const PrevBtn = ({ counClick, setCounClick }) => {
+const PrevBtn = ({ countClick, setCountClick }) => {
   const handleClick = () => {
-    const newCount = counClick - 1;
-    setCounClick(+newCount);
+    const newCount = countClick - 1;
+    setCountClick(+newCount);
   };
   return (
     <button
