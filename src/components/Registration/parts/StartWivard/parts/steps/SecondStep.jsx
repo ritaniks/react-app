@@ -22,7 +22,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
     e.preventDefault();
     console.log(userEmail, 'userEmailsssssss');
     console.log(userRole, 'userRolesssss');
-    // console.log('handleSubmit');
 
     setUserEmail('');
     setUserRole(Role.User);
@@ -36,10 +35,10 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUserRole(target.value);
   };
 
-  useEffect(() => {
-    // console.log(userEmail, 'userEmail');
-    // console.log(userRole, 'userRole');
-  }, [userEmail, userRole]);
+  // useEffect(() => {
+  //   // console.log(userEmail, 'userEmail');
+  //   // console.log(userRole, 'userRole');
+  // }, [userEmail, userRole]);
 
   return (
     <>
