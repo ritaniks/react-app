@@ -8,71 +8,87 @@ import SendInvite from '../../../buttons/SendInvite';
 // import css from './steps.module.scss';
 
 const SecondStep = ({ countClick, setCountClick }) => {
+  const defaulProps = {
+    userEmail: 'name@example.com',
+    userRole: 'user',
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(defaulProps.userEmail, defaulProps.userRole);
+  };
+  const handleChange = ({ target }) => {
+    defaulProps.userEmail = target.value;
+  };
+
   return (
     <>
       <fieldset className="fieldset">
-        <div className="form-card">
-          <div className="form-group mb-3">
-            <label htmlFor="exampleInputEmail1">
-              <b>Invite by Email</b>
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="name@example.com"
-            />
-          </div>
-          <div className="mb-2">
-            <b>User Permissions</b>
-          </div>
-          <div className="row m-0 mb-4">
-            <div className="form-check mr-4">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
-                value="option1"
-                checked
-                onChange={() => console.log('')}
-              />
-              <label className="form-check-label" htmlFor="exampleRadios1">
-                Admin
+        <form onSubmit={handleSubmit}>
+          <div className="form-card">
+            <div className="form-group mb-3">
+              <label htmlFor="exampleInputEmail1">
+                <b>Invite by Email</b>
               </label>
-            </div>
-            <div className="form-check mr-4">
               <input
-                className="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
-                value="option2"
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="name@example.com"
+                onChange={handleChange}
               />
-              <label className="form-check-label" htmlFor="exampleRadios2">
-                Manager
-              </label>
             </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="exampleRadios"
-                id="exampleRadios3"
-                value="option2"
-              />
-              <label className="form-check-label" htmlFor="exampleRadios3">
-                User
-              </label>
+            <div className="mb-2">
+              <b>User Permissions</b>
             </div>
-          </div>
+            <div className="row m-0 mb-4">
+              <div className="form-check mr-4">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                  onChange={() => console.log('')}
+                />
+                <label className="form-check-label" htmlFor="exampleRadios1">
+                  Admin
+                </label>
+              </div>
+              <div className="form-check mr-4">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label className="form-check-label" htmlFor="exampleRadios2">
+                  Manager
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios3"
+                  value="option2"
+                />
+                <label className="form-check-label" htmlFor="exampleRadios3">
+                  User
+                </label>
+              </div>
+            </div>
 
-          <SendInvite />
-        </div>
-        {/* if you need Previous Page */}
-        {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
-        <NextBtn countClick={countClick} setCountClick={setCountClick} />
+            <SendInvite />
+          </div>
+          {/* if you need Previous Page */}
+          {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
+          <NextBtn countClick={countClick} setCountClick={setCountClick} />
+        </form>
       </fieldset>
     </>
   );

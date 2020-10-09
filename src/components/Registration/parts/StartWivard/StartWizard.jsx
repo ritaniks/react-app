@@ -12,7 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(1);
+  const [countClick, setCountClick] = useState(2);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

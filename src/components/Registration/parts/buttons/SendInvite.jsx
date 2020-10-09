@@ -10,7 +10,7 @@ const SendInvite = () => {
     <button
       onClick={handleClick}
       className={`${css.btnSend} ${css.buttons} invite`}
-      type="button"
+      type="submit"
     >
       Send invite
     </button>
