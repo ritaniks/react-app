@@ -3,29 +3,41 @@ import PropTypes from 'prop-types';
 
 // import css from './Select.module.scss'
 
-const Select = ({css}) => {
+const Select = ({css , children}) => {
 
 const [select, setSelect] = useState(0)
 const [selectAll, setSelectAll] = useState([])
 const [search, setSearch] = useState("")
 
 
-const handleSelect = ()=>{
-    
+const handleSelect = () => {
+    console.log("select One");
 }
-const handleSelectAll = ()=>{
+const handleSelectAll = () => {
+    console.log("select All");
+}
+const handleSearch = () => {
 
 }
-const handleSearch = ()=>{
-
-}
-
-
-
     return (
         <>
             <select className={css.select}>
-                <option onChange={handleSearch}>search</option>
+            {children}
+                <option onChange={handleSearch}>
+                    search
+                    {/* <>{children}</> */}
+                  
+                    {/* {console.log(children, "children")} */}
+                {/* <input
+                type="text"
+                // className="form-control"
+                placeholder="Client name"
+                aria-label="Client name"
+                aria-describedby="button-addon2"
+                id="item"
+                /> */}
+
+                </option>
                 <option onClick={handleSelectAll}>All</option>
                 <option onClick={handleSelect}>11:00</option>
                 <option onClick={handleSelect}>11:30</option>
