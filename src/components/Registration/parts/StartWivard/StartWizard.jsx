@@ -12,7 +12,7 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(2);
+  const [countClick, setCountClick] = useState(1);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -20,13 +20,13 @@ const StartWizard3 = () => {
   }, [countClick]);
 
   return (
-    <div>
+    <>
       {/* data-gr-c-s-loaded="true" */}
       {/* <Modal /> */}
 
       <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
         {/* HEADER */}
-        <header className={`${css.header}  pt-3 px-3 px-sm-4`}>
+        <header className={`${css.header}  pt-2`}>
           <div className={css.inner}>
             <a
               className={css.logo}
@@ -114,7 +114,7 @@ const StartWizard3 = () => {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 

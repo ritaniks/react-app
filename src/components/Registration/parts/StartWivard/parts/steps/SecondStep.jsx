@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import NextBtn from '../../../buttons/NextBtn';
@@ -15,13 +15,13 @@ const Role = {
 
 const SecondStep = ({ countClick, setCountClick }) => {
   const [userEmail, setUserEmail] = useState('');
-  const [userRole, setUserRole] = useState('User');
-  // const [users, setUsers] = useState([]);
+  const [userRole, setUserRole] = useState(Role.User);
+  // const [users, setUsers] = useState([{},{},{}]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(userEmail, 'userEmailsssssss');
-    // console.log(userRole, 'userRolesssss');
+    console.log(userEmail, 'userEmailsssssss');
+    console.log(userRole, 'userRolesssss');
 
     setUserEmail('');
     setUserRole(Role.User);
