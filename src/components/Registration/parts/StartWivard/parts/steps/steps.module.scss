@@ -33,6 +33,37 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
+// -- select
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  padding: 0 1.5rem 0 0.5rem;
+  border: 1px solid var(--border-gray);
+  border-radius: 0.25rem;
+  background: url('../../../../../../assets/img/main/arrows/arrow-bottom.svg');
+  background-repeat: no-repeat;
+  background-position: right 2rem center;
+  background-size: 9px;
+  color: var(--gray-dark);
+  height: 2.4rem;
+  display: flex;
+  flex: 1;
+  width: 45vw;
+  margin-right: -1rem;
+}
+
+.select:last-child {
+  width: 100%;
+}
+.select:first-child {
+  // width: 100%;
+  // margin-right: 0.5rem;
+}
+
 // Four step
 .thumbsUp {
   width: 2rem;
