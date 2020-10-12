@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Modal from './parts/Modal';
+// import Modal from './parts/Modal';
 
 import FirstStep from './parts/steps/FirstStep';
 import SecondStep from './parts/steps/SecondStep';

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Submit from '../../../buttons/Submit';
 import PrevBtn from '../../../buttons/PrevBtn';
 
+import Select from '../../../../../common/Select/Select';
+
 import { ReactComponent as Pen } from '../../../../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../../../../assets/img/registration/x.svg';
 // import { ReactComponent as Folder } from '../../../../../../assets/img/registration/folder.svg';
@@ -27,12 +29,17 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           <form id="addForm">
             <div className="input-group mb-3">
 
-              <select className={css.select}>
+              <Select css={css} />
+              
+
+              {/* <select className={css.select}>
+                <option>search</option>
+                <option>All</option>
                 <option>11:00</option>
                 <option>11:30</option>
                 <option>12:00</option>
                 <option>12:30</option>
-              </select>
+              </select> */}
 
               {/* <input
                 type="text"
