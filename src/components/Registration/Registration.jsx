@@ -43,7 +43,8 @@ const Registration = () => {
                     border-radius: 0.25rem;
                     outline: none;
                     padding: 20px;
-                    min-height: 60%;
+                    height: 98%;
+                    // min-height: 60%;
                     width: 98%;
                     max-width: 800px
               }
