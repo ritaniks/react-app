@@ -28,16 +28,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           <h5 className="title">Add Client</h5>
           <form id="addForm">
             <div className="input-group mb-3">
-
-              <Select css={css} >
-                <p>ddd</p>
-                
-              </Select>
-
-          
-
-  
-              
+              <Select css={css} />
 
               {/* <select className={css.select}>
                 <option>search</option>
@@ -72,6 +63,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
             <li className={css.listItem}>
               Minh Hong
               <button
+                type="button"
                 className="btn btn-danger btn-sm float-right delete"
                 style={{ width: '2rem', height: '2rem' }}
               >
@@ -91,6 +83,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           <ul className={`${css.items} mb-3`}>
             <li className={css.listItem}>
               <button
+                type="button"
                 className="btn btn-danger btn-sm float-right delete"
                 style={{ width: '2rem', height: '2rem' }}
               >
@@ -106,10 +99,12 @@ const ThirdStep = ({ countClick, setCountClick }) => {
                 <Pen />
               </button>
               <div className="pl-3">
-                <i className="far fa-user ml-n3"></i> Mark Duffer
+                {/* <i className="far fa-user ml-n3"></i>  */}
+                Mark Duffer
               </div>
               <div className="ml-3a pl-3">
-                <i className="far fa-file-alt ml-n3"></i> General Legal Matters
+                {/* <i className="far fa-file-alt ml-n3"></i> */}
+                General Legal Matters
               </div>
             </li>
           </ul>

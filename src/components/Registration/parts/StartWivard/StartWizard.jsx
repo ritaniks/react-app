@@ -80,7 +80,7 @@ const StartWizard3 = () => {
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style={{ width: `${progress}%` }}
-              ></div>
+              />
             </div>
             {/* progress */}
 
