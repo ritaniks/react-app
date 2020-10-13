@@ -1,3 +1,38 @@
+.btn {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  margin-right: -0.25rem;
+  background: url('../../../assets/img/main/arrows/arrow-bottom.svg');
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 0.6rem;
+  color: var(--gray-dark);
+  text-align: left;
+}
+
+.wrapBgSelect {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(245, 236, 236, 0.5);
+  z-index: 1;
+}
+.wrapSelect {
+  width: 95%;
+  height: 98%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
 // .select {
 //   -webkit-appearance: none;
 //   -moz-appearance: none;

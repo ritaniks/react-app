@@ -27,35 +27,15 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           </div>
           <h5 className="title">Add Client</h5>
           <form id="addForm">
-            <div className="input-group mb-3">
+            <div className="mb-3 d-flex">
               <Select css={css} />
-
-              {/* <select className={css.select}>
-                <option>search</option>
-                <option>All</option>
-                <option>11:00</option>
-                <option>11:30</option>
-                <option>12:00</option>
-                <option>12:30</option>
-              </select> */}
-
-              {/* <input
-                type="text"
-                className="form-control"
-                placeholder="Client name"
-                aria-label="Client name"
-                aria-describedby="button-addon2"
-                id="item"
-              /> */}
-              <div className="input-group-append">
-                <button
-                  className="btn btn-primary"
-                  type="submit"
-                  id="button-addon2"
-                >
-                  Add
-                </button>
-              </div>
+              <button
+                className="btn btn-primary"
+                type="submit"
+                id="button-addon2"
+              >
+                Add
+              </button>
             </div>
           </form>
           <h5 className="title">Clients</h5>
