@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Submit from '../../../buttons/Submit';
 import PrevBtn from '../../../buttons/PrevBtn';
 
-import Select from '../../../../../common/Select/Select';
+import MultiSelect from '../../../../../common/MultiSelect/MultiSelect';
 
 import { ReactComponent as Pen } from '../../../../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../../../../assets/img/registration/x.svg';
@@ -28,7 +28,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           <h5 className="title">Add Client</h5>
           <form id="addForm">
             <div className="mb-3 d-flex">
-              <Select css={css} />
+              <MultiSelect css={css} />
               <button
                 className="btn btn-primary"
                 type="submit"

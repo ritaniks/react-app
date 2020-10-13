@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import cssDefault from './Select.module.scss';
+import cssDefault from './MultiSelect.module.scss';
 
-const Select = ({ css = cssDefault }) => {
+// eslint-disable-next-line no-unused-vars
+const MultiSelect = ({ css = cssDefault }) => {
   const [isOpen, setIsOpen] = useState(false);
   //   const [select, setSelect] = useState(0);
   //   const [selectAll, setSelectAll] = useState([]);
@@ -58,8 +59,8 @@ const Select = ({ css = cssDefault }) => {
     </>
   );
 };
-Select.propTypes = {
+MultiSelect.propTypes = {
   css: PropTypes.shape(PropTypes.string.isRequired).isRequired,
 };
 
-export default Select;
+export default MultiSelect;
