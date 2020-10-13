@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import cssDefault from './MultiSelect.module.scss';
 
 const tmp = [
-  { name: 'Jonny' },
-  { name: 'Tommy' },
-  { name: 'Elis' },
-  { name: 'Jack' },
-  { name: 'Kate' },
-  { name: 'Brovko' },
-  { name: 'Pes' },
+  { name: 'Jonny', checked: false },
+  { name: 'Tommy', checked: false },
+  { name: 'Elis', checked: false },
+  { name: 'Jack', checked: false },
+  { name: 'Kate', checked: false },
+  { name: 'Brovko', checked: false },
+  { name: 'Pes', checked: false },
 ];
 
 // eslint-disable-next-line no-unused-vars
@@ -42,29 +42,33 @@ const MultiSelect = ({ css = cssDefault }) => {
             <div>
               <input
                 type="text"
-                // className="form-control"
+                className={cssDefault.searchInput}
                 placeholder="Client name"
                 aria-label="Client name"
                 aria-describedby="button-addon2"
                 id="item"
               />
+              <hr className={cssDefault.hr} />
             </div>
             <div>
-              <input type="checkbox" id="selectAllClient" name="clients" />
-              <label htmlFor="selectAllClient">Select ALL</label>
+              <div className={cssDefault.wrapInput}>
+                <input type="checkbox" id="selectAllClient" name="clients" />
+                <label htmlFor="selectAllClient">Select ALL</label>
+                <hr className={cssDefault.hr} />
+              </div>
 
               {tmp.map((c, index) => (
-                <div key={index}>
+                <div className={cssDefault.wrapInput} key={index}>
                   <input
                     type="checkbox"
                     id={`${c.name}-${index}`}
                     name={c.name}
                   />
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                  <hr className={cssDefault.hr} />
                 </div>
               ))}
             </div>
-            <div>multi lelect checkBoxes</div>
             <button onClick={handleToogle} type="button">
               Close
             </button>

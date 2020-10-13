@@ -33,6 +33,23 @@
   border-radius: 0.25rem;
 }
 
+.searchInput {
+  width: 100%;
+}
+
+.hr {
+  margin: 0;
+}
+
+.wrapInput {
+  label {
+    width: 90%;
+  }
+  input {
+    width: 10%;
+  }
+}
+
 // .select {
 //   -webkit-appearance: none;
 //   -moz-appearance: none;

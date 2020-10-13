@@ -24,7 +24,7 @@ const StartWizard3 = () => {
       {/* data-gr-c-s-loaded="true" */}
       {/* <Modal /> */}
 
-      <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
+      <div className="container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3">
         {/* HEADER */}
         <header className={`${css.header}  pt-2`}>
           <div className={css.inner}>

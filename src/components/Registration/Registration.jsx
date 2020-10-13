@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import Helmet from 'react-helmet';
+import React from 'react';
+// import Helmet from 'react-helmet';
 
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 
 import StartWizard from './parts/StartWivard/StartWizard';
 
 // import css from './Registration.module.scss';
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 const Registration = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleModal = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <>
-      <Modal
+      <StartWizard />
+      {/* <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -26,11 +27,11 @@ const Registration = () => {
         overlayClassName="firstTrailOverlay"
         closeTimeoutMS={400}
       >
-        <StartWizard />
-        {/* BTN -> "CLOSE MODAL" */}
-        {/* <button onClick={toggleModal}>Close modal</button> */}
-      </Modal>
-      <Helmet>
+        <StartWizard /> */}
+      {/* BTN -> "CLOSE MODAL" */}
+      {/* <button onClick={toggleModal}>Close modal</button> */}
+      {/* </Modal> */}
+      {/* <Helmet>
         <style>{`
               .firstEnterInTrail {
                     position: fixed;
@@ -60,7 +61,7 @@ const Registration = () => {
 
       
       `}</style>
-      </Helmet>
+      </Helmet> */}
     </>
   );
 };
