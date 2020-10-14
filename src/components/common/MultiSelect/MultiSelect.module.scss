@@ -4,10 +4,9 @@
   border: 1px solid var(--border-gray);
   border-radius: 0.25rem;
   background-color: transparent;
-  margin-right: -0.25rem;
   background: url('../../../assets/img/main/arrows/arrow-bottom.svg');
   background-repeat: no-repeat;
-  background-position: right 1.5rem center;
+  background-position: right 1.25rem center;
   background-size: 0.6rem;
   color: var(--gray-dark);
   text-align: left;
@@ -34,6 +33,7 @@
   border-radius: 0.25rem;
   overflow-y: hidden;
   position: relative;
+  margin-right: 0.5rem;
 }
 
 // search
@@ -64,6 +64,8 @@
   align-items: center;
   height: 5rem;
   border-bottom: 2px solid var(--border-gray);
+  padding-right: 1rem;
+  margin-right: 0.75rem;
 
   label {
     width: 90%;
@@ -73,10 +75,6 @@
   input {
     width: 10%;
   }
-}
-
-.hr {
-  margin: 0;
 }
 
 // btn
