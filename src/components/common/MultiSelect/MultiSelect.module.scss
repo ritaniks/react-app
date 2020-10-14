@@ -41,6 +41,7 @@
   height: 3.5rem;
   display: flex;
   align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .searchInput {
@@ -53,13 +54,19 @@
 
 // checkboxes
 .wrapCheckBoxes {
-  max-height: 85%;
+  max-height: 82%;
   overflow-y: auto;
 }
 
 .wrapInput {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 5rem;
   label {
     width: 90%;
+    margin: 0;
+    font-size: 1.5rem;
   }
   input {
     width: 10%;

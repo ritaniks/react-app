@@ -128,25 +128,27 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   aria-describedby="button-addon2"
                   id="item"
                 />
-                <hr className={cssDefault.hr} />
+                {/* <hr className={cssDefault.hr} /> */}
               </div>
               <div className={cssDefault.wrapCheckBoxes}>
                 <div className={cssDefault.wrapInput}>
                   <input type="checkbox" id="selectAllClient" name="clients" />
                   <label htmlFor="selectAllClient">Select ALL</label>
-                  <hr className={cssDefault.hr} />
                 </div>
+                <hr className={cssDefault.hr} />
 
                 {tmp.map((c, index) => (
-                  <div className={cssDefault.wrapInput} key={index}>
-                    <input
-                      type="checkbox"
-                      id={`${c.name}-${index}`}
-                      name={c.name}
-                    />
-                    <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                  <>
+                    <div className={cssDefault.wrapInput} key={index}>
+                      <input
+                        type="checkbox"
+                        id={`${c.name}-${index}`}
+                        name={c.name}
+                      />
+                      <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                    </div>
                     <hr className={cssDefault.hr} />
-                  </div>
+                  </>
                 ))}
               </div>
               <div className={cssDefault.wrapBtn}>
