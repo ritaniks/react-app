@@ -90,17 +90,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const handleStopOverflow = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(true);
-
-    // console.log(e, 'e.target');
-    // console.log(e.bubbles, 'e.bubbles');
-    // console.log(e.button, 'e.button');
-    // console.log(e.shiftKey, 'e.shiftKey');
-    // console.log(e.currentTarget, 'e.currentTarget');
-    // console.log(e.target, 'e.target');
   };
-  // const modalToogle = () => {
-  //   setIsModal(!isModal);
-  // };
 
   //   const handleSelect = () => {
   //     console.log('select One');

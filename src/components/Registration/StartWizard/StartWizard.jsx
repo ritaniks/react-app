@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// import Modal from './parts/Modal';
-
 import cn from 'classnames';
 import FirstStep from './parts/steps/FirstStep';
 import SecondStep from './parts/steps/SecondStep';
@@ -27,10 +25,6 @@ const StartWizard3 = () => {
       {/* <Modal /> */}
 
       <div
-        id="startWizardContainer"
-        // style={`${css.container}`} // ${css.container} overflow
-        // className={`${css.container} container`}
-        // className={`${css.container} container`}
         className={cn(
           css.container,
           'container',
