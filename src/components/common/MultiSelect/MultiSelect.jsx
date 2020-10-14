@@ -75,7 +75,7 @@ const tmp = [
 Modal.setAppElement('#root');
 
 // eslint-disable-next-line no-unused-vars
-const MultiSelect = ({ css = cssDefault }) => {
+const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
   //   const [select, setSelect] = useState(0);
@@ -88,6 +88,7 @@ const MultiSelect = ({ css = cssDefault }) => {
 
   const handleStopOverflow = () => {
     setIsOpen(!isOpen);
+    setIsStopOverflow(true);
 
     // console.log(e, 'e.target');
     // console.log(e.bubbles, 'e.bubbles');

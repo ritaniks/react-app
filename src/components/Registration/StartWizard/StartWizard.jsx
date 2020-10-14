@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // import Modal from './parts/Modal';
 
+import cn from 'classnames';
 import FirstStep from './parts/steps/FirstStep';
 import SecondStep from './parts/steps/SecondStep';
 import ThirdStep from './parts/steps/ThirdStep';
@@ -14,7 +15,7 @@ import './-styleSW.scss';
 const StartWizard3 = () => {
   const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
-  // const [isStopOverflow, setIsStopOverflow] = useState(false);
+  const [isStopOverflow, setIsStopOverflow] = useState(false);
 
   useEffect(() => {
     setProgress((100 / 4) * countClick);
@@ -27,8 +28,8 @@ const StartWizard3 = () => {
 
       <div
         id="startWizardContainer"
-        // style={`${css.container}`} // ${css.container}
-        className={` container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3`}
+        // style={`${css.container}`} // ${css.container} overflow
+        className={`${css.container} container`}
       >
         {/* HEADER */}
         <header className={`${css.header}  pt-2`}>
@@ -111,6 +112,7 @@ const StartWizard3 = () => {
               <ThirdStep
                 countClick={countClick}
                 setCountClick={setCountClick}
+                setIsStopOverflow={setIsStopOverflow}
               />
             )}
 

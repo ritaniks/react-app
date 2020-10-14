@@ -16,7 +16,7 @@ import { ReactComponent as X } from '../../../../../assets/img/registration/x.sv
 
 import css from './steps.module.scss';
 
-const ThirdStep = ({ countClick, setCountClick }) => {
+const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -58,7 +58,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
           <h5 className="title">Add Client</h5>
           <form id="addForm">
             <div className="mb-3 d-flex">
-              <MultiSelect css={css} />
+              <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} />
               <button
                 className="btn btn-primary"
                 type="submit"
@@ -132,6 +132,7 @@ const ThirdStep = ({ countClick, setCountClick }) => {
 ThirdStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
+  setIsStopOverflow: PropTypes.func.isRequired,
 };
 
 export default ThirdStep;

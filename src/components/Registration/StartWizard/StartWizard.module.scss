@@ -57,7 +57,18 @@
 .progress {
   height: 20px;
 }
-.container {
+.overflow {
   overflow: hidden;
   height: 90vh;
+}
+.startWizardContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 100%;
+  margin: auto auto 0 auto;
+
+  // d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3
 }
