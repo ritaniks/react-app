@@ -38,7 +38,6 @@
 
 // search
 .wrapSearch {
-  background: rgba(240, 148, 148, 0.1);
   height: 3.5rem;
   display: flex;
   align-items: center;
@@ -47,7 +46,7 @@
 .searchInput {
   width: 100%;
   border: 1px solid var(--border-gray);
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
 }
