@@ -150,8 +150,19 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 ))}
               </div>
               <div className={cssDefault.wrapBtn}>
-                <button onClick={handleToogle} type="button">
-                  Close
+                <button
+                  className={cssDefault.btnClose}
+                  onClick={handleToogle}
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  className={cssDefault.btnClose}
+                  onClick={handleToogle}
+                  type="button"
+                >
+                  Ok
                 </button>
               </div>
             </div>
