@@ -84,6 +84,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
   const handleToogle = () => {
     setIsOpen(!isOpen);
+    setIsStopOverflow(false);
   };
 
   const handleStopOverflow = () => {

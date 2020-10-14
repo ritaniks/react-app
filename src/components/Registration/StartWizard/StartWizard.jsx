@@ -29,7 +29,13 @@ const StartWizard3 = () => {
       <div
         id="startWizardContainer"
         // style={`${css.container}`} // ${css.container} overflow
-        className={`${css.container} container`}
+        // className={`${css.container} container`}
+        // className={`${css.container} container`}
+        className={cn(
+          css.container,
+          'container',
+          isStopOverflow && css.overflow,
+        )}
       >
         {/* HEADER */}
         <header className={`${css.header}  pt-2`}>
