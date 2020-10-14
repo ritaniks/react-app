@@ -71,6 +71,7 @@
     width: 90%;
     margin: 0;
     font-size: 1.5rem;
+    line-height: 3.2;
   }
   input {
     width: 10%;
@@ -94,6 +95,12 @@
     color: var(--primary);
     font-size: 1.5rem;
     background-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: var(--primary);
+      color: #fff;
+    }
   }
 }
 
