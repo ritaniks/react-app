@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Modal from './parts/Modal';
-
+import cn from 'classnames';
 import FirstStep from './parts/steps/FirstStep';
 import SecondStep from './parts/steps/SecondStep';
 import ThirdStep from './parts/steps/ThirdStep';
@@ -12,21 +11,28 @@ import './-styleSW.scss';
 // import './helperSW';
 
 const StartWizard3 = () => {
-  const [countClick, setCountClick] = useState(2);
+  const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
+  const [isStopOverflow, setIsStopOverflow] = useState(false);
 
   useEffect(() => {
     setProgress((100 / 4) * countClick);
   }, [countClick]);
 
   return (
-    <div>
+    <>
       {/* data-gr-c-s-loaded="true" */}
       {/* <Modal /> */}
 
-      <div className="d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded">
+      <div
+        className={cn(
+          css.container,
+          'container',
+          isStopOverflow && css.overflow,
+        )}
+      >
         {/* HEADER */}
-        <header className={`${css.header}  pt-3 px-3 px-sm-4`}>
+        <header className={`${css.header}  pt-2`}>
           <div className={css.inner}>
             <a
               className={css.logo}
@@ -80,7 +86,7 @@ const StartWizard3 = () => {
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style={{ width: `${progress}%` }}
-              ></div>
+              />
             </div>
             {/* progress */}
 
@@ -106,6 +112,7 @@ const StartWizard3 = () => {
               <ThirdStep
                 countClick={countClick}
                 setCountClick={setCountClick}
+                setIsStopOverflow={setIsStopOverflow}
               />
             )}
 
@@ -114,7 +121,7 @@ const StartWizard3 = () => {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 

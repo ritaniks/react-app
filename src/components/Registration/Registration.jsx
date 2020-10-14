@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import Helmet from 'react-helmet';
+import React from 'react';
+// import Helmet from 'react-helmet';
 
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 
-import StartWizard from './parts/StartWivard/StartWizard';
+import StartWizard from './StartWizard/StartWizard';
 
 // import css from './Registration.module.scss';
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 const Registration = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleModal = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <>
-      <Modal
+      <StartWizard />
+
+      {/* <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
         contentLabel="My dialog"
@@ -26,11 +28,11 @@ const Registration = () => {
         overlayClassName="firstTrailOverlay"
         closeTimeoutMS={400}
       >
-        <StartWizard />
-        {/* BTN -> "CLOSE MODAL" */}
-        {/* <button onClick={toggleModal}>Close modal</button> */}
-      </Modal>
-      <Helmet>
+        <StartWizard /> */}
+      {/* BTN -> "CLOSE MODAL" */}
+      {/* <button onClick={toggleModal}>Close modal</button> */}
+      {/* </Modal> */}
+      {/* <Helmet>
         <style>{`
               .firstEnterInTrail {
                     position: fixed;
@@ -43,8 +45,9 @@ const Registration = () => {
                     border-radius: 0.25rem;
                     outline: none;
                     padding: 20px;
-                    height: 80%;
-                    width: 80%;
+                    height: 98%;
+                    // min-height: 60%;
+                    width: 98%;
                     max-width: 800px
               }
 
@@ -54,12 +57,12 @@ const Registration = () => {
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background-color: rgba(0, 0, 0, 0.125);
+                    background-color: rgba(0, 0, 0, 0.005);
               }
 
       
       `}</style>
-      </Helmet>
+      </Helmet> */}
     </>
   );
 };
