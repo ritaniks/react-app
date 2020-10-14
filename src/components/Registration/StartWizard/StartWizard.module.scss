@@ -4,16 +4,16 @@
     justify-content: space-between;
     margin: 0 0 0.75rem;
 
-    .logo {
-    }
+    // .logo {
+    // }
 
     .login {
       color: var(--secondary);
     }
 
-    .logo,
-    .login {
-    }
+    // .logo,
+    // .login {
+    // }
   }
 }
 
@@ -56,4 +56,8 @@
 // Progress
 .progress {
   height: 20px;
+}
+.container {
+  overflow: hidden;
+  height: 90vh;
 }

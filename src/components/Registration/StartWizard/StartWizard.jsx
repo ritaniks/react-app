@@ -14,6 +14,7 @@ import './-styleSW.scss';
 const StartWizard3 = () => {
   const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
+  // const [isStopOverflow, setIsStopOverflow] = useState(false);
 
   useEffect(() => {
     setProgress((100 / 4) * countClick);
@@ -24,7 +25,11 @@ const StartWizard3 = () => {
       {/* data-gr-c-s-loaded="true" */}
       {/* <Modal /> */}
 
-      <div className="container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3">
+      <div
+        id="startWizardContainer"
+        // style={`${css.container}`} // ${css.container}
+        className={` container d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3`}
+      >
         {/* HEADER */}
         <header className={`${css.header}  pt-2`}>
           <div className={css.inner}>

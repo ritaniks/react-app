@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import { Modal, Button } from 'react-bootstrap';
+
 import Submit from '../../../buttons/Submit';
 import PrevBtn from '../../../buttons/PrevBtn';
 
-import MultiSelect from '../../../../../common/MultiSelect/MultiSelect';
+import MultiSelect from '../../../../common/MultiSelect/MultiSelect';
 
-import { ReactComponent as Pen } from '../../../../../../assets/img/registration/pen.svg';
-import { ReactComponent as X } from '../../../../../../assets/img/registration/x.svg';
+import { ReactComponent as Pen } from '../../../../../assets/img/registration/pen.svg';
+import { ReactComponent as X } from '../../../../../assets/img/registration/x.svg';
 // import { ReactComponent as Folder } from '../../../../../../assets/img/registration/folder.svg';
 // import { ReactComponent as File } from '../../../../../../assets/img/registration/file-alt.svg';
 // import { ReactComponent as User } from '../../../../../../assets/img/registration/user.svg';
@@ -15,9 +17,37 @@ import { ReactComponent as X } from '../../../../../../assets/img/registration/x
 import css from './steps.module.scss';
 
 const ThirdStep = ({ countClick, setCountClick }) => {
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
   return (
     <>
       <fieldset>
+        {/* <Button variant="primary" onClick={handleShow}>
+          Launch static backdrop modal
+        </Button> */}
+
+        {/* <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            I will not close if you click outside me. Dont even try to press
+            escape key.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary">Understood</Button>
+          </Modal.Footer>
+        </Modal> */}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}

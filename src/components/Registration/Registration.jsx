@@ -3,7 +3,7 @@ import React from 'react';
 
 // import Modal from 'react-modal';
 
-import StartWizard from './parts/StartWivard/StartWizard';
+import StartWizard from './StartWizard/StartWizard';
 
 // import css from './Registration.module.scss';
 
@@ -19,6 +19,7 @@ const Registration = () => {
   return (
     <>
       <StartWizard />
+
       {/* <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}

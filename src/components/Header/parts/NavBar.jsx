@@ -45,6 +45,7 @@ const NavBar = ({ open, checkNewRoute, node }) => {
 NavBar.propTypes = {
   open: PropTypes.bool.isRequired,
   checkNewRoute: PropTypes.func.isRequired,
+  node: PropTypes.shape(PropTypes.string.isRequired).isRequired,
 };
 
 export default NavBar;
