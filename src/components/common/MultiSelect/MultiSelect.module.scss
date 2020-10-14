@@ -29,20 +29,19 @@
   height: 98%;
   margin: 0.5rem auto;
   background-color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   overflow-y: hidden;
+  position: relative;
 }
 
+// search
 .searchInput {
   width: 100%;
 }
 
-.hr {
-  margin: 0;
-}
-
+// checkboxes
 .wrapCheckBoxes {
   // max-height: 80vh;
   height: 80%;
@@ -58,6 +57,31 @@
   }
 }
 
+.hr {
+  margin: 0;
+}
+
+// btn
+.wrapBtn {
+  position: absolute;
+  bottom: 1rem;
+  // background-color: green;
+  width: inherit;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & button:first-child {
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    background-color: transparent;
+  }
+}
+
 // .select {
 //   -webkit-appearance: none;
 //   -moz-appearance: none;
@@ -65,7 +89,7 @@
 //   appearance: none;
 //   outline: 0;
 //   padding: 0 1.5rem 0 0.5rem;
-//   border: 1px solid var(--border-gray);
+//   border: 1px  solid var(--border-gray);
 //   border-radius: 0.25rem;
 //   background: url('../../../assets/img/main/arrows/arrow-bottom.svg');
 //   background-repeat: no-repeat;

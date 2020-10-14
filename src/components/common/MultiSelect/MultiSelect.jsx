@@ -149,9 +149,11 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   </div>
                 ))}
               </div>
-              <button onClick={handleToogle} type="button">
-                Close
-              </button>
+              <div className={cssDefault.wrapBtn}>
+                <button onClick={handleToogle} type="button">
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -206,6 +208,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 };
 MultiSelect.propTypes = {
   css: PropTypes.shape(PropTypes.string.isRequired).isRequired,
+  setIsStopOverflow: PropTypes.func.isRequired,
 };
 
 export default MultiSelect;
