@@ -119,7 +119,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         {isOpen && (
           <div className={cssDefault.wrapBgSelect}>
             <div className={cssDefault.wrapSelect}>
-              <div>
+              <div className={cssDefault.wrapSearch}>
                 <input
                   type="text"
                   className={cssDefault.searchInput}
