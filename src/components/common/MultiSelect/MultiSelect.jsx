@@ -6,71 +6,19 @@ import Modal from 'react-modal';
 
 import cssDefault from './MultiSelect.module.scss';
 
-const tmp = [
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-];
+const tmp = {
+  selectAll: [{ name: 'selectAll', checked: false, role: 'selectAll' }],
+  manegers: [
+    { name: 'Jack', checked: false, role: 'manegers' },
+    { name: 'Kate', checked: true, role: 'manegers' },
+  ],
+
+  workers: [
+    { name: 'Elis', checked: false, role: 'workers' },
+    { name: 'Jonny', checked: true, role: 'workers' },
+    { name: 'Tommy', checked: false, role: 'workers' },
+  ],
+};
 
 Modal.setAppElement('#root');
 
@@ -78,8 +26,8 @@ Modal.setAppElement('#root');
 const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
-  //   const [select, setSelect] = useState(0);
-  //   const [selectAll, setSelectAll] = useState([]);
+  // const [select, setSelect] = useState(false);
+  const [selectAll, setSelectAll] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -92,12 +40,35 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     setIsStopOverflow(true);
   };
 
-  //   const handleSelect = () => {
-  //     console.log('select One');
-  //   };
-  //   const handleSelectAll = () => {
-  //     console.log('select All');
-  //   };
+  const handleSelect = e => {
+    console.log(e.target.checked, 'select');
+    console.dir(e.target.name, 'select');
+    console.dir(e.target.attributes.role.value);
+    const selecRole = e.target.attributes.role.value;
+    // const userNameSelected = e.target.name;
+
+    setSelectAll({
+      ...selectAll,
+      [selecRole]: selectAll[selecRole].map(el => {
+        if (el.name === e.target.name) {
+          return { ...el, checked: !el.checked };
+        }
+        return el;
+      }),
+    });
+  };
+  const handleSelectAll = () => {
+    // console.log(selectAll, 'selectAll');
+    // setSelectAll({
+    //   selectAll: { name, checked: true },
+    // });
+    // setSelectAll(e.target.checked);
+    // console.log(e.target.checked, 'select All');
+    // console.dir(e.target.checked, 'select All');
+    // console.log('select All');
+  };
+
+  console.log(selectAll, 'SelectAll');
   //   const handleSearch = () => {};
   return (
     <>
@@ -117,66 +88,77 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         closeTimeoutMS={100}
       >
         {isOpen && (
-          <div className={cssDefault.wrapBgSelect}>
-            <div className={cssDefault.wrapSelect}>
-              <div className={cssDefault.wrapSearch}>
+          <div className={cssDefault.wrapSelect}>
+            <div className={cssDefault.wrapSearch}>
+              <input
+                type="text"
+                className={cssDefault.searchInput}
+                placeholder="Client name"
+                aria-label="Client name"
+                aria-describedby="button-addon2"
+                id="item"
+              />
+            </div>
+            <div className={cssDefault.wrapCheckBoxes}>
+              <div className={cssDefault.wrapInput}>
                 <input
-                  type="text"
-                  className={cssDefault.searchInput}
-                  placeholder="Client name"
-                  aria-label="Client name"
-                  aria-describedby="button-addon2"
-                  id="item"
+                  onChange={handleSelectAll}
+                  type="checkbox"
+                  id="selectAllClient"
+                  name="clients"
                 />
+                <label htmlFor="selectAllClient">Select ALL</label>
               </div>
-              <div className={cssDefault.wrapCheckBoxes}>
-                <div className={cssDefault.wrapInput}>
-                  <input type="checkbox" id="selectAllClient" name="clients" />
-                  <label htmlFor="selectAllClient">Select ALL</label>
+              <p className={cssDefault.userRole}>Menagers</p>
+
+              {selectAll.manegers.map((c, index) => (
+                <div className={cssDefault.wrapInput} key={index}>
+                  <input
+                    onChange={handleSelect}
+                    type="checkbox"
+                    id={`${c.name}-${index}`}
+                    name={c.name}
+                    checked={c.checked}
+                    role={c.role}
+                  />
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
-                {tmp.map((c, index) => (
-                  <div className={cssDefault.wrapInput} key={index}>
-                    <input
-                      type="checkbox"
-                      id={`${c.name}-${index}`}
-                      name={c.name}
-                    />
-                    <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
-                  </div>
-                ))}
-              </div>
-              <div className={cssDefault.wrapBtn}>
-                <button
-                  className={cssDefault.btnClose}
-                  onClick={handleToogle}
-                  type="button"
-                >
-                  Cancel
-                </button>
-                <button
-                  className={cssDefault.btnClose}
-                  onClick={handleToogle}
-                  type="button"
-                >
-                  Ok
-                </button>
-              </div>
+              ))}
+
+              <p className={cssDefault.userRole}>Workers</p>
+              {selectAll.workers.map((c, index) => (
+                <div className={cssDefault.wrapInput} key={index}>
+                  <input
+                    onChange={handleSelect}
+                    type="checkbox"
+                    id={`${c.name}-${index}`}
+                    name={c.name}
+                    checked={c.checked}
+                    role={c.role}
+                  />
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                </div>
+              ))}
+            </div>
+            <div className={cssDefault.wrapBtn}>
+              <button
+                className={cssDefault.btnClose}
+                onClick={handleToogle}
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                className={cssDefault.btnClose}
+                onClick={handleToogle}
+                type="button"
+              >
+                Ok
+              </button>
             </div>
           </div>
         )}
       </Modal>
-
-      {/* <select multiple="multiple" className={css.select}>
-        <option onChange={handleSearch}>search</option>
-        <optgroup label="Украинская кухня">
-          <option onClick={handleSelectAll}>All</option>
-        </optgroup>
-        <option onClick={handleSelect}>11:00</option>
-        <option onClick={handleSelect}>11:30</option>
-        <option onClick={handleSelect}>12:00</option>
-        <option onClick={handleSelect}>12:30</option>
-      </select> */}
-
       <Helmet>
         <style>{`
               .modalMultiSelect {
@@ -184,15 +166,11 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    border: 1px solid #ccc;
                     background: #fff;
                     overflow: auto;
-                    border-radius: 0.25rem;
                     outline: none;
-                    padding: 20px;
                     height: 100%;
                     width: 100%;
-                    max-width: 800px;
               }
 
               .modalOverlay {
@@ -201,8 +179,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    // right: 0;
-                    // bottom: 0;
                     background-color: rgba(0, 0, 0, 0.005);
                     z-index: 1;
               }
