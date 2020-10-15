@@ -7,70 +7,31 @@ import Modal from 'react-modal';
 import cssDefault from './MultiSelect.module.scss';
 
 const tmp = [
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
   { name: 'Pes', checked: false },
   { name: 'Jonny', checked: false },
   { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  { name: 'Elis', checked: false },
-  { name: 'Jack', checked: false },
-  { name: 'Kate', checked: false },
-  { name: 'Brovko', checked: false },
-  { name: 'Pes', checked: false },
+  // { name: 'Elis', checked: false },
+  // { name: 'Jack', checked: false },
+  // { name: 'Kate', checked: false },
+  // { name: 'Brovko', checked: false },
+  // { name: 'Pes', checked: false },
+  // { name: 'Jonny', checked: false },
+  // { name: 'Tommy', checked: false },
+  // { name: 'Elis', checked: false },
 ];
+
+const tmp2 = {
+  workers: [
+    { name: 'Elis', checked: false },
+    { name: 'Jonny', checked: false },
+    { name: 'Tommy', checked: false },
+  ],
+  manegers: [
+    { name: 'Tom', checked: false },
+    { name: 'Jack', checked: false },
+    { name: 'Kate', checked: false },
+  ],
+};
 
 Modal.setAppElement('#root');
 
@@ -134,7 +95,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 <input type="checkbox" id="selectAllClient" name="clients" />
                 <label htmlFor="selectAllClient">Select ALL</label>
               </div>
-              {tmp.map((c, index) => (
+              {console.log(tmp2.manegers, 'tmp2.manegers')}
+              <p className={cssDefault.userRole}>Menagers</p>
+              {tmp2.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     type="checkbox"
@@ -144,6 +107,27 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
+              <p className={cssDefault.userRole}>Workers</p>
+              {tmp2.workers.map((c, index) => (
+                <div className={cssDefault.wrapInput} key={index}>
+                  <input
+                    type="checkbox"
+                    id={`${c.name}-${index}`}
+                    name={c.name}
+                  />
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                </div>
+              ))}
+              {/* {tmp.map((c, index) => (
+                <div className={cssDefault.wrapInput} key={index}>
+                  <input
+                    type="checkbox"
+                    id={`${c.name}-${index}`}
+                    name={c.name}
+                  />
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+                </div>
+              ))} */}
             </div>
             <div className={cssDefault.wrapBtn}>
               <button

@@ -10,6 +10,7 @@
   background-size: 0.6rem;
   color: var(--gray-dark);
   text-align: left;
+  margin-right: 0.5rem;
 }
 
 .wrapSelect {
@@ -44,24 +45,34 @@
 .wrapCheckBoxes {
   max-height: 82%;
   overflow-y: auto;
-}
 
-.wrapInput {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  height: 5rem;
-  border-bottom: 2px solid var(--border-gray);
-  margin-right: 0.75rem;
-
-  label {
-    width: 90%;
+  // user role (manager, worker)
+  .userRole {
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 3.2;
+    margin-top: 1rem;
+    font-weight: 800;
+    text-align: right;
+    padding-right: 1rem;
   }
-  input {
-    width: 10%;
+
+  // inputs
+  .wrapInput {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 5rem;
+    border-bottom: 2px solid var(--border-gray);
+    margin-right: 0.75rem;
+
+    label {
+      width: 90%;
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 3.2;
+    }
+    input {
+      width: 10%;
+    }
   }
 }
 
