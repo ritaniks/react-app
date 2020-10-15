@@ -117,52 +117,52 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         closeTimeoutMS={100}
       >
         {isOpen && (
-          <div className={cssDefault.wrapBgSelect}>
-            <div className={cssDefault.wrapSelect}>
-              <div className={cssDefault.wrapSearch}>
-                <input
-                  type="text"
-                  className={cssDefault.searchInput}
-                  placeholder="Client name"
-                  aria-label="Client name"
-                  aria-describedby="button-addon2"
-                  id="item"
-                />
+          // <div className={cssDefault.wrapBgSelect}>
+          <div className={cssDefault.wrapSelect}>
+            <div className={cssDefault.wrapSearch}>
+              <input
+                type="text"
+                className={cssDefault.searchInput}
+                placeholder="Client name"
+                aria-label="Client name"
+                aria-describedby="button-addon2"
+                id="item"
+              />
+            </div>
+            <div className={cssDefault.wrapCheckBoxes}>
+              <div className={cssDefault.wrapInput}>
+                <input type="checkbox" id="selectAllClient" name="clients" />
+                <label htmlFor="selectAllClient">Select ALL</label>
               </div>
-              <div className={cssDefault.wrapCheckBoxes}>
-                <div className={cssDefault.wrapInput}>
-                  <input type="checkbox" id="selectAllClient" name="clients" />
-                  <label htmlFor="selectAllClient">Select ALL</label>
+              {tmp.map((c, index) => (
+                <div className={cssDefault.wrapInput} key={index}>
+                  <input
+                    type="checkbox"
+                    id={`${c.name}-${index}`}
+                    name={c.name}
+                  />
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
-                {tmp.map((c, index) => (
-                  <div className={cssDefault.wrapInput} key={index}>
-                    <input
-                      type="checkbox"
-                      id={`${c.name}-${index}`}
-                      name={c.name}
-                    />
-                    <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
-                  </div>
-                ))}
-              </div>
-              <div className={cssDefault.wrapBtn}>
-                <button
-                  className={cssDefault.btnClose}
-                  onClick={handleToogle}
-                  type="button"
-                >
-                  Cancel
-                </button>
-                <button
-                  className={cssDefault.btnClose}
-                  onClick={handleToogle}
-                  type="button"
-                >
-                  Ok
-                </button>
-              </div>
+              ))}
+            </div>
+            <div className={cssDefault.wrapBtn}>
+              <button
+                className={cssDefault.btnClose}
+                onClick={handleToogle}
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                className={cssDefault.btnClose}
+                onClick={handleToogle}
+                type="button"
+              >
+                Ok
+              </button>
             </div>
           </div>
+          // </div>
         )}
       </Modal>
 
@@ -184,15 +184,11 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    border: 1px solid #ccc;
                     background: #fff;
                     overflow: auto;
-                    border-radius: 0.25rem;
                     outline: none;
-                    padding: 20px;
                     height: 100%;
                     width: 100%;
-                    max-width: 800px;
               }
 
               .modalOverlay {
@@ -201,8 +197,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    // right: 0;
-                    // bottom: 0;
                     background-color: rgba(0, 0, 0, 0.005);
                     z-index: 1;
               }

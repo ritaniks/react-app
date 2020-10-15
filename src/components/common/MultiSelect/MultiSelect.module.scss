@@ -12,17 +12,6 @@
   text-align: left;
 }
 
-.wrapBgSelect {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.02);
-  z-index: 1;
-  overflow-y: hidden;
-}
 .wrapSelect {
   width: 95%;
   height: 98%;
@@ -33,7 +22,6 @@
   border-radius: 0.25rem;
   overflow-y: hidden;
   position: relative;
-  margin-right: 0.5rem;
 }
 
 // search
@@ -64,7 +52,6 @@
   align-items: center;
   height: 5rem;
   border-bottom: 2px solid var(--border-gray);
-  padding-right: 1rem;
   margin-right: 0.75rem;
 
   label {
