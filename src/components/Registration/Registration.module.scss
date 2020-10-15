@@ -1,8 +1,15 @@
+.wrapRegistration {
+  max-width: 850px !important;
+  background-color: #fff;
+  height: 100vh;
+}
+
 .header {
   .inner {
     display: flex;
     justify-content: space-between;
     margin: 0 0 0.75rem;
+    padding-top: 1rem;
 
     // .logo {
     // }

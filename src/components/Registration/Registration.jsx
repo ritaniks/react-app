@@ -26,13 +26,13 @@ const Registration = () => {
 
       <div
         className={cn(
-          css.container,
+          css.wrapRegistration,
           'container',
           isStopOverflow && css.overflow,
         )}
       >
         {/* HEADER */}
-        <header className={`${css.header}  pt-2`}>
+        <header className={`${css.header}`}>
           <div className={css.inner}>
             <a
               className={css.logo}
