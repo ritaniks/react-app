@@ -7,11 +7,12 @@ import Modal from 'react-modal';
 import cssDefault from './MultiSelect.module.scss';
 
 const tmp = {
+  selectAll: [{ name: 'selectAll', checked: false, role: 'selectAll' }],
   manegers: [
-    { name: 'Tom', checked: false, role: 'manegers' },
     { name: 'Jack', checked: false, role: 'manegers' },
     { name: 'Kate', checked: true, role: 'manegers' },
   ],
+
   workers: [
     { name: 'Elis', checked: false, role: 'workers' },
     { name: 'Jonny', checked: true, role: 'workers' },
@@ -26,7 +27,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
   // const [select, setSelect] = useState(false);
-  const [selectAll, setSelectAll] = useState([]);
+  const [selectAll, setSelectAll] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -40,35 +41,34 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   const handleSelect = e => {
-    // console.log(e.target.checked, 'select');
-    // console.dir(e.target.name, 'select');
-    const userNameSelected = e.target.name;
+    console.log(e.target.checked, 'select');
+    console.dir(e.target.name, 'select');
+    console.dir(e.target.attributes.role.value);
+    const selecRole = e.target.attributes.role.value;
+    // const userNameSelected = e.target.name;
 
-    const oneUser = tmp.manegers.map(el => {
-      // (el.name === userNameSelected ? index : 'ok'),
-      // console.log(index, 'ind');
-      // console.log(el.name, 'el');
-      // console.log(userNameSelected, 'userNameSelected');
-      // console.log(index, 'ind');
-
-      if (el.name === userNameSelected) {
-        // (el.checked = !el.checked)
-        return;
-      }
-      return;
+    setSelectAll({
+      ...selectAll,
+      [selecRole]: selectAll[selecRole].map(el => {
+        if (el.name === e.target.name) {
+          return { ...el, checked: !el.checked };
+        }
+        return el;
+      }),
     });
-    console.log(oneUser, 'oneUser');
-    // tmp.workers.find();
-
-    // setSelect(e.target.checked);
-    // console.log('select One');
   };
   const handleSelectAll = e => {
-    setSelectAll(e.target.checked);
+    // console.log(selectAll, 'selectAll');
+    // setSelectAll({
+    //   selectAll: { name, checked: true },
+    // });
+    // setSelectAll(e.target.checked);
     // console.log(e.target.checked, 'select All');
     // console.dir(e.target.checked, 'select All');
     // console.log('select All');
   };
+
+  console.log(selectAll, 'SelectAll');
   //   const handleSearch = () => {};
   return (
     <>
@@ -110,7 +110,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 <label htmlFor="selectAllClient">Select ALL</label>
               </div>
               <p className={cssDefault.userRole}>Menagers</p>
-              {tmp.manegers.map((c, index) => (
+
+              {selectAll.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
@@ -123,8 +124,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
+
               <p className={cssDefault.userRole}>Workers</p>
-              {tmp.workers.map((c, index) => (
+              {selectAll.workers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
