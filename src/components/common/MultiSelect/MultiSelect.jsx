@@ -6,30 +6,16 @@ import Modal from 'react-modal';
 
 import cssDefault from './MultiSelect.module.scss';
 
-const tmp = [
-  { name: 'Pes', checked: false },
-  { name: 'Jonny', checked: false },
-  { name: 'Tommy', checked: false },
-  // { name: 'Elis', checked: false },
-  // { name: 'Jack', checked: false },
-  // { name: 'Kate', checked: false },
-  // { name: 'Brovko', checked: false },
-  // { name: 'Pes', checked: false },
-  // { name: 'Jonny', checked: false },
-  // { name: 'Tommy', checked: false },
-  // { name: 'Elis', checked: false },
-];
-
-const tmp2 = {
-  workers: [
-    { name: 'Elis', checked: false },
-    { name: 'Jonny', checked: false },
-    { name: 'Tommy', checked: false },
-  ],
+const tmp = {
   manegers: [
-    { name: 'Tom', checked: false },
-    { name: 'Jack', checked: false },
-    { name: 'Kate', checked: false },
+    { name: 'Tom', checked: false, role: 'manegers' },
+    { name: 'Jack', checked: false, role: 'manegers' },
+    { name: 'Kate', checked: true, role: 'manegers' },
+  ],
+  workers: [
+    { name: 'Elis', checked: false, role: 'workers' },
+    { name: 'Jonny', checked: true, role: 'workers' },
+    { name: 'Tommy', checked: false, role: 'workers' },
   ],
 };
 
@@ -39,8 +25,8 @@ Modal.setAppElement('#root');
 const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
-  //   const [select, setSelect] = useState(0);
-  //   const [selectAll, setSelectAll] = useState([]);
+  // const [select, setSelect] = useState(false);
+  const [selectAll, setSelectAll] = useState([]);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -53,12 +39,36 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     setIsStopOverflow(true);
   };
 
-  //   const handleSelect = () => {
-  //     console.log('select One');
-  //   };
-  //   const handleSelectAll = () => {
-  //     console.log('select All');
-  //   };
+  const handleSelect = e => {
+    // console.log(e.target.checked, 'select');
+    // console.dir(e.target.name, 'select');
+    const userNameSelected = e.target.name;
+
+    const oneUser = tmp.manegers.map(el => {
+      // (el.name === userNameSelected ? index : 'ok'),
+      // console.log(index, 'ind');
+      // console.log(el.name, 'el');
+      // console.log(userNameSelected, 'userNameSelected');
+      // console.log(index, 'ind');
+
+      if (el.name === userNameSelected) {
+        // (el.checked = !el.checked)
+        return;
+      }
+      return;
+    });
+    console.log(oneUser, 'oneUser');
+    // tmp.workers.find();
+
+    // setSelect(e.target.checked);
+    // console.log('select One');
+  };
+  const handleSelectAll = e => {
+    setSelectAll(e.target.checked);
+    // console.log(e.target.checked, 'select All');
+    // console.dir(e.target.checked, 'select All');
+    // console.log('select All');
+  };
   //   const handleSearch = () => {};
   return (
     <>
@@ -78,7 +88,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         closeTimeoutMS={100}
       >
         {isOpen && (
-          // <div className={cssDefault.wrapBgSelect}>
           <div className={cssDefault.wrapSelect}>
             <div className={cssDefault.wrapSearch}>
               <input
@@ -92,42 +101,42 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
               <div className={cssDefault.wrapInput}>
-                <input type="checkbox" id="selectAllClient" name="clients" />
+                <input
+                  onChange={handleSelectAll}
+                  type="checkbox"
+                  id="selectAllClient"
+                  name="clients"
+                />
                 <label htmlFor="selectAllClient">Select ALL</label>
               </div>
-              {console.log(tmp2.manegers, 'tmp2.manegers')}
               <p className={cssDefault.userRole}>Menagers</p>
-              {tmp2.manegers.map((c, index) => (
+              {tmp.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
+                    onChange={handleSelect}
                     type="checkbox"
                     id={`${c.name}-${index}`}
                     name={c.name}
+                    checked={c.checked}
+                    role={c.role}
                   />
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
               <p className={cssDefault.userRole}>Workers</p>
-              {tmp2.workers.map((c, index) => (
+              {tmp.workers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
+                    onChange={handleSelect}
                     type="checkbox"
                     id={`${c.name}-${index}`}
                     name={c.name}
+                    checked={c.checked}
+                    role={c.role}
                   />
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
-              {/* {tmp.map((c, index) => (
-                <div className={cssDefault.wrapInput} key={index}>
-                  <input
-                    type="checkbox"
-                    id={`${c.name}-${index}`}
-                    name={c.name}
-                  />
-                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
-                </div>
-              ))} */}
             </div>
             <div className={cssDefault.wrapBtn}>
               <button
@@ -146,21 +155,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               </button>
             </div>
           </div>
-          // </div>
         )}
       </Modal>
-
-      {/* <select multiple="multiple" className={css.select}>
-        <option onChange={handleSearch}>search</option>
-        <optgroup label="Украинская кухня">
-          <option onClick={handleSelectAll}>All</option>
-        </optgroup>
-        <option onClick={handleSelect}>11:00</option>
-        <option onClick={handleSelect}>11:30</option>
-        <option onClick={handleSelect}>12:00</option>
-        <option onClick={handleSelect}>12:30</option>
-      </select> */}
-
       <Helmet>
         <style>{`
               .modalMultiSelect {
