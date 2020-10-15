@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 // import { Modal, Button } from 'react-bootstrap';
 
-import Submit from '../../../buttons/Submit';
-import PrevBtn from '../../../buttons/PrevBtn';
+import Submit from '../buttons/Submit';
+import PrevBtn from '../buttons/PrevBtn';
 
-import MultiSelect from '../../../../common/MultiSelect/MultiSelect';
+import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
-import { ReactComponent as Pen } from '../../../../../assets/img/registration/pen.svg';
-import { ReactComponent as X } from '../../../../../assets/img/registration/x.svg';
-// import { ReactComponent as Folder } from '../../../../../../assets/img/registration/folder.svg';
-// import { ReactComponent as File } from '../../../../../../assets/img/registration/file-alt.svg';
-// import { ReactComponent as User } from '../../../../../../assets/img/registration/user.svg';
+import { ReactComponent as Pen } from '../../../assets/img/registration/pen.svg';
+import { ReactComponent as X } from '../../../assets/img/registration/x.svg';
+// import { ReactComponent as Folder } from '../../../../assets/img/registration/folder.svg';
+// import { ReactComponent as File } from '../../../../assets/img/registration/file-alt.svg';
+// import { ReactComponent as User } from '../../../../assets/img/registration/user.svg';
 
 import css from './steps.module.scss';
 

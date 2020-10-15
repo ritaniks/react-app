@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import NextBtn from '../../../buttons/NextBtn';
-// import PrevBtn from '../../../buttons/PrevBtn';
-import SendInvite from '../../../buttons/SendInvite';
+import NextBtn from '../buttons/NextBtn';
+// import PrevBtn from '../buttons/PrevBtn';
+import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 

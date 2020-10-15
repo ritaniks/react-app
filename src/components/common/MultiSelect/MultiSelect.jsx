@@ -57,7 +57,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       }),
     });
   };
-  const handleSelectAll = e => {
+  const handleSelectAll = () => {
     // console.log(selectAll, 'selectAll');
     // setSelectAll({
     //   selectAll: { name, checked: true },
