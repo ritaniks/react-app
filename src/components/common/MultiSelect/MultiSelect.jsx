@@ -29,8 +29,8 @@ Modal.setAppElement('#root');
 const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
-  const [select, setSelect] = useState(tmp);
-  // const [selectAll, setSelectAll] = useState(tmp);
+  // const [select, setSelect] = useState(false);
+  const [selectAll, setSelectAll] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -50,9 +50,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     const selecRole = e.target.attributes.role.value;
     // const userNameSelected = e.target.name;
 
-    setSelect({
-      ...select,
-      [selecRole]: select[selecRole].map(el => {
+    setSelectAll({
+      ...selectAll,
+      [selecRole]: selectAll[selecRole].map(el => {
         if (el.name === e.target.name) {
           return { ...el, checked: !el.checked };
         }
@@ -75,7 +75,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     // console.log('select All');
   };
 
-  console.log(select, 'Select');
+  console.log(selectAll, 'SelectAll');
   //   const handleSearch = () => {};
   return (
     <>
@@ -118,7 +118,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               </div>
               <p className={cssDefault.userRole}>Managers</p>
 
-              {select.manegers.map((c, index) => (
+              {selectAll.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
@@ -133,7 +133,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               ))}
 
               <p className={cssDefault.userRole}>Users</p>
-              {select.users.map((c, index) => (
+              {selectAll.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
