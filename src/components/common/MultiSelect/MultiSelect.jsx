@@ -52,20 +52,22 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     // const userNameSelected = e.target.name;
 
     if (selecRole === 'selectAll') {
-      // let isCheckAll = true;
+      const isCheckAll = select.selectAll[0].checked;
       setSelect({
         ...select,
         [selecRole]: select[selecRole].map(el => {
           return { ...el, checked: !el.checked };
         }),
         manegers: select.manegers.map(el => {
-          return { ...el, checked: true };
+          return { ...el, checked: !isCheckAll };
         }),
         users: select.users.map(el => {
-          return { ...el, checked: true };
+          return { ...el, checked: !isCheckAll };
         }),
       });
     } else {
+      const isCheckAll = select.selectAll[0].checked;
+      // to do unselect selectAll(false)
       setSelect({
         ...select,
         [selecRole]: select[selecRole].map(el => {
@@ -73,6 +75,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
             return { ...el, checked: !el.checked };
           }
           return el;
+        }),
+        selectAll: select.selectAll.map(el => {
+          return { ...el, checked: false };
         }),
       });
     }
