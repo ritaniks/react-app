@@ -22,6 +22,7 @@ const tmp = {
     { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
+const roleSelectAll = 'selectAll';
 
 Modal.setAppElement('#root');
 
@@ -107,15 +108,20 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               />
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
+              {/* {selectAll.selectAll.map(c => ( */}
               <div className={cssDefault.wrapInput}>
                 <input
                   onChange={handleSelectAll}
                   type="checkbox"
-                  id="selectAllClient"
-                  name="clients"
+                  id={`${selectAll.selectAll.name}--`}
+                  name="selectAll"
+                  checked={selectAll.selectAll.checked}
+                  role={selectAll.selectAll.role}
                 />
                 <label htmlFor="selectAllClient">Select All</label>
               </div>
+              {/* ))} */}
+
               <p className={cssDefault.userRole}>Managers</p>
 
               {selectAll.manegers.map((c, index) => (
