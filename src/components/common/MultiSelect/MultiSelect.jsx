@@ -30,7 +30,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
   // const [select, setSelect] = useState(false);
-  const [selectAll, setSelectAll] = useState(tmp);
+  const [select, setSelectAll] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -53,15 +53,15 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     if (selecRole === 'selectAll') {
       // let isCheckAll = true;
       setSelectAll({
-        ...selectAll,
-        [selecRole]: selectAll[selecRole].map(el => {
+        ...select,
+        [selecRole]: select[selecRole].map(el => {
           return { ...el, checked: !el.checked };
         }),
       });
     } else {
       setSelectAll({
-        ...selectAll,
-        [selecRole]: selectAll[selecRole].map(el => {
+        ...select,
+        [selecRole]: select[selecRole].map(el => {
           if (el.name === e.target.name) {
             return { ...el, checked: !el.checked };
           }
@@ -70,26 +70,26 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       });
     }
   };
-  const handleSelectAll = e => {
-    // console.log(e.target.checked, 'select');
-    // console.dir(e.target.name, 'select');
-    console.dir(e.target, 'target handleSelectAll');
-    // console.dir(e.target.attributes.role.value);
-    // console.log(selectAll, 'selectAll');
-    // setSelectAll({
-    //   selectAll: { name, checked: true },
-    // });
-    // setSelectAll(e.target.checked);
-    // console.log(e.target.checked, 'select All');
-    // console.dir(e.target.checked, 'select All');
-    // console.log('select All');
-  };
+  // const handleSelectAll = e => {
+  //   // console.log(e.target.checked, 'select');
+  //   // console.dir(e.target.name, 'select');
+  //   console.dir(e.target, 'target handleSelectAll');
+  //   // console.dir(e.target.attributes.role.value);
+  //   // console.log(selectAll, 'selectAll');
+  //   // setSelectAll({
+  //   //   selectAll: { name, checked: true },
+  //   // });
+  //   // setSelectAll(e.target.checked);
+  //   // console.log(e.target.checked, 'select All');
+  //   // console.dir(e.target.checked, 'select All');
+  //   // console.log('select All');
+  // };
 
   // useEffect(() => {
   //   let all = selectAll.selectAll[0];
   // }, []);
 
-  console.log(selectAll, 'SelectAll');
+  console.log(select, 'SelectAll');
   //   const handleSearch = () => {};
   return (
     <>
@@ -125,19 +125,19 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 <input
                   onChange={handleSelect}
                   type="checkbox"
-                  id={`${selectAll.selectAll[0].name}--`}
-                  name={selectAll.selectAll[0].name}
-                  checked={selectAll.selectAll[0].checked}
-                  role={selectAll.selectAll[0].role}
+                  id={`${select.selectAll[0].name}--`}
+                  name={select.selectAll[0].name}
+                  checked={select.selectAll[0].checked}
+                  role={select.selectAll[0].role}
                 />
-                <label htmlFor={`${selectAll.selectAll[0].name}--`}>
-                  {selectAll.selectAll[0].name}
+                <label htmlFor={`${select.selectAll[0].name}--`}>
+                  {select.selectAll[0].name}
                 </label>
               </div>
 
               <p className={cssDefault.userRole}>Managers</p>
 
-              {selectAll.manegers.map((c, index) => (
+              {select.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
@@ -152,7 +152,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               ))}
 
               <p className={cssDefault.userRole}>Users</p>
-              {selectAll.users.map((c, index) => (
+              {select.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
