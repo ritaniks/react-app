@@ -30,7 +30,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
   // const [select, setSelect] = useState(false);
-  const [select, setSelectAll] = useState(tmp);
+  const [select, setSelect] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -52,14 +52,14 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
     if (selecRole === 'selectAll') {
       // let isCheckAll = true;
-      setSelectAll({
+      setSelect({
         ...select,
         [selecRole]: select[selecRole].map(el => {
           return { ...el, checked: !el.checked };
         }),
       });
     } else {
-      setSelectAll({
+      setSelect({
         ...select,
         [selecRole]: select[selecRole].map(el => {
           if (el.name === e.target.name) {
@@ -76,10 +76,10 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   //   console.dir(e.target, 'target handleSelectAll');
   //   // console.dir(e.target.attributes.role.value);
   //   // console.log(selectAll, 'selectAll');
-  //   // setSelectAll({
+  //   // setSelect({
   //   //   selectAll: { name, checked: true },
   //   // });
-  //   // setSelectAll(e.target.checked);
+  //   // setSelect(e.target.checked);
   //   // console.log(e.target.checked, 'select All');
   //   // console.dir(e.target.checked, 'select All');
   //   // console.log('select All');
