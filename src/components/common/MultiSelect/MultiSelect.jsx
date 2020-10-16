@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
@@ -22,7 +22,6 @@ const tmp = {
     { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
-const roleSelectAll = 'selectAll';
 
 Modal.setAppElement('#root');
 
@@ -51,20 +50,30 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     const selecRole = e.target.attributes.role.value;
     // const userNameSelected = e.target.name;
 
-    setSelectAll({
-      ...selectAll,
-      [selecRole]: selectAll[selecRole].map(el => {
-        if (el.name === e.target.name) {
+    if (selecRole === 'selectAll') {
+      // let isCheckAll = true;
+      setSelectAll({
+        ...selectAll,
+        [selecRole]: selectAll[selecRole].map(el => {
           return { ...el, checked: !el.checked };
-        }
-        return el;
-      }),
-    });
+        }),
+      });
+    } else {
+      setSelectAll({
+        ...selectAll,
+        [selecRole]: selectAll[selecRole].map(el => {
+          if (el.name === e.target.name) {
+            return { ...el, checked: !el.checked };
+          }
+          return el;
+        }),
+      });
+    }
   };
   const handleSelectAll = e => {
     // console.log(e.target.checked, 'select');
     // console.dir(e.target.name, 'select');
-    console.dir(e.target, 'target');
+    console.dir(e.target, 'target handleSelectAll');
     // console.dir(e.target.attributes.role.value);
     // console.log(selectAll, 'selectAll');
     // setSelectAll({
@@ -75,6 +84,10 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     // console.dir(e.target.checked, 'select All');
     // console.log('select All');
   };
+
+  // useEffect(() => {
+  //   let all = selectAll.selectAll[0];
+  // }, []);
 
   console.log(selectAll, 'SelectAll');
   //   const handleSearch = () => {};
@@ -108,19 +121,19 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               />
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
-              {/* {selectAll.selectAll.map(c => ( */}
               <div className={cssDefault.wrapInput}>
                 <input
-                  onChange={handleSelectAll}
+                  onChange={handleSelect}
                   type="checkbox"
-                  id={`${selectAll.selectAll.name}--`}
-                  name="selectAll"
-                  checked={selectAll.selectAll.checked}
-                  role={selectAll.selectAll.role}
+                  id={`${selectAll.selectAll[0].name}--`}
+                  name={selectAll.selectAll[0].name}
+                  checked={selectAll.selectAll[0].checked}
+                  role={selectAll.selectAll[0].role}
                 />
-                <label htmlFor="selectAllClient">Select All</label>
+                <label htmlFor={`${selectAll.selectAll[0].name}--`}>
+                  {selectAll.selectAll[0].name}
+                </label>
               </div>
-              {/* ))} */}
 
               <p className={cssDefault.userRole}>Managers</p>
 
