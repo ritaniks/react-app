@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 
 import cssDefault from './MultiSelect.module.scss';
 
+// this is select
 const tmp = {
   selectAll: [{ name: 'selectAll', checked: false, role: 'selectAll' }],
   manegers: [
@@ -55,6 +56,12 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       setSelect({
         ...select,
         [selecRole]: select[selecRole].map(el => {
+          return { ...el, checked: !el.checked };
+        }),
+        manegers: select.manegers.map(el => {
+          return { ...el, checked: !el.checked };
+        }),
+        users: select.users.map(el => {
           return { ...el, checked: !el.checked };
         }),
       });
