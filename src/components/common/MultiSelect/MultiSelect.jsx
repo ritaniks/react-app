@@ -13,13 +13,13 @@ const tmp = {
     { name: 'Kate', checked: true, role: 'manegers' },
   ],
 
-  workers: [
-    { name: 'Elis', checked: false, role: 'workers' },
-    { name: 'Jonny', checked: true, role: 'workers' },
-    { name: 'Tommy', checked: false, role: 'workers' },
-    { name: 'Elis1', checked: false, role: 'workers' },
-    { name: 'Jonny1', checked: true, role: 'workers' },
-    { name: 'Tommy1', checked: false, role: 'workers' },
+  users: [
+    { name: 'Elis', checked: false, role: 'users' },
+    { name: 'Jonny', checked: true, role: 'users' },
+    { name: 'Tommy', checked: false, role: 'users' },
+    { name: 'Elis1', checked: false, role: 'users' },
+    { name: 'Jonny1', checked: true, role: 'users' },
+    { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
 
@@ -132,8 +132,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 </div>
               ))}
 
-              <p className={cssDefault.userRole}>Workers</p>
-              {selectAll.workers.map((c, index) => (
+              <p className={cssDefault.userRole}>Users</p>
+              {selectAll.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
                     onChange={handleSelect}
