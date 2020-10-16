@@ -1,7 +1,12 @@
 .wrapRegistration {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.registration {
   max-width: 850px !important;
   background-color: #fff;
-  height: 100vh;
+  min-height: 80vh;
 }
 
 .header {

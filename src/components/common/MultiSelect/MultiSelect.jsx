@@ -17,6 +17,9 @@ const tmp = {
     { name: 'Elis', checked: false, role: 'workers' },
     { name: 'Jonny', checked: true, role: 'workers' },
     { name: 'Tommy', checked: false, role: 'workers' },
+    { name: 'Elis1', checked: false, role: 'workers' },
+    { name: 'Jonny1', checked: true, role: 'workers' },
+    { name: 'Tommy1', checked: false, role: 'workers' },
   ],
 };
 
@@ -41,9 +44,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   const handleSelect = e => {
-    console.log(e.target.checked, 'select');
-    console.dir(e.target.name, 'select');
-    console.dir(e.target.attributes.role.value);
+    // console.log(e.target.checked, 'select');
+    // console.dir(e.target.name, 'select');
+    // console.dir(e.target.attributes.role.value);
     const selecRole = e.target.attributes.role.value;
     // const userNameSelected = e.target.name;
 
@@ -57,7 +60,11 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       }),
     });
   };
-  const handleSelectAll = () => {
+  const handleSelectAll = e => {
+    // console.log(e.target.checked, 'select');
+    // console.dir(e.target.name, 'select');
+    console.dir(e.target, 'target');
+    // console.dir(e.target.attributes.role.value);
     // console.log(selectAll, 'selectAll');
     // setSelectAll({
     //   selectAll: { name, checked: true },
@@ -107,9 +114,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   id="selectAllClient"
                   name="clients"
                 />
-                <label htmlFor="selectAllClient">Select ALL</label>
+                <label htmlFor="selectAllClient">Select All</label>
               </div>
-              <p className={cssDefault.userRole}>Menagers</p>
+              <p className={cssDefault.userRole}>Managers</p>
 
               {selectAll.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>

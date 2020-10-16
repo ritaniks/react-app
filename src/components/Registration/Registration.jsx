@@ -11,7 +11,7 @@ import './globalSW.scss';
 // import './helperSW';
 
 const Registration = () => {
-  const [countClick, setCountClick] = useState(1);
+  const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
 
@@ -20,13 +20,10 @@ const Registration = () => {
   }, [countClick]);
 
   return (
-    <>
-      {/* data-gr-c-s-loaded="true" */}
-      {/* <Modal /> */}
-
+    <div className={css.wrapRegistration}>
       <div
         className={cn(
-          css.wrapRegistration,
+          css.registration,
           'container',
           isStopOverflow && css.overflow,
         )}
@@ -121,7 +118,7 @@ const Registration = () => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
