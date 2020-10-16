@@ -59,10 +59,10 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
           return { ...el, checked: !el.checked };
         }),
         manegers: select.manegers.map(el => {
-          return { ...el, checked: !el.checked };
+          return { ...el, checked: true };
         }),
         users: select.users.map(el => {
-          return { ...el, checked: !el.checked };
+          return { ...el, checked: true };
         }),
       });
     } else {
