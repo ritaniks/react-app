@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
@@ -66,7 +66,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         }),
       });
     } else {
-      const isCheckAll = select.selectAll[0].checked;
       // to do unselect selectAll(false)
       setSelect({
         ...select,
@@ -82,27 +81,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       });
     }
   };
-  // const handleSelectAll = e => {
-  //   // console.log(e.target.checked, 'select');
-  //   // console.dir(e.target.name, 'select');
-  //   console.dir(e.target, 'target handleSelectAll');
-  //   // console.dir(e.target.attributes.role.value);
-  //   // console.log(selectAll, 'selectAll');
-  //   // setSelect({
-  //   //   selectAll: { name, checked: true },
-  //   // });
-  //   // setSelect(e.target.checked);
-  //   // console.log(e.target.checked, 'select All');
-  //   // console.dir(e.target.checked, 'select All');
-  //   // console.log('select All');
-  // };
 
-  // useEffect(() => {
-  //   let all = selectAll.selectAll[0];
-  // }, []);
-
-  console.log(select, 'SelectAll');
-  //   const handleSearch = () => {};
   return (
     <>
       <button
