@@ -82,6 +82,10 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     }
   };
 
+  const handleSelectByRole = e => {
+    console.log(e.target, 'handleSelectByRole -> e.target');
+  };
+
   return (
     <>
       <button
@@ -126,7 +130,15 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 </label>
               </div>
 
-              <p className={cssDefault.userRole}>Managers</p>
+              <div className={cssDefault.wrapRole}>
+                <input
+                  onChange={handleSelectByRole}
+                  type="checkbox"
+                  id="menegersRoleCheck"
+                  name="Managers"
+                />
+                <label htmlFor="menegersRoleCheck">Managers</label>
+              </div>
 
               {select.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
@@ -142,7 +154,16 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 </div>
               ))}
 
-              <p className={cssDefault.userRole}>Users</p>
+              <div className={cssDefault.wrapRole}>
+                <input
+                  onChange={handleSelectByRole}
+                  type="checkbox"
+                  id="usersRoleCheck"
+                  name="Users"
+                />
+                <label htmlFor="menegersRoleCheck">Users</label>
+              </div>
+
               {select.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <input
