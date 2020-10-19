@@ -15,14 +15,14 @@
 
 .wrapSelect {
   width: 95%;
-  height: 98%;
+  height: 97%;
   margin: 0.5rem auto;
   background-color: #fff;
   padding: 1rem;
   border: 1px solid var(--border-gray);
   border-radius: 0.25rem;
   overflow-y: hidden;
-  position: relative;
+  // position: relative;
   max-width: 850px;
 }
 
@@ -44,17 +44,10 @@
 
 // checkboxes
 .wrapCheckBoxes {
-  max-height: 82%;
+  max-height: calc(100% - 7rem);
   overflow-y: auto;
 
   // user role (manager, worker)
-  // .userRole {
-  //   margin: 0;
-  //   margin-top: 1rem;
-  //   font-weight: 800;
-  //   text-align: right;
-  //   padding-right: 1rem;
-  // }
 
   .wrapRole {
     display: flex;
@@ -71,7 +64,6 @@
       font-weight: 700;
       line-height: 4;
       text-align: right;
-      // padding-right: 1.5rem;
       color: var(--primary);
       margin: 0;
     }
@@ -81,7 +73,7 @@
     }
   }
 
-  // inputs
+  // inputs with users
   .wrapInput {
     display: flex;
     align-items: center;
@@ -100,13 +92,14 @@
 
 // btn
 .wrapBtn {
-  position: absolute;
-  bottom: 1rem;
-  width: inherit;
-  height: 3rem;
+  // position: absolute;
+  // bottom: 1rem;
+  width: 100%;
+  height: 3.5rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
+  // margin-bottom: 0.5rem;
 
   .btnClose {
     border: 2px solid var(--primary);
