@@ -56,6 +56,26 @@
   //   padding-right: 1rem;
   // }
 
+  .wrapRole {
+    // display: flex;
+    // flex-direction: row-reverse;
+    // justify-content: flex-end;
+    // align-items: center;
+    margin-right: 0.75rem;
+
+    label {
+      width: 90%;
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 3.2;
+      order: 1;
+    }
+    input {
+      order: 0;
+      width: 10%;
+    }
+  }
+
   // inputs
   .wrapInput {
     display: flex;

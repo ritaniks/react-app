@@ -117,6 +117,9 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
               <div className={cssDefault.wrapInput}>
+                <label htmlFor={`${select.selectAll[0].name}--`}>
+                  {select.selectAll[0].name}
+                </label>
                 <input
                   onChange={handleSelect}
                   type="checkbox"
@@ -125,23 +128,21 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   checked={select.selectAll[0].checked}
                   role={select.selectAll[0].role}
                 />
-                <label htmlFor={`${select.selectAll[0].name}--`}>
-                  {select.selectAll[0].name}
-                </label>
               </div>
 
               <div className={cssDefault.wrapRole}>
+                <label htmlFor="menegersRoleCheck">Managers</label>
                 <input
                   onChange={handleSelectByRole}
                   type="checkbox"
                   id="menegersRoleCheck"
                   name="Managers"
                 />
-                <label htmlFor="menegersRoleCheck">Managers</label>
               </div>
 
               {select.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                   <input
                     onChange={handleSelect}
                     type="checkbox"
@@ -150,22 +151,22 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     checked={c.checked}
                     role={c.role}
                   />
-                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
 
               <div className={cssDefault.wrapRole}>
+                <label htmlFor="menegersRoleCheck">Users</label>
                 <input
                   onChange={handleSelectByRole}
                   type="checkbox"
                   id="usersRoleCheck"
                   name="Users"
                 />
-                <label htmlFor="menegersRoleCheck">Users</label>
               </div>
 
               {select.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                   <input
                     onChange={handleSelect}
                     type="checkbox"
@@ -174,7 +175,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     checked={c.checked}
                     role={c.role}
                   />
-                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
             </div>
