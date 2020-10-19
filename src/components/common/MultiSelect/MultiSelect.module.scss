@@ -50,24 +50,39 @@
   // user role (manager, worker)
 
   .wrapRole {
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    // justify-items: flex-end;
+    // margin-right: 1.75rem;
+    // height: 5rem;
+    // border-bottom: 2px solid var(--primary);
+
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    justify-items: flex-end;
+    /* justify-content: inherit; */
+    /* justify-items: flex-end; */
     margin-right: 1.75rem;
-    height: 5rem;
+    height: 2rem;
     border-bottom: 2px solid var(--primary);
+    margin: 0 0 0 60%;
+    border-radius: 50px;
+    border-top: 2px solid tomato;
+    margin: 2rem 1rem 0 50%;
+    padding: 0 0 0 0.75rem;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: var(--primary);
     }
 
-    &:hover label {
+    &:hover label,
+    &:focus label {
       color: #fff;
     }
 
     label {
-      flex: 1;
+      // flex: 1;
       font-size: 1.25rem;
       font-weight: 700;
       line-height: 4;
