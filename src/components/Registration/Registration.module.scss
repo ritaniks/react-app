@@ -4,9 +4,8 @@
   height: 100vh;
 }
 .registration {
-  max-width: 850px !important;
   background-color: #fff;
-  min-height: 80vh;
+  height: 100vh;
 }
 
 .header {
@@ -73,16 +72,22 @@
   overflow: hidden;
   height: 90vh;
 }
-.startWizardContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 0.75rem;
-  padding: 5rem !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+// .startWizardContainer {
+//   display: flex;
+//   flex-direction: column;
+//   background-color: #fff;
+//   border-radius: 0.75rem;
+//   padding: 5rem !important;
+//   width: 100%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top: auto;
+// }
 
-  // d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3
+@media (min-width: 767px) {
+  .registration {
+    max-width: 850px !important;
+    height: auto;
+    border-radius: 0.5rem;
+  }
 }
