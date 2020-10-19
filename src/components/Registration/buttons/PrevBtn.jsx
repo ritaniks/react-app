@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import css from './buttons.module.scss';
 
@@ -16,6 +17,11 @@ const PrevBtn = ({ countClick, setCountClick }) => {
       Previous
     </button>
   );
+};
+
+PrevBtn.propTypes = {
+  countClick: PropTypes.number.isRequired,
+  setCountClick: PropTypes.func.isRequired,
 };
 
 export default PrevBtn;
