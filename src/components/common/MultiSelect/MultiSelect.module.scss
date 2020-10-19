@@ -57,42 +57,36 @@
   // }
 
   .wrapRole {
-    // display: flex;
-    // flex-direction: row-reverse;
-    // justify-content: flex-end;
-    // align-items: center;
-    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    margin-right: 1.75rem;
 
     label {
-      width: 90%;
-      margin: 0;
-      font-size: 1.5rem;
+      flex: 1;
+      // margin: 0;
+      font-size: 1rem;
+      font-weight: 900;
       line-height: 3.2;
-      order: 1;
-    }
-    input {
-      order: 0;
-      width: 10%;
+      justify-self: end;
+      color: var(--primary);
     }
   }
 
   // inputs
   .wrapInput {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     height: 5rem;
     border-bottom: 2px solid var(--border-gray);
-    margin-right: 0.75rem;
+    margin-right: 1.75rem;
 
     label {
-      width: 90%;
+      flex: 1;
       margin: 0;
       font-size: 1.5rem;
       line-height: 3.2;
-    }
-    input {
-      width: 10%;
     }
   }
 }
