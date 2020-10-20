@@ -28,8 +28,6 @@ Modal.setAppElement('#root');
 // eslint-disable-next-line no-unused-vars
 const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [isModal, setIsModal] = useState(false);
-  // const [select, setSelect] = useState(false);
   const [select, setSelect] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
@@ -48,35 +46,30 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   useEffect(() => {
-    let allSelectsTrue = false;
-    // eslint-disable-next-line
-    for (const key in select) {
-      allSelectsTrue = select[key].every(el => el.checked === true);
+    //  select all Managers
+    const isSelectAllManager = select.managers.every(el => el.checked === true);
 
-      if (allSelectsTrue && key === 'managers') {
-        setSelectManagers(true);
-      }
-      if (!allSelectsTrue && key === 'managers') {
-        setSelectManagers(false);
-      }
-
-      if (allSelectsTrue && key === 'users') {
-        setSelectUsers(true);
-      }
-      if (!allSelectsTrue && key === 'users') {
-        setSelectUsers(false);
-      }
-
-      if (!allSelectsTrue) {
-        allSelectsTrue = false;
-        break;
-      }
+    if (isSelectAllManager) {
+      setSelectManagers(true);
+    } else {
+      setSelectManagers(false);
     }
 
-    if (allSelectsTrue) {
-      setSelectAll(true);
+    //  select all Users
+    const isSelectAllUsers = select.users.every(el => el.checked === true);
+
+    if (isSelectAllUsers) {
+      setSelectUsers(true);
     } else {
+      setSelectUsers(false);
+    }
+
+    //  select ALL (users & managers)
+    if (isSelectAllManager || isSelectAllUsers) {
       setSelectAll(false);
+    }
+    if (isSelectAllManager && isSelectAllUsers) {
+      setSelectAll(true);
     }
   }, [select]);
 
@@ -112,7 +105,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
   const handleSelectByRole = e => {
     if (e.target.name === 'managers') {
-      // console.log('managers');
       setSelectManagers(!selectManagers);
 
       setSelect({
@@ -124,7 +116,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       });
     }
     if (e.target.name === 'users') {
-      // console.log('users');
       setSelectUsers(!selectUsers);
 
       setSelect({
