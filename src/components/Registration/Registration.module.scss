@@ -1,5 +1,9 @@
 .wrapRegistration {
-  max-width: 850px !important;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.registration {
   background-color: #fff;
   height: 100vh;
 }
@@ -29,10 +33,10 @@
   text-align: center;
   .headTitle {
     color: var(--primary);
-    font-size: 1.25rem;
+    font-weight: 700;
   }
   .headDiscription {
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-bottom: 0.75rem;
   }
 }
@@ -68,16 +72,11 @@
   overflow: hidden;
   height: 90vh;
 }
-.startWizardContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 0.75rem;
-  padding: 5rem !important;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
 
-  // d-flex w-100 mb-auto mx-auto flex-column bg-white  rounded p-3
+@media (min-width: 767px) {
+  .registration {
+    max-width: 850px !important;
+    height: auto;
+    border-radius: 0.5rem;
+  }
 }

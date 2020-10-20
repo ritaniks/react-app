@@ -15,14 +15,14 @@
 
 .wrapSelect {
   width: 95%;
-  height: 98%;
+  height: 97%;
   margin: 0.5rem auto;
   background-color: #fff;
   padding: 1rem;
   border: 1px solid var(--border-gray);
   border-radius: 0.25rem;
   overflow-y: hidden;
-  position: relative;
+  // position: relative;
   max-width: 850px;
 }
 
@@ -44,48 +44,73 @@
 
 // checkboxes
 .wrapCheckBoxes {
-  max-height: 82%;
+  max-height: calc(100% - 7rem);
   overflow-y: auto;
 
   // user role (manager, worker)
-  .userRole {
-    margin: 0;
-    margin-top: 1rem;
-    font-weight: 800;
-    text-align: right;
-    padding-right: 1rem;
+
+  .wrapRole {
+    display: flex;
+    align-items: center;
+    margin-right: 1.75rem;
+    height: 2rem;
+    border-bottom: 2px solid var(--primary);
+    margin: 0 0 0 60%;
+    border-radius: 50px;
+    border-top: 3px solid rgb(241, 241, 25);
+    border-top: 3px solid var(--primary);
+    margin: 2rem 1rem 0 50%;
+    padding: 0 0 0 0.75rem;
+
+    &:hover,
+    &:focus {
+      background: var(--primary);
+    }
+
+    &:hover label,
+    &:focus label {
+      color: #fff;
+    }
+
+    label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 4;
+      text-align: right;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    input {
+      visibility: hidden;
+      background-color: transparent;
+    }
   }
 
-  // inputs
+  // inputs with users
   .wrapInput {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     height: 5rem;
     border-bottom: 2px solid var(--border-gray);
-    margin-right: 0.75rem;
+    margin-right: 1.75rem;
 
     label {
-      width: 90%;
+      flex: 1;
       margin: 0;
       font-size: 1.5rem;
       line-height: 3.2;
-    }
-    input {
-      width: 10%;
     }
   }
 }
 
 // btn
 .wrapBtn {
-  position: absolute;
-  bottom: 1rem;
-  width: inherit;
-  height: 3rem;
+  width: 100%;
+  height: 3.5rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 
   .btnClose {
     border: 2px solid var(--primary);

@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 
 import cssDefault from './MultiSelect.module.scss';
 
+// this is select
 const tmp = {
   selectAll: [{ name: 'selectAll', checked: false, role: 'selectAll' }],
   manegers: [
@@ -13,10 +14,13 @@ const tmp = {
     { name: 'Kate', checked: true, role: 'manegers' },
   ],
 
-  workers: [
-    { name: 'Elis', checked: false, role: 'workers' },
-    { name: 'Jonny', checked: true, role: 'workers' },
-    { name: 'Tommy', checked: false, role: 'workers' },
+  users: [
+    { name: 'Elis', checked: false, role: 'users' },
+    { name: 'Jonny', checked: true, role: 'users' },
+    { name: 'Tommy', checked: false, role: 'users' },
+    { name: 'Elis1', checked: false, role: 'users' },
+    { name: 'Jonny1', checked: true, role: 'users' },
+    { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
 
@@ -27,7 +31,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isModal, setIsModal] = useState(false);
   // const [select, setSelect] = useState(false);
-  const [selectAll, setSelectAll] = useState(tmp);
+  const [select, setSelect] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
   const handleToogle = () => {
@@ -41,35 +45,47 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   const handleSelect = e => {
-    console.log(e.target.checked, 'select');
-    console.dir(e.target.name, 'select');
-    console.dir(e.target.attributes.role.value);
+    // console.log(e.target.checked, 'select');
+    // console.dir(e.target.name, 'select');
+    // console.dir(e.target.attributes.role.value);
     const selecRole = e.target.attributes.role.value;
     // const userNameSelected = e.target.name;
 
-    setSelectAll({
-      ...selectAll,
-      [selecRole]: selectAll[selecRole].map(el => {
-        if (el.name === e.target.name) {
+    if (selecRole === 'selectAll') {
+      const isCheckAll = select.selectAll[0].checked;
+      setSelect({
+        ...select,
+        [selecRole]: select[selecRole].map(el => {
           return { ...el, checked: !el.checked };
-        }
-        return el;
-      }),
-    });
-  };
-  const handleSelectAll = () => {
-    // console.log(selectAll, 'selectAll');
-    // setSelectAll({
-    //   selectAll: { name, checked: true },
-    // });
-    // setSelectAll(e.target.checked);
-    // console.log(e.target.checked, 'select All');
-    // console.dir(e.target.checked, 'select All');
-    // console.log('select All');
+        }),
+        manegers: select.manegers.map(el => {
+          return { ...el, checked: !isCheckAll };
+        }),
+        users: select.users.map(el => {
+          return { ...el, checked: !isCheckAll };
+        }),
+      });
+    } else {
+      // to do unselect selectAll(false)
+      setSelect({
+        ...select,
+        [selecRole]: select[selecRole].map(el => {
+          if (el.name === e.target.name) {
+            return { ...el, checked: !el.checked };
+          }
+          return el;
+        }),
+        selectAll: select.selectAll.map(el => {
+          return { ...el, checked: false };
+        }),
+      });
+    }
   };
 
-  console.log(selectAll, 'SelectAll');
-  //   const handleSearch = () => {};
+  const handleSelectByRole = e => {
+    console.log(e.target, 'handleSelectByRole -> e.target');
+  };
+
   return (
     <>
       <button
@@ -101,18 +117,32 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
               <div className={cssDefault.wrapInput}>
+                <label htmlFor={`${select.selectAll[0].name}--`}>
+                  {select.selectAll[0].name}
+                </label>
                 <input
-                  onChange={handleSelectAll}
+                  onChange={handleSelect}
                   type="checkbox"
-                  id="selectAllClient"
-                  name="clients"
+                  id={`${select.selectAll[0].name}--`}
+                  name={select.selectAll[0].name}
+                  checked={select.selectAll[0].checked}
+                  role={select.selectAll[0].role}
                 />
-                <label htmlFor="selectAllClient">Select ALL</label>
               </div>
-              <p className={cssDefault.userRole}>Menagers</p>
 
-              {selectAll.manegers.map((c, index) => (
+              <div className={cssDefault.wrapRole}>
+                <label htmlFor="menegersRoleCheck">Managers</label>
+                <input
+                  onChange={handleSelectByRole}
+                  type="checkbox"
+                  id="menegersRoleCheck"
+                  name="Managers"
+                />
+              </div>
+
+              {select.manegers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                   <input
                     onChange={handleSelect}
                     type="checkbox"
@@ -121,13 +151,22 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     checked={c.checked}
                     role={c.role}
                   />
-                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
 
-              <p className={cssDefault.userRole}>Workers</p>
-              {selectAll.workers.map((c, index) => (
+              <div className={cssDefault.wrapRole}>
+                <label htmlFor="menegersRoleCheck">Users</label>
+                <input
+                  onChange={handleSelectByRole}
+                  type="checkbox"
+                  id="usersRoleCheck"
+                  name="Users"
+                />
+              </div>
+
+              {select.users.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
+                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                   <input
                     onChange={handleSelect}
                     type="checkbox"
@@ -136,7 +175,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     checked={c.checked}
                     role={c.role}
                   />
-                  <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                 </div>
               ))}
             </div>
