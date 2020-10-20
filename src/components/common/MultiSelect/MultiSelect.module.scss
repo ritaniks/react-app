@@ -52,36 +52,44 @@
   .wrapRole {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    justify-items: space-between;
     margin-right: 1.75rem;
     height: 2rem;
-    margin: 0 0 0 60%;
+    // margin: 0 0 0 60%;
     border-radius: 50px;
     border: 2px solid var(--primary);
     margin: 2rem 1rem 0 50%;
     padding: 0 0 0 0.75rem;
 
-    &:hover,
-    &:focus {
+    // &:hover,
+    // &:focus {
+    //   background: var(--primary);
+    // }
+    &:active {
       background: var(--primary);
     }
 
-    &:hover label,
-    &:focus label {
+    // &:hover label,
+    // &:focus label {
+    //   color: #fff;
+    // }
+
+    &:active label {
       color: #fff;
     }
 
     label {
       font-size: 1.25rem;
       font-weight: 700;
-      line-height: 4;
       text-align: right;
       color: var(--primary);
       margin: 0;
-      width: 95%;
     }
 
     input {
-      visibility: hidden;
+      // visibility: hidden;
+      margin-right: 0.7rem;
     }
   }
 
