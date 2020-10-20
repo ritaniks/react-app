@@ -117,7 +117,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         return { ...el, checked: !selectAll };
       }),
     });
-    // console.log(e.target, 'handleSelectByRole -> e.target');
   };
   const handleSelectByRole = e => {
     console.log(e.target, 'handleSelectByRole -> e.target');
@@ -189,7 +188,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               ))}
 
               <div className={cssDefault.wrapRole}>
-                <label htmlFor="menegersRoleCheck">Users</label>
+                <label htmlFor="usersRoleCheck">Users</label>
                 <input
                   onChange={handleSelectByRole}
                   type="checkbox"
