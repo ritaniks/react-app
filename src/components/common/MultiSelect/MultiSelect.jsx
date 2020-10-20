@@ -47,24 +47,42 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     setIsStopOverflow(true);
   };
 
+  useEffect(() => {
+    let allSelectsTrue = false;
+    // eslint-disable-next-line
+    for (const key in select) {
+      allSelectsTrue = select[key].every(el => el.checked === true);
+
+      if (allSelectsTrue && key === 'managers') {
+        setSelectManagers(true);
+      }
+      if (!allSelectsTrue && key === 'managers') {
+        setSelectManagers(false);
+      }
+
+      if (allSelectsTrue && key === 'users') {
+        setSelectUsers(true);
+      }
+      if (!allSelectsTrue && key === 'users') {
+        setSelectUsers(false);
+      }
+
+      if (!allSelectsTrue) {
+        allSelectsTrue = false;
+        break;
+      }
+    }
+
+    if (allSelectsTrue) {
+      setSelectAll(true);
+    } else {
+      setSelectAll(false);
+    }
+  }, [select]);
+
   const handleSelect = e => {
     const selecRole = e.target.attributes.role.value;
 
-    // if (selecRole === 'selectAll') {
-    //   const isCheckAll = select.selectAll[0].checked;
-    //   setSelect({
-    //     ...select,
-    //     [selecRole]: select[selecRole].map(el => {
-    //       return { ...el, checked: !el.checked };
-    //     }),
-    //     managers: select.managers.map(el => {
-    //       return { ...el, checked: !isCheckAll };
-    //     }),
-    //     users: select.users.map(el => {
-    //       return { ...el, checked: !isCheckAll };
-    //     }),
-    //   });
-    // } else {
     setSelect({
       ...select,
       [selecRole]: select[selecRole].map(el =>
@@ -72,67 +90,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       ),
     });
   };
-
-  useEffect(() => {
-    let allSelectsTrue = false;
-    // let allSelectsFalse = false;
-    // eslint-disable-next-line
-    for (const key in select) {
-      allSelectsTrue = select[key].every(el => el.checked === true);
-
-      if (allSelectsTrue && key === 'managers') {
-        console.log('managers');
-        setSelectManagers(!selectManagers);
-
-        // setSelect({
-        //   ...select,
-
-        //   managers: select.managers.map(el => {
-        //     return { ...el, checked: !selectManagers };
-        //   }),
-        // });
-      }
-
-      if (allSelectsTrue && key === 'users') {
-        console.log('users');
-        setSelectUsers(!selectUsers);
-
-        // setSelect({
-        //   ...select,
-        //   users: select.users.map(el => {
-        //     return { ...el, checked: !selectUsers };
-        //   }),
-        // });
-      }
-
-      if (!allSelectsTrue) {
-        allSelectsTrue = false;
-        break;
-      }
-
-      // if (key === 'managers' && allSelectsTrue) {
-      //   console.log('managers');
-      // }
-      // if (key === 'users' && allSelectsTrue) {
-      //   console.log('users');
-      // }
-    }
-    // eslint-disable-next-line
-    // for (const key in select) {
-    //   allSelectsFalse = select[key].every(el => el.checked === false);
-    // }
-
-    if (allSelectsTrue) {
-      // console.log(1);
-      setSelectAll(true);
-    } else {
-      setSelectAll(false);
-      // console.log(2);
-    }
-    // console.log(allSelectsTrue, 'allSelectsTrue');
-    // console.log(allSelectsFalse, 'allSelectsFalse');
-    // console.log(select, 'select');
-  }, [select]);
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -147,14 +104,15 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         return { ...el, checked: !selectAll };
       }),
     });
+
+    if (selectAll) {
+      setSelectManagers(false);
+      setSelectUsers(false);
+    }
   };
   const handleSelectByRole = e => {
-    // console.log(e.target.checked, 'handleSelectByRole -> e.target');
-    console.log(e.target.name, 'handleSelectByRole -> e.target');
-    // console.log(e.target.attributes, 'attributes');
-
     if (e.target.name === 'managers') {
-      console.log('managers');
+      // console.log('managers');
       setSelectManagers(!selectManagers);
 
       setSelect({
@@ -166,7 +124,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       });
     }
     if (e.target.name === 'users') {
-      console.log('users');
+      // console.log('users');
       setSelectUsers(!selectUsers);
 
       setSelect({

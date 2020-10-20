@@ -77,13 +77,11 @@
       text-align: right;
       color: var(--primary);
       margin: 0;
+      width: 95%;
     }
 
     input {
-      // visibility: hidden;
-    }
-    & input:checked + label {
-      background-color: red !important;
+      visibility: hidden;
     }
   }
 
