@@ -80,8 +80,10 @@
     }
 
     input {
-      visibility: hidden;
-      background-color: transparent;
+      // visibility: hidden;
+    }
+    & input:checked + label {
+      background-color: red !important;
     }
   }
 

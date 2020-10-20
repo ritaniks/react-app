@@ -34,8 +34,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   //   const [search, setSearch] = useState('');
 
   const [selectAll, setSelectAll] = useState(false);
-  // const [selectMenagers, setSelectMenagers] = useState(false);
-  // const [selectUsers, setSelectUsers] = useState(false);
+  const [selectManagers, setSelectManagers] = useState(false);
+  const [selectUsers, setSelectUsers] = useState(false);
 
   const handleToogle = () => {
     setIsOpen(!isOpen);
@@ -75,10 +75,40 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
   useEffect(() => {
     let allSelectsTrue = false;
-    let allSelectsFalse = false;
+    // let allSelectsFalse = false;
     // eslint-disable-next-line
     for (const key in select) {
       allSelectsTrue = select[key].every(el => el.checked === true);
+
+      if (allSelectsTrue && key === 'managers') {
+        console.log('managers');
+        setSelectManagers(!selectManagers);
+
+        // setSelect({
+        //   ...select,
+
+        //   managers: select.managers.map(el => {
+        //     return { ...el, checked: !selectManagers };
+        //   }),
+        // });
+      }
+
+      if (allSelectsTrue && key === 'users') {
+        console.log('users');
+        setSelectUsers(!selectUsers);
+
+        // setSelect({
+        //   ...select,
+        //   users: select.users.map(el => {
+        //     return { ...el, checked: !selectUsers };
+        //   }),
+        // });
+      }
+
+      if (!allSelectsTrue) {
+        allSelectsTrue = false;
+        break;
+      }
 
       // if (key === 'managers' && allSelectsTrue) {
       //   console.log('managers');
@@ -88,20 +118,20 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       // }
     }
     // eslint-disable-next-line
-    for (const key in select) {
-      allSelectsFalse = select[key].every(el => el.checked === false);
-    }
+    // for (const key in select) {
+    //   allSelectsFalse = select[key].every(el => el.checked === false);
+    // }
 
     if (allSelectsTrue) {
-      console.log(1);
+      // console.log(1);
       setSelectAll(true);
     } else {
       setSelectAll(false);
-      console.log(2);
+      // console.log(2);
     }
-    console.log(allSelectsTrue, 'allSelectsTrue');
-    console.log(allSelectsFalse, 'allSelectsFalse');
-    console.log(select, 'select');
+    // console.log(allSelectsTrue, 'allSelectsTrue');
+    // console.log(allSelectsFalse, 'allSelectsFalse');
+    // console.log(select, 'select');
   }, [select]);
 
   const handleSelectAll = () => {
@@ -119,7 +149,33 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     });
   };
   const handleSelectByRole = e => {
-    console.log(e.target, 'handleSelectByRole -> e.target');
+    // console.log(e.target.checked, 'handleSelectByRole -> e.target');
+    console.log(e.target.name, 'handleSelectByRole -> e.target');
+    // console.log(e.target.attributes, 'attributes');
+
+    if (e.target.name === 'managers') {
+      console.log('managers');
+      setSelectManagers(!selectManagers);
+
+      setSelect({
+        ...select,
+
+        managers: select.managers.map(el => {
+          return { ...el, checked: !selectManagers };
+        }),
+      });
+    }
+    if (e.target.name === 'users') {
+      console.log('users');
+      setSelectUsers(!selectUsers);
+
+      setSelect({
+        ...select,
+        users: select.users.map(el => {
+          return { ...el, checked: !selectUsers };
+        }),
+      });
+    }
   };
 
   return (
@@ -169,7 +225,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   onChange={handleSelectByRole}
                   type="checkbox"
                   id="menegersRoleCheck"
-                  name="Managers"
+                  name="managers"
+                  checked={selectManagers}
                 />
               </div>
 
@@ -193,7 +250,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                   onChange={handleSelectByRole}
                   type="checkbox"
                   id="usersRoleCheck"
-                  name="Users"
+                  name="users"
+                  checked={selectUsers}
                 />
               </div>
 
