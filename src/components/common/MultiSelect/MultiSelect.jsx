@@ -8,17 +8,17 @@ import cssDefault from './MultiSelect.module.scss';
 
 // this is select
 const tmp = {
-  manegers: [
-    { name: 'Jack', checked: false, role: 'manegers' },
-    { name: 'Kate', checked: true, role: 'manegers' },
+  managers: [
+    { name: 'Jack', checked: false, role: 'managers' },
+    { name: 'Kate', checked: false, role: 'managers' },
   ],
 
   users: [
     { name: 'Elis', checked: false, role: 'users' },
-    { name: 'Jonny', checked: true, role: 'users' },
+    { name: 'Jonny', checked: false, role: 'users' },
     { name: 'Tommy', checked: false, role: 'users' },
     { name: 'Elis1', checked: false, role: 'users' },
-    { name: 'Jonny1', checked: true, role: 'users' },
+    { name: 'Jonny1', checked: false, role: 'users' },
     { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
@@ -57,7 +57,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     //     [selecRole]: select[selecRole].map(el => {
     //       return { ...el, checked: !el.checked };
     //     }),
-    //     manegers: select.manegers.map(el => {
+    //     managers: select.managers.map(el => {
     //       return { ...el, checked: !isCheckAll };
     //     }),
     //     users: select.users.map(el => {
@@ -74,6 +74,33 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   useEffect(() => {
+    let allSelectsTrue = false;
+    let allSelectsFalse = false;
+    // eslint-disable-next-line
+    for (const key in select) {
+      allSelectsTrue = select[key].every(el => el.checked === true);
+
+      // if (key === 'managers' && allSelectsTrue) {
+      //   console.log('managers');
+      // }
+      // if (key === 'users' && allSelectsTrue) {
+      //   console.log('users');
+      // }
+    }
+    // eslint-disable-next-line
+    for (const key in select) {
+      allSelectsFalse = select[key].every(el => el.checked === false);
+    }
+
+    if (allSelectsTrue) {
+      console.log(1);
+      setSelectAll(true);
+    } else {
+      setSelectAll(false);
+      console.log(2);
+    }
+    console.log(allSelectsTrue, 'allSelectsTrue');
+    console.log(allSelectsFalse, 'allSelectsFalse');
     console.log(select, 'select');
   }, [select]);
 
@@ -136,7 +163,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 />
               </div>
 
-              {select.manegers.map((c, index) => (
+              {select.managers.map((c, index) => (
                 <div className={cssDefault.wrapInput} key={index}>
                   <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
                   <input
