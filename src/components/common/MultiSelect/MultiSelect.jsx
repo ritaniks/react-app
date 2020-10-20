@@ -106,6 +106,17 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
+
+    setSelect({
+      ...select,
+
+      managers: select.managers.map(el => {
+        return { ...el, checked: !selectAll };
+      }),
+      users: select.users.map(el => {
+        return { ...el, checked: !selectAll };
+      }),
+    });
     // console.log(e.target, 'handleSelectByRole -> e.target');
   };
   const handleSelectByRole = e => {
