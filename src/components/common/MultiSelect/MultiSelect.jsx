@@ -34,6 +34,10 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [select, setSelect] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
+  // const [selectAll, setSelectAll] = useState(false);
+  // const [selectMenagers, setSelectMenagers] = useState(false);
+  // const [selectUsers, setSelectUsers] = useState(false);
+
   const handleToogle = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(false);
