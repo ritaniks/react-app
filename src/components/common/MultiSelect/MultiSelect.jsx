@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Helmet from 'react-helmet';
@@ -8,7 +8,6 @@ import cssDefault from './MultiSelect.module.scss';
 
 // this is select
 const tmp = {
-  selectAll: [{ name: 'selectAll', checked: false, role: 'selectAll' }],
   manegers: [
     { name: 'Jack', checked: false, role: 'manegers' },
     { name: 'Kate', checked: true, role: 'manegers' },
@@ -34,7 +33,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [select, setSelect] = useState(tmp);
   //   const [search, setSearch] = useState('');
 
-  // const [selectAll, setSelectAll] = useState(false);
+  const [selectAll, setSelectAll] = useState(false);
   // const [selectMenagers, setSelectMenagers] = useState(false);
   // const [selectUsers, setSelectUsers] = useState(false);
 
@@ -49,43 +48,39 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   const handleSelect = e => {
-    // console.log(e.target.checked, 'select');
-    // console.dir(e.target.name, 'select');
-    // console.dir(e.target.attributes.role.value);
     const selecRole = e.target.attributes.role.value;
-    // const userNameSelected = e.target.name;
 
-    if (selecRole === 'selectAll') {
-      const isCheckAll = select.selectAll[0].checked;
-      setSelect({
-        ...select,
-        [selecRole]: select[selecRole].map(el => {
-          return { ...el, checked: !el.checked };
-        }),
-        manegers: select.manegers.map(el => {
-          return { ...el, checked: !isCheckAll };
-        }),
-        users: select.users.map(el => {
-          return { ...el, checked: !isCheckAll };
-        }),
-      });
-    } else {
-      // to do unselect selectAll(false)
-      setSelect({
-        ...select,
-        [selecRole]: select[selecRole].map(el => {
-          if (el.name === e.target.name) {
-            return { ...el, checked: !el.checked };
-          }
-          return el;
-        }),
-        selectAll: select.selectAll.map(el => {
-          return { ...el, checked: false };
-        }),
-      });
-    }
+    // if (selecRole === 'selectAll') {
+    //   const isCheckAll = select.selectAll[0].checked;
+    //   setSelect({
+    //     ...select,
+    //     [selecRole]: select[selecRole].map(el => {
+    //       return { ...el, checked: !el.checked };
+    //     }),
+    //     manegers: select.manegers.map(el => {
+    //       return { ...el, checked: !isCheckAll };
+    //     }),
+    //     users: select.users.map(el => {
+    //       return { ...el, checked: !isCheckAll };
+    //     }),
+    //   });
+    // } else {
+    setSelect({
+      ...select,
+      [selecRole]: select[selecRole].map(el =>
+        el.name === e.target.name ? { ...el, checked: !el.checked } : el,
+      ),
+    });
   };
 
+  useEffect(() => {
+    console.log(select, 'select');
+  }, [select]);
+
+  const handleSelectAll = () => {
+    setSelectAll(!selectAll);
+    // console.log(e.target, 'handleSelectByRole -> e.target');
+  };
   const handleSelectByRole = e => {
     console.log(e.target, 'handleSelectByRole -> e.target');
   };
@@ -121,16 +116,13 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
             </div>
             <div className={cssDefault.wrapCheckBoxes}>
               <div className={cssDefault.wrapInput}>
-                <label htmlFor={`${select.selectAll[0].name}--`}>
-                  {select.selectAll[0].name}
-                </label>
+                <label htmlFor="selectAllUsers">Select all</label>
                 <input
-                  onChange={handleSelect}
+                  onChange={handleSelectAll}
                   type="checkbox"
-                  id={`${select.selectAll[0].name}--`}
-                  name={select.selectAll[0].name}
-                  checked={select.selectAll[0].checked}
-                  role={select.selectAll[0].role}
+                  id="selectAllUsers"
+                  name="Select all"
+                  checked={selectAll}
                 />
               </div>
 
