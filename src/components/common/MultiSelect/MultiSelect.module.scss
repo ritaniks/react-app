@@ -56,24 +56,14 @@
     justify-items: space-between;
     margin-right: 1.75rem;
     height: 2rem;
-    // margin: 0 0 0 60%;
     border-radius: 50px;
     border: 2px solid var(--primary);
     margin: 2rem 1rem 0 50%;
     padding: 0 0 0 0.75rem;
 
-    // &:hover,
-    // &:focus {
-    //   background: var(--primary);
-    // }
     &:active {
       background: var(--primary);
     }
-
-    // &:hover label,
-    // &:focus label {
-    //   color: #fff;
-    // }
 
     &:active label {
       color: #fff;
