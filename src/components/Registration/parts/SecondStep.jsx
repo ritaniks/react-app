@@ -7,6 +7,8 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
+const defaultInputs = { email: '', role: 'User' };
+
 const Role = {
   Admin: 'Admin',
   Manager: 'Manager',
@@ -16,7 +18,7 @@ const Role = {
 const SecondStep = ({ countClick, setCountClick }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userRole, setUserRole] = useState(Role.User);
-  // const [users, setUsers] = useState([{},{},{}]);
+  // const [users, setUsers] = useState([defaultInputs, {}, {}, {}]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,11 +45,15 @@ const SecondStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset className="fieldset">
-        <form type="submit" onSubmit={handleSubmit}>
+        <form className={css.form} type="submit" onSubmit={handleSubmit}>
+          <div className={css.wrapTitles}>
+            <h6>Invite by Email</h6>
+            <h6>User Permissions</h6>
+          </div>
           <div className={css.wrapAllInputsInvite}>
             <div className={css.wrapByEmail}>
               {/* <label htmlFor="inputInviteByEmail"> */}
-              <h6>Invite by Email</h6>
+              {/* <h6>Invite by Email</h6> */}
               {/* </label> */}
 
               {/* loop for create  */}
@@ -62,7 +68,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
               />
             </div>
             <div className={css.wrapByRole}>
-              <h6>User Permissions</h6>
+              {/* <h6>User Permissions</h6> */}
               <div className={css.wrapCheckBoxes}>
                 {/* loop for create new checkboxes */}
                 <input

@@ -10,12 +10,19 @@
 // First step
 
 // Second step
-.wrapAllInputsInvite {
+.form {
+}
+.wrapTitles {
   display: flex;
 
   h6 {
+    flex: 1;
     text-align: left;
-    font-weight: 700;
+  }
+}
+.wrapAllInputsInvite {
+  display: flex;
+  .wrapTitles {
   }
 
   .wrapByEmail {
