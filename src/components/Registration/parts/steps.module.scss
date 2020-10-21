@@ -13,22 +13,32 @@
 .wrapAllInputsInvite {
   display: flex;
 
+  h6 {
+    text-align: left;
+    font-weight: 700;
+  }
+
   .wrapByEmail {
     flex: 1;
 
     label {
       margin: 0;
+      display: inline;
+
+      h6 {
+        font-weight: 700;
+      }
     }
   }
   .wrapByRole {
     flex: 1;
     height: 100%;
+    padding: 0 0.25rem 0 0.5rem;
 
     .wrapCheckBoxes {
       display: flex;
       align-items: center;
       padding-top: 0.5rem;
-      padding-left: 0.5rem;
 
       .label,
       input {
