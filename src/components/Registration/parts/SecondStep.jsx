@@ -45,7 +45,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
       <fieldset className="fieldset">
         <form type="submit" onSubmit={handleSubmit}>
           <div className={css.wrapAllInputsInvite}>
-            <div className={css.wrapInputInviteByEmail}>
+            <div className={css.wrapByEmail}>
               <label htmlFor="inputInviteByEmail">
                 <h6>Invite by Email</h6>
               </label>
@@ -59,45 +59,50 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 value={userEmail}
               />
             </div>
-            <div className={css.wrapChekboxesByRole}>
+            <div className={css.wrapByRole}>
               <h6>User Permissions</h6>
-              <input
-                type="radio"
-                id="roleAdmin"
-                name="roleUsers"
-                value="Admin"
-                checked={userRole === 'Admin'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
-                {Role.Admin}
-              </label>
 
-              <input
-                type="radio"
-                id="roleManager"
-                name="roleUsers"
-                value="Manager"
-                checked={userRole === 'Manager'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
-                {Role.Manager}
-              </label>
-              <input
-                type="radio"
-                id="roleUser"
-                name="roleUsers"
-                value="User"
-                checked={userRole === 'User'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label}  pl-2`} htmlFor="roleUser">
-                {Role.User}
-              </label>
+              <div className={css.wrapCheckBoxes}>
+                <input
+                  type="radio"
+                  id="roleAdmin"
+                  name="roleUsers"
+                  value="Admin"
+                  checked={userRole === 'Admin'}
+                  readOnly
+                  onClick={handleChangeRole}
+                />
+                <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
+                  {Role.Admin}
+                </label>
+                <input
+                  type="radio"
+                  id="roleManager"
+                  name="roleUsers"
+                  value="Manager"
+                  checked={userRole === 'Manager'}
+                  readOnly
+                  onClick={handleChangeRole}
+                />
+                <label
+                  className={`${css.label} mr-2 pl-2`}
+                  htmlFor="roleManager"
+                >
+                  {Role.Manager}
+                </label>
+                <input
+                  type="radio"
+                  id="roleUser"
+                  name="roleUsers"
+                  value="User"
+                  checked={userRole === 'User'}
+                  readOnly
+                  onClick={handleChangeRole}
+                />
+                <label className={`${css.label}  pl-2`} htmlFor="roleUser">
+                  {Role.User}
+                </label>
+              </div>
             </div>
           </div>
           <SendInvite />

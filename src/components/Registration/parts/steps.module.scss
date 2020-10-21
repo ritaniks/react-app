@@ -13,13 +13,28 @@
 .wrapAllInputsInvite {
   display: flex;
 
-  .wrapInputInviteByEmail {
+  .wrapByEmail {
     flex: 1;
+
+    label {
+      margin: 0;
+    }
   }
-  .wrapChekboxesByRole {
+  .wrapByRole {
     flex: 1;
-    .label {
-      cursor: pointer;
+    height: 100%;
+
+    .wrapCheckBoxes {
+      display: flex;
+      align-items: center;
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+
+      .label,
+      input {
+        cursor: pointer;
+        margin: 0;
+      }
     }
   }
 }
