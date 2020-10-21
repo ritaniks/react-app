@@ -44,24 +44,23 @@ const SecondStep = ({ countClick, setCountClick }) => {
     <>
       <fieldset className="fieldset">
         <form type="submit" onSubmit={handleSubmit}>
-          <div className="form-card">
-            <div className="form-group mb-3">
-              <label htmlFor="exampleInputEmail1">
+          <div className={css.wrapAllInputsInvite}>
+            <div className={css.wrapInputInviteByEmail}>
+              <label htmlFor="inputInviteByEmail">
                 <h6>Invite by Email</h6>
               </label>
               <input
                 type="email"
                 className="form-control"
-                id="exampleInputEmail1"
+                id="inputInviteByEmail"
                 aria-describedby="emailHelp"
                 placeholder="name@example.com"
                 onChange={handleChangeInput}
                 value={userEmail}
               />
             </div>
-            <div className="mb-2">
+            <div className={css.wrapChekboxesByRole}>
               <h6>User Permissions</h6>
-
               <input
                 type="radio"
                 id="roleAdmin"
@@ -100,9 +99,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 {Role.User}
               </label>
             </div>
-
-            <SendInvite />
           </div>
+          <SendInvite />
           {/* if you need Previous Page */}
           {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
           <NextBtn countClick={countClick} setCountClick={setCountClick} />

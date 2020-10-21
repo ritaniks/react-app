@@ -10,9 +10,18 @@
 // First step
 
 // Second step
+.wrapAllInputsInvite {
+  display: flex;
 
-.label {
-  cursor: pointer;
+  .wrapInputInviteByEmail {
+    flex: 1;
+  }
+  .wrapChekboxesByRole {
+    flex: 1;
+    .label {
+      cursor: pointer;
+    }
+  }
 }
 
 // Third step
