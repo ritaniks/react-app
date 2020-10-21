@@ -7,7 +7,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: '', role: 'User' };
+// const defaultInputs = { email: '', role: 'User' };
 
 const Role = {
   Admin: 'Admin',
@@ -52,10 +52,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
           </div>
           <div className={css.wrapAllInputsInvite}>
             <div className={css.wrapByEmail}>
-              {/* <label htmlFor="inputInviteByEmail"> */}
-              {/* <h6>Invite by Email</h6> */}
-              {/* </label> */}
-
               {/* loop for create  */}
               <input
                 type="email"
