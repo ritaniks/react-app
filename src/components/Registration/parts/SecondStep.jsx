@@ -47,7 +47,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <div className="form-card">
             <div className="form-group mb-3">
               <label htmlFor="exampleInputEmail1">
-                <b>Invite by Email</b>
+                <h6>Invite by Email</h6>
               </label>
               <input
                 type="email"
@@ -60,45 +60,46 @@ const SecondStep = ({ countClick, setCountClick }) => {
               />
             </div>
             <div className="mb-2">
-              <b>User Permissions</b>
-            </div>
-            <input
-              type="radio"
-              id="roleAdmin"
-              name="roleUsers"
-              value="Admin"
-              checked={userRole === 'Admin'}
-              readOnly
-              onClick={handleChangeRole}
-            />
-            <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
-              {Role.Admin}
-            </label>
+              <h6>User Permissions</h6>
 
-            <input
-              type="radio"
-              id="roleManager"
-              name="roleUsers"
-              value="Manager"
-              checked={userRole === 'Manager'}
-              readOnly
-              onClick={handleChangeRole}
-            />
-            <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
-              {Role.Manager}
-            </label>
-            <input
-              type="radio"
-              id="roleUser"
-              name="roleUsers"
-              value="User"
-              checked={userRole === 'User'}
-              readOnly
-              onClick={handleChangeRole}
-            />
-            <label className={`${css.label}  pl-2`} htmlFor="roleUser">
-              {Role.User}
-            </label>
+              <input
+                type="radio"
+                id="roleAdmin"
+                name="roleUsers"
+                value="Admin"
+                checked={userRole === 'Admin'}
+                readOnly
+                onClick={handleChangeRole}
+              />
+              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
+                {Role.Admin}
+              </label>
+
+              <input
+                type="radio"
+                id="roleManager"
+                name="roleUsers"
+                value="Manager"
+                checked={userRole === 'Manager'}
+                readOnly
+                onClick={handleChangeRole}
+              />
+              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
+                {Role.Manager}
+              </label>
+              <input
+                type="radio"
+                id="roleUser"
+                name="roleUsers"
+                value="User"
+                checked={userRole === 'User'}
+                readOnly
+                onClick={handleChangeRole}
+              />
+              <label className={`${css.label}  pl-2`} htmlFor="roleUser">
+                {Role.User}
+              </label>
+            </div>
 
             <SendInvite />
           </div>
