@@ -20,8 +20,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userEmail, 'userEmailsssssss');
-    console.log(userRole, 'userRolesssss');
+    // console.log(userEmail, 'userEmailsssssss');
+    // console.log(userRole, 'userRolesssss');
 
     setUserEmail('');
     setUserRole(Role.User);
@@ -46,9 +46,11 @@ const SecondStep = ({ countClick, setCountClick }) => {
         <form type="submit" onSubmit={handleSubmit}>
           <div className={css.wrapAllInputsInvite}>
             <div className={css.wrapByEmail}>
-              <label htmlFor="inputInviteByEmail">
-                <h6>Invite by Email</h6>
-              </label>
+              {/* <label htmlFor="inputInviteByEmail"> */}
+              <h6>Invite by Email</h6>
+              {/* </label> */}
+
+              {/* loop for create  */}
               <input
                 type="email"
                 className="form-control"
@@ -61,8 +63,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
             </div>
             <div className={css.wrapByRole}>
               <h6>User Permissions</h6>
-
               <div className={css.wrapCheckBoxes}>
+                {/* loop for create new checkboxes */}
                 <input
                   type="radio"
                   id="roleAdmin"
