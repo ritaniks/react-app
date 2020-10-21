@@ -10,9 +10,42 @@
 // First step
 
 // Second step
+.form {
+}
+.wrapTitles {
+  display: flex;
 
-.label {
-  cursor: pointer;
+  h6 {
+    flex: 1;
+    text-align: left;
+    font-weight: 700;
+  }
+}
+.wrapAllInputsInvite {
+  display: flex;
+  .wrapTitles {
+  }
+
+  .wrapByEmail {
+    flex: 1;
+  }
+  .wrapByRole {
+    flex: 1;
+    height: 100%;
+    padding: 0 0.25rem 0 0.5rem;
+
+    .wrapCheckBoxes {
+      display: flex;
+      align-items: center;
+      padding-top: 0.5rem;
+
+      .label,
+      input {
+        cursor: pointer;
+        margin: 0;
+      }
+    }
+  }
 }
 
 // Third step

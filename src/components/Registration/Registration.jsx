@@ -11,7 +11,7 @@ import './globalSW.scss';
 // import './helperSW';
 
 const Registration = () => {
-  const [countClick, setCountClick] = useState(3);
+  const [countClick, setCountClick] = useState(2);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
 
