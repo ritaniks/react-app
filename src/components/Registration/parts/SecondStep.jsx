@@ -19,6 +19,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userRole, setUserRole] = useState(Role.User);
   // const [users, setUsers] = useState([defaultInputs, {}, {}, {}]);
+  const [prevTargetValue, setPrevTargetValue] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -30,7 +31,19 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
   const handleChangeInput = ({ target }) => {
     // console.log(target.value, 'target1');
-    setUserEmail(target.value);
+    const prevVal = target.value;
+    console.log(target.value.length, '&& target.value.length');
+    if (
+      prevTargetValue.length === 0 &&
+      prevVal.length === 1 &&
+      prevTargetValue.length !== 2
+    ) {
+      console.log(prevVal, 'prevVal');
+    }
+
+    setPrevTargetValue(prevVal);
+
+    setUserEmail(prevVal);
   };
   const handleChangeRole = ({ target }) => {
     // console.log(target.value, 'target2');
