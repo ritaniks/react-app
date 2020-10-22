@@ -35,11 +35,15 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
 
-  const [countChecks, setCountChecks] = useState(0);
+  // default props
+  let defautPropCount = 0;
+
+  // helpers
 
   const handleToogle = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(false);
+    defautPropCount = 0;
   };
 
   const handleStopOverflow = () => {
@@ -136,11 +140,23 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     // eslint-disable-next-line
     for (const user in select) {
       console.log(user, 'el2');
-      select[user].forEach(el => {
+      // eslint-disable-next-line
+      select[user].forEach((el, index) => {
         if (el.checked === true) {
-          const count = countChecks + 1;
-          console.log(count);
-          setCountChecks(count);
+          defautPropCount += defautPropCount;
+
+          console.log(el);
+
+          // el[index].checked = false;
+
+          // setSelect({
+          //   ...select,
+          //   users: select.users.map(el => {
+          //     return { ...el, checked: !selectUsers };
+          //   }),
+          // });
+
+          // const selectTmp = select.find(el => {});
         }
       });
     }
@@ -149,18 +165,12 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const handleOk = () => {
     // count checks
     counterChecks();
-    // let countChecks = 0;
-    // for (let user in select) {
-    //   console.log(user, 'el2');
-    //   select[user].forEach(el => {
-    //     if (el.checked === true) {
-    //       countChecks++;
-    //     }
-    //   });
-    // }
 
-    console.log(countChecks, countChecks > 1 ? 'check items' : 'check item');
-    setCountChecks(0);
+    console.log(
+      defautPropCount,
+      defautPropCount > 1 ? 'check items' : 'check item',
+    );
+
     handleToogle();
   };
 
