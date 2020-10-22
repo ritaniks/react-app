@@ -35,9 +35,15 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
 
+  // default props
+  // let defautPropCount = 0;
+
+  // helpers
+
   const handleToogle = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(false);
+    // defautPropCount = 0;
   };
 
   const handleStopOverflow = () => {
@@ -125,6 +131,65 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         }),
       });
     }
+  };
+
+  // button OK
+
+  const counterChecks = () => {
+    let defautPropCount = 0;
+    // let countChecks = 0;
+    // eslint-disable-next-line
+    for (const user in select) {
+      // console.log(user, 'el2');
+      // console.log(select[user], 'select[user]');
+
+      setSelectAll(false);
+      setSelectManagers(false);
+      setSelectUsers(false);
+      // eslint-disable-next-line
+      select[user].forEach((el, index) => {
+        if (el.checked === true) {
+          defautPropCount += 1;
+
+          if (el.checked === true) {
+            // eslint-disable-next-line no-param-reassign
+            el.checked = false;
+          }
+
+          // TO DO by setSelect
+
+          // console.log(el.role);
+
+          // el[index].checked = false;
+          // const checkRole = el.role;
+          // console.log(checkRole, 'el.role');
+
+          // setSelect({
+          //   ...select,
+          //   checkRole: console.log(select[checkRole][index], 'select.role'),
+          //   // select.role.map(elem => console.log(elem, 'elem')),
+          //   // console.log(role),
+          //   // role.map(elem => {
+          //   //   return { ...elem, checked: false };
+          //   // }),
+          // });
+
+          // const selectTmp = select.find(el => {});
+        }
+      });
+    }
+
+    console.log(
+      defautPropCount,
+      defautPropCount > 1 ? 'check items' : 'check item',
+    );
+  };
+
+  const handleOk = () => {
+    // count checks
+    counterChecks();
+
+    handleToogle();
   };
 
   return (
@@ -228,7 +293,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               </button>
               <button
                 className={cssDefault.btnClose}
-                onClick={handleToogle}
+                onClick={handleOk}
                 type="button"
               >
                 Ok
