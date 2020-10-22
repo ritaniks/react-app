@@ -35,6 +35,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
 
+  const [countChecks, setCountChecks] = useState(0);
+
   const handleToogle = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(false);
@@ -128,19 +130,37 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   };
 
   // button OK
-  const handleOk = () => {
-    // console.log(typeof select);
-    // console.log(select);
-    // select.map(el => console.log(el, 'el'));
 
-    // for (let el of select) {
-    //   console.log(el, 'el2');
+  const counterChecks = () => {
+    // let countChecks = 0;
+    // eslint-disable-next-line
+    for (const user in select) {
+      console.log(user, 'el2');
+      select[user].forEach(el => {
+        if (el.checked === true) {
+          const count = countChecks + 1;
+          console.log(count);
+          setCountChecks(count);
+        }
+      });
+    }
+  };
+
+  const handleOk = () => {
+    // count checks
+    counterChecks();
+    // let countChecks = 0;
+    // for (let user in select) {
+    //   console.log(user, 'el2');
+    //   select[user].forEach(el => {
+    //     if (el.checked === true) {
+    //       countChecks++;
+    //     }
+    //   });
     // }
 
-    /*
-    TO DO function to count checks
-    */
-
+    console.log(countChecks, countChecks > 1 ? 'check items' : 'check item');
+    setCountChecks(0);
     handleToogle();
   };
 
