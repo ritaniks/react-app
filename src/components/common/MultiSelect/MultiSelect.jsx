@@ -142,12 +142,21 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     for (const user in select) {
       // console.log(user, 'el2');
       // console.log(select[user], 'select[user]');
+
+      setSelectAll(false);
+      setSelectManagers(false);
+      setSelectUsers(false);
       // eslint-disable-next-line
       select[user].forEach((el, index) => {
         if (el.checked === true) {
           defautPropCount += 1;
 
-          // console.log(defautPropCount, 'defautPropCount');
+          if (el.checked === true) {
+            // eslint-disable-next-line no-param-reassign
+            el.checked = false;
+          }
+
+          // TO DO by setSelect
 
           // console.log(el.role);
 
