@@ -36,14 +36,14 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [selectUsers, setSelectUsers] = useState(false);
 
   // default props
-  let defautPropCount = 0;
+  // let defautPropCount = 0;
 
   // helpers
 
   const handleToogle = () => {
     setIsOpen(!isOpen);
     setIsStopOverflow(false);
-    defautPropCount = 0;
+    // defautPropCount = 0;
   };
 
   const handleStopOverflow = () => {
@@ -136,45 +136,49 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   // button OK
 
   const counterChecks = () => {
+    let defautPropCount = 0;
     // let countChecks = 0;
     // eslint-disable-next-line
     for (const user in select) {
       // console.log(user, 'el2');
+      // console.log(select[user], 'select[user]');
       // eslint-disable-next-line
       select[user].forEach((el, index) => {
         if (el.checked === true) {
-          defautPropCount += defautPropCount;
+          defautPropCount += 1;
+
+          // console.log(defautPropCount, 'defautPropCount');
 
           // console.log(el.role);
 
           // el[index].checked = false;
-          let role2 = el.role;
-          // console.log(role, 'el.role');
+          // const checkRole = el.role;
+          // console.log(checkRole, 'el.role');
 
-          setSelect({
-            ...select,
-            role2: console.log(select[role2][index], 'select.role'),
-            // select.role.map(elem => console.log(elem, 'elem')),
-            // console.log(role),
-            // role.map(elem => {
-            //   return { ...elem, checked: false };
-            // }),
-          });
+          // setSelect({
+          //   ...select,
+          //   checkRole: console.log(select[checkRole][index], 'select.role'),
+          //   // select.role.map(elem => console.log(elem, 'elem')),
+          //   // console.log(role),
+          //   // role.map(elem => {
+          //   //   return { ...elem, checked: false };
+          //   // }),
+          // });
 
           // const selectTmp = select.find(el => {});
         }
       });
     }
-  };
-
-  const handleOk = () => {
-    // count checks
-    counterChecks();
 
     console.log(
       defautPropCount,
       defautPropCount > 1 ? 'check items' : 'check item',
     );
+  };
+
+  const handleOk = () => {
+    // count checks
+    counterChecks();
 
     handleToogle();
   };
