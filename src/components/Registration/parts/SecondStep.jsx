@@ -7,7 +7,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-// const defaultInputs = { email: '', role: 'User' };
+// const defaultInputs = { email: '', role: 'User' name: "" };
 
 const Role = {
   Admin: 'Admin',
@@ -22,8 +22,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(userEmail, 'userEmailsssssss');
-    // console.log(userRole, 'userRolesssss');
+    console.log(userEmail, 'userEmailsssssss');
+    console.log(userRole, 'userRolesssss');
 
     setUserEmail('');
     setUserRole(Role.User);
@@ -64,7 +64,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
               />
             </div>
             <div className={css.wrapByRole}>
-              {/* <h6>User Permissions</h6> */}
               <div className={css.wrapCheckBoxes}>
                 {/* loop for create new checkboxes */}
                 <input

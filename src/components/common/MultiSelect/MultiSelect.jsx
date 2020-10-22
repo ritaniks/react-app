@@ -127,6 +127,23 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     }
   };
 
+  // button OK
+  const handleOk = () => {
+    console.log(typeof select);
+    console.log(select);
+    // select.map(el => console.log(el, 'el'));
+
+    // for (let el of select) {
+    //   console.log(el, 'el2');
+    // }
+
+    /*
+    TO DO function to count checks
+    */
+
+    handleToogle();
+  };
+
   return (
     <>
       <button
@@ -228,7 +245,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               </button>
               <button
                 className={cssDefault.btnClose}
-                onClick={handleToogle}
+                onClick={handleOk}
                 type="button"
               >
                 Ok
