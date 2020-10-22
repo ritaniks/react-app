@@ -31,14 +31,31 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
   const handleChangeInput = ({ target }) => {
     const prevVal = target.value;
+
+    // TO DO validation
+
     if (isInputWasChanged === false) {
       // TO DO logic to create a new input and checkBoxes
 
+      // console.dir(target, 'target.value');
+      // const createInput = () => {
+      //   console.log('create start');
       setIsInputWasChanged(true);
+      // };
+
+      // createInput();
+
+      // To add in users -> user obj
+      // const oneUser = {};
+    }
+
+    if (target.value === '') {
+      setIsInputWasChanged(false);
     }
 
     setUserEmail(prevVal);
   };
+
   const handleChangeRole = ({ target }) => {
     // console.log(target.value, 'target2');
     setUserRole(target.value);
@@ -69,6 +86,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 onChange={handleChangeInput}
                 value={userEmail}
               />
+              {isInputWasChanged !== false && <p>new input</p>}
             </div>
             <div className={css.wrapByRole}>
               <div className={css.wrapCheckBoxes}>
@@ -113,6 +131,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
                   {Role.User}
                 </label>
               </div>
+              <div> {isInputWasChanged !== false && <p>new checkboxes</p>}</div>
             </div>
           </div>
           <SendInvite />
