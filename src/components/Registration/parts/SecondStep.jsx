@@ -32,6 +32,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const handleChangeInput = ({ target }) => {
     const prevVal = target.value;
     if (isInputWasChanged === false) {
+      // TO DO logic to create a new input and checkBoxes
+
       setIsInputWasChanged(true);
     }
 
