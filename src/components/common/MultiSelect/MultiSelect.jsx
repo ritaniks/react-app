@@ -139,22 +139,27 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
     // let countChecks = 0;
     // eslint-disable-next-line
     for (const user in select) {
-      console.log(user, 'el2');
+      // console.log(user, 'el2');
       // eslint-disable-next-line
       select[user].forEach((el, index) => {
         if (el.checked === true) {
           defautPropCount += defautPropCount;
 
-          console.log(el);
+          // console.log(el.role);
 
           // el[index].checked = false;
+          let role2 = el.role;
+          // console.log(role, 'el.role');
 
-          // setSelect({
-          //   ...select,
-          //   users: select.users.map(el => {
-          //     return { ...el, checked: !selectUsers };
-          //   }),
-          // });
+          setSelect({
+            ...select,
+            role2: console.log(select[role2][index], 'select.role'),
+            // select.role.map(elem => console.log(elem, 'elem')),
+            // console.log(role),
+            // role.map(elem => {
+            //   return { ...elem, checked: false };
+            // }),
+          });
 
           // const selectTmp = select.find(el => {});
         }
