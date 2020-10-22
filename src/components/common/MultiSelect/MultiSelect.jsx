@@ -129,8 +129,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
   // button OK
   const handleOk = () => {
-    console.log(typeof select);
-    console.log(select);
+    // console.log(typeof select);
+    // console.log(select);
     // select.map(el => console.log(el, 'el'));
 
     // for (let el of select) {
