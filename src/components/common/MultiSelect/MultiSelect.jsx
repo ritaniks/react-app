@@ -34,6 +34,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
   const [selectAll, setSelectAll] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
+  const [selectItems, setCheckItems] = useState(0);
 
   // default props
   // let defautPropCount = 0;
@@ -137,6 +138,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
 
   const counterChecks = () => {
     let defautPropCount = 0;
+    // checkItems;
     // let countChecks = 0;
     // eslint-disable-next-line
     for (const user in select) {
@@ -149,6 +151,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       // eslint-disable-next-line
       select[user].forEach((el, index) => {
         if (el.checked === true) {
+          // const tmp = selectItems + 1;
+          // setCheckItems(tmp);
           defautPropCount += 1;
 
           if (el.checked === true) {
@@ -179,10 +183,11 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       });
     }
 
-    console.log(
-      defautPropCount,
-      defautPropCount > 1 ? 'check items' : 'check item',
-    );
+    setCheckItems(defautPropCount);
+    // console.log(
+    //   defautPropCount,
+    //   defautPropCount > 1 ? 'check items' : 'check item',
+    // );
   };
 
   const handleOk = () => {
@@ -199,7 +204,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
         className={cssDefault.btn}
         type="button"
       >
-        Add client
+        {selectItems > 0 ? `${selectItems} item(s)` : 'Add client'}
       </button>
       <Modal
         isOpen={isOpen}

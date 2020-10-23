@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+// import isEmail from 'validator/lib/isEmail';
+
 import NextBtn from '../buttons/NextBtn';
 // import PrevBtn from '../buttons/PrevBtn';
 import SendInvite from '../buttons/SendInvite';
@@ -71,6 +73,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // TO DO validation
     // console.dir();
     // console.log(e, 'key');
+    // {console.log(isEmail('foo@bar.com'))}
 
     if (isInputWasChanged === false) {
       // TO DO logic to create a new input and checkBoxes
@@ -111,6 +114,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
         </div>
+        {}
         <div className={css.wrapAllInputsInvite}>
           <div className={css.wrapByEmail}>
             {/* loop for create  */}
