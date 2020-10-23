@@ -21,35 +21,41 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [users, setUsers] = useState([defaultInputs, {}, {}, {}]);
   const [isInputWasChanged, setIsInputWasChanged] = useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(false);
 
   // helpers
-  function validation(str) {
-    // eslint-disable-next-line no-useless-escape
-    const pattern = /[\w\d\.-]+@[\w\d\.-]+\.[\w\d\.-]+/g;
+  // function validation(str) {
+  // eslint-disable-next-line no-useless-escape
+  // const pattern = /[\w\d\.-]+@[\w\d\.-]+\.[\w\d\.-]+/g;
 
-    // console.log(str);
-    // const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
-    // const regex = /[A-Z]/g;
-    // const found = paragraph.match(regex);
-    console.log(str.match(pattern), 'str.match(pattern)');
+  // console.log(str);
+  // const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+  // const regex = /[A-Z]/g;
+  // const found = paragraph.match(regex);
+  // console.log(str.match(pattern), 'str.match(pattern)');
 
-    setIsValid(str.match(pattern));
-    console.log(str, 'str');
+  // setIsValid(str.match(pattern));
+  // console.log(str, 'str');
 
-    // isValid;
+  // console.log(validator, 'validator.isEmail(str)');
+  // console.log(validator.isEmail(str), 'validator.isEmail(str)');
+  // if (validator.isEmail(str)) {
+  //   return true;
+  // }
+  // isValid;
 
-    return false;
-  }
+  //   return false;
+  // }
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userEmail, 'userEmailsssssss');
-    console.log(userRole, 'userRolesssss');
+    // console.log(userEmail, 'userEmailsssssss');
+    // console.log(userRole, 'userRolesssss');
 
-    const valid = validation(userEmail);
+    // const valid = validation(userEmail);
 
-    // const valid = true;
+    const valid = true;
     if (valid) {
       setUserEmail('');
       setUserRole(Role.User);
@@ -108,6 +114,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
         <div className={css.wrapAllInputsInvite}>
           <div className={css.wrapByEmail}>
             {/* loop for create  */}
+
             <input
               type="email"
               className="form-control"
@@ -117,7 +124,17 @@ const SecondStep = ({ countClick, setCountClick }) => {
               onChange={handleChangeInput}
               value={userEmail}
             />
-            {isInputWasChanged !== false && <p>new input</p>}
+            {isInputWasChanged !== false && (
+              <input
+                type="email"
+                className="form-control"
+                id="inputInviteByEmail2"
+                aria-describedby="emailHelp"
+                placeholder="name@example.com"
+                onChange={handleChangeInput}
+                value=""
+              />
+            )}
           </div>
           <div className={css.wrapByRole}>
             <div className={css.wrapCheckBoxes}>
