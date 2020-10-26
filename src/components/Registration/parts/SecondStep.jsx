@@ -21,7 +21,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userRole, setUserRole] = useState(Role.User);
   // const [users, setUsers] = useState([defaultInputs, {}, {}, {}]);
-  const [isInputWasChanged, setIsInputWasChanged] = useState(false);
+  const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(false);
@@ -64,7 +64,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     }
   };
 
-  const handleChangeInput = e => {
+  const handleChangeEmail = e => {
     e.preventDefault();
     const prevVal = e.target.value;
 
@@ -75,13 +75,13 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // console.log(e, 'key');
     // {console.log(isEmail('foo@bar.com'))}
 
-    if (isInputWasChanged === false) {
+    if (isEmailWasChanged === false) {
       // TO DO logic to create a new input and checkBoxes
 
       // console.dir(e.target, 'e.target.value');
       // const createInput = () => {
       //   console.log('create start');
-      setIsInputWasChanged(true);
+      setIsEmailWasChanged(true);
       // };
 
       // createInput();
@@ -91,14 +91,14 @@ const SecondStep = ({ countClick, setCountClick }) => {
     }
 
     if (e.target.value === '') {
-      setIsInputWasChanged(false);
+      setIsEmailWasChanged(false);
     }
 
     setUserEmail(prevVal);
   };
 
   const handleChangeRole = ({ target }) => {
-    // console.log(target.value, 'target2');
+    console.log(target.value, 'target2');
     setUserRole(target.value);
   };
 
@@ -114,75 +114,14 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
         </div>
-        {}
-        <div className={css.wrapAllInputsInvite}>
-          <div className={css.wrapByEmail}>
-            {/* loop for create  */}
+        <InputsUserInvite
+          handleChangeEmail={handleChangeEmail}
+          userEmail={userEmail}
+          isEmailWasChanged={isEmailWasChanged}
+          userRole={userRole}
+          handleChangeRole={handleChangeRole}
+        />
 
-            <input
-              type="email"
-              className="form-control"
-              id="inputInviteByEmail"
-              aria-describedby="emailHelp"
-              placeholder="name@example.com"
-              onChange={handleChangeInput}
-              value={userEmail}
-            />
-            {isInputWasChanged !== false && (
-              <input
-                type="email"
-                className="form-control"
-                id="inputInviteByEmail2"
-                aria-describedby="emailHelp"
-                placeholder="name@example.com"
-                onChange={handleChangeInput}
-                value=""
-              />
-            )}
-          </div>
-          <div className={css.wrapByRole}>
-            <div className={css.wrapCheckBoxes}>
-              {/* loop for create new checkboxes */}
-              <input
-                type="radio"
-                id="roleAdmin"
-                name="roleUsers"
-                value="Admin"
-                checked={userRole === 'Admin'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
-                {Role.Admin}
-              </label>
-              <input
-                type="radio"
-                id="roleManager"
-                name="roleUsers"
-                value="Manager"
-                checked={userRole === 'Manager'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
-                {Role.Manager}
-              </label>
-              <input
-                type="radio"
-                id="roleUser"
-                name="roleUsers"
-                value="User"
-                checked={userRole === 'User'}
-                readOnly
-                onClick={handleChangeRole}
-              />
-              <label className={`${css.label}  pl-2`} htmlFor="roleUser">
-                {Role.User}
-              </label>
-            </div>
-            <div> {isInputWasChanged !== false && <p>new checkboxes</p>}</div>
-          </div>
-        </div>
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
           <SendInvite />
           {/* if you need Previous Page */}
@@ -200,3 +139,87 @@ SecondStep.propTypes = {
 };
 
 export default SecondStep;
+
+function InputsUserInvite({
+  handleChangeEmail,
+  userEmail,
+  isEmailWasChanged,
+  userRole,
+  handleChangeRole,
+}) {
+  return (
+    <div className={css.wrapAllInputsInvite}>
+      <div className={css.wrapByEmail}>
+        <input
+          type="email"
+          className="form-control"
+          id="inputInviteByEmail"
+          aria-describedby="emailHelp"
+          placeholder="name@example.com"
+          onChange={handleChangeEmail}
+          value={userEmail}
+        />
+        {isEmailWasChanged !== false && (
+          <input
+            type="email"
+            className="form-control"
+            id="inputInviteByEmail2"
+            aria-describedby="emailHelp"
+            placeholder="name@example.com"
+            onChange={handleChangeEmail}
+            value=""
+          />
+        )}
+      </div>
+      <div className={css.wrapByRole}>
+        <div className={css.wrapCheckBoxes}>
+          <input
+            type="radio"
+            id="roleAdmin"
+            name="roleUsers"
+            value="Admin"
+            checked={userRole === 'Admin'}
+            readOnly
+            onClick={handleChangeRole}
+          />
+          <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
+            {Role.Admin}
+          </label>
+          <input
+            type="radio"
+            id="roleManager"
+            name="roleUsers"
+            value="Manager"
+            checked={userRole === 'Manager'}
+            readOnly
+            onClick={handleChangeRole}
+          />
+          <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
+            {Role.Manager}
+          </label>
+          <input
+            type="radio"
+            id="roleUser"
+            name="roleUsers"
+            value="User"
+            checked={userRole === 'User'}
+            readOnly
+            onClick={handleChangeRole}
+          />
+          <label className={`${css.label}  pl-2`} htmlFor="roleUser">
+            {Role.User}
+          </label>
+        </div>
+        <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div>
+      </div>
+    </div>
+  );
+}
+
+InputsUserInvite.propTypes = {
+  handleChangeEmail: PropTypes.func.isRequired,
+  userEmail: PropTypes.string.isRequired,
+  isEmailWasChanged: PropTypes.bool.isRequired,
+  userRole: PropTypes.string.isRequired,
+  handleChangeRole: PropTypes.func.isRequired,
+};
