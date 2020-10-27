@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // import isEmail from 'validator/lib/isEmail';
@@ -29,6 +29,15 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    // console.log('one select');
+    setUsers({ email: userEmail, role: userRole, name: userName });
+
+    return () => {
+      // console.log('return');
+    };
+  }, [userEmail, userName, userRole]);
 
   // helpers
   // function validation(str) {
@@ -72,7 +81,11 @@ const SecondStep = ({ countClick, setCountClick }) => {
     e.preventDefault();
     const prevVal = e.target.value;
 
+    // console.log(e.target, 'target');
+
     setUserEmail(prevVal);
+
+    // console.log(users, 'users');
 
     // setUsers(prev => [...prev, email: prevVal]);
     // setUsers(...users,
@@ -146,6 +159,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           isEmailWasChanged={isEmailWasChanged}
           userRole={userRole}
           handleChangeRole={handleChangeRole}
+          users={users}
         />
 
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
@@ -172,7 +186,20 @@ function InputsUserInvite({
   isEmailWasChanged,
   userRole,
   handleChangeRole,
+  // eslint-disable-next-line no-unused-vars
+  users,
 }) {
+  // console.log(users, 'users');
+
+  // const func = () => {
+  //   // eslint-disable-next-line react/prop-types
+  //   users.forEach(el => {
+  //     // console.dir(el.role, 'el');
+  //   });
+  // };
+
+  // func();
+
   return (
     <div className={css.wrapAllInputsInvite}>
       <div className={css.wrapByEmail}>
@@ -180,7 +207,7 @@ function InputsUserInvite({
           type="email"
           className="form-control"
           id="inputInviteByEmail"
-          aria-describedby="emailHelp"
+          // aria-describedby="emailHelp"
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={userEmail}
@@ -190,7 +217,7 @@ function InputsUserInvite({
             type="email"
             className="form-control"
             id="inputInviteByEmail2"
-            aria-describedby="emailHelp"
+            // aria-describedby="emailHelp"
             placeholder="name@example.com"
             onChange={handleChangeEmail}
             value=""
@@ -248,4 +275,5 @@ InputsUserInvite.propTypes = {
   isEmailWasChanged: PropTypes.bool.isRequired,
   userRole: PropTypes.string.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
+  users: PropTypes.shape(PropTypes.arrayOf().isRequired).isRequired,
 };
