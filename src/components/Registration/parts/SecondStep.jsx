@@ -10,7 +10,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: '', role: 'User', name: '' };
+const defaultInputs = { email: ' ', role: 'User', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -19,10 +19,10 @@ const Role = {
 };
 
 const SecondStep = ({ countClick, setCountClick }) => {
-  const [userEmail, setUserEmail] = useState('');
+  const [userEmail, setUserEmail] = useState(defaultInputs.email);
   const [userRole, setUserRole] = useState(Role.User);
   // eslint-disable-next-line no-unused-vars
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
@@ -190,25 +190,32 @@ function InputsUserInvite({
   // eslint-disable-next-line
   users,
 }) {
-  const renderOneIvite = () => {
+  const RenderOneIvite = (...props) => {
     // eslint-disable-next-line react/prop-types
+    // const { users } = this.props;
+    console.log(props, 'props');
+    // console.log(users[0].role, 'users[0].role');
+    // console.log(role, 'role');
+    // for (let user in users) {
+    //   console.log(user, 'user');
 
-    for (let user in users) {
-      console.log(user, 'user');
-
-      // users[0].map((u, ind) => console.log(u, ind, 'user2'));
-    }
+    //   // users[0].map((u, ind) => console.log(u, ind, 'user2'));
+    // }
 
     // let oneInvite = users.forEach(el => {
     //   console.dir(el.role, 'el');
     //   console.log(el.email, 'email');
     //   console.log(el.name, 'name');
-    //   if (!el.id) {
-    //     el.id = uuidv4();
-    //     console.log(el.id, 'el.id');
-    //   }
 
-    //   return (
+    if (!users[0].id) {
+      users[0].id = uuidv4();
+      console.log(users[0].id, 'users[0].id');
+    }
+
+    console.log(users, 'users');
+
+    return <p>{users[0].id}</p>;
+
     //     <input
     //       type="email"
     //       className="form-control"
@@ -241,7 +248,7 @@ function InputsUserInvite({
 
   return (
     <div className={css.wrapAllInputsInvite}>
-      {renderOneIvite()}
+      <RenderOneIvite />
       <div className={css.wrapByEmail}>
         {/* <input
           type="email"
