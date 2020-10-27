@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 // import isEmail from 'validator/lib/isEmail';
 
@@ -186,9 +187,47 @@ function InputsUserInvite({
   isEmailWasChanged,
   userRole,
   handleChangeRole,
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line
   users,
 }) {
+  const renderOneIvite = () => {
+    // eslint-disable-next-line react/prop-types
+
+    for (let user in users) {
+      console.log(user, 'user');
+
+      // users[0].map((u, ind) => console.log(u, ind, 'user2'));
+    }
+
+    // let oneInvite = users.forEach(el => {
+    //   console.dir(el.role, 'el');
+    //   console.log(el.email, 'email');
+    //   console.log(el.name, 'name');
+    //   if (!el.id) {
+    //     el.id = uuidv4();
+    //     console.log(el.id, 'el.id');
+    //   }
+
+    //   return (
+    //     <input
+    //       type="email"
+    //       className="form-control"
+    //       id={el.id}
+    //       // aria-describedby="emailHelp"
+    //       placeholder="name@example.com"
+    //       onChange={handleChangeEmail}
+    //       value={el.email}
+    //     />
+    //   );
+    // });
+
+    // return oneInvite;
+  };
+
+  useEffect(() => {
+    // renderOneIvite();
+  }, []);
+
   // console.log(users, 'users');
 
   // const func = () => {
@@ -202,8 +241,9 @@ function InputsUserInvite({
 
   return (
     <div className={css.wrapAllInputsInvite}>
+      {renderOneIvite()}
       <div className={css.wrapByEmail}>
-        <input
+        {/* <input
           type="email"
           className="form-control"
           id="inputInviteByEmail"
@@ -211,8 +251,10 @@ function InputsUserInvite({
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={userEmail}
-        />
-        {isEmailWasChanged !== false && (
+        /> */}
+
+        {/* {renderOneIvite } */}
+        {/* {isEmailWasChanged !== false && (
           <input
             type="email"
             className="form-control"
@@ -222,10 +264,10 @@ function InputsUserInvite({
             onChange={handleChangeEmail}
             value=""
           />
-        )}
+        )} */}
       </div>
       <div className={css.wrapByRole}>
-        <div className={css.wrapCheckBoxes}>
+        {/* <div className={css.wrapCheckBoxes}>
           <input
             type="radio"
             id="roleAdmin"
@@ -263,7 +305,7 @@ function InputsUserInvite({
             {Role.User}
           </label>
         </div>
-        <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div>
+        <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div> */}
       </div>
     </div>
   );
