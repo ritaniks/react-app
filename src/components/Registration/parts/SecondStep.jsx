@@ -9,7 +9,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-// const defaultInputs = { email: '', role: 'User' name: "" };
+const defaultInputs = { email: '', role: 'User', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -20,7 +20,11 @@ const Role = {
 const SecondStep = ({ countClick, setCountClick }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userRole, setUserRole] = useState(Role.User);
-  // const [users, setUsers] = useState([defaultInputs, {}, {}, {}]);
+  // eslint-disable-next-line no-unused-vars
+  const [userName, setUserName] = useState('');
+
+  // eslint-disable-next-line no-unused-vars
+  const [users, setUsers] = useState([defaultInputs]);
   const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
@@ -70,6 +74,28 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
     setUserEmail(prevVal);
 
+    // setUsers(prev => [...prev, email: prevVal]);
+    // setUsers(...users,
+    //   email: prevVal
+    //   );
+
+    // exemple
+    // setSelect({
+    //   ...select,
+
+    //   managers: select.managers.map(el => {
+    //     return { ...el, checked: !selectManagers };
+    //   }),
+    // });
+
+    // users.map((el, index) => {
+    // let { email } = el;
+    // console.log(el.email);
+    // console.log(el.role);
+    // console.log(el.name);
+
+    // console.log(users, 'users');
+
     // TO DO validation
     // console.dir();
     // console.log(e, 'key');
@@ -98,7 +124,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
 
   const handleChangeRole = ({ target }) => {
-    console.log(target.value, 'target2');
+    // console.log(target.value, 'target2');
     setUserRole(target.value);
   };
 
