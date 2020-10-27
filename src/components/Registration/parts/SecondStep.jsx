@@ -275,5 +275,6 @@ InputsUserInvite.propTypes = {
   isEmailWasChanged: PropTypes.bool.isRequired,
   userRole: PropTypes.string.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
-  users: PropTypes.shape(PropTypes.arrayOf().isRequired).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  users: PropTypes.any.isRequired,
 };
