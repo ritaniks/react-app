@@ -25,7 +25,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
-  const [users, setUsers] = useState([defaultInputs]);
+  const [users, setUsers] = useState([defaultInputs, defaultInputs]);
   const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
@@ -33,7 +33,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   useEffect(() => {
     // console.log('one select');
-    setUsers({ email: userEmail, role: userRole, name: userName });
+    // setUsers({ email: userEmail, role: userRole, name: userName });
 
     return () => {
       // console.log('return');
@@ -82,10 +82,13 @@ const SecondStep = ({ countClick, setCountClick }) => {
     e.preventDefault();
     const prevVal = e.target.value;
 
-    // console.log(e.target, 'target');
+    console.log(e.target.value, 'target');
+    console.log(e.target.ind, 'ind');
+    const index = e.target.ind;
 
-    setUserEmail(prevVal);
+    // setUserEmail(prevVal);
 
+    setUsers(...[users], (users[index].email = prevVal));
     // console.log(users, 'users');
 
     // setUsers(prev => [...prev, email: prevVal]);
@@ -115,20 +118,20 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // console.log(e, 'key');
     // {console.log(isEmail('foo@bar.com'))}
 
-    if (isEmailWasChanged === false) {
-      // TO DO logic to create a new input and checkBoxes
+    // if (isEmailWasChanged === false) {
+    //   // TO DO logic to create a new input and checkBoxes
 
-      // console.dir(e.target, 'e.target.value');
-      // const createInput = () => {
-      //   console.log('create start');
-      setIsEmailWasChanged(true);
-      // };
+    //   // console.dir(e.target, 'e.target.value');
+    //   // const createInput = () => {
+    //   //   console.log('create start');
+    //   setIsEmailWasChanged(true);
+    //   // };
 
-      // createInput();
+    //   // createInput();
 
-      // To add in users -> user obj
-      // const oneUser = {};
-    }
+    //   // To add in users -> user obj
+    //   // const oneUser = {};
+    // }
 
     if (e.target.value === '') {
       setIsEmailWasChanged(false);
@@ -154,14 +157,31 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
         </div>
-        <InputsUserInvite
+        {/* {console.log(users[0], 'users[0')} */}
+        {/* <InputsUserInvite
           handleChangeEmail={handleChangeEmail}
           userEmail={userEmail}
           isEmailWasChanged={isEmailWasChanged}
           userRole={userRole}
           handleChangeRole={handleChangeRole}
           users={users}
-        />
+        /> */}
+        {users.map((u, index) => {
+          console.log(u, 'user');
+
+          return (
+            <InputsUserInvite
+              key={index}
+              ind={index}
+              handleChangeEmail={handleChangeEmail}
+              userEmail={u.email}
+              isEmailWasChanged={isEmailWasChanged}
+              userRole={u.role}
+              handleChangeRole={handleChangeRole}
+              users={users}
+            />
+          );
+        })}
 
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
           <SendInvite />
@@ -184,52 +204,27 @@ export default SecondStep;
 function InputsUserInvite({
   handleChangeEmail,
   userEmail,
-  isEmailWasChanged,
+  // isEmailWasChanged,
   userRole,
   handleChangeRole,
   // eslint-disable-next-line
+  ind,
   users,
 }) {
-  const RenderOneIvite = (...props) => {
-    // eslint-disable-next-line react/prop-types
-    // const { users } = this.props;
-    console.log(props, 'props');
-    // console.log(users[0].role, 'users[0].role');
-    // console.log(role, 'role');
-    // for (let user in users) {
-    //   console.log(user, 'user');
+  //     <input
+  //       type="email"
+  //       className="form-control"
+  //       id={el.id}
+  //       // aria-describedby="emailHelp"
+  //       placeholder="name@example.com"
+  //       onChange={handleChangeEmail}
+  //       value={el.email}
+  //     />
+  //   );
+  // });
 
-    //   // users[0].map((u, ind) => console.log(u, ind, 'user2'));
-    // }
-
-    // let oneInvite = users.forEach(el => {
-    //   console.dir(el.role, 'el');
-    //   console.log(el.email, 'email');
-    //   console.log(el.name, 'name');
-
-    if (!users[0].id) {
-      users[0].id = uuidv4();
-      console.log(users[0].id, 'users[0].id');
-    }
-
-    console.log(users, 'users');
-
-    return <p>{users[0].id}</p>;
-
-    //     <input
-    //       type="email"
-    //       className="form-control"
-    //       id={el.id}
-    //       // aria-describedby="emailHelp"
-    //       placeholder="name@example.com"
-    //       onChange={handleChangeEmail}
-    //       value={el.email}
-    //     />
-    //   );
-    // });
-
-    // return oneInvite;
-  };
+  // return oneInvite;
+  // };
 
   useEffect(() => {
     // renderOneIvite();
@@ -248,71 +243,76 @@ function InputsUserInvite({
 
   return (
     <div className={css.wrapAllInputsInvite}>
-      <RenderOneIvite />
+      {console.log(ind, 'ind')}
       <div className={css.wrapByEmail}>
-        {/* <input
+        <input
           type="email"
           className="form-control"
           id="inputInviteByEmail"
+          ind={ind}
           // aria-describedby="emailHelp"
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={userEmail}
-        /> */}
-
-        {/* {renderOneIvite } */}
-        {/* {isEmailWasChanged !== false && (
-          <input
-            type="email"
-            className="form-control"
-            id="inputInviteByEmail2"
-            // aria-describedby="emailHelp"
-            placeholder="name@example.com"
-            onChange={handleChangeEmail}
-            value=""
-          />
-        )} */}
+        />
       </div>
       <div className={css.wrapByRole}>
-        {/* <div className={css.wrapCheckBoxes}>
+        <div className={css.wrapCheckBoxes}>
           <input
+            ind={ind}
             type="radio"
-            id="roleAdmin"
-            name="roleUsers"
+            // id="roleAdmin"
+            id={`${users[ind]}-Admin`}
+            name={`${users[ind]}-Admin`}
             value="Admin"
-            checked={userRole === 'Admin'}
-            readOnly
-            onClick={handleChangeRole}
+            checked={users[ind].role === 'Admin'}
+            onChange={handleChangeRole}
+            // readOnly
+            // onClick={handleChangeRole}
           />
-          <label className={`${css.label} mr-2 pl-2`} htmlFor="roleAdmin">
+          <label
+            className={`${css.label} mr-2 pl-2`}
+            htmlFor={`${users[ind]}-Admin`}
+          >
             {Role.Admin}
           </label>
           <input
+            ind={ind}
             type="radio"
-            id="roleManager"
-            name="roleUsers"
+            id={`${users[ind]}-Manager`}
+            name={`${users[ind]}-Manager`}
             value="Manager"
-            checked={userRole === 'Manager'}
-            readOnly
-            onClick={handleChangeRole}
+            checked={users[ind].role === 'Manager'}
+            onChange={handleChangeRole}
+            // readOnly
+            // onClick={handleChangeRole}
           />
-          <label className={`${css.label} mr-2 pl-2`} htmlFor="roleManager">
+          <label
+            className={`${css.label} mr-2 pl-2`}
+            htmlFor={`${users[ind]}-Manager`}
+          >
             {Role.Manager}
           </label>
           <input
+            ind={ind}
             type="radio"
-            id="roleUser"
-            name="roleUsers"
+            // id="roleUser"
+            id={`${users[ind]}-User`}
+            name={`${users[ind]}-User`}
             value="User"
-            checked={userRole === 'User'}
-            readOnly
-            onClick={handleChangeRole}
+            checked={users[ind].role === 'User'}
+            onChange={handleChangeRole}
+            // readOnly
+            // onClick={handleChangeRole}
           />
-          <label className={`${css.label}  pl-2`} htmlFor="roleUser">
+          <label
+            className={`${css.label}  pl-2`}
+            htmlFor={`${users[ind]}-User`}
+          >
             {Role.User}
           </label>
         </div>
-        <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div> */}
+        {/* <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div> */}
       </div>
     </div>
   );
