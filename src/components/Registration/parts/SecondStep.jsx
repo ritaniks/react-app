@@ -79,33 +79,39 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
 
   const handleChangeEmail = e => {
+    // email
     e.preventDefault();
     const targetVal = e.target.value;
     const index = e.target.attributes.ind.value;
 
-    // setUserEmail(targetVal);
-
-    // setUsers(...users, (users[index].email: targetVal));
-    // console.log(users, 'users');
+    // validation
+    const isValidEmail = () => {
+      if (targetVal.length >= 6) {
+        console.log(isEmail(targetVal), 'targetVal');
+        setIsValid(isEmail(targetVal));
+        return isEmail(targetVal);
+      }
+      return false;
+    };
+    // userName
+    const getUserName = () => {
+      const name = targetVal.substring(0, targetVal.lastIndexOf('@'));
+      return name;
+    };
 
     setUsers(
       users.map((el, id) => {
-        // console.log(el, 'el');
         if (id === +index) {
-          return { ...el, email: targetVal };
+          return {
+            ...el,
+            email: targetVal,
+            isValid: isValidEmail(),
+            name: getUserName(),
+          };
         }
         return el;
       }),
     );
-
-    if (targetVal.length >= 6) {
-      console.log(isEmail(targetVal), 'targetVal');
-    }
-
-    // TO DO validation
-    // console.dir();
-    // console.log(e, 'key');
-    // {console.log(isEmail('foo@bar.com'))}
 
     // if (isEmailWasChanged === false) {
     //   // TO DO logic to create a new input and checkBoxes
@@ -116,17 +122,9 @@ const SecondStep = ({ countClick, setCountClick }) => {
     //   setIsEmailWasChanged(true);
     //   // };
 
-    //   // createInput();
-
-    //   // To add in users -> user obj
-    //   // const oneUser = {};
-    // }
-
     if (e.target.value === '') {
       // setIsEmailWasChanged(false);
     }
-
-    // setUserEmail(prevVal);
   };
 
   const handleChangeRole = e => {
@@ -153,7 +151,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
         </div>
         {users.map((u, index) => {
           // console.log(u, 'user');
-
           return (
             <InputsUserInvite
               key={index}
