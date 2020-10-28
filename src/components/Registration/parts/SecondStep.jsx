@@ -194,7 +194,7 @@ function InputsUserInvite({
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          className="form-control"
+          className={`${css.inputEmail} form-control`}
           id="inputInviteByEmail"
           ind={ind}
           // aria-describedby="emailHelp"

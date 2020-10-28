@@ -28,6 +28,14 @@
 
   .wrapByEmail {
     flex: 1;
+
+    .inputEmail:invalid {
+      border: 2px dashed red;
+    }
+
+    .inputEmail:valid {
+      border: 2px solid black;
+    }
   }
   .wrapByRole {
     flex: 1;
