@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 // import isEmail from 'validator/lib/isEmail';
 
@@ -25,7 +25,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
-  const [users, setUsers] = useState([defaultInputs]);
+  const [users, setUsers] = useState([defaultInputs, defaultInputs]);
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
@@ -86,12 +86,23 @@ const SecondStep = ({ countClick, setCountClick }) => {
     console.dir(e.target.attributes.ind.value, 'ind');
     const index = e.target.attributes.ind.value;
 
+    console.log(typeof index, 'index');
+
     // setUserEmail(prevVal);
 
     // setUsers(...users, (users[index].email: prevVal));
     // console.log(users, 'users');
+    console.log(...users, 'ussssssssss');
 
-    setUsers(prev => [...prev, (users.[index].email = prevVal)]);
+    setUsers(
+      users.map((el, id) => {
+        // console.log(el, 'el');
+        if (id === +index) {
+          return { ...el, email: prevVal };
+        }
+        return el;
+      }),
+    );
 
     // (users[index]['email']: prevVal)
     // setUsers(...users,
@@ -155,7 +166,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset className="fieldset">
-        console.log({(users, 'users')})
+        {console.log(users, 'users')}
         <div className={css.wrapTitles}>
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
@@ -170,7 +181,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           users={users}
         /> */}
         {users.map((u, index) => {
-          // console.log(u, 'user');
+          console.log(u, 'user');
 
           return (
             <InputsUserInvite
