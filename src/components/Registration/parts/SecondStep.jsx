@@ -25,8 +25,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
-  const [users, setUsers] = useState([defaultInputs, defaultInputs]);
-  const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
+  const [users, setUsers] = useState([defaultInputs]);
+  // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(false);
@@ -176,7 +176,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
               ind={index}
               handleChangeEmail={handleChangeEmail}
               userEmail={u.email}
-              isEmailWasChanged={isEmailWasChanged}
+              // isEmailWasChanged={isEmailWasChanged}
               userRole={u.role}
               handleChangeRole={handleChangeRole}
               users={users}
