@@ -29,7 +29,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
-  const [isValid, setIsValid] = useState(false);
+  // const [isValid, setIsValid] = useState(false);
 
   // useEffect(() => {
   //   // console.log('one select');
@@ -66,16 +66,13 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(userEmail, 'userEmailsssssss');
-    // console.log(userRole, 'userRolesssss');
 
-    // const valid = validation(userEmail);
+    // TO DO logic for SUBMIT
+    console.log(users, 'users to submit');
 
-    const valid = true;
-    if (valid) {
-      // setUserEmail('');
-      // setUserRole(Role.User);
-    }
+    // TO DO delete all invites
+
+    setUsers([defaultInputs]);
   };
 
   const handleChangeEmail = e => {
@@ -87,8 +84,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // validation
     const isValidEmail = () => {
       if (targetVal.length >= 6) {
-        console.log(isEmail(targetVal), 'targetVal');
-        setIsValid(isEmail(targetVal));
         return isEmail(targetVal);
       }
       return false;
@@ -133,7 +128,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
     setUsers(
       users.map((el, id) => {
-        // console.log(el, 'el');
         if (id === +index) {
           return { ...el, role: targetVal };
         }
@@ -184,43 +178,15 @@ export default SecondStep;
 
 function InputsUserInvite({
   handleChangeEmail,
-  userEmail,
   // isEmailWasChanged,
-  userRole,
   handleChangeRole,
   // eslint-disable-next-line
   ind,
   users,
 }) {
-  //     <input
-  //       type="email"
-  //       className="form-control"
-  //       id={el.id}
-  //       // aria-describedby="emailHelp"
-  //       placeholder="name@example.com"
-  //       onChange={handleChangeEmail}
-  //       value={el.email}
-  //     />
-  //   );
-  // });
-
-  // return oneInvite;
-  // };
-
   useEffect(() => {
-    // renderOneIvite();
+    // to DO -> ADD one - renderOneIvite();
   }, []);
-
-  // console.log(users, 'users');
-
-  // const func = () => {
-  //   // eslint-disable-next-line react/prop-types
-  //   users.forEach(el => {
-  //     // console.dir(el.role, 'el');
-  //   });
-  // };
-
-  // func();
 
   return (
     <div className={css.wrapAllInputsInvite}>
@@ -234,7 +200,7 @@ function InputsUserInvite({
           // aria-describedby="emailHelp"
           placeholder="name@example.com"
           onChange={handleChangeEmail}
-          value={userEmail}
+          value={users[ind].email}
         />
       </div>
       <div className={css.wrapByRole}>
@@ -242,14 +208,11 @@ function InputsUserInvite({
           <input
             ind={ind}
             type="radio"
-            // id="roleAdmin"
             id={`${users[ind]}-Admin`}
             name={`${users[ind]}-Admin`}
             value="Admin"
             checked={users[ind].role === 'Admin'}
             onChange={handleChangeRole}
-            // readOnly
-            // onClick={handleChangeRole}
           />
           <label
             className={`${css.label} mr-2 pl-2`}
@@ -265,8 +228,6 @@ function InputsUserInvite({
             value="Manager"
             checked={users[ind].role === 'Manager'}
             onChange={handleChangeRole}
-            // readOnly
-            // onClick={handleChangeRole}
           />
           <label
             className={`${css.label} mr-2 pl-2`}
@@ -277,14 +238,11 @@ function InputsUserInvite({
           <input
             ind={ind}
             type="radio"
-            // id="roleUser"
             id={`${users[ind]}-User`}
             name={`${users[ind]}-User`}
             value="User"
             checked={users[ind].role === 'User'}
             onChange={handleChangeRole}
-            // readOnly
-            // onClick={handleChangeRole}
           />
           <label
             className={`${css.label}  pl-2`}
@@ -301,10 +259,11 @@ function InputsUserInvite({
 
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
-  userEmail: PropTypes.string,
+  // userEmail: PropTypes.string,
   // isEmailWasChanged: PropTypes.bool.isRequired,
-  userRole: PropTypes.string,
+  // userRole: PropTypes.string,
   handleChangeRole: PropTypes.func.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
-  users: PropTypes.any.isRequired,
+  // users: PropTypes.any.isRequired,
+  users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
