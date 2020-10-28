@@ -88,10 +88,10 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
     // setUserEmail(prevVal);
 
-    setUsers(...[users], (users[index].email = prevVal));
-    console.log(users, 'users');
+    // setUsers(...users, (users[index].email: prevVal));
+    // console.log(users, 'users');
 
-    // setUsers(prev => [...prev, email: prevVal]);
+    setUsers(prev => [...users, (users[index]['email']: prevVal)]);
     // setUsers(...users,
     //   email: prevVal
     //   );
@@ -320,9 +320,9 @@ function InputsUserInvite({
 
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
-  userEmail: PropTypes.string.isRequired,
+  userEmail: PropTypes.string,
   // isEmailWasChanged: PropTypes.bool.isRequired,
-  userRole: PropTypes.string.isRequired,
+  userRole: PropTypes.string,
   handleChangeRole: PropTypes.func.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   users: PropTypes.any.isRequired,
