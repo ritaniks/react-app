@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
 
-// import isEmail from 'validator/lib/isEmail';
+import isEmail from 'validator/lib/isEmail';
 
 import NextBtn from '../buttons/NextBtn';
 // import PrevBtn from '../buttons/PrevBtn';
@@ -98,27 +98,9 @@ const SecondStep = ({ countClick, setCountClick }) => {
       }),
     );
 
-    // (users[index]['email']: prevVal)
-    // setUsers(...users,
-    //   email: prevVal
-    //   );
-
-    // exemple
-    // setSelect({
-    //   ...select,
-
-    //   managers: select.managers.map(el => {
-    //     return { ...el, checked: !selectManagers };
-    //   }),
-    // });
-
-    // users.map((el, index) => {
-    // let { email } = el;
-    // console.log(el.email);
-    // console.log(el.role);
-    // console.log(el.name);
-
-    // console.log(users, 'users');
+    if (targetVal.length >= 6) {
+      console.log(isEmail(targetVal), 'targetVal');
+    }
 
     // TO DO validation
     // console.dir();
@@ -148,12 +130,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
 
   const handleChangeRole = e => {
-    // console.log(target.value, 'target2');
-
     const targetVal = e.target.value;
-
-    // console.log(e.target.value, 'target');
-    // console.dir(e.target.attributes.ind.value, 'ind');
     const index = e.target.attributes.ind.value;
 
     setUsers(
@@ -165,44 +142,17 @@ const SecondStep = ({ countClick, setCountClick }) => {
         return el;
       }),
     );
-
-    // setUserRole(target.value);
-
-    // setUsers(
-    //   users.map((el, id) => {
-    //     // console.log(el, 'el');
-    //     if (id === +index) {
-    //       return { ...el, email: prevVal };
-    //     }
-    //     return el;
-    //   }),
-    // );
   };
-
-  // useEffect(() => {
-  //   // console.log(userEmail, 'userEmail');
-  //   // console.log(userRole, 'userRole');
-  // }, [userEmail, userRole]);
 
   return (
     <>
       <fieldset className="fieldset">
-        {console.log(users, 'users')}
         <div className={css.wrapTitles}>
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
         </div>
-        {/* {console.log(users[0], 'users[0')} */}
-        {/* <InputsUserInvite
-          handleChangeEmail={handleChangeEmail}
-          userEmail={userEmail}
-          isEmailWasChanged={isEmailWasChanged}
-          userRole={userRole}
-          handleChangeRole={handleChangeRole}
-          users={users}
-        /> */}
         {users.map((u, index) => {
-          console.log(u, 'user');
+          // console.log(u, 'user');
 
           return (
             <InputsUserInvite
@@ -277,7 +227,7 @@ function InputsUserInvite({
 
   return (
     <div className={css.wrapAllInputsInvite}>
-      {console.log(ind, 'ind')}
+      {/* {console.log(ind, 'ind')} */}
       <div className={css.wrapByEmail}>
         <input
           type="email"
