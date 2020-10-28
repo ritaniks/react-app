@@ -19,10 +19,10 @@ const Role = {
 };
 
 const SecondStep = ({ countClick, setCountClick }) => {
-  const [userEmail, setUserEmail] = useState(defaultInputs.email);
-  const [userRole, setUserRole] = useState(Role.User);
-  // eslint-disable-next-line no-unused-vars
-  const [userName, setUserName] = useState(defaultInputs.name);
+  // const [userEmail, setUserEmail] = useState(defaultInputs.email);
+  // const [userRole, setUserRole] = useState(Role.User);
+  // // eslint-disable-next-line no-unused-vars
+  // const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs, defaultInputs]);
@@ -31,14 +31,14 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(false);
 
-  useEffect(() => {
-    // console.log('one select');
-    // setUsers({ email: userEmail, role: userRole, name: userName });
+  // useEffect(() => {
+  //   // console.log('one select');
+  //   // setUsers({ email: userEmail, role: userRole, name: userName });
 
-    return () => {
-      // console.log('return');
-    };
-  }, [userEmail, userName, userRole]);
+  //   return () => {
+  //     // console.log('return');
+  //   };
+  // }, [userEmail, userName, userRole]);
 
   // helpers
   // function validation(str) {
@@ -73,8 +73,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
     const valid = true;
     if (valid) {
-      setUserEmail('');
-      setUserRole(Role.User);
+      // setUserEmail('');
+      // setUserRole(Role.User);
     }
   };
 
@@ -83,13 +83,13 @@ const SecondStep = ({ countClick, setCountClick }) => {
     const prevVal = e.target.value;
 
     console.log(e.target.value, 'target');
-    console.log(e.target.ind, 'ind');
-    const index = e.target.ind;
+    console.dir(e.target.attributes.ind.value, 'ind');
+    const index = e.target.attributes.ind.value;
 
     // setUserEmail(prevVal);
 
     setUsers(...[users], (users[index].email = prevVal));
-    // console.log(users, 'users');
+    console.log(users, 'users');
 
     // setUsers(prev => [...prev, email: prevVal]);
     // setUsers(...users,
@@ -134,15 +134,15 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // }
 
     if (e.target.value === '') {
-      setIsEmailWasChanged(false);
+      // setIsEmailWasChanged(false);
     }
 
-    setUserEmail(prevVal);
+    // setUserEmail(prevVal);
   };
 
   const handleChangeRole = ({ target }) => {
-    // console.log(target.value, 'target2');
-    setUserRole(target.value);
+    console.log(target.value, 'target2');
+    // setUserRole(target.value);
   };
 
   // useEffect(() => {
@@ -153,6 +153,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset className="fieldset">
+        console.log({(users, 'users')})
         <div className={css.wrapTitles}>
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
@@ -182,7 +183,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
             />
           );
         })}
-
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
           <SendInvite />
           {/* if you need Previous Page */}
@@ -321,7 +321,7 @@ function InputsUserInvite({
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   userEmail: PropTypes.string.isRequired,
-  isEmailWasChanged: PropTypes.bool.isRequired,
+  // isEmailWasChanged: PropTypes.bool.isRequired,
   userRole: PropTypes.string.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
