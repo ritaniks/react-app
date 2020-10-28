@@ -91,7 +91,9 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // setUsers(...users, (users[index].email: prevVal));
     // console.log(users, 'users');
 
-    setUsers(prev => [...users, (users[index]['email']: prevVal)]);
+    setUsers(prev => [...prev, (users.[index].email = prevVal)]);
+
+    // (users[index]['email']: prevVal)
     // setUsers(...users,
     //   email: prevVal
     //   );
@@ -168,7 +170,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           users={users}
         /> */}
         {users.map((u, index) => {
-          console.log(u, 'user');
+          // console.log(u, 'user');
 
           return (
             <InputsUserInvite
