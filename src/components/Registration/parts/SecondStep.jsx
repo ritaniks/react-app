@@ -25,7 +25,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [userName, setUserName] = useState(defaultInputs.name);
 
   // eslint-disable-next-line no-unused-vars
-  const [users, setUsers] = useState([defaultInputs, defaultInputs]);
+  const [users, setUsers] = useState([defaultInputs]);
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
@@ -80,25 +80,19 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleChangeEmail = e => {
     e.preventDefault();
-    const prevVal = e.target.value;
-
-    console.log(e.target.value, 'target');
-    console.dir(e.target.attributes.ind.value, 'ind');
+    const targetVal = e.target.value;
     const index = e.target.attributes.ind.value;
 
-    console.log(typeof index, 'index');
+    // setUserEmail(targetVal);
 
-    // setUserEmail(prevVal);
-
-    // setUsers(...users, (users[index].email: prevVal));
+    // setUsers(...users, (users[index].email: targetVal));
     // console.log(users, 'users');
-    console.log(...users, 'ussssssssss');
 
     setUsers(
       users.map((el, id) => {
         // console.log(el, 'el');
         if (id === +index) {
-          return { ...el, email: prevVal };
+          return { ...el, email: targetVal };
         }
         return el;
       }),
@@ -153,9 +147,36 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // setUserEmail(prevVal);
   };
 
-  const handleChangeRole = ({ target }) => {
-    console.log(target.value, 'target2');
+  const handleChangeRole = e => {
+    // console.log(target.value, 'target2');
+
+    const targetVal = e.target.value;
+
+    // console.log(e.target.value, 'target');
+    // console.dir(e.target.attributes.ind.value, 'ind');
+    const index = e.target.attributes.ind.value;
+
+    setUsers(
+      users.map((el, id) => {
+        // console.log(el, 'el');
+        if (id === +index) {
+          return { ...el, role: targetVal };
+        }
+        return el;
+      }),
+    );
+
     // setUserRole(target.value);
+
+    // setUsers(
+    //   users.map((el, id) => {
+    //     // console.log(el, 'el');
+    //     if (id === +index) {
+    //       return { ...el, email: prevVal };
+    //     }
+    //     return el;
+    //   }),
+    // );
   };
 
   // useEffect(() => {
