@@ -19,11 +19,6 @@ const Role = {
 };
 
 const SecondStep = ({ countClick, setCountClick }) => {
-  // const [userEmail, setUserEmail] = useState(defaultInputs.email);
-  // const [userRole, setUserRole] = useState(Role.User);
-  // // eslint-disable-next-line no-unused-vars
-  // const [userName, setUserName] = useState(defaultInputs.name);
-
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
@@ -39,30 +34,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
   //     // console.log('return');
   //   };
   // }, [userEmail, userName, userRole]);
-
-  // helpers
-  // function validation(str) {
-  // eslint-disable-next-line no-useless-escape
-  // const pattern = /[\w\d\.-]+@[\w\d\.-]+\.[\w\d\.-]+/g;
-
-  // console.log(str);
-  // const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
-  // const regex = /[A-Z]/g;
-  // const found = paragraph.match(regex);
-  // console.log(str.match(pattern), 'str.match(pattern)');
-
-  // setIsValid(str.match(pattern));
-  // console.log(str, 'str');
-
-  // console.log(validator, 'validator.isEmail(str)');
-  // console.log(validator.isEmail(str), 'validator.isEmail(str)');
-  // if (validator.isEmail(str)) {
-  //   return true;
-  // }
-  // isValid;
-
-  //   return false;
-  // }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -90,7 +61,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     };
     // userName
     const getUserName = () => {
-      const name = targetVal.substring(0, targetVal.lastIndexOf('@'));
+      const name = targetVal.substring(0, targetVal.indexOf('@'));
       return name;
     };
 
@@ -194,7 +165,7 @@ function InputsUserInvite({
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          className={`${css.inputEmail} form-control`}
+          className="form-control"
           id="inputInviteByEmail"
           ind={ind}
           // aria-describedby="emailHelp"
@@ -259,11 +230,6 @@ function InputsUserInvite({
 
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
-  // userEmail: PropTypes.string,
-  // isEmailWasChanged: PropTypes.bool.isRequired,
-  // userRole: PropTypes.string,
   handleChangeRole: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  // users: PropTypes.any.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
