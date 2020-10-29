@@ -38,12 +38,15 @@ const SecondStep = ({ countClick, setCountClick }) => {
     e.preventDefault();
 
     // TO DO logic for SUBMIT
-    console.log(users, 'users to submit');
     // TO DO delete all invites
     const indexLastArr = users.length - 1;
     if (users[indexLastArr].email === '') {
-      const newArr = users.filter(el => el.email !== '');
-      console.log(newArr, 'newArr');
+      const newUsersArr = users.filter(
+        el => el.email !== '' && el.isValid === true,
+      );
+
+      // TODO function for send
+      console.log(newUsersArr, 'newUsersArr afte send');
       setUsers([defaultInputs]);
     }
   };
@@ -52,7 +55,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // email
     e.preventDefault();
     const targetVal = e.target.value;
-    const lenthTargetVal = e.target.value.length;
+    // const lenthTargetVal = e.target.value.length;
     const indexOfValue = +e.target.attributes.ind.value;
 
     // validation
@@ -62,8 +65,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
         return isEmail(targetVal);
       }
       return 0;
-      // console.log('input validation is', isEmail(targetVal));
-      // return true;
     };
     // userName
     const getUserName = () => {
@@ -72,21 +73,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
       return capitalizeName;
     };
 
-    // helpers for handleChangeEmail
-    // function isChange(lenth, isWasChange) {
-    //   if (lenth === 1 && isWasChange === false) {
-    //     console.log('isChange: true');
-    //     // await setId('5');
-    //     // users.push(defaultInputs);
-    //     // setUsers([...users, defaultInputs]);
-    //     // console.log([...users, defaultInputs]);
-    //     return true;
-    //   }
-    //   console.log(0, '0');
-    //   return 0;
-    // }
-
-    // const change = isChange(lenthTargetVal);
     const newArr = users.map((el, ind) => {
       if (ind === indexOfValue) {
         return {
@@ -94,7 +80,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
           email: targetVal,
           isValid: isValidEmail(),
           name: getUserName(),
-          // isWasChange: isChange(lenthTargetVal, el.isWasChange),
         };
       }
       return el;
