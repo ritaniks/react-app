@@ -38,7 +38,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     e.preventDefault();
 
     // TO DO logic for SUBMIT
-    // TO DO delete all invites
+
     const indexLastArr = users.length - 1;
     if (users[indexLastArr].email === '') {
       const newUsersArr = users.filter(
@@ -47,6 +47,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
       // TODO function for send
       console.log(newUsersArr, 'newUsersArr afte send');
+
+      // TO DO delete all invites
       setUsers([defaultInputs]);
     }
   };
