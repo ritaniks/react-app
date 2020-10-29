@@ -21,31 +21,30 @@ const Role = {
 const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
-  const [id, setId] = useState('');
+  // const [id, setId] = useState();
 
   // const [isValid, setIsValid] = useState(false);
 
-  useEffect(() => {}, [id]);
+  // useEffect(() => {}, [id]);
+  // useEffect(() => {
+  //   if (id) {
+  //     return;
+  //   }
+  //   setUsers([...users, defaultInputs]);
+  //   console.log('id');
+  // }, [id]);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     // TO DO logic for SUBMIT
     console.log(users, 'users to submit');
-
     // TO DO delete all invites
 
-    setUsers([defaultInputs]);
-  };
+    const newArr = users.filter(el => el.email !== '');
 
-  // helpers for handleChangeEmail
-  function isChange(lenthTargetVal, isWasChange) {
-    if (lenthTargetVal === 1 && isWasChange === false) {
-      console.log('isChange: true');
-      return true;
-    }
-    return 0;
-  }
+    setUsers([...newArr, defaultInputs]);
+  };
 
   const handleChangeEmail = e => {
     // email
@@ -71,36 +70,48 @@ const SecondStep = ({ countClick, setCountClick }) => {
       return capitalizeName;
     };
 
-    setUsers(
-      users.map((el, ind) => {
-        if (ind === indexOfValue) {
-          const change = isChange(lenthTargetVal, el.isWasChange);
+    // helpers for handleChangeEmail
+    function isChange(lenth, isWasChange) {
+      if (lenth === 1 && isWasChange === false) {
+        console.log('isChange: true');
+        // await setId('5');
+        // users.push(defaultInputs);
+        // setUsers([...users, defaultInputs]);
+        // console.log([...users, defaultInputs]);
+        return true;
+      }
+      console.log(0, '0');
+      return 0;
+    }
 
-          // if (change) {
-          //   console.log('dd');
-          // setUsers([...users, defaultInputs]);
-          // const newArrUsers = [...users, defaultInputs];
-          // setUsers(newArrUsers);
-          // create new Item
-          // TO DO logic to create a new input and checkBoxes
-          // }
+    // const change = isChange(lenthTargetVal);
+    const newArr = users.map((el, ind) => {
+      if (ind === indexOfValue) {
+        return {
+          ...el,
+          email: targetVal,
+          isValid: isValidEmail(),
+          name: getUserName(),
+          isWasChange: isChange(lenthTargetVal, el.isWasChange),
+        };
+      }
+      return el;
+    });
 
-          return {
-            ...el,
-            email: targetVal,
-            isValid: isValidEmail(),
-            name: getUserName(),
-            isWasChange: change,
-          };
-        }
-        return el;
-      }),
-    );
+    setUsers(newArr);
   };
 
   useEffect(() => {
-    console.log('lenth');
-  }, [users.length]);
+    const indexLastArr = users.length - 1;
+    console.log(users[indexLastArr].email, 'users[indexLastArr].email');
+    if (users[indexLastArr].email !== '') {
+      const newArr = users.filter(el => el.email !== '');
+
+      setUsers([...newArr, defaultInputs]);
+    }
+
+    // setUsers([...users, defaultInputs]);
+  }, [users]);
 
   const handleChangeRole = e => {
     const targetVal = e.target.value;
@@ -124,7 +135,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>User Permissions</h6>
         </div>
         {users.map((u, index) => {
-          console.log(u, 'user');
           return (
             <InputsUserInvite
               key={index}
