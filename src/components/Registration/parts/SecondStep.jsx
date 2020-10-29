@@ -21,6 +21,7 @@ const Role = {
 const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
+  const [sendInviteArray, setSendInviteArray] = useState([]);
   // const [id, setId] = useState();
 
   // const [isValid, setIsValid] = useState(false);
@@ -47,7 +48,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
       // TODO function for send
       console.log(newUsersArr, 'newUsersArr afte send');
-
+      setSendInviteArray([...sendInviteArray, ...newUsersArr]);
       // TO DO delete all invites
       setUsers([defaultInputs]);
     }
@@ -130,7 +131,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
               ind={index}
               handleChangeEmail={handleChangeEmail}
               userEmail={u.email}
-              // isEmailWasChanged={isEmailWasChanged}
               userRole={u.role}
               handleChangeRole={handleChangeRole}
               users={users}
@@ -143,6 +143,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
           {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
           <NextBtn countClick={countClick} setCountClick={setCountClick} />
         </form>
+
+        {sendInviteArray.length > 0 &&
+          sendInviteArray.map((send, i) => (
+            <div key={i}>send invite to -&gt; {send.email}</div>
+          ))}
+        {/* component with send email */}
       </fieldset>
     </>
   );
@@ -159,14 +165,9 @@ function InputsUserInvite({
   handleChangeEmail,
   // isEmailWasChanged,
   handleChangeRole,
-  // eslint-disable-next-line
   ind,
   users,
 }) {
-  // useEffect(() => {
-  //   // to DO -> ADD one - renderOneIvite();
-  // }, []);
-
   return (
     <div className={css.wrapAllInputsInvite}>
       {/* {console.log(ind, 'ind')} */}
@@ -240,4 +241,5 @@ InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  ind: PropTypes.number.isRequired,
 };
