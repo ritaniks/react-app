@@ -32,7 +32,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
       console.log('isWasChange: true');
       return true;
     }
-    return false;
+    return 0;
   }
 
   const handleSubmit = e => {
