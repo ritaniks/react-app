@@ -11,7 +11,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: '', role: 'User', name: '', isWasChange: false };
+const defaultInputs = { email: '', role: 'User', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -23,18 +23,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
-  // const [id, setId] = useState();
 
-  // const [isValid, setIsValid] = useState(false);
-
-  // useEffect(() => {}, [id]);
-  // useEffect(() => {
-  //   if (id) {
-  //     return;
-  //   }
-  //   setUsers([...users, defaultInputs]);
-  //   console.log('id');
-  // }, [id]);
   useEffect(() => {
     const indexLastArr = users.length - 1;
     if (users[indexLastArr].email !== '') {
@@ -45,8 +34,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    // TO DO logic for SUBMIT
-
     const indexLastArr = users.length - 1;
     if (users[indexLastArr].email === '') {
       const newUsersArr = users.filter(
@@ -56,7 +43,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
       // TODO function for send
       console.log(newUsersArr, 'newUsersArr afte send');
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
-      // TO DO delete all invites
+      // reset all invites
       setUsers([defaultInputs]);
     }
   };
@@ -70,7 +57,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // validation
     const isValidEmail = () => {
       if (targetVal.length >= 6) {
-        // console.log('input validation is', isEmail(targetVal));
         return isEmail(targetVal);
       }
       return 0;
@@ -102,19 +88,20 @@ const SecondStep = ({ countClick, setCountClick }) => {
     const index = e.target.attributes.ind.value;
 
     setUsers(
-      users.map((el, id) => {
-        if (id === +index) {
-          return { ...el, role: targetVal };
-        }
-        return el;
-      }),
+      users.map((el, id) => (id === index ? { ...el, role: targetVal } : el)),
     );
   };
 
   const handleBlur = e => {
     // TO DO onBlur
-    console.log(e.target.value, 'blur val');
-    console.log('blur');
+    const targetVal = e.target.value;
+    const index = +e.target.attributes.ind.value;
+
+    if (!isEmail(targetVal)) {
+      setUsers(
+        users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
+      );
+    }
   };
 
   return (
@@ -173,7 +160,6 @@ function InputsUserInvite({
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          // className={`${css.inputEmail} form-control`}
           className={cn(
             'form-control',
             !users[ind].isValid && users[ind].email.length > 6
