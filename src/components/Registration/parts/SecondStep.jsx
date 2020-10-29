@@ -34,6 +34,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
   //   setUsers([...users, defaultInputs]);
   //   console.log('id');
   // }, [id]);
+  useEffect(() => {
+    const indexLastArr = users.length - 1;
+    if (users[indexLastArr].email !== '') {
+      setUsers([...users, defaultInputs]);
+    }
+  }, [users]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -58,13 +64,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // email
     e.preventDefault();
     const targetVal = e.target.value;
-    // const lenthTargetVal = e.target.value.length;
     const indexOfValue = +e.target.attributes.ind.value;
 
     // validation
     const isValidEmail = () => {
       if (targetVal.length >= 6) {
-        console.log('input validation is', isEmail(targetVal));
+        // console.log('input validation is', isEmail(targetVal));
         return isEmail(targetVal);
       }
       return 0;
@@ -91,18 +96,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUsers(newArr);
   };
 
-  useEffect(() => {
-    const indexLastArr = users.length - 1;
-    // console.log(users[indexLastArr].email, 'users[indexLastArr].email');
-    if (users[indexLastArr].email !== '') {
-      // const newArr = users.filter(el => el.email !== '');
-
-      setUsers([...users, defaultInputs]);
-    }
-
-    // setUsers([...users, defaultInputs]);
-  }, [users]);
-
   const handleChangeRole = e => {
     const targetVal = e.target.value;
     const index = e.target.attributes.ind.value;
@@ -115,6 +108,10 @@ const SecondStep = ({ countClick, setCountClick }) => {
         return el;
       }),
     );
+  };
+
+  const handleBlur = () => {
+    console.log('blur');
   };
 
   return (
@@ -134,6 +131,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
               userRole={u.role}
               handleChangeRole={handleChangeRole}
               users={users}
+              handleBlur={handleBlur}
             />
           );
         })}
@@ -165,6 +163,7 @@ function InputsUserInvite({
   handleChangeEmail,
   // isEmailWasChanged,
   handleChangeRole,
+  handleBlur,
   ind,
   users,
 }) {
@@ -177,10 +176,10 @@ function InputsUserInvite({
           className={`${css.inputEmail} form-control`}
           id="inputInviteByEmail"
           ind={ind}
-          // aria-describedby="emailHelp"
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
+          onBlur={handleBlur}
         />
       </div>
       <div className={css.wrapByRole}>
@@ -240,6 +239,7 @@ function InputsUserInvite({
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   ind: PropTypes.number.isRequired,
 };
