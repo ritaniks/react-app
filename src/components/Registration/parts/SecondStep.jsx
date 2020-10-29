@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
+import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
 
@@ -10,7 +11,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: ' ', role: 'User', name: '' };
+const defaultInputs = { email: '', role: 'User', name: '', isWasChange: false };
 
 const Role = {
   Admin: 'Admin',
@@ -19,107 +20,81 @@ const Role = {
 };
 
 const SecondStep = ({ countClick, setCountClick }) => {
-  // const [userEmail, setUserEmail] = useState(defaultInputs.email);
-  // const [userRole, setUserRole] = useState(Role.User);
-  // // eslint-disable-next-line no-unused-vars
-  // const [userName, setUserName] = useState(defaultInputs.name);
-
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
-  // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
+  const [sendInviteArray, setSendInviteArray] = useState([]);
+  // const [id, setId] = useState();
 
-  // eslint-disable-next-line no-unused-vars
   // const [isValid, setIsValid] = useState(false);
 
+  // useEffect(() => {}, [id]);
   // useEffect(() => {
-  //   // console.log('one select');
-  //   // setUsers({ email: userEmail, role: userRole, name: userName });
-
-  //   return () => {
-  //     // console.log('return');
-  //   };
-  // }, [userEmail, userName, userRole]);
-
-  // helpers
-  // function validation(str) {
-  // eslint-disable-next-line no-useless-escape
-  // const pattern = /[\w\d\.-]+@[\w\d\.-]+\.[\w\d\.-]+/g;
-
-  // console.log(str);
-  // const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
-  // const regex = /[A-Z]/g;
-  // const found = paragraph.match(regex);
-  // console.log(str.match(pattern), 'str.match(pattern)');
-
-  // setIsValid(str.match(pattern));
-  // console.log(str, 'str');
-
-  // console.log(validator, 'validator.isEmail(str)');
-  // console.log(validator.isEmail(str), 'validator.isEmail(str)');
-  // if (validator.isEmail(str)) {
-  //   return true;
-  // }
-  // isValid;
-
-  //   return false;
-  // }
+  //   if (id) {
+  //     return;
+  //   }
+  //   setUsers([...users, defaultInputs]);
+  //   console.log('id');
+  // }, [id]);
+  useEffect(() => {
+    const indexLastArr = users.length - 1;
+    if (users[indexLastArr].email !== '') {
+      setUsers([...users, defaultInputs]);
+    }
+  }, [users]);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     // TO DO logic for SUBMIT
-    console.log(users, 'users to submit');
 
-    // TO DO delete all invites
+    const indexLastArr = users.length - 1;
+    if (users[indexLastArr].email === '') {
+      const newUsersArr = users.filter(
+        el => el.email !== '' && el.isValid === true,
+      );
 
-    setUsers([defaultInputs]);
+      // TODO function for send
+      console.log(newUsersArr, 'newUsersArr afte send');
+      setSendInviteArray([...sendInviteArray, ...newUsersArr]);
+      // TO DO delete all invites
+      setUsers([defaultInputs]);
+    }
   };
 
   const handleChangeEmail = e => {
     // email
     e.preventDefault();
     const targetVal = e.target.value;
-    const index = e.target.attributes.ind.value;
+    const indexOfValue = +e.target.attributes.ind.value;
 
     // validation
     const isValidEmail = () => {
       if (targetVal.length >= 6) {
+        // console.log('input validation is', isEmail(targetVal));
         return isEmail(targetVal);
       }
-      return false;
+      return 0;
     };
     // userName
     const getUserName = () => {
-      const name = targetVal.substring(0, targetVal.lastIndexOf('@'));
-      return name;
+      const name = targetVal.substring(0, targetVal.indexOf('@'));
+      const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1);
+      return capitalizeName;
     };
 
-    setUsers(
-      users.map((el, id) => {
-        if (id === +index) {
-          return {
-            ...el,
-            email: targetVal,
-            isValid: isValidEmail(),
-            name: getUserName(),
-          };
-        }
-        return el;
-      }),
-    );
+    const newArr = users.map((el, ind) => {
+      if (ind === indexOfValue) {
+        return {
+          ...el,
+          email: targetVal,
+          isValid: isValidEmail(),
+          name: getUserName(),
+        };
+      }
+      return el;
+    });
 
-    // if (isEmailWasChanged === false) {
-    //   // TO DO logic to create a new input and checkBoxes
-
-    //   // console.dir(e.target, 'e.target.value');
-    //   // const createInput = () => {
-    //   //   console.log('create start');
-    //   setIsEmailWasChanged(true);
-    //   // };
-
-    if (e.target.value === '') {
-      // setIsEmailWasChanged(false);
-    }
+    setUsers(newArr);
   };
 
   const handleChangeRole = e => {
@@ -136,6 +111,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
     );
   };
 
+  const handleBlur = e => {
+    // TO DO onBlur
+    console.log(e.target.value, 'blur val');
+    console.log('blur');
+  };
+
   return (
     <>
       <fieldset className="fieldset">
@@ -144,17 +125,16 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>User Permissions</h6>
         </div>
         {users.map((u, index) => {
-          // console.log(u, 'user');
           return (
             <InputsUserInvite
               key={index}
               ind={index}
               handleChangeEmail={handleChangeEmail}
               userEmail={u.email}
-              // isEmailWasChanged={isEmailWasChanged}
               userRole={u.role}
               handleChangeRole={handleChangeRole}
               users={users}
+              handleBlur={handleBlur}
             />
           );
         })}
@@ -164,6 +144,11 @@ const SecondStep = ({ countClick, setCountClick }) => {
           {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
           <NextBtn countClick={countClick} setCountClick={setCountClick} />
         </form>
+
+        {sendInviteArray.length > 0 &&
+          sendInviteArray.map((send, i) => (
+            <div key={i}>send invite to -&gt; {send.email}</div>
+          ))}
       </fieldset>
     </>
   );
@@ -178,29 +163,29 @@ export default SecondStep;
 
 function InputsUserInvite({
   handleChangeEmail,
-  // isEmailWasChanged,
   handleChangeRole,
-  // eslint-disable-next-line
+  handleBlur,
   ind,
   users,
 }) {
-  useEffect(() => {
-    // to DO -> ADD one - renderOneIvite();
-  }, []);
-
   return (
     <div className={css.wrapAllInputsInvite}>
-      {/* {console.log(ind, 'ind')} */}
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          className="form-control"
+          // className={`${css.inputEmail} form-control`}
+          className={cn(
+            'form-control',
+            !users[ind].isValid && users[ind].email.length > 6
+              ? css.error
+              : css.valid,
+          )}
           id="inputInviteByEmail"
           ind={ind}
-          // aria-describedby="emailHelp"
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
+          onBlur={handleBlur}
         />
       </div>
       <div className={css.wrapByRole}>
@@ -259,11 +244,8 @@ function InputsUserInvite({
 
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
-  // userEmail: PropTypes.string,
-  // isEmailWasChanged: PropTypes.bool.isRequired,
-  // userRole: PropTypes.string,
   handleChangeRole: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  // users: PropTypes.any.isRequired,
+  handleBlur: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  ind: PropTypes.number.isRequired,
 };
