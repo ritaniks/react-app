@@ -176,9 +176,10 @@ function InputsUserInvite({
           // className={`${css.inputEmail} form-control`}
           className={cn(
             'form-control',
-            !users[ind].isValid && users[ind].email.length > 6 ? css.error : '',
+            !users[ind].isValid && users[ind].email.length > 6
+              ? css.error
+              : css.valid,
           )}
-          // && users[ind].length > 6
           id="inputInviteByEmail"
           ind={ind}
           placeholder="name@example.com"
