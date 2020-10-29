@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
+import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
 
@@ -110,7 +111,9 @@ const SecondStep = ({ countClick, setCountClick }) => {
     );
   };
 
-  const handleBlur = () => {
+  const handleBlur = e => {
+    // TO DO onBlur
+    console.log(e.target.value, 'blur val');
     console.log('blur');
   };
 
@@ -146,7 +149,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
           sendInviteArray.map((send, i) => (
             <div key={i}>send invite to -&gt; {send.email}</div>
           ))}
-        {/* component with send email */}
       </fieldset>
     </>
   );
@@ -161,7 +163,6 @@ export default SecondStep;
 
 function InputsUserInvite({
   handleChangeEmail,
-  // isEmailWasChanged,
   handleChangeRole,
   handleBlur,
   ind,
@@ -169,11 +170,12 @@ function InputsUserInvite({
 }) {
   return (
     <div className={css.wrapAllInputsInvite}>
-      {/* {console.log(ind, 'ind')} */}
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          className={`${css.inputEmail} form-control`}
+          // className={`${css.inputEmail} form-control`}
+          className={cn('form-control', !users[ind].isValid ? css.error : '')}
+          // && users[ind].length > 6
           id="inputInviteByEmail"
           ind={ind}
           placeholder="name@example.com"

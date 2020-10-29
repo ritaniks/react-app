@@ -30,12 +30,15 @@
   .wrapByEmail {
     flex: 1;
 
-    .inputEmail:invalid {
-      border: 2px dashed red;
-    }
+    // .inputEmail:invalid {
+    //   border: 2px dashed red;
+    // }
 
-    .inputEmail:valid {
-      border: 2px solid green;
+    // .inputEmail:valid {
+    //   border: 2px solid green;
+    // }
+    .error {
+      border: 2px dashed red;
     }
   }
   .wrapByRole {
