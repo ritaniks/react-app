@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -10,7 +10,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: ' ', role: 'User', name: '' };
+const defaultInputs = { email: '', role: 'User', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -23,17 +23,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [users, setUsers] = useState([defaultInputs]);
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
-  // eslint-disable-next-line no-unused-vars
   // const [isValid, setIsValid] = useState(false);
-
-  // useEffect(() => {
-  //   // console.log('one select');
-  //   // setUsers({ email: userEmail, role: userRole, name: userName });
-
-  //   return () => {
-  //     // console.log('return');
-  //   };
-  // }, [userEmail, userName, userRole]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -55,14 +45,17 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // validation
     const isValidEmail = () => {
       if (targetVal.length >= 6) {
+        console.log('input validation is', isEmail(targetVal));
         return isEmail(targetVal);
       }
-      return false;
+      console.log('input validation is', isEmail(targetVal));
+      // return true;
     };
     // userName
     const getUserName = () => {
       const name = targetVal.substring(0, targetVal.indexOf('@'));
-      return name;
+      const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1);
+      return capitalizeName;
     };
 
     setUsers(
@@ -155,9 +148,9 @@ function InputsUserInvite({
   ind,
   users,
 }) {
-  useEffect(() => {
-    // to DO -> ADD one - renderOneIvite();
-  }, []);
+  // useEffect(() => {
+  //   // to DO -> ADD one - renderOneIvite();
+  // }, []);
 
   return (
     <div className={css.wrapAllInputsInvite}>
@@ -165,7 +158,7 @@ function InputsUserInvite({
       <div className={css.wrapByEmail}>
         <input
           type="email"
-          className="form-control"
+          className={`${css.inputEmail} form-control`}
           id="inputInviteByEmail"
           ind={ind}
           // aria-describedby="emailHelp"
