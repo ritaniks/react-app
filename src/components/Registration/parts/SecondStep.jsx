@@ -40,10 +40,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // TO DO logic for SUBMIT
     console.log(users, 'users to submit');
     // TO DO delete all invites
-
-    const newArr = users.filter(el => el.email !== '');
-
-    setUsers([...newArr, defaultInputs]);
+    const indexLastArr = users.length - 1;
+    if (users[indexLastArr].email === '') {
+      const newArr = users.filter(el => el.email !== '');
+      console.log(newArr, 'newArr');
+      setUsers([defaultInputs]);
+    }
   };
 
   const handleChangeEmail = e => {
@@ -71,18 +73,18 @@ const SecondStep = ({ countClick, setCountClick }) => {
     };
 
     // helpers for handleChangeEmail
-    function isChange(lenth, isWasChange) {
-      if (lenth === 1 && isWasChange === false) {
-        console.log('isChange: true');
-        // await setId('5');
-        // users.push(defaultInputs);
-        // setUsers([...users, defaultInputs]);
-        // console.log([...users, defaultInputs]);
-        return true;
-      }
-      console.log(0, '0');
-      return 0;
-    }
+    // function isChange(lenth, isWasChange) {
+    //   if (lenth === 1 && isWasChange === false) {
+    //     console.log('isChange: true');
+    //     // await setId('5');
+    //     // users.push(defaultInputs);
+    //     // setUsers([...users, defaultInputs]);
+    //     // console.log([...users, defaultInputs]);
+    //     return true;
+    //   }
+    //   console.log(0, '0');
+    //   return 0;
+    // }
 
     // const change = isChange(lenthTargetVal);
     const newArr = users.map((el, ind) => {
@@ -92,7 +94,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           email: targetVal,
           isValid: isValidEmail(),
           name: getUserName(),
-          isWasChange: isChange(lenthTargetVal, el.isWasChange),
+          // isWasChange: isChange(lenthTargetVal, el.isWasChange),
         };
       }
       return el;
@@ -103,11 +105,11 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   useEffect(() => {
     const indexLastArr = users.length - 1;
-    console.log(users[indexLastArr].email, 'users[indexLastArr].email');
+    // console.log(users[indexLastArr].email, 'users[indexLastArr].email');
     if (users[indexLastArr].email !== '') {
-      const newArr = users.filter(el => el.email !== '');
+      // const newArr = users.filter(el => el.email !== '');
 
-      setUsers([...newArr, defaultInputs]);
+      setUsers([...users, defaultInputs]);
     }
 
     // setUsers([...users, defaultInputs]);
