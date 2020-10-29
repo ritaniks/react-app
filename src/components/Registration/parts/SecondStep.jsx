@@ -72,24 +72,12 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUsers(
       users.map((el, id) => {
         if (id === +index) {
-          // if (lenthTargetVal === 1 && isWasChange === false) {
-          //   setUsers(
-          //     users.map((el, id) => {
-          //       if (id === +index) {
-          //         return {
-          //           isWasChange: true,
-          //         };
-          //       }
+          if (wasChange(lenthTargetVal, el.isWasChange)) {
+            console.log('dd');
 
-          //     }),
-          //   );
-
-          // function wasChange() {
-          //   if (lenthTargetVal === 1 && el.isWasChange === false) {
-          //     console.log('isWasChange: true');
-          //     return true;
-          //   }
-          // }
+            // create new Item
+            // TO DO logic to create a new input and checkBoxes
+          }
 
           // wasChange(lenthTargetVal, el.isWasChange);
 
@@ -104,29 +92,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
         return el;
       }),
     );
-
-    // if (isEmailWasChanged === false) {
-    //   // TO DO logic to create a new input and checkBoxes
-
-    //   // console.dir(e.target, 'e.target.value');
-    //   // const createInput = () => {
-    //   //   console.log('create start');
-    //   setIsEmailWasChanged(true);
-    //   // };
-
-    // if (e.target.value.length === 1 && e.target.value === '') {
-    //   setUsers(
-    //     users.map((el, id) => {
-    //       if (id === +index) {
-    //         return {
-    //           isWasChange: true,
-    //         };
-    //       }
-    //       return el;
-    //     }),
-    //   );
-    // setIsEmailWasChanged(false);
-    // }
   };
 
   const handleChangeRole = e => {
