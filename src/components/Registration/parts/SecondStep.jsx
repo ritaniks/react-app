@@ -10,7 +10,7 @@ import SendInvite from '../buttons/SendInvite';
 
 import css from './steps.module.scss';
 
-const defaultInputs = { email: '', role: 'User', name: '' };
+const defaultInputs = { email: '', role: 'User', name: '', isWasChange: false };
 
 const Role = {
   Admin: 'Admin',
@@ -24,6 +24,16 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
 
   // const [isValid, setIsValid] = useState(false);
+
+  // helpers
+
+  function wasChange(lenthTargetVal, isWasChange) {
+    if (lenthTargetVal === 1 && isWasChange === false) {
+      console.log('isWasChange: true');
+      return true;
+    }
+    return false;
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,6 +50,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
     // email
     e.preventDefault();
     const targetVal = e.target.value;
+    const lenthTargetVal = e.target.value.length;
     const index = e.target.attributes.ind.value;
 
     // validation
@@ -61,11 +72,33 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUsers(
       users.map((el, id) => {
         if (id === +index) {
+          // if (lenthTargetVal === 1 && isWasChange === false) {
+          //   setUsers(
+          //     users.map((el, id) => {
+          //       if (id === +index) {
+          //         return {
+          //           isWasChange: true,
+          //         };
+          //       }
+
+          //     }),
+          //   );
+
+          // function wasChange() {
+          //   if (lenthTargetVal === 1 && el.isWasChange === false) {
+          //     console.log('isWasChange: true');
+          //     return true;
+          //   }
+          // }
+
+          // wasChange(lenthTargetVal, el.isWasChange);
+
           return {
             ...el,
             email: targetVal,
             isValid: isValidEmail(),
             name: getUserName(),
+            isWasChange: wasChange(lenthTargetVal, el.isWasChange),
           };
         }
         return el;
@@ -81,9 +114,19 @@ const SecondStep = ({ countClick, setCountClick }) => {
     //   setIsEmailWasChanged(true);
     //   // };
 
-    if (e.target.value === '') {
-      // setIsEmailWasChanged(false);
-    }
+    // if (e.target.value.length === 1 && e.target.value === '') {
+    //   setUsers(
+    //     users.map((el, id) => {
+    //       if (id === +index) {
+    //         return {
+    //           isWasChange: true,
+    //         };
+    //       }
+    //       return el;
+    //     }),
+    //   );
+    // setIsEmailWasChanged(false);
+    // }
   };
 
   const handleChangeRole = e => {
