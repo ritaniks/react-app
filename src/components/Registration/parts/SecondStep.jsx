@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -21,19 +21,11 @@ const Role = {
 const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
-  // const [isEmailWasChanged, setIsEmailWasChanged] = useState(false);
+  const [id, setId] = useState('');
 
   // const [isValid, setIsValid] = useState(false);
 
-  // helpers
-
-  function wasChange(lenthTargetVal, isWasChange) {
-    if (lenthTargetVal === 1 && isWasChange === false) {
-      console.log('isWasChange: true');
-      return true;
-    }
-    return 0;
-  }
+  useEffect(() => {}, [id]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -46,12 +38,21 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUsers([defaultInputs]);
   };
 
+  // helpers for handleChangeEmail
+  function isChange(lenthTargetVal, isWasChange) {
+    if (lenthTargetVal === 1 && isWasChange === false) {
+      console.log('isChange: true');
+      return true;
+    }
+    return 0;
+  }
+
   const handleChangeEmail = e => {
     // email
     e.preventDefault();
     const targetVal = e.target.value;
     const lenthTargetVal = e.target.value.length;
-    const index = e.target.attributes.ind.value;
+    const indexOfValue = +e.target.attributes.ind.value;
 
     // validation
     const isValidEmail = () => {
@@ -59,7 +60,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
         console.log('input validation is', isEmail(targetVal));
         return isEmail(targetVal);
       }
-      console.log('input validation is', isEmail(targetVal));
+      return 0;
+      // console.log('input validation is', isEmail(targetVal));
       // return true;
     };
     // userName
@@ -70,29 +72,35 @@ const SecondStep = ({ countClick, setCountClick }) => {
     };
 
     setUsers(
-      users.map((el, id) => {
-        if (id === +index) {
-          if (wasChange(lenthTargetVal, el.isWasChange)) {
-            console.log('dd');
+      users.map((el, ind) => {
+        if (ind === indexOfValue) {
+          const change = isChange(lenthTargetVal, el.isWasChange);
 
-            // create new Item
-            // TO DO logic to create a new input and checkBoxes
-          }
-
-          // wasChange(lenthTargetVal, el.isWasChange);
+          // if (change) {
+          //   console.log('dd');
+          // setUsers([...users, defaultInputs]);
+          // const newArrUsers = [...users, defaultInputs];
+          // setUsers(newArrUsers);
+          // create new Item
+          // TO DO logic to create a new input and checkBoxes
+          // }
 
           return {
             ...el,
             email: targetVal,
             isValid: isValidEmail(),
             name: getUserName(),
-            isWasChange: wasChange(lenthTargetVal, el.isWasChange),
+            isWasChange: change,
           };
         }
         return el;
       }),
     );
   };
+
+  useEffect(() => {
+    console.log('lenth');
+  }, [users.length]);
 
   const handleChangeRole = e => {
     const targetVal = e.target.value;
@@ -116,7 +124,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>User Permissions</h6>
         </div>
         {users.map((u, index) => {
-          // console.log(u, 'user');
+          console.log(u, 'user');
           return (
             <InputsUserInvite
               key={index}
