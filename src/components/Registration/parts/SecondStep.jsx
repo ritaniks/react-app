@@ -181,7 +181,7 @@ export default SecondStep;
 function InputsUserInvite({
   handleChangeEmail,
   handleChangeRole,
-  handleBlur,
+  // handleBlur,
   ind,
   // refInd,
   users,
@@ -220,7 +220,7 @@ function InputsUserInvite({
           placeholder="name@example.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
-          onBlur={handleBlur}
+          // onBlur={handleBlur}
           valid="true"
         />
       </form>
