@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
@@ -24,6 +24,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
+  const ref = useRef();
+  console.log(ref, 'ref');
   // console.log(uuidv4(), 'uuidv4');
 
   useEffect(() => {
@@ -167,14 +169,17 @@ function InputsUserInvite({
   const handleSubmit = e => {
     console.log('preventDefault');
     e.preventDefault();
+    console.log(e.nativeEvent, 'e');
     // ;
-    console.dir((e.target.onblur = false), 'e.target');
+    // e.blur();
+    // console.dir((e.target.onblur = false), 'e.target');
   };
 
   return (
     <li className={css.wrapAllInputsInvite}>
       <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
+          // ref={ind}
           type="email"
           className={cn(
             'form-control',
@@ -188,6 +193,7 @@ function InputsUserInvite({
           onChange={handleChangeEmail}
           value={users[ind].email}
           onBlur={handleBlur}
+          valid="true"
         />
       </form>
       <div className={css.wrapByRole}>
