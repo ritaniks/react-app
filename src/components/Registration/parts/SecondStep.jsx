@@ -24,7 +24,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
-  const ref = useRef();
+  const ref = useRef('rrr');
   console.log(ref, 'ref');
   // console.log(uuidv4(), 'uuidv4');
 
@@ -124,6 +124,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           {users.map((u, index) => {
             return (
               <InputsUserInvite
+                refInd={ref}
                 key={index}
                 ind={index}
                 handleChangeEmail={handleChangeEmail}
@@ -164,22 +165,28 @@ function InputsUserInvite({
   handleChangeRole,
   handleBlur,
   ind,
+  refInd,
   users,
 }) {
   const handleSubmit = e => {
     console.log('preventDefault');
     e.preventDefault();
-    console.log(e.nativeEvent, 'e');
+    console.log(refInd.current.lastChild.firstChild, 'e');
+    console.dir(refInd.current.lastChild.firstChild.firstChild.autofocus, 'e');
+    // console.dir(refInd.current.attributes.id.nodeValue, 'e');
+    // console.dir(refInd.current, 'e');
+
+    // refInd.current.willValidate = false;
+    // console.dir(e.ref, 'e');
     // ;
     // e.blur();
     // console.dir((e.target.onblur = false), 'e.target');
   };
 
   return (
-    <li className={css.wrapAllInputsInvite}>
+    <li ref={refInd} className={css.wrapAllInputsInvite}>
       <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
-          // ref={ind}
           type="email"
           className={cn(
             'form-control',
@@ -187,7 +194,7 @@ function InputsUserInvite({
               ? css.error
               : css.valid,
           )}
-          id="inputInviteByEmail"
+          id={`${ind}-inputInviteByEmail`}
           ind={ind}
           placeholder="name@example.com"
           onChange={handleChangeEmail}
