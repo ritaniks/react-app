@@ -21,6 +21,11 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
 
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(e.target, 'e.target.value');
+  };
   return (
     <>
       <fieldset>
@@ -56,17 +61,19 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
             desktop version
           </div>
           <h5 className="title">Add Client</h5>
-          <form id="addForm">
-            <div className="mb-3 d-flex">
-              <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} />
-              <button
-                className="btn btn-primary"
-                type="submit"
-                id="button-addon2"
-              >
-                Add
-              </button>
-            </div>
+          <form id="addForm" onSubmit={handleSubmit} className="mb-3 d-flex">
+            {/* <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} /> */}
+            <input
+              type="text"
+              className={`${css.addClientInput} form-control`}
+            />
+            <button
+              className="btn btn-primary"
+              type="submit"
+              id="button-addon2"
+            >
+              Add
+            </button>
           </form>
           <h5 className="title">Clients</h5>
           <ul className={`${css.items} mb-3`}>
