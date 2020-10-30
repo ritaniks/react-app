@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
@@ -23,6 +23,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
+
+  // console.log(uuidv4(), 'uuidv4');
 
   useEffect(() => {
     const indexLastArr = users.length - 1;
@@ -85,23 +87,28 @@ const SecondStep = ({ countClick, setCountClick }) => {
 
   const handleChangeRole = e => {
     const targetVal = e.target.value;
-    const index = e.target.attributes.ind.value;
+    const index = +e.target.attributes.ind.value;
 
     setUsers(
-      users.map((el, id) => (id === index ? { ...el, role: targetVal } : el)),
+      users.map((el, id) => {
+        if (id === index) {
+          console.log(targetVal, 'targetVal');
+          return { ...el, role: targetVal };
+        }
+        return el;
+      }),
     );
   };
 
   const handleBlur = e => {
     // TO DO onBlur
-    const targetVal = e.target.value;
-    const index = +e.target.attributes.ind.value;
-
-    if (!isEmail(targetVal)) {
-      setUsers(
-        users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
-      );
-    }
+    // const targetVal = e.target.value;
+    // const index = +e.target.attributes.ind.value;
+    // if (!isEmail(targetVal)) {
+    //   setUsers(
+    //     users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
+    //   );
+    // }
   };
 
   return (
@@ -111,20 +118,22 @@ const SecondStep = ({ countClick, setCountClick }) => {
           <h6>Invite by Email</h6>
           <h6>User Permissions</h6>
         </div>
-        {users.map((u, index) => {
-          return (
-            <InputsUserInvite
-              key={index}
-              ind={index}
-              handleChangeEmail={handleChangeEmail}
-              userEmail={u.email}
-              userRole={u.role}
-              handleChangeRole={handleChangeRole}
-              users={users}
-              handleBlur={handleBlur}
-            />
-          );
-        })}
+        <ul>
+          {users.map((u, index) => {
+            return (
+              <InputsUserInvite
+                key={index}
+                ind={index}
+                handleChangeEmail={handleChangeEmail}
+                userEmail={u.email}
+                userRole={u.role}
+                handleChangeRole={handleChangeRole}
+                users={users}
+                handleBlur={handleBlur}
+              />
+            );
+          })}
+        </ul>
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
           <SendInvite />
           {/* if you need Previous Page */}
@@ -155,9 +164,16 @@ function InputsUserInvite({
   ind,
   users,
 }) {
+  const handleSubmit = e => {
+    console.log('preventDefault');
+    e.preventDefault();
+    // ;
+    console.dir((e.target.onblur = false), 'e.target');
+  };
+
   return (
-    <div className={css.wrapAllInputsInvite}>
-      <div className={css.wrapByEmail}>
+    <li className={css.wrapAllInputsInvite}>
+      <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
           type="email"
           className={cn(
@@ -173,13 +189,13 @@ function InputsUserInvite({
           value={users[ind].email}
           onBlur={handleBlur}
         />
-      </div>
+      </form>
       <div className={css.wrapByRole}>
         <div className={css.wrapCheckBoxes}>
           <input
             ind={ind}
             type="radio"
-            id={`${users[ind]}-Admin`}
+            id={`${users[ind].email}-Admin`}
             name={`${users[ind]}-Admin`}
             value="Admin"
             checked={users[ind].role === 'Admin'}
@@ -187,14 +203,14 @@ function InputsUserInvite({
           />
           <label
             className={`${css.label} mr-2 pl-2`}
-            htmlFor={`${users[ind]}-Admin`}
+            htmlFor={`${users[ind].email}-Admin`}
           >
             {Role.Admin}
           </label>
           <input
             ind={ind}
             type="radio"
-            id={`${users[ind]}-Manager`}
+            id={`${users[ind].email}-Manager`}
             name={`${users[ind]}-Manager`}
             value="Manager"
             checked={users[ind].role === 'Manager'}
@@ -202,14 +218,14 @@ function InputsUserInvite({
           />
           <label
             className={`${css.label} mr-2 pl-2`}
-            htmlFor={`${users[ind]}-Manager`}
+            htmlFor={`${users[ind].email}-Manager`}
           >
             {Role.Manager}
           </label>
           <input
             ind={ind}
             type="radio"
-            id={`${users[ind]}-User`}
+            id={`${users[ind].email}-User`}
             name={`${users[ind]}-User`}
             value="User"
             checked={users[ind].role === 'User'}
@@ -217,14 +233,13 @@ function InputsUserInvite({
           />
           <label
             className={`${css.label}  pl-2`}
-            htmlFor={`${users[ind]}-User`}
+            htmlFor={`${users[ind].email}-User`}
           >
             {Role.User}
           </label>
         </div>
-        {/* <div> {isEmailWasChanged !== false && <p>new checkboxes</p>}</div> */}
       </div>
-    </div>
+    </li>
   );
 }
 
