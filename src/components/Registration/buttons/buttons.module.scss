@@ -9,8 +9,9 @@
 
 .btnNext {
   background-color: var(--primary);
-  margin: 1.5rem 0 1.5rem auto;
+  // margin: 1.5rem 0 1.5rem auto;
   color: #fff;
+  margin: 0;
 
   &:hover {
     opacity: 0.9;
@@ -27,7 +28,7 @@
 }
 .btnSend {
   background-color: var(--yellow);
-  margin: 1.5rem 0 1.5rem auto;
+  margin: 0 0.5rem 0 0;
   font-size: 1.25rem;
 
   &:hover {

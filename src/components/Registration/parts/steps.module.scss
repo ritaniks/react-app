@@ -10,10 +10,13 @@
 // First step
 
 // Second step
-// .form {
-// }
+.form {
+  display: flex;
+  justify-content: end;
+}
 .wrapTitles {
   display: flex;
+  justify-content: flex-end;
 
   h6 {
     flex: 1;
