@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
@@ -24,9 +24,8 @@ const SecondStep = ({ countClick, setCountClick }) => {
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
-  const ref = useRef('rrr');
-  console.log(ref, 'ref');
-  // console.log(uuidv4(), 'uuidv4');
+  const ref = useRef();
+  // console.log(ref, 'ref');
 
   useEffect(() => {
     const indexLastArr = users.length - 1;
@@ -72,6 +71,24 @@ const SecondStep = ({ countClick, setCountClick }) => {
       return capitalizeName;
     };
 
+    // if (el.id === '') {
+    //   el.id = uuidv4();
+    //   console.log(el.id, 'el.id');
+    // }
+
+    const getId = el => {
+      if (!el.id) {
+        const idd = uuidv4();
+        console.log(idd, 'el.idd');
+        return idd;
+      }
+
+      return el.id;
+      // console.log(el.id, 'id2');
+    };
+
+    // defaultInputs.id = uuidv4();
+
     const newArr = users.map((el, ind) => {
       if (ind === indexOfValue) {
         return {
@@ -79,6 +96,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
           email: targetVal,
           isValid: isValidEmail(),
           name: getUserName(),
+          id: getId(el),
         };
       }
       return el;
@@ -102,16 +120,16 @@ const SecondStep = ({ countClick, setCountClick }) => {
     );
   };
 
-  const handleBlur = e => {
-    // TO DO onBlur
-    // const targetVal = e.target.value;
-    // const index = +e.target.attributes.ind.value;
-    // if (!isEmail(targetVal)) {
-    //   setUsers(
-    //     users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
-    //   );
-    // }
-  };
+  // const handleBlur = e => {
+  // TO DO onBlur
+  // const targetVal = e.target.value;
+  // const index = +e.target.attributes.ind.value;
+  // if (!isEmail(targetVal)) {
+  //   setUsers(
+  //     users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
+  //   );
+  // }
+  // };
 
   return (
     <>
@@ -132,7 +150,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 userRole={u.role}
                 handleChangeRole={handleChangeRole}
                 users={users}
-                handleBlur={handleBlur}
+                // handleBlur={handleBlur}
               />
             );
           })}
@@ -165,14 +183,14 @@ function InputsUserInvite({
   handleChangeRole,
   handleBlur,
   ind,
-  refInd,
+  // refInd,
   users,
 }) {
   const handleSubmit = e => {
     console.log('preventDefault');
     e.preventDefault();
-    console.log(refInd.current.lastChild.firstChild, 'e');
-    console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
+    // console.log(refInd.current.lastChild.firstChild, 'e');
+    // console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
     // console.dir(refInd.current.attributes.id.nodeValue, 'e');
     // console.dir(refInd.current, 'e');
 
@@ -184,7 +202,10 @@ function InputsUserInvite({
   };
 
   return (
-    <li ref={refInd} className={css.wrapAllInputsInvite}>
+    <li
+      className={css.wrapAllInputsInvite}
+      // ref={refInd}
+    >
       <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
           type="email"
@@ -259,7 +280,7 @@ function InputsUserInvite({
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
+  // handleBlur: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   ind: PropTypes.number.isRequired,
 };
