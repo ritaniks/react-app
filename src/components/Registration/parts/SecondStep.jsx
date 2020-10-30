@@ -172,7 +172,7 @@ function InputsUserInvite({
     console.log('preventDefault');
     e.preventDefault();
     console.log(refInd.current.lastChild.firstChild, 'e');
-    console.dir(refInd.current.lastChild.firstChild.firstChild.autofocus, 'e');
+    console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
     // console.dir(refInd.current.attributes.id.nodeValue, 'e');
     // console.dir(refInd.current, 'e');
 
