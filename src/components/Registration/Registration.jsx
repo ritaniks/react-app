@@ -60,6 +60,17 @@ const Registration = () => {
             14-day Free Trial of the Fully-Featured TimeLedger
           </div>
           <div id="msform" className={css.msform}>
+            {/* progress */}
+            <div className={`progress ${css.progress}`}>
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            {/* progress */}
             <ul id="progressbar" className={css.progressIcon}>
               <li className="active" id="signup">
                 <strong>Sign up</strong>
@@ -74,18 +85,6 @@ const Registration = () => {
                 <strong>Done</strong>
               </li>
             </ul>
-
-            {/* progress */}
-            <div className="progress mb-4">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            {/* progress */}
 
             {/* <!-- fieldsets --> */}
             {/* First step (1) */}

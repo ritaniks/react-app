@@ -168,6 +168,11 @@ function InputsUserInvite({
   const handleSubmit = e => {
     console.log('preventDefault');
     e.preventDefault();
+
+    // console.log((e.target.onfocus = false), 'target');
+    // console.dir(e.target.firstChild.onfocus, 'target');
+
+    // console.log(e.target.dispatchEvent, 'dispatchEvent');
     // console.log(refInd.current.lastChild.firstChild, 'e');
     // console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
     // console.dir(refInd.current.attributes.id.nodeValue, 'e');
@@ -200,7 +205,7 @@ function InputsUserInvite({
           )}
           id={`${ind}-inputInviteByEmail`}
           ind={ind}
-          placeholder="name@example.com"
+          placeholder="mail@mail.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
           // onBlur={handleBlur}

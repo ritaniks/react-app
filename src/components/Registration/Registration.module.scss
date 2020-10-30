@@ -43,10 +43,9 @@
 
 // msform
 
-// .msform {
-// text-align: center;
-// position: relative;
-// }
+.msform {
+  position: relative;
+}
 
 // .msform fieldset {
 // background: red;
@@ -58,15 +57,17 @@
 // position: relative;
 // }
 
-// .msform fieldset:not(:first-of-type) {
-// display: none;
-// }
-
 // Progressbar
 
 // Progress
 .progress {
-  height: 20px;
+  margin: 2rem 0 5rem 0;
+  height: 0.5rem !important;
+}
+.progressIcon {
+  position: absolute;
+  top: -1.25rem;
+  width: 100%;
 }
 .overflow {
   overflow: hidden;
