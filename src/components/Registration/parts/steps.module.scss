@@ -1,12 +1,6 @@
-.btn {
-}
 // First step
-
+//  ======================
 // Second step
-.form {
-  display: flex;
-  justify-content: flex-end;
-}
 .wrapTitles {
   display: flex;
   justify-content: flex-end;
@@ -17,6 +11,12 @@
     font-weight: 700;
   }
 }
+
+.form {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .wrapAllInputsInvite {
   display: flex;
   margin-bottom: 0.5rem;
