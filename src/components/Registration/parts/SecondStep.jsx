@@ -180,6 +180,10 @@ function InputsUserInvite({
     // console.dir((e.target.onblur = false), 'e.target');
   };
 
+  // const getId = () => {
+  //   return uuidv4();
+  // };
+
   return (
     <li
       className={css.wrapAllInputsInvite}
@@ -203,7 +207,7 @@ function InputsUserInvite({
           valid="true"
         />
       </form>
-      <div className={css.wrapByRole}>
+      <form className={css.wrapByRole}>
         <div className={css.wrapCheckBoxes}>
           <input
             ind={ind}
@@ -251,7 +255,7 @@ function InputsUserInvite({
             {Role.User}
           </label>
         </div>
-      </div>
+      </form>
     </li>
   );
 }
