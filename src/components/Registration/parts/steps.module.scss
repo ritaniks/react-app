@@ -1,18 +1,11 @@
-.wrapBtn {
-  display: flex;
-  justify-content: flex-end;
-
-  & button:first-of-type {
-    margin-right: 0.5rem;
-  }
+.btn {
 }
-
 // First step
 
 // Second step
 .form {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .wrapTitles {
   display: flex;
@@ -32,11 +25,6 @@
 
   .wrapByEmail {
     flex: 1;
-
-    // .inputEmail:invalid {
-    //   border: 2px dashed red;
-    // }
-
     .valid {
       border: 2px solid var(--teal);
     }
@@ -80,6 +68,15 @@
   padding: 0.5rem 1rem;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+}
+
+.wrapBtn {
+  display: flex;
+  justify-content: flex-end;
+
+  & button:first-of-type {
+    margin-right: 0.5rem;
+  }
 }
 // -- select
 
