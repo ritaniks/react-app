@@ -58,36 +58,15 @@ const SecondStep = ({ countClick, setCountClick }) => {
     const indexOfValue = +e.target.attributes.ind.value;
 
     // validation
-    const isValidEmail = () => {
-      if (targetVal.length >= 6) {
-        return isEmail(targetVal);
-      }
-      return 0;
-    };
+    const isValidEmail = () => (targetVal.length >= 6 ? isEmail(targetVal) : 0);
+
     // userName
     const getUserName = () => {
       const name = targetVal.substring(0, targetVal.indexOf('@'));
-      const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1);
-      return capitalizeName;
+      return name.charAt(0).toUpperCase() + name.slice(1);
     };
 
-    // if (el.id === '') {
-    //   el.id = uuidv4();
-    //   console.log(el.id, 'el.id');
-    // }
-
-    const getId = el => {
-      if (!el.id) {
-        const idd = uuidv4();
-        console.log(idd, 'el.idd');
-        return idd;
-      }
-
-      return el.id;
-      // console.log(el.id, 'id2');
-    };
-
-    // defaultInputs.id = uuidv4();
+    const getId = el => (!el.id ? uuidv4() : el.id);
 
     const newArr = users.map((el, ind) => {
       if (ind === indexOfValue) {
