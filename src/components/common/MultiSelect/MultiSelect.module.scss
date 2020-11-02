@@ -46,7 +46,7 @@
   padding: 0 1.5rem;
   box-shadow: inset 0px -11px 8px -10px #ccc;
 
-  // user role (manager, worker)
+  // wrapGroups (manager, user, allSelect)
 
   .wrapGroups {
     display: flex;
@@ -101,19 +101,12 @@
   justify-content: flex-end;
 
   .btnClose {
-    // border: 2px solid var(--primary);
     border: none;
     border-radius: 0.5rem;
     padding: 0.25rem 1.5rem;
     color: var(--primary);
     font-size: 1.25rem;
     background-color: transparent;
-
-    &:hover,
-    &:focus {
-      background-color: var(--primary);
-      color: #fff;
-    }
   }
 }
 
