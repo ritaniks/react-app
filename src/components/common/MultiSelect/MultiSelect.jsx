@@ -220,7 +220,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
               <input
                 type="text"
                 className={cssDefault.searchInput}
-                placeholder="Client name"
+                placeholder="Search ..."
                 aria-label="Client name"
                 aria-describedby="button-addon2"
                 id="item"
