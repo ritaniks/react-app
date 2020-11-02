@@ -216,18 +216,8 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
       >
         {isOpen && (
           <div className={cssDefault.wrapSelect}>
-            <div className={cssDefault.wrapSearch}>
-              <input
-                type="text"
-                className={cssDefault.searchInput}
-                placeholder="Search ..."
-                aria-label="Client name"
-                aria-describedby="button-addon2"
-                id="item"
-              />
-            </div>
             <div className={cssDefault.wrapCheckBoxes}>
-              <div className={cssDefault.wrapInput}>
+              <div className={cssDefault.wrapGroups}>
                 <input
                   onChange={handleSelectAll}
                   type="checkbox"
@@ -238,7 +228,18 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 <label htmlFor="selectAllUsers">Select all</label>
               </div>
 
-              <div className={cssDefault.wrapRole}>
+              <div className={cssDefault.wrapSearch}>
+                <input
+                  type="text"
+                  className={cssDefault.searchInput}
+                  placeholder="Search ..."
+                  aria-label="Client name"
+                  aria-describedby="button-addon2"
+                  id="item"
+                />
+              </div>
+
+              <div className={cssDefault.wrapGroups}>
                 <input
                   onChange={handleSelectByRole}
                   type="checkbox"
@@ -263,7 +264,7 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 </div>
               ))}
 
-              <div className={cssDefault.wrapRole}>
+              <div className={cssDefault.wrapGroups}>
                 <input
                   onChange={handleSelectByRole}
                   type="checkbox"
