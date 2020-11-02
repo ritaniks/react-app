@@ -62,11 +62,11 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           </div>
           <h5 className="title">Add Client</h5>
           <form id="addForm" onSubmit={handleSubmit} className="mb-3 d-flex">
-            {/* <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} /> */}
-            <input
+            <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} />
+            {/* <input
               type="text"
               className={`${css.addClientInput} form-control`}
-            />
+            /> */}
             <button
               className="btn btn-primary"
               type="submit"

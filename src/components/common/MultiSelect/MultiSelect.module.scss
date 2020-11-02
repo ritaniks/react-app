@@ -14,12 +14,12 @@
 }
 
 .wrapSelect {
-  width: 95%;
-  height: 97%;
-  margin: 0.5rem auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
   background-color: #fff;
   padding: 1rem;
-  border: 1px solid var(--border-gray);
+  // border: 1px solid var(--border-gray);
   border-radius: 0.25rem;
   overflow-y: hidden;
   // position: relative;
@@ -96,7 +96,7 @@
     label {
       flex: 1;
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       line-height: 3.2;
     }
   }
