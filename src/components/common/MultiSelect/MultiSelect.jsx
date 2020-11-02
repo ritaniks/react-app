@@ -20,6 +20,12 @@ const tmp = {
     { name: 'Elis1', checked: false, role: 'users' },
     { name: 'Jonny1', checked: false, role: 'users' },
     { name: 'Tommy1', checked: false, role: 'users' },
+    { name: 'Elis', checked: false, role: 'users' },
+    { name: 'Jonny', checked: false, role: 'users' },
+    { name: 'Tommy', checked: false, role: 'users' },
+    { name: 'Elis1', checked: false, role: 'users' },
+    { name: 'Jonny1', checked: false, role: 'users' },
+    { name: 'Tommy1', checked: false, role: 'users' },
   ],
 };
 
@@ -295,14 +301,14 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                 onClick={handleToogle}
                 type="button"
               >
-                Cancel
+                CANCEL
               </button>
               <button
                 className={cssDefault.btnClose}
                 onClick={handleOk}
                 type="button"
               >
-                Ok
+                OK
               </button>
             </div>
           </div>
