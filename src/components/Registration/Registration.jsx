@@ -8,7 +8,6 @@ import FourthStep from './parts/FourthStep';
 
 import css from './Registration.module.scss';
 import './globalSW.scss';
-// import './helperSW';
 
 const Registration = () => {
   const [countClick, setCountClick] = useState(3);
