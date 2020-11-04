@@ -66,6 +66,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
         <AddProjectModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          editId={editId}
         />
         {/* <Button variant="primary" onClick={handleShow}>
           Launch static backdrop modal

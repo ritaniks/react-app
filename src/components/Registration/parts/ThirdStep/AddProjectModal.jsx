@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 // Modal.setAppElement('#root');
 
 // eslint-disable-next-line react/prop-types
-const AddProjectModal = ({ isModalOpen, setIsModalOpen }) => {
+const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -20,7 +20,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen }) => {
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        ff
+        Modal edit for client id {editId}
       </Modal>
       <Helmet>
         <style>{`
@@ -32,8 +32,8 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen }) => {
                     background: #fff;
                     overflow: auto;
                     outline: none;
-                    height: 50%;
-                    width: 50%;
+                    height: 70%;
+                    width: 80%;
               }
 
               .modalOverlay {
