@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 // import { Modal, Button } from 'react-bootstrap';
 
 import Submit from '../buttons/Submit';
 import PrevBtn from '../buttons/PrevBtn';
 
-import MultiSelect from '../../common/MultiSelect/MultiSelect';
+// import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
 import { ReactComponent as Pen } from '../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../assets/img/registration/x.svg';
@@ -16,15 +17,29 @@ import { ReactComponent as X } from '../../../assets/img/registration/x.svg';
 
 import css from './steps.module.scss';
 
+const dafaultClients = [
+  { name: 'Minh Hong', id: 1 },
+  { name: 'Mark Duffer', id: 2 },
+  { name: 'Jon White', id: 3 },
+];
+
 const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
+  const [clientName, setClientName] = useState('');
+  const [clients, setClietns] = useState(dafaultClients);
+  const [projects, setProjects] = useState([]);
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
+  const handleChangeClient = e => {
+    setClientName(e.target.value);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target, 'e.target.value');
+    const newClient = { name: clientName, id: uuidv4() };
+    setClietns([...clients, newClient]);
+    setClientName('');
   };
   return (
     <>
@@ -62,13 +77,15 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           </div>
           <h5 className="title">Add Client</h5>
           <form id="addForm" onSubmit={handleSubmit} className="mb-3 d-flex">
-            <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} />
-            {/* <input
+            {/* <MultiSelect css={css} setIsStopOverflow={setIsStopOverflow} /> */}
+            <input
               type="text"
               className={`${css.addClientInput} form-control`}
-            /> */}
+              onChange={handleChangeClient}
+              value={clientName}
+            />
             <button
-              className="btn btn-primary"
+              className={`${css.addClientBtn} btn btn-primary`}
               type="submit"
               id="button-addon2"
             >
@@ -77,26 +94,30 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           </form>
           <h5 className="title">Clients</h5>
           <ul className={`${css.items} mb-3`}>
-            <li className={css.listItem}>
-              Minh Hong
-              <button
-                type="button"
-                className="btn btn-danger btn-sm float-right delete"
-                style={{ width: '2rem', height: '2rem' }}
-              >
-                <X />
-              </button>
-              <button
-                className="btn btn-primary btn-sm float-right mr-3 project"
-                type="button"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
-                Add Project
-              </button>
-            </li>
+            {clients.map(el => {
+              return (
+                <li className={css.listItem} key={el.id}>
+                  {el.name}
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-sm float-right delete"
+                    style={{ width: '2rem', height: '2rem' }}
+                  >
+                    <X />
+                  </button>
+                  <button
+                    className="btn btn-primary btn-sm float-right mr-3 project"
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    Add Project
+                  </button>
+                </li>
+              );
+            })}
           </ul>
-          <h5 className="title">Projects</h5>
+          {/* <h5 className="title">Projects</h5>
           <ul className={`${css.items} mb-3`}>
             <li className={css.listItem}>
               <button
@@ -116,15 +137,15 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                 <Pen />
               </button>
               <div className="pl-3">
-                {/* <i className="far fa-user ml-n3"></i>  */}
+                <i className="far fa-user ml-n3"></i> 
                 Mark Duffer
               </div>
               <div className="ml-3a pl-3">
-                {/* <i className="far fa-file-alt ml-n3"></i> */}
+                <i className="far fa-file-alt ml-n3"></i>
                 General Legal Matters
               </div>
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className={css.wrapBtn}>
