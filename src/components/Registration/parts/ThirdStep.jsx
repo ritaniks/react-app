@@ -37,6 +37,9 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (clientName === '') {
+      return;
+    }
     const newClient = { name: clientName, id: uuidv4() };
     setClietns([...clients, newClient]);
     setClientName('');
