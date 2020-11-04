@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import cn from 'classnames';
-import FirstStep from './parts/FirstStep';
-import SecondStep from './parts/SecondStep';
-import ThirdStep from './parts/ThirdStep';
-import FourthStep from './parts/FourthStep';
+import FirstStep from './parts/FirstStep/FirstStep';
+import SecondStep from './parts/SecondStep/SecondStep';
+import ThirdStep from './parts/ThirdStep/ThirdStep';
+import FourthStep from './parts/FourthStep/FourthStep';
 
 import css from './Registration.module.scss';
 import './globalSW.scss';

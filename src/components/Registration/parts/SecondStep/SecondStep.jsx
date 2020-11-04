@@ -5,11 +5,11 @@ import cn from 'classnames';
 
 import isEmail from 'validator/lib/isEmail';
 
-import NextBtn from '../buttons/NextBtn';
+import NextBtn from '../../buttons/NextBtn';
 // import PrevBtn from '../buttons/PrevBtn';
-import SendInvite from '../buttons/SendInvite';
+import SendInvite from '../../buttons/SendInvite';
 
-import css from './steps.module.scss';
+import css from './SecondStep.module.scss';
 
 const defaultInputs = { email: '', role: 'User', name: '' };
 
