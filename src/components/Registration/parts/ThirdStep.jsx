@@ -9,7 +9,7 @@ import PrevBtn from '../buttons/PrevBtn';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
-import { ReactComponent as Pen } from '../../../assets/img/registration/pen.svg';
+// import { ReactComponent as Pen } from '../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../assets/img/registration/x.svg';
 // import { ReactComponent as Folder } from '../../../../assets/img/registration/folder.svg';
 // import { ReactComponent as File } from '../../../../assets/img/registration/file-alt.svg';
@@ -118,8 +118,9 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                   <button
                     className="btn btn-primary btn-sm float-right mr-3 project"
                     type="button"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
+                    // data-toggle="modal"
+                    // data-target="#exampleModal"
+                    style={{ height: '2rem' }}
                   >
                     Add Project
                   </button>
