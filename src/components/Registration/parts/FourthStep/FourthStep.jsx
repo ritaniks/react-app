@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ReactComponent as ThumbsUp } from '../../../assets/img/registration/thumbs-up.svg';
+import { ReactComponent as ThumbsUp } from '../../../../assets/img/registration/thumbs-up.svg';
 
-import css from './steps.module.scss';
+import css from './FourthStep.module.scss';
 
 const FourthStep = () => {
   return (

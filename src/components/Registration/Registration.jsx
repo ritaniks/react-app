@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 import cn from 'classnames';
-import FirstStep from './parts/FirstStep';
-import SecondStep from './parts/SecondStep';
-import ThirdStep from './parts/ThirdStep';
-import FourthStep from './parts/FourthStep';
+import FirstStep from './parts/FirstStep/FirstStep';
+import SecondStep from './parts/SecondStep/SecondStep';
+import ThirdStep from './parts/ThirdStep/ThirdStep';
+import FourthStep from './parts/FourthStep/FourthStep';
 
 import css from './Registration.module.scss';
 import './globalSW.scss';
-// import './helperSW';
 
 const Registration = () => {
-  const [countClick, setCountClick] = useState(2);
+  const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
 
@@ -60,6 +59,17 @@ const Registration = () => {
             14-day Free Trial of the Fully-Featured TimeLedger
           </div>
           <div id="msform" className={css.msform}>
+            {/* progress */}
+            <div className={`progress ${css.progress}`}>
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            {/* progress */}
             <ul id="progressbar" className={css.progressIcon}>
               <li className="active" id="signup">
                 <strong>Sign up</strong>
@@ -74,18 +84,6 @@ const Registration = () => {
                 <strong>Done</strong>
               </li>
             </ul>
-
-            {/* progress */}
-            <div className="progress mb-4">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            {/* progress */}
 
             {/* <!-- fieldsets --> */}
             {/* First step (1) */}

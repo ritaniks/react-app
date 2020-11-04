@@ -26,14 +26,14 @@ import '../../../../assets/css/_custom.scss';
 const TimeEntry = () => {
   const widthDivice = useWindowSize().width;
 
+  const [isChartOpen, setIsChartOpen] = useState(false);
+
   // Check btn
   const [checkBtn, setCheckBtn] = useState('day');
 
   const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
-  // is Chart Open
-  const [isChartOpen, setIsChartOpen] = useState(false);
 
   // selected Date for all Pickers
   const [selectedDate, setSelectedDate] = useState(''); // by default new Date()
@@ -44,7 +44,7 @@ const TimeEntry = () => {
         {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            {/* switcher Pickers*/}
+            {/* switcher Pickers */}
             {checkBtn === 'period' && (
               <PeriodPicker
                 checkBtn={checkBtn}

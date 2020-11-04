@@ -1,15 +1,16 @@
 .buttons {
   border: none;
   border-radius: 0.25rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.375rem 0.75rem;
   display: flex;
-  margin: 1.5rem 0;
+  margin: 0;
   font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btnNext {
   background-color: var(--primary);
-  margin: 1.5rem 0 1.5rem auto;
   color: #fff;
 
   &:hover {
@@ -27,8 +28,7 @@
 }
 .btnSend {
   background-color: var(--yellow);
-  margin: 1.5rem 0 1.5rem auto;
-  font-size: 1.25rem;
+  margin-right: 0.5rem;
 
   &:hover {
     opacity: 0.9;
