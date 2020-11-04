@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
+import AddProjectModal from './AddProjectModal';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
@@ -19,15 +20,17 @@ import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
 import css from './ThirdStep.module.scss';
 
 const dafaultClients = [
-  { name: 'Minh Hong', id: 1 },
-  { name: 'Mark Duffer', id: 2 },
-  { name: 'Jon White', id: 3 },
+  { name: 'Minh Hong', id: '1' },
+  { name: 'Mark Duffer', id: '2' },
+  { name: 'Jon White', id: '3' },
 ];
 
 const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
   const [projects, setProjects] = useState([]);
+  const [editId, setEditId] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -46,6 +49,12 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
     setClientName('');
   };
 
+  const addProject = id => {
+    // console.log(id, 'addProject');
+    setIsModalOpen(true);
+    setEditId(id);
+  };
+
   // CRUD
   const deleteClient = id => {
     const newClientsArr = clients.filter(el => el.id !== id);
@@ -54,6 +63,10 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   return (
     <>
       <fieldset>
+        <AddProjectModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
         {/* <Button variant="primary" onClick={handleShow}>
           Launch static backdrop modal
         </Button> */}
@@ -122,6 +135,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                     // data-toggle="modal"
                     // data-target="#exampleModal"
                     style={{ height: '2rem' }}
+                    onClick={() => addProject(el.id)}
                   >
                     Add Project
                   </button>

@@ -338,8 +338,6 @@ const MultiSelect = ({ css = cssDefault, setIsStopOverflow }) => {
                     background-color: rgba(0, 0, 0, 0.005);
                     z-index: 1;
               }
-
-      
       `}</style>
       </Helmet>
     </>
