@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
+import css from './AddProjectModal.module.scss';
 
 // Modal.setAppElement('#root');
 
@@ -9,6 +10,13 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  // handlers
+
+  const handlerToogleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+  const handlerSubmit = () => {};
 
   return (
     <>
@@ -21,6 +29,28 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         closeTimeoutMS={100}
       >
         Modal edit for client id {editId}
+        <div className={css.wrapTitle}>
+          <h4>Add Project</h4>
+          <button type="button" className={`btn`}>
+            x
+          </button>
+        </div>
+        <div>
+          <input type="text" placeholder="Project name" />
+
+          <div>
+            <select type="text" placeholder="User select to project">
+              <option>select user</option>
+            </select>
+          </div>
+          <div>
+            <input type="number" placeholder="Rate $" />
+          </div>
+        </div>
+        <div>
+          <button type="button">CANCEL</button>
+          <button type="button">OK</button>
+        </div>
       </Modal>
       <Helmet>
         <style>{`
