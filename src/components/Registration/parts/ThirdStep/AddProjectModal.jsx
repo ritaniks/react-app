@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import css from './AddProjectModal.module.scss';
 
+import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
+
 // Modal.setAppElement('#root');
 
 // eslint-disable-next-line react/prop-types
@@ -31,8 +33,8 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         Modal edit for client id {editId}
         <div className={css.wrapTitle}>
           <h4>Add Project</h4>
-          <button type="button" className={`btn`}>
-            x
+          <button type="button" className={`${css.xBtn} btn`}>
+            <X />
           </button>
         </div>
         <div>
