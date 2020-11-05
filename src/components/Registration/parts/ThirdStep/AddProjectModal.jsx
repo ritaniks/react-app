@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
+import css from './AddProjectModal.module.scss';
+
+import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
 
 // Modal.setAppElement('#root');
 
@@ -9,6 +12,14 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  // handlers
+
+  //   const handlerToogleModal = () => {
+  //     setIsModalOpen(!isModalOpen);
+  //   };
+  //   const handlerSubmit = () => {};
+  console.log(editId, 'editId');
 
   return (
     <>
@@ -20,7 +31,37 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        Modal edit for client id {editId}
+        {/* {editId} */}
+        <div className={css.wrapModal}>
+          <div className={css.wrapTitle}>
+            <h4>Add Project</h4>
+            <button type="button" className={`${css.xBtn} btn`}>
+              <X />
+            </button>
+          </div>
+          <div>
+            <div className={css.wrapProjectNameInput}>
+              <input type="text" placeholder="Project name" />
+            </div>
+
+            <div className={css.wrapSelectUser}>
+              <select type="text" placeholder="User select to project">
+                <option>select user</option>
+              </select>
+            </div>
+            <div className={css.wrapRate}>
+              <input type="number" placeholder="Rate $" />
+            </div>
+          </div>
+          <div className={css.wrapButtons}>
+            <button className={`${css.btnClose} btn`} type="button">
+              Close
+            </button>
+            <button className={`${css.addProjectBtn} btn`} type="button">
+              Add Project
+            </button>
+          </div>
+        </div>
       </Modal>
       <Helmet>
         <style>{`
@@ -32,7 +73,6 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     background: #fff;
                     overflow: auto;
                     outline: none;
-                    height: 70%;
                     width: 80%;
               }
 
