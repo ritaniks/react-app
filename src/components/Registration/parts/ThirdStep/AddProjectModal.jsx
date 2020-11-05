@@ -30,7 +30,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        Modal edit for client id {editId}
+        {/* {editId} */}
         <div className={css.wrapTitle}>
           <h4>Add Project</h4>
           <button type="button" className={`${css.xBtn} btn`}>
@@ -64,7 +64,6 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     background: #fff;
                     overflow: auto;
                     outline: none;
-                    height: 70%;
                     width: 80%;
               }
 
