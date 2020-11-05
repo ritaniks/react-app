@@ -15,10 +15,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
 
   // handlers
 
-  const handlerToogleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-  const handlerSubmit = () => {};
+  //   const handlerToogleModal = () => {
+  //     setIsModalOpen(!isModalOpen);
+  //   };
+  //   const handlerSubmit = () => {};
+  console.log(editId, 'editId');
 
   return (
     <>
@@ -31,27 +32,35 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         closeTimeoutMS={100}
       >
         {/* {editId} */}
-        <div className={css.wrapTitle}>
-          <h4>Add Project</h4>
-          <button type="button" className={`${css.xBtn} btn`}>
-            <X />
-          </button>
-        </div>
-        <div>
-          <input type="text" placeholder="Project name" />
+        <div className={css.wrapModal}>
+          <div className={css.wrapTitle}>
+            <h4>Add Project</h4>
+            <button type="button" className={`${css.xBtn} btn`}>
+              <X />
+            </button>
+          </div>
+          <div>
+            <div className={css.wrapProjectNameInput}>
+              <input type="text" placeholder="Project name" />
+            </div>
 
-          <div>
-            <select type="text" placeholder="User select to project">
-              <option>select user</option>
-            </select>
+            <div className={css.wrapSelectUser}>
+              <select type="text" placeholder="User select to project">
+                <option>select user</option>
+              </select>
+            </div>
+            <div className={css.wrapRate}>
+              <input type="number" placeholder="Rate $" />
+            </div>
           </div>
-          <div>
-            <input type="number" placeholder="Rate $" />
+          <div className={css.wrapButtons}>
+            <button className={`${css.btnClose} btn`} type="button">
+              Close
+            </button>
+            <button className={`${css.addProjectBtn} btn`} type="button">
+              Add Project
+            </button>
           </div>
-        </div>
-        <div>
-          <button type="button">CANCEL</button>
-          <button type="button">OK</button>
         </div>
       </Modal>
       <Helmet>

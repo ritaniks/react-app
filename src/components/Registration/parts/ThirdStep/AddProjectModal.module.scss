@@ -1,16 +1,82 @@
-.wrapTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.wrapModal {
+  // === 1 parrent
+  & div:nth-child(n) {
+    margin-bottom: 0.5rem;
+  }
+  .wrapTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 0.5rem;
 
-  .xBtn {
-    width: 2rem;
+    h4 {
+      margin: 0;
+    }
+
+    .xBtn {
+      width: 2rem;
+      height: 2rem;
+      background-color: tomato;
+      background-color: transparent;
+
+      & svg {
+        display: block;
+        fill: var(--dark);
+      }
+    }
+  }
+  // === 1 parrent
+  .wrapProjectNameInput {
+    padding: 0 0.5rem;
+    line-height: 1.2;
+
+    input {
+      width: 100%;
+      padding: 0;
+      border: 1px solid var(--border-gray);
+      outline: none;
+      border-radius: 0.25rem;
+    }
+  }
+  .wrapSelectUser {
+    padding: 0 0.5rem;
+
+    select {
+      width: 100%;
+      outline: none;
+      border: 1px solid var(--border-gray);
+    }
+  }
+  .wrapRate {
+    padding: 0 0.5rem;
+
+    input {
+      width: 100%;
+      padding: 0;
+      border: 1px solid var(--border-gray);
+      outline: none;
+      border-radius: 0.25rem;
+    }
+  }
+  .wrapButtons {
+    padding: 0 0.5rem;
+
+    width: 100%;
     height: 2rem;
-    background-color: tomato;
+    display: flex;
+    justify-content: flex-end;
 
-    & svg {
-      fill: darkblue;
-      color: blue;
+    .btnClose {
+      border: none;
+      font-size: 1rem;
+      background-color: var(--secondary);
+      color: var(--dark);
+      margin-right: 0.5rem;
+    }
+    .addProjectBtn {
+      background-color: var(--primary);
+      color: var(--white);
     }
   }
 }
