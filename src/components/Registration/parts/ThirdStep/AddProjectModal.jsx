@@ -15,9 +15,9 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
 
   // handlers
 
-  //   const handlerToogleModal = () => {
-  //     setIsModalOpen(!isModalOpen);
-  //   };
+  const handlerToogleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   //   const handlerSubmit = () => {};
   console.log(editId, 'editId');
 
@@ -35,7 +35,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         <div className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h4>Add Project</h4>
-            <button type="button" className={`${css.xBtn} btn`}>
+            <button
+              onClick={handlerToogleModal}
+              type="button"
+              className={`${css.xBtn} btn`}
+            >
               <X />
             </button>
           </div>
@@ -54,7 +58,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
           </div>
           <div className={css.wrapButtons}>
-            <button className={`${css.btnClose} btn`} type="button">
+            <button
+              onClick={handlerToogleModal}
+              type="button"
+              className={`${css.btnClose} btn`}
+            >
               Close
             </button>
             <button className={`${css.addProjectBtn} btn`} type="button">

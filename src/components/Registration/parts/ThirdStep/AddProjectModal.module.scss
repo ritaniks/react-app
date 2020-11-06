@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
 
     h4 {
       margin: 0;
@@ -17,10 +17,23 @@
     .xBtn {
       width: 2rem;
       height: 2rem;
-      background-color: tomato;
+      // background-color: tomato;
       background-color: transparent;
+      border-radius: 50px;
+      position: relative;
 
+      &:focus {
+        // box-shadow: none;
+      }
       & svg {
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+      }
+      &:active svg {
         display: block;
         fill: var(--dark);
       }
