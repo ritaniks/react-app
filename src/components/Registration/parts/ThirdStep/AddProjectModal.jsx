@@ -7,7 +7,7 @@ import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
 
 // Modal.setAppElement('#root');
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line
 const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -19,6 +19,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
     setIsModalOpen(!isModalOpen);
   };
   //   const handlerSubmit = () => {};
+  // eslint-disable-next-line no-console
   console.log(editId, 'editId');
 
   return (
