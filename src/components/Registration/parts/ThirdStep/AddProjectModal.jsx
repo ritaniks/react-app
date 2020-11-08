@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
+
 import css from './AddProjectModal.module.scss';
 
 import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
@@ -83,6 +84,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     overflow: auto;
                     outline: none;
                     width: 80%;
+                    border-radius: 0.5rem;
               }
 
               .modalOverlay {

@@ -87,8 +87,12 @@
       background-color: var(--secondary);
       color: var(--dark);
       margin-right: 0.5rem;
+      display: flex;
+      align-items: center;
     }
     .addProjectBtn {
+      display: flex;
+      align-items: center;
       background-color: var(--primary);
       color: var(--white);
     }
