@@ -60,7 +60,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
               <button type="button" className={`${css.dollarBtn} btn`}>
                 <Dollar />
               </button>
-              <input type="number" placeholder="Rate $" />
+              <input type="number" />
             </div>
           </div>
           <div className={css.wrapButtons}>
