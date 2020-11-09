@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import css from './AddProjectModal.module.scss';
 
 import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
+import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.svg';
 
 // Modal.setAppElement('#root');
 
@@ -56,6 +57,9 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
               </select>
             </div>
             <div className={css.wrapRate}>
+              <button type="button" className={`${css.dollarBtn} btn`}>
+                <Dollar />
+              </button>
               <input type="number" placeholder="Rate $" />
             </div>
           </div>
