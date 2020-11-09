@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
+import MultiSelectMobile from './MultiSelectMobile';
 
 import css from './AddProjectModal.module.scss';
 
@@ -52,9 +53,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
 
             <div className={css.wrapSelectUser}>
-              <select type="text" placeholder="User select to project">
-                <option>select user</option>
-              </select>
+              <MultiSelectMobile />
             </div>
             <div className={css.wrapRate}>
               <button type="button" className={`${css.dollarBtn} btn`}>
