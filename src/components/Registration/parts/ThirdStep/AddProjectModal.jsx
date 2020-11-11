@@ -1,25 +1,33 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
+import MultiSelectMobile from './MultiSelectMobile';
+import useWindowSize from '../../../hooks/useWindowSize';
+
 import css from './AddProjectModal.module.scss';
 
 import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
+import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.svg';
 
 // Modal.setAppElement('#root');
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line
 const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
+  const widthDivice = useWindowSize().width;
+  console.log(widthDivice, 'widthDivice');
+
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
 
   // handlers
 
-  //   const handlerToogleModal = () => {
-  //     setIsModalOpen(!isModalOpen);
-  //   };
+  const handlerToogleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   //   const handlerSubmit = () => {};
-  console.log(editId, 'editId');
+  // eslint-disable-next-line no-console
+  // console.log(editId, 'editId');
 
   return (
     <>
@@ -35,7 +43,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         <div className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h4>Add Project</h4>
-            <button type="button" className={`${css.xBtn} btn`}>
+            <button
+              onClick={handlerToogleModal}
+              type="button"
+              className={`${css.xBtn} btn`}
+            >
               <X />
             </button>
           </div>
@@ -45,16 +57,21 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
 
             <div className={css.wrapSelectUser}>
-              <select type="text" placeholder="User select to project">
-                <option>select user</option>
-              </select>
+              <MultiSelectMobile />
             </div>
             <div className={css.wrapRate}>
-              <input type="number" placeholder="Rate $" />
+              <button type="button" className={`${css.dollarBtn} btn`}>
+                <Dollar />
+              </button>
+              <input type="number" />
             </div>
           </div>
           <div className={css.wrapButtons}>
-            <button className={`${css.btnClose} btn`} type="button">
+            <button
+              onClick={handlerToogleModal}
+              type="button"
+              className={`${css.btnClose} btn`}
+            >
               Close
             </button>
             <button className={`${css.addProjectBtn} btn`} type="button">
@@ -74,6 +91,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     overflow: auto;
                     outline: none;
                     width: 80%;
+                    border-radius: 0.5rem;
               }
 
               .modalOverlay {
