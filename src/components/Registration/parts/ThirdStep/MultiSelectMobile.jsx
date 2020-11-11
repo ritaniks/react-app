@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import useWindowSize from '../../../hooks/useWindowSize';
-// import css from './MultiSelectMobile.module.scss';
-import cssMulti from '../../../common/MultiSelect/MultiSelect.module.scss';
+
+import css from './MultiSelectMobile.module.scss';
 
 const tmp = {
   managers: [
@@ -27,13 +26,11 @@ const tmp = {
 };
 
 const MultiSelectMobile = () => {
-  const widthDivice = useWindowSize().width;
   const [select, setSelect] = useState(tmp);
   const [selectAll, setSelectAll] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
-  console.log(widthDivice, 'widthDivice');
 
   useEffect(() => {
     //  select all Managers
@@ -117,10 +114,9 @@ const MultiSelectMobile = () => {
     }
   };
   return (
-    <div className={cssMulti.wrapSelect}>
-      <div>MultiSelectMobile</div>
-      <div className={cssMulti.wrapCheckBoxes}>
-        <div className={cssMulti.wrapGroups}>
+    <div className={css.wrapSelect}>
+      <div className={css.wrapCheckBoxes}>
+        <div className={css.wrapGroups}>
           <input
             onChange={handleSelectAll}
             type="checkbox"
@@ -131,18 +127,7 @@ const MultiSelectMobile = () => {
           <label htmlFor="selectAllUsers">Select all</label>
         </div>
 
-        <div className={cssMulti.wrapSearch}>
-          <input
-            type="text"
-            className={cssMulti.searchInput}
-            placeholder="Search ..."
-            aria-label="Client name"
-            aria-describedby="button-addon2"
-            id="item"
-          />
-        </div>
-
-        <div className={cssMulti.wrapGroups}>
+        <div className={css.wrapGroups}>
           <input
             onChange={handleSelectByRole}
             type="checkbox"
@@ -154,7 +139,7 @@ const MultiSelectMobile = () => {
         </div>
 
         {select.managers.map((c, index) => (
-          <div className={cssMulti.wrapInput} key={index}>
+          <div className={css.wrapInput} key={index}>
             <input
               onChange={handleSelect}
               type="checkbox"
@@ -167,7 +152,7 @@ const MultiSelectMobile = () => {
           </div>
         ))}
 
-        <div className={cssMulti.wrapGroups}>
+        <div className={css.wrapGroups}>
           <input
             onChange={handleSelectByRole}
             type="checkbox"
@@ -179,7 +164,7 @@ const MultiSelectMobile = () => {
         </div>
 
         {select.users.map((c, index) => (
-          <div className={cssMulti.wrapInput} key={index}>
+          <div className={css.wrapInput} key={index}>
             <input
               onChange={handleSelect}
               type="checkbox"
@@ -192,16 +177,16 @@ const MultiSelectMobile = () => {
           </div>
         ))}
       </div>
-      {/* <div className={cssMulti.wrapBtn}>
+      {/* <div className={css.wrapBtn}>
         <button
-          className={cssMulti.btnClose}
+          className={css.btnClose}
           onClick={handleToogle}
           type="button"
         >
           CANCEL
         </button>
         <button
-          className={cssMulti.btnClose}
+          className={css.btnClose}
           onClick={handleOk}
           type="button"
         >
