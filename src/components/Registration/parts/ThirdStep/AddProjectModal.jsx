@@ -23,7 +23,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
   };
   //   const handlerSubmit = () => {};
   // eslint-disable-next-line no-console
-  console.log(editId, 'editId');
+  // console.log(editId, 'editId');
 
   return (
     <>
