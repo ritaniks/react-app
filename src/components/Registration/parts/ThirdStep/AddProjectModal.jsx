@@ -93,7 +93,8 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     background: #fff;
                     overflow: auto;
                     outline: none;
-                    width: 80%;
+                    width: 100%;
+                    height: 100vh;
                     border-radius: 0.5rem;
               }
 
