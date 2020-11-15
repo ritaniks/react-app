@@ -42,7 +42,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
         {/* {editId} */}
         <div className={css.wrapModal}>
           <div className={css.wrapTitle}>
-            <h4>Add Project</h4>
+            <h5>Add Project</h5>
             <button
               onClick={handlerToogleModal}
               type="button"
@@ -57,11 +57,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
 
             <div className={css.wrapSelectUser}>
-              <h4>Assign Users</h4>
+              <h6>Assign Users</h6>
               <MultiSelectMobile />
             </div>
             <div className={css.wrapRate}>
-              <h4>Enter a billing rate for user</h4>
+              <h6>Enter a billing rate for user</h6>
               <div className={css.wrapRateInput}>
                 <button type="button" className={`${css.dollarBtn} btn`}>
                   <Dollar />

@@ -59,17 +59,23 @@
   .wrapSelectUser {
     padding: 0 0.5rem;
 
-    // select {
-    //   width: 100%;
-    //   outline: none;
-    //   border: 1px solid var(--border-gray);
-    // }
+    h6 {
+      // font-size: 0.75rem;
+      font-weight: 900;
+    }
   }
   .wrapRate {
     padding: 0 0.5rem;
     margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    h6 {
+      // font-size: 0.75rem;
+      font-weight: 900;
+    }
+
     .wrapRateInput {
     }
 
@@ -96,7 +102,7 @@
     }
 
     input {
-      // width: 100%;
+      width: calc(100% - 2rem);
       padding: 0;
       border: 1px solid var(--border-gray);
       outline: none;
