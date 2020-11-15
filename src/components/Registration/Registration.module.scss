@@ -1,0 +1,83 @@
+.wrapRegistration {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.registration {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.header {
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0.75rem;
+    padding-top: 1rem;
+
+    // .logo {
+    // }
+
+    .login {
+      color: var(--secondary);
+    }
+
+    // .logo,
+    // .login {
+    // }
+  }
+}
+
+// Title
+.wrapTitle {
+  text-align: center;
+  .headTitle {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .headDiscription {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+// msform
+
+.msform {
+  position: relative;
+}
+
+// .msform fieldset {
+// background: red;
+// border: 0 none;
+// border-radius: 0.5rem;
+// box-sizing: border-box;
+// width: 100%;
+// margin: 0;
+// position: relative;
+// }
+
+// Progressbar
+
+// Progress
+.progress {
+  margin: 2rem 0 5rem 0;
+  height: 0.5rem !important;
+}
+.progressIcon {
+  position: absolute;
+  top: -1.25rem;
+  width: 100%;
+}
+.overflow {
+  overflow: hidden;
+  height: 90vh;
+}
+
+@media (min-width: 767px) {
+  .registration {
+    max-width: 850px !important;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+}

@@ -1,51 +1,90 @@
 import React, { useState } from 'react';
 
-// import DateAndClock from './parts/DateAndClock';
 import BarChart from './parts/charts/BarChart';
 import DoughnutChart from './parts/charts/DoughnutChart';
-// import ModalWeekView from './parts/+ModalWeekView';
-import WeekPicker from './parts/topRight/WeekPicker';
+
 import GroupBtn from './parts/topRight/GroupBtn';
-import SelectEmployee from './parts/topRight/SelectEmployee';
+import SelectUserBtn from './parts/topRight/SelectUserBtn';
+
+import PeriodPicker from './parts/topLeft/PeriodPicker';
+import WeekPicker from './parts/topLeft/WeekPicker';
+import OneDayPicker from './parts/topLeft/OneDayPicker';
 import ChartBtn from './parts/topLeft/ChartBtn';
-import AddUser from './parts/AddUser';
+import SelectedDate from './parts/topLeft/SelectedDate';
+import StartTimerBtn from './parts/topLeft/StartTimerBtn';
+
+import AddRow from './parts/AddRow';
+
+import Day from './parts/main/Day/Day';
+
+import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './TimeEntry.module.scss';
 
 import '../../../../assets/css/_custom.scss';
 
 const TimeEntry = () => {
-  // const [activeBtn, setActiveBtn] = useState({
-  //   period: false,
-  //   week: true,
-  //   day: false,
-  // });
+  const widthDivice = useWindowSize().width;
 
-  const [isChartOpen, setIsChartOpen] = useState(true);
+  const [isChartOpen, setIsChartOpen] = useState(false);
 
-  const handleCartBtn = () => {
+  // Check btn
+  const [checkBtn, setCheckBtn] = useState('day');
+
+  const handleChartBtn = () => {
     setIsChartOpen(!isChartOpen);
   };
 
+  // selected Date for all Pickers
+  const [selectedDate, setSelectedDate] = useState(''); // by default new Date()
+
   return (
     <>
-      {/* this is for future global*/}
-      {/* <div>
-                      <DateAndClock />
-          </div> */}
-
-      <div className={css.top}>
+      <section className={css.top}>
+        {widthDivice < 768 && <SelectedDate selectedDate={selectedDate} />}
         <div className={css.settings}>
           <div className={`${css.topLeft} `}>
-            <WeekPicker />
-            <ChartBtn handleCartBtn={handleCartBtn} isChartOpen={isChartOpen} />
+            {/* switcher Pickers */}
+            {checkBtn === 'period' && (
+              <PeriodPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
+            )}
+            {checkBtn === 'week' && (
+              <WeekPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
+            )}
+            {checkBtn === 'day' && (
+              <OneDayPicker
+                checkBtn={checkBtn}
+                widthDivice={widthDivice}
+                setSelectedDate={setSelectedDate}
+              />
+            )}
+
+            {checkBtn === 'week' && (
+              <ChartBtn
+                handleChartBtn={handleChartBtn}
+                isChartOpen={isChartOpen}
+              />
+            )}
+            {checkBtn === 'day' && <StartTimerBtn />}
           </div>
           <div className={`${css.topRight} `}>
-            <SelectEmployee className={css.select} />
-            <GroupBtn className={css.wrapGroupBtn} />
+            <GroupBtn
+              className={css.wrapGroupBtn}
+              checkBtn={checkBtn}
+              setCheckBtn={setCheckBtn}
+            />
+            <SelectUserBtn widthDivice={widthDivice} />
           </div>
         </div>
-        {/* button + */}
+
         {isChartOpen && (
           <div className={css.wrapCharts}>
             <BarChart />
@@ -53,16 +92,22 @@ const TimeEntry = () => {
           </div>
         )}
 
-        <AddUser />
-      </div>
-      <div>
-        {/* to do table */}
-        Table
-      </div>
+        {checkBtn === 'week' && <AddRow />}
+      </section>
 
-      {/* ============================================= */}
-
-      {/* <ModalWeekView /> */}
+      <section>
+        {checkBtn === 'week' && (
+          <div className={css.table}>
+            {/* to do table */}
+            Table
+          </div>
+        )}
+        {checkBtn === 'day' && (
+          <div className={css.wrapDay}>
+            <Day />
+          </div>
+        )}
+      </section>
     </>
   );
 };

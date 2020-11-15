@@ -74,7 +74,7 @@ const BarChart = () => {
   return (
     <div className={css.wrapBar}>
       <h2>Week hours:</h2>
-      <Bar data={data} width={500} height={150} options={barOptions.options} />
+      <Bar data={data} options={barOptions.options} />
     </div>
   );
 };

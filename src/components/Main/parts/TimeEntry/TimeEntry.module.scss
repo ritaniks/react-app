@@ -1,26 +1,38 @@
+.top {
+  font-size: 13px;
+}
 .settings {
   display: flex;
   justify-content: space-between;
-  height: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 .topLeft {
+  position: relative;
   display: flex;
+  justify-content: flex-start;
+  flex: 1;
 }
-.topRight {
-  display: flex;
-  justify-content: flex-end;
-  width: 500px;
-  min-width: 500px;
 
-  & div:first-child {
-    min-width: 200px;
-    height: 100%;
-    line-height: 2;
-    margin-right: 0.4rem;
-    // TO DO fix all users & width select... with multi checks
-    // & div:last-child {
-    // }
-  }
+.topRight {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
 }
 .wrapCharts {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .top {
+    font-size: 14px;
+  }
+  .topRight {
+    display: flex;
+    flex: 1;
+  }
+  .wrapCharts {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

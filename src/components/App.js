@@ -2,7 +2,8 @@ import React from 'react';
 
 import Header from './Header/Header';
 import Main from './Main/Main';
-import Nonprofit from './Nonprofit/Nonprofit';
+// import Nonprofit from './Nonprofit/Nonprofit';
+import Registration from './Registration/Registration';
 
 import css from './App.module.scss';
 
@@ -15,8 +16,9 @@ const user = {
 
 const App = () => {
   return (
-    <div className={`${css.wrapApp}`}>
-      {!user.auth && <Nonprofit />}
+    <div className={css.wrapApp}>
+      {/* {!user.auth && <Nonprofit />} */}
+      {!user.auth && <Registration />}
 
       {user.auth && (
         <>

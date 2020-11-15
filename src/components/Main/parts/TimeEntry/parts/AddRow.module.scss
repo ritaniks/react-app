@@ -1,0 +1,23 @@
+.addRowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: #006ba7;
+  }
+
+  & svg {
+    fill: var(--white);
+    width: 0.75rem;
+  }
+}

@@ -1,0 +1,67 @@
+.wrapSelectUserBtn {
+  position: relative;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-gray);
+  border-radius: 0.25rem;
+  background-color: var(--bg-gray);
+  height: 31px;
+  outline: none !important;
+
+  &:hover,
+  &:focus {
+    background-color: #e9ecef !important;
+  }
+}
+.wrapIcon svg {
+  fill: var(--gray-dark);
+  width: 1.25rem;
+  height: 1rem;
+}
+.wrapList {
+  position: absolute;
+  top: 2.25rem;
+  right: 0;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+  list-style: none;
+  padding: 1px 0;
+  margin: 0;
+  min-width: 12rem;
+  z-index: 1;
+  min-height: 50%;
+  // to add scroll
+  max-height: 300px;
+  overflow-y: scroll;
+
+  & li {
+    cursor: pointer;
+    padding: 0 0.5rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+
+    // & input {
+    //   height: 31px;
+    // }
+
+    &:hover {
+      background-color: var(--light);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapSelectUserBtn {
+    margin-right: 0.75rem;
+  }
+  .btn {
+    height: 38px;
+  }
+  .wrapList {
+    left: 0;
+  }
+}

@@ -1,0 +1,56 @@
+.groupBtn {
+  position: absolute !important;
+  top: -3.2rem;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  background-color: var(--bg-gray);
+}
+.btn {
+  margin: 0;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-gray);
+  height: 31px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--light);
+  }
+  &:active {
+    background-color: #e9ecef;
+  }
+}
+
+.groupBtn .btn {
+  margin-left: -1px;
+}
+
+.active {
+  background-color: #eef0f2;
+}
+.hide {
+  display: none;
+}
+
+.leftBtn {
+  border-radius: 0.22rem 0 0 0.22rem;
+}
+
+.rightBtn {
+  border-radius: 0 0.22rem 0.22rem 0;
+}
+
+@media (min-width: 768px) {
+  .groupBtn {
+    position: relative !important;
+    top: 0;
+    height: 38px;
+    .btn {
+      height: 38px;
+    }
+  }
+}

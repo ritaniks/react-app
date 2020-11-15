@@ -37,15 +37,22 @@ const Header = ({ user }) => {
   }, []);
 
   return (
-    <div className={css.wrapHeader}>
+    <div>
       <AlertMessage />
       <div className={css.wrapInfoHeader}>
-        <Burger onClick={() => hendleOpen()} className={`${css.menuIcon}`} />
+        <Burger onClick={() => hendleOpen()} className={css.menuIcon} />
         <Logo />
+
+        <NavBar checkNewRoute={checkNewRoute} open={open} node={node} />
+        <button
+          type="button"
+          className={css.wrapLogo}
+          onClick={() => checkNewRoute()}
+        >
+          <Logo />
+        </button>
+
         <UserProfile user={user} />
-      </div>
-      <div ref={node}>
-        <NavBar checkNewRoute={checkNewRoute} open={open} />
       </div>
     </div>
   );

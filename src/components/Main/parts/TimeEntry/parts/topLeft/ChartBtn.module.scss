@@ -1,4 +1,32 @@
-.wrapBtn {
-  border: 1px solid lightgray !important;
-  border-radius: 0.25rem !important;
+.btn {
+  display: flex;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+  color: var(--white);
+  height: 31px;
+  padding: 0 0.5rem;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: var(--hover-primary);
+  }
+
+  & p {
+    margin: auto 0;
+  }
+}
+.wrapIcon {
+  width: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    height: 38px;
+    font-size: 14px;
+  }
 }

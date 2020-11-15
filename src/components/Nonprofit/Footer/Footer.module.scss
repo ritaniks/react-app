@@ -10,7 +10,8 @@
 .contactLink:hover,
 .contactLink:focus {
   transition: ease-in 0.2s;
-  color: #23527c;
+  color: #fff;
+  text-decoration: underline;
 }
 .wrapSocial a {
   display: inline-block;
