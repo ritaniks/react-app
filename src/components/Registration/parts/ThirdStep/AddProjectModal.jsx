@@ -57,9 +57,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
 
             <div className={css.wrapSelectUser}>
+              <h4>Assign Users</h4>
               <MultiSelectMobile />
             </div>
             <div className={css.wrapRate}>
+              <h4>Enter a billing rate for user</h4>
               <button type="button" className={`${css.dollarBtn} btn`}>
                 <Dollar />
               </button>
