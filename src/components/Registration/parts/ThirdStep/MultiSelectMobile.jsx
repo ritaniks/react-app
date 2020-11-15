@@ -4,9 +4,9 @@ import css from './MultiSelectMobile.module.scss';
 
 const tmp = {
   managers: [
-    { name: 'Jack', checked: false, role: 'managers' },
-    { name: 'Kate', checked: false, role: 'managers' },
     { name: 'Tom', checked: false, role: 'managers' },
+    { name: 'And', checked: false, role: 'managers' },
+    { name: 'Jerry', checked: false, role: 'managers' },
   ],
 
   users: [
