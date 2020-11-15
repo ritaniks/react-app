@@ -51,11 +51,10 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
               <X />
             </button>
           </div>
-          <div>
+          <div className={css.wrapAddProjectMain}>
             <div className={css.wrapProjectNameInput}>
               <input type="text" placeholder="Project name" />
             </div>
-
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
               <MultiSelectMobile />
