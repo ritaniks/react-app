@@ -62,10 +62,12 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
             </div>
             <div className={css.wrapRate}>
               <h4>Enter a billing rate for user</h4>
-              <button type="button" className={`${css.dollarBtn} btn`}>
-                <Dollar />
-              </button>
-              <input type="number" />
+              <div className={css.wrapRateInput}>
+                <button type="button" className={`${css.dollarBtn} btn`}>
+                  <Dollar />
+                </button>
+                <input type="number" />
+              </div>
             </div>
           </div>
           <div className={css.wrapButtons}>
