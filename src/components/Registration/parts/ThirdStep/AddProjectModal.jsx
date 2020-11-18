@@ -16,7 +16,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   const [projectName, setProjectName] = useState('');
   const [choiseUsers, setChoiseUsers] = useState([]);
   const [userId, setUserId] = useState(editId);
-  const [rate, setRate] = useState(0);
+  const [rate, setRate] = useState('');
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -36,7 +36,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
 
     setProjectName('');
     setRate(0);
-    userId(null);
+    setUserId('');
     setChoiseUsers([]);
     handlerToogleModal();
   };
@@ -49,7 +49,8 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   };
   const handlerAddUsers = () => {};
   const handlerRate = e => {
-    setRate(e.target.val);
+    console.log(e.target, 'e.target');
+    setRate(e.target.value);
   };
   // project name input handler
   // choise users in project
@@ -103,7 +104,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
                 <button type="button" className={`${css.dollarBtn} btn`}>
                   <Dollar />
                 </button>
-                <input type="number" onChange={handlerRate} />
+                <input type="number" value={rate} onChange={handlerRate} />
               </div>
             </div>
           </div>
@@ -115,7 +116,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
             >
               Close
             </button>
-            <button className={`${css.addProjectBtn} btn`} type="button">
+            <button className={`${css.addProjectBtn} btn`} type="submit">
               Add Project
             </button>
           </div>
