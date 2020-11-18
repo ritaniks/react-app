@@ -80,10 +80,6 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           editId={editId}
         />
 
-        {/* <Button variant="primary" onClick={handleShow}>
-          Launch static backdrop modal
-        </Button> */}
-
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}

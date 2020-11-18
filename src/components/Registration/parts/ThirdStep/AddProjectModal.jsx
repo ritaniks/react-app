@@ -49,7 +49,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   };
   const handlerAddUsers = () => {};
   const handlerRate = e => {
-    console.log(e.target, 'e.target');
+    // console.log(e.target, 'e.target');
     setRate(e.target.value);
   };
   // project name input handler
