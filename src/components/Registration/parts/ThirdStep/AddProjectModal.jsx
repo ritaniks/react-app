@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -13,6 +13,10 @@ import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.s
 
 // eslint-disable-next-line
 const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
+  const [projectName, setProjectName] = useState('');
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(editId);
+
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -34,6 +38,13 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   // choise users in project
   // handler rate
   //
+  // const handleChange = e => {
+  //   const { name, value, type, checked } = e.target;
+
+  //   this.setState({
+  //     [name]: type === 'checkbox' ? checked : value,
+  //   });
+  // };
 
   return (
     <>
