@@ -14,8 +14,9 @@ import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.s
 // eslint-disable-next-line
 const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   const [projectName, setProjectName] = useState('');
-  const [users, setUsers] = useState([]);
+  const [choiseUsers, setChoiseUsers] = useState([]);
   const [userId, setUserId] = useState(editId);
+  const [rate, setRate] = useState(0);
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -26,14 +27,30 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   const handlerToogleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  //   const handlerSubmit = () => {};
+  const handlerSubmit = e => {
+    e.preventDefault();
+    console.log(projectName, 'projectName');
+    // console.log(choiseUsers, "choiseUsers")
+    console.log(userId, 'userId');
+    console.log(rate, 'rate');
+
+    setProjectName('');
+    setRate(0);
+    userId(null);
+    setChoiseUsers([]);
+    handlerToogleModal();
+  };
   // eslint-disable-next-line no-console
   // console.log(editId, 'editId');
 
   // handlers for inputs
-  const handlerProjectName = () => {};
+  const handlerProjectName = e => {
+    setProjectName(e.target.value);
+  };
   const handlerAddUsers = () => {};
-  const handlerRate = () => {};
+  const handlerRate = e => {
+    setRate(e.target.val);
+  };
   // project name input handler
   // choise users in project
   // handler rate
@@ -57,7 +74,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
         closeTimeoutMS={100}
       >
         {/* {editId} */}
-        <div className={css.wrapModal}>
+        <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h5>Add Project</h5>
             <button
@@ -70,7 +87,11 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
           </div>
           <div className={css.wrapAddProjectMain}>
             <div className={css.wrapProjectNameInput}>
-              <input type="text" placeholder="Project name" />
+              <input
+                type="text"
+                placeholder="Project name"
+                onChange={handlerProjectName}
+              />
             </div>
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
@@ -82,7 +103,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
                 <button type="button" className={`${css.dollarBtn} btn`}>
                   <Dollar />
                 </button>
-                <input type="number" />
+                <input type="number" onChange={handlerRate} />
               </div>
             </div>
           </div>
@@ -98,7 +119,7 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
               Add Project
             </button>
           </div>
-        </div>
+        </form>
       </Modal>
       <Helmet>
         <style>{`
@@ -132,12 +153,15 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
     </>
   );
 };
+AddProjectModal.defaultProps = {
+  editId: '',
+};
 
 AddProjectModal.propTypes = {
-  isModalOpen: PropTypes.func.isRequired,
+  isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
-  projects: PropTypes.func.isRequired,
-  editId: PropTypes.string.isRequired,
+  projects: PropTypes.arrayOf(PropTypes.any).isRequired,
+  editId: PropTypes.string,
 };
 
 export default AddProjectModal;
