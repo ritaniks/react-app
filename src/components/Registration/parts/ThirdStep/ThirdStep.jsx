@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
 import AddProjectModalMob from './AddProjectModal';
-import useWindowSize from '../../../hooks/useWindowSize';
+// import useWindowSize from '../../../hooks/useWindowSize';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
@@ -25,16 +25,21 @@ const dafaultClients = [
   { name: 'Mark Duffer', id: '2' },
   { name: 'Jon White', id: '3' },
 ];
+const dafaultProject = [
+  { projectName: 'Alatyr', id: '111', users: [] },
+  { projectName: 'Mami.ua', id: '222', users: [] },
+  { projectName: 'Mumi-fish', id: '333', users: [] },
+];
 
 const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([dafaultProject]);
   const [editId, setEditId] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const widthDivice = useWindowSize().width;
-  console.log(widthDivice, 'widthDivice');
+  // const widthDivice = useWindowSize().width;
+  // console.log(widthDivice, 'widthDivice');
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
