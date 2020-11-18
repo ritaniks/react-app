@@ -27,6 +27,9 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   // console.log(editId, 'editId');
 
   // handlers for inputs
+  const handlerProjectName = () => {};
+  const handlerAddUsers = () => {};
+  const handlerRate = () => {};
   // project name input handler
   // choise users in project
   // handler rate

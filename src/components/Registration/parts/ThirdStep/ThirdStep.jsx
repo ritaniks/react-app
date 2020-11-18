@@ -120,8 +120,6 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                   <button
                     className="btn btn-primary btn-sm float-right mr-3 project"
                     type="button"
-                    // data-toggle="modal"
-                    // data-target="#exampleModal"
                     style={{ height: '2rem' }}
                     onClick={() => addProject(el.id)}
                   >
