@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
-import MultiSelectMobile from './MultiSelectMobile';
 import PropTypes from 'prop-types';
+import MultiSelectMobile from './MultiSelectMobile';
 
 import css from './AddProjectModal.module.scss';
 
@@ -25,6 +25,12 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   //   const handlerSubmit = () => {};
   // eslint-disable-next-line no-console
   // console.log(editId, 'editId');
+
+  // handlers for inputs
+  // project name input handler
+  // choise users in project
+  // handler rate
+  //
 
   return (
     <>
