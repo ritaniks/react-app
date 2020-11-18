@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import MultiSelectMobile from './MultiSelectMobile';
+import PropTypes from 'prop-types';
 
 import css from './AddProjectModal.module.scss';
 
@@ -11,7 +12,7 @@ import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.s
 // Modal.setAppElement('#root');
 
 // eslint-disable-next-line
-const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
+const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -110,6 +111,13 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
       </Helmet>
     </>
   );
+};
+
+AddProjectModal.propTypes = {
+  isModalOpen: PropTypes.func.isRequired,
+  setIsModalOpen: PropTypes.func.isRequired,
+  projects: PropTypes.func.isRequired,
+  editId: PropTypes.string.isRequired,
 };
 
 export default AddProjectModal;

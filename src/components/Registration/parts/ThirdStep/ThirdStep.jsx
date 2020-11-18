@@ -67,38 +67,18 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   return (
     <>
       <fieldset>
-        {/* {widthDivice < 495 && ( */}
         <AddProjectModalMob
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          // TO DO
+          projects={projects}
           editId={editId}
         />
-        {/* )} */}
 
         {/* <Button variant="primary" onClick={handleShow}>
           Launch static backdrop modal
         </Button> */}
 
-        {/* <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            I will not close if you click outside me. Dont even try to press
-            escape key.
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary">Understood</Button>
-          </Modal.Footer>
-        </Modal> */}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
