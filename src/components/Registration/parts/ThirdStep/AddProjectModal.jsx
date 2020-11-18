@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import MultiSelectMobile from './MultiSelectMobile';
-import useWindowSize from '../../../hooks/useWindowSize';
 
 import css from './AddProjectModal.module.scss';
 
@@ -13,9 +12,6 @@ import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.s
 
 // eslint-disable-next-line
 const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
-  const widthDivice = useWindowSize().width;
-  console.log(widthDivice, 'widthDivice');
-
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -96,6 +92,9 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, editId }) => {
                     width: 100%;
                     height: 100vh;
                     border-radius: 0.5rem;
+                    @media (min-width: 1000px) {
+                      width: 80%;
+                    }
               }
 
               .modalOverlay {

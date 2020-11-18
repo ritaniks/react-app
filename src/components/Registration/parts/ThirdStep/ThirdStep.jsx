@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
-import AddProjectModal from './AddProjectModal';
+import AddProjectModalMob from './AddProjectModal';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
@@ -31,6 +32,9 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const [projects, setProjects] = useState([]);
   const [editId, setEditId] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const widthDivice = useWindowSize().width;
+  console.log(widthDivice, 'widthDivice');
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -63,11 +67,14 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   return (
     <>
       <fieldset>
-        <AddProjectModal
+        {/* {widthDivice < 495 && ( */}
+        <AddProjectModalMob
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           editId={editId}
         />
+        {/* )} */}
+
         {/* <Button variant="primary" onClick={handleShow}>
           Launch static backdrop modal
         </Button> */}
