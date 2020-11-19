@@ -31,9 +31,11 @@ const dafaultProject = [
   { projectName: 'Mumi-fish', id: '333', users: [] },
 ];
 
+// eslint-disable-next-line no-unused-vars
 const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
+  // eslint-disable-next-line no-unused-vars
   const [projects, setProjects] = useState([dafaultProject]);
   const [editId, setEditId] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,6 +120,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                   >
                     <X />
                   </button>
+
                   <button
                     className="btn btn-primary btn-sm float-right mr-3 project"
                     type="button"
