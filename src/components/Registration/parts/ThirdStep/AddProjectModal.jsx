@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import MultiSelectMobile from './MultiSelectMobile';
-// import { v4 as uuidv4 } from 'uuid';
-// uuidv4();
 
 import css from './AddProjectModal.module.scss';
 
@@ -49,6 +48,7 @@ const AddProjectModal = ({
     const newProject = {
       projectName,
       rate,
+      id: uuidv4(),
     };
 
     setProjects([...projects, newProject]);
@@ -93,7 +93,7 @@ const AddProjectModal = ({
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        {console.log(clientId, 'clientId')}
+        {/* {console.log(clientId, 'clientId')} */}
         {/* {console.log(userId, 'userId')} */}
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
