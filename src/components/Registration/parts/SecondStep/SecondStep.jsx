@@ -19,7 +19,7 @@ const Role = {
   User: 'User',
 };
 
-const SecondStep = ({ countClick, setCountClick }) => {
+const SecondStep = ({ countClick, setCountClick, setGlobalUsers }) => {
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
@@ -44,7 +44,7 @@ const SecondStep = ({ countClick, setCountClick }) => {
       );
 
       // TODO function for send
-      console.log(newUsersArr, 'newUsersArr afte send');
+      // console.log(newUsersArr, 'newUsersArr afte send');
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
       // reset all invites
       setUsers([defaultInputs]);
@@ -91,24 +91,13 @@ const SecondStep = ({ countClick, setCountClick }) => {
     setUsers(
       users.map((el, id) => {
         if (id === index) {
-          console.log(targetVal, 'targetVal');
+          // console.log(targetVal, 'targetVal');
           return { ...el, role: targetVal };
         }
         return el;
       }),
     );
   };
-
-  // const handleBlur = e => {
-  // TO DO onBlur
-  // const targetVal = e.target.value;
-  // const index = +e.target.attributes.ind.value;
-  // if (!isEmail(targetVal)) {
-  //   setUsers(
-  //     users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
-  //   );
-  // }
-  // };
 
   return (
     <>
@@ -129,7 +118,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 userRole={u.role}
                 handleChangeRole={handleChangeRole}
                 users={users}
-                // handleBlur={handleBlur}
               />
             );
           })}
@@ -153,47 +141,19 @@ const SecondStep = ({ countClick, setCountClick }) => {
 SecondStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
+  setGlobalUsers: PropTypes.func.isRequired,
 };
 
 export default SecondStep;
 
-function InputsUserInvite({
-  handleChangeEmail,
-  handleChangeRole,
-  // handleBlur,
-  ind,
-  // refInd,
-  users,
-}) {
+function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
   const handleSubmit = e => {
     console.log('preventDefault');
     e.preventDefault();
-
-    // console.log((e.target.onfocus = false), 'target');
-    // console.dir(e.target.firstChild.onfocus, 'target');
-
-    // console.log(e.target.dispatchEvent, 'dispatchEvent');
-    // console.log(refInd.current.lastChild.firstChild, 'e');
-    // console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
-    // console.dir(refInd.current.attributes.id.nodeValue, 'e');
-    // console.dir(refInd.current, 'e');
-
-    // refInd.current.willValidate = false;
-    // console.dir(e.ref, 'e');
-    // ;
-    // e.blur();
-    // console.dir((e.target.onblur = false), 'e.target');
   };
 
-  // const getId = () => {
-  //   return uuidv4();
-  // };
-
   return (
-    <li
-      className={css.wrapAllInputsInvite}
-      // ref={refInd}
-    >
+    <li className={css.wrapAllInputsInvite}>
       <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
           type="email"
@@ -208,7 +168,6 @@ function InputsUserInvite({
           placeholder="mail@mail.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
-          // onBlur={handleBlur}
           valid="true"
         />
       </form>
@@ -268,7 +227,6 @@ function InputsUserInvite({
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
-  // handleBlur: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   ind: PropTypes.number.isRequired,
 };
