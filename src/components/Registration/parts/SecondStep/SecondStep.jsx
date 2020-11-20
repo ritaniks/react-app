@@ -53,7 +53,10 @@ const SecondStep = ({
       // TODO function for send
       console.log(newUsersArr, 'newUsersArr afte send');
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
-      setGlobalUsers();
+      // setGlobalUsers([
+      //   ...globalUsers,
+      //   newUsersArr.map(el => console.log(el, 'el')),
+      // ]);
       // reset all invites
       setUsers([defaultInputs]);
     }
