@@ -21,8 +21,8 @@ const AddProjectModal = ({
   clientId,
 }) => {
   const [projectName, setProjectName] = useState('');
-  const [choiseUsers, setChoiseUsers] = useState([]);
-  // const [userIds, setUserIds] = useState([]);
+  const [choiseUsersIds, setChoiseUsersIds] = useState([]);
+
   const [rate, setRate] = useState('');
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const AddProjectModal = ({
   const handlerSubmit = e => {
     e.preventDefault();
     console.log(projectName, 'projectName');
-    // console.log(choiseUsers, "choiseUsers")
-    // console.log(userId, 'userId');
+    console.log(choiseUsersIds, 'choiseUsersIds');
+
     console.log(rate, 'rate');
 
     const newProject = {
@@ -55,12 +55,10 @@ const AddProjectModal = ({
 
     setProjectName('');
     setRate('');
-    // setUserIds([]);
-    setChoiseUsers([]);
+    setChoiseUsersIds([]);
     handlerToogleModal();
   };
   // eslint-disable-next-line no-console
-  // console.log(clientId, 'clientId');
 
   // handlers for inputs
   const handlerProjectName = e => {
@@ -116,7 +114,7 @@ const AddProjectModal = ({
             </div>
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
-              <MultiSelectMobile />
+              <MultiSelectMobile setChoiseUsersIds={setChoiseUsersIds} />
             </div>
             <div className={css.wrapRate}>
               <h6>Enter a billing rate for user</h6>

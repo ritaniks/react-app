@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import css from './MultiSelectMobile.module.scss';
 
 const tmp = {
   managers: [
-    { name: 'Tom', checked: false, role: 'managers' },
-    { name: 'And', checked: false, role: 'managers' },
-    { name: 'Jerry', checked: false, role: 'managers' },
+    { name: 'Tom', checked: false, role: 'managers', id: 1 },
+    { name: 'And', checked: false, role: 'managers', id: 2 },
+    { name: 'Jerry', checked: false, role: 'managers', id: 3 },
   ],
 
   users: [
-    { name: 'Elis', checked: false, role: 'users' },
-    { name: 'Jonny', checked: false, role: 'users' },
-    { name: 'Christian', checked: false, role: 'users' },
-    { name: 'David', checked: false, role: 'users' },
-    { name: 'Carter', checked: false, role: 'users' },
-    { name: 'Evelyn', checked: false, role: 'users' },
-    { name: 'Scarlett', checked: false, role: 'users' },
-    { name: 'Eleanor', checked: false, role: 'users' },
-    { name: 'Kingston', checked: false, role: 'users' },
-    { name: 'Julian', checked: false, role: 'users' },
-    { name: 'Lincoln', checked: false, role: 'users' },
-    { name: 'Addison', checked: false, role: 'users' },
+    { name: 'Elis', checked: false, role: 'users', id: 4 },
+    { name: 'Jonny', checked: false, role: 'users', id: 5 },
+    { name: 'Christian', checked: false, role: 'users', id: 6 },
+    { name: 'David', checked: false, role: 'users', id: 7 },
+    { name: 'Carter', checked: false, role: 'users', id: 8 },
+    { name: 'Evelyn', checked: false, role: 'users', id: 9 },
+    { name: 'Scarlett', checked: false, role: 'users', id: 10 },
+    { name: 'Eleanor', checked: false, role: 'users', id: 11 },
+    { name: 'Kingston', checked: false, role: 'users', id: 12 },
+    { name: 'Julian', checked: false, role: 'users', id: 13 },
+    { name: 'Lincoln', checked: false, role: 'users', id: 14 },
+    { name: 'Addison', checked: false, role: 'users', id: 15 },
   ],
 };
 
-const MultiSelectMobile = () => {
+const MultiSelectMobile = ({ setChoiseUsersIds }) => {
   const [select, setSelect] = useState(tmp);
   const [selectAll, setSelectAll] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
@@ -177,24 +178,12 @@ const MultiSelectMobile = () => {
           </div>
         ))}
       </div>
-      {/* <div className={css.wrapBtn}>
-        <button
-          className={css.btnClose}
-          onClick={handleToogle}
-          type="button"
-        >
-          CANCEL
-        </button>
-        <button
-          className={css.btnClose}
-          onClick={handleOk}
-          type="button"
-        >
-          OK
-        </button>
-      </div> */}
     </div>
   );
+};
+
+MultiSelectMobile.propTypes = {
+  setChoiseUsersIds: PropTypes.func.isRequired,
 };
 
 export default MultiSelectMobile;
