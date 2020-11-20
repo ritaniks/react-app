@@ -19,10 +19,17 @@ const Role = {
   User: 'User',
 };
 
-const SecondStep = ({ countClick, setCountClick, setGlobalUsers }) => {
-  // eslint-disable-next-line no-unused-vars
+const SecondStep = ({
+  countClick,
+  setCountClick,
+  setGlobalUsers,
+  globalUsers,
+}) => {
+  // eslint-disable-next-line
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
+
+  console.log(globalUsers, 'globalUsers');
 
   const ref = useRef();
   // console.log(ref, 'ref');
@@ -44,8 +51,9 @@ const SecondStep = ({ countClick, setCountClick, setGlobalUsers }) => {
       );
 
       // TODO function for send
-      // console.log(newUsersArr, 'newUsersArr afte send');
+      console.log(newUsersArr, 'newUsersArr afte send');
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
+      setGlobalUsers();
       // reset all invites
       setUsers([defaultInputs]);
     }
@@ -91,7 +99,6 @@ const SecondStep = ({ countClick, setCountClick, setGlobalUsers }) => {
     setUsers(
       users.map((el, id) => {
         if (id === index) {
-          // console.log(targetVal, 'targetVal');
           return { ...el, role: targetVal };
         }
         return el;
@@ -137,18 +144,21 @@ const SecondStep = ({ countClick, setCountClick, setGlobalUsers }) => {
     </>
   );
 };
-
+SecondStep.defaultProps = {
+  globalUsers: {},
+};
 SecondStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
   setGlobalUsers: PropTypes.func.isRequired,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default SecondStep;
 
 function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
   const handleSubmit = e => {
-    console.log('preventDefault');
+    // console.log('preventDefault');
     e.preventDefault();
   };
 

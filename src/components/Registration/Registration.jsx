@@ -123,6 +123,7 @@ const Registration = () => {
               <SecondStep
                 countClick={countClick}
                 setCountClick={setCountClick}
+                globalUsers={globalUsers}
                 setGlobalUsers={setGlobalUsers}
               />
             )}
