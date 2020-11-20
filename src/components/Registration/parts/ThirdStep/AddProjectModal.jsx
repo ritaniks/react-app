@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import MultiSelectMobile from './MultiSelectMobile';
+// import { v4 as uuidv4 } from 'uuid';
+// uuidv4();
 
 import css from './AddProjectModal.module.scss';
 
@@ -12,11 +14,21 @@ import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.s
 // Modal.setAppElement('#root');
 
 // eslint-disable-next-line
-const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
+const AddProjectModal = ({
+  isModalOpen,
+  setIsModalOpen,
+  projects,
+  setProjects,
+  clientId,
+}) => {
   const [projectName, setProjectName] = useState('');
   const [choiseUsers, setChoiseUsers] = useState([]);
-  const [userId, setUserId] = useState(editId);
+  // const [userIds, setUserIds] = useState([]);
   const [rate, setRate] = useState('');
+
+  useEffect(() => {
+    // setUserId(clientId);
+  }, []);
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -31,17 +43,24 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
     e.preventDefault();
     console.log(projectName, 'projectName');
     // console.log(choiseUsers, "choiseUsers")
-    console.log(userId, 'userId');
+    // console.log(userId, 'userId');
     console.log(rate, 'rate');
 
+    const newProject = {
+      projectName,
+      rate,
+    };
+
+    setProjects([...projects, newProject]);
+
     setProjectName('');
-    setRate(0);
-    setUserId('');
+    setRate('');
+    // setUserIds([]);
     setChoiseUsers([]);
     handlerToogleModal();
   };
   // eslint-disable-next-line no-console
-  // console.log(editId, 'editId');
+  // console.log(clientId, 'clientId');
 
   // handlers for inputs
   const handlerProjectName = e => {
@@ -74,7 +93,8 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        {/* {editId} */}
+        {console.log(clientId, 'clientId')}
+        {/* {console.log(userId, 'userId')} */}
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h5>Add Project</h5>
@@ -104,7 +124,12 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
                 <button type="button" className={`${css.dollarBtn} btn`}>
                   <Dollar />
                 </button>
-                <input type="number" value={rate} onChange={handlerRate} />
+                <input
+                  type="number"
+                  value={rate}
+                  onChange={handlerRate}
+                  placeholder="0"
+                />
               </div>
             </div>
           </div>
@@ -155,14 +180,15 @@ const AddProjectModal = ({ isModalOpen, setIsModalOpen, projects, editId }) => {
   );
 };
 AddProjectModal.defaultProps = {
-  editId: '',
+  clientId: '',
 };
 
 AddProjectModal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
+  setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
-  editId: PropTypes.string,
+  clientId: PropTypes.string,
 };
 
 export default AddProjectModal;

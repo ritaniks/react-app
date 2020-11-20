@@ -26,9 +26,9 @@ const dafaultClients = [
   { name: 'Jon White', id: '3' },
 ];
 const dafaultProject = [
-  { projectName: 'Alatyr', id: '111', users: [] },
-  { projectName: 'Mami.ua', id: '222', users: [] },
-  { projectName: 'Mumi-fish', id: '333', users: [] },
+  { projectName: 'Alatyr', id: '111', users: [], rate: 100000 },
+  { projectName: 'Mami.ua', id: '222', users: [], rate: 500000 },
+  { projectName: 'Mumi-fish', id: '333', users: [], rate: 800000 },
 ];
 
 // eslint-disable-next-line no-unused-vars
@@ -36,8 +36,8 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
   // eslint-disable-next-line no-unused-vars
-  const [projects, setProjects] = useState([dafaultProject]);
-  const [editId, setEditId] = useState();
+  const [projects, setProjects] = useState(dafaultProject);
+  const [clientId, setClientId] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const widthDivice = useWindowSize().width;
@@ -63,7 +63,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const addProject = id => {
     // console.log(id, 'addProject');
     setIsModalOpen(true);
-    setEditId(id);
+    setClientId(id);
   };
 
   // CRUD
@@ -79,9 +79,10 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           setIsModalOpen={setIsModalOpen}
           // TO DO
           projects={projects}
-          editId={editId}
+          clientId={clientId}
+          setProjects={setProjects}
         />
-
+        {console.log(projects, 'projects')}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
