@@ -19,7 +19,7 @@ const tmpUsers = {
   users: [
     { name: 'Elis', checked: false, role: 'users', id: 4 },
     { name: 'Jonny', checked: false, role: 'users', id: 5 },
-    // { name: 'Christian', checked: false, role: 'users', id: 6 },
+
     // { name: 'David', checked: false, role: 'users', id: 7 },
     // { name: 'Carter', checked: false, role: 'users', id: 8 },
     // { name: 'Evelyn', checked: false, role: 'users', id: 9 },
@@ -30,7 +30,7 @@ const tmpUsers = {
     // { name: 'Lincoln', checked: false, role: 'users', id: 14 },
     // { name: 'Addison', checked: false, role: 'users', id: 15 },
   ],
-  admins: [],
+  admins: [{ name: 'Christian', checked: false, role: 'admins', id: 6 }],
 };
 
 const Registration = () => {

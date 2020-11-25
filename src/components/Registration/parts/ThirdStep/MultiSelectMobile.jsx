@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import css from './MultiSelectMobile.module.scss';
 
 const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
-  console.log(globalUsers, 'globalUsers');
   const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
+  const [selectAdmins, setSelectAdmins] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
@@ -15,9 +15,17 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     if (select.length <= 0) {
       return;
     }
-    //  select all Managers
+    //  select all Admins
+    const isSelectAllAdmin = select.admins.every(el => el.checked === true);
+
+    if (isSelectAllAdmin) {
+      setSelectAdmins(true);
+    } else {
+      setSelectAdmins(false);
+    }
     const isSelectAllManager = select.managers.every(el => el.checked === true);
 
+    //  select all Managers
     if (isSelectAllManager) {
       setSelectManagers(true);
     } else {
@@ -34,16 +42,18 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     }
 
     //  select ALL (users & managers)
-    if (isSelectAllManager || isSelectAllUsers) {
+    if (isSelectAllAdmin || isSelectAllManager || isSelectAllUsers) {
       setSelectAll(false);
     }
-    if (isSelectAllManager && isSelectAllUsers) {
+    if (isSelectAllAdmin && isSelectAllManager && isSelectAllUsers) {
       setSelectAll(true);
     }
   }, [select]);
 
   const handleSelect = e => {
     const selecRole = e.target.attributes.role.value;
+
+    console.log(selecRole, 'selecRole');
 
     setSelect({
       ...select,
@@ -59,6 +69,9 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     setSelect({
       ...select,
 
+      admins: select.admins.map(el => {
+        return { ...el, checked: !selectAll };
+      }),
       managers: select.managers.map(el => {
         return { ...el, checked: !selectAll };
       }),
@@ -68,11 +81,24 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     });
 
     if (selectAll) {
+      setSelectAdmins(false);
       setSelectManagers(false);
       setSelectUsers(false);
     }
   };
   const handleSelectByRole = e => {
+    if (e.target.name === 'admins') {
+      setSelectAdmins(!selectAdmins);
+
+      setSelect({
+        ...select,
+
+        admins: select.admins.map(el => {
+          return { ...el, checked: !selectAdmins };
+        }),
+      });
+    }
+
     if (e.target.name === 'managers') {
       setSelectManagers(!selectManagers);
 
@@ -84,6 +110,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
         }),
       });
     }
+
     if (e.target.name === 'users') {
       setSelectUsers(!selectUsers);
 
@@ -106,12 +133,38 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
               <input
                 onChange={handleSelectAll}
                 type="checkbox"
-                id="selectAllUsers"
+                id="selectAll"
                 name="Select all"
                 checked={selectAll}
               />
-              <label htmlFor="selectAllUsers">Select all</label>
+              <label htmlFor="selectAll">Select all</label>
             </div>
+            {/*  */}
+            <div className={css.wrapGroups}>
+              <input
+                onChange={handleSelectByRole}
+                type="checkbox"
+                id="adminsRoleCheck"
+                name="admins"
+                checked={selectAdmins}
+              />
+              <label htmlFor="adminsRoleCheck">Admins</label>
+            </div>
+            {select.admins.map((c, index) => (
+              <div className={css.wrapInput} key={index}>
+                <input
+                  onChange={handleSelect}
+                  type="checkbox"
+                  id={`${c.name}-${index}`}
+                  name={c.name}
+                  checked={c.checked}
+                  role={c.role}
+                />
+                <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
+              </div>
+            ))}
+
+            {/*  */}
             <div className={css.wrapGroups}>
               <input
                 onChange={handleSelectByRole}
@@ -135,6 +188,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
                 <label htmlFor={`${c.name}-${index}`}>{c.name}</label>
               </div>
             ))}
+
             <div className={css.wrapGroups}>
               <input
                 onChange={handleSelectByRole}
