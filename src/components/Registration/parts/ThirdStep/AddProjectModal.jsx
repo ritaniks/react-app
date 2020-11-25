@@ -121,7 +121,7 @@ const AddProjectModal = ({
               />
             </div>
             <div className={css.wrapRate}>
-              <h6>Enter a billing rate for user</h6>
+              <h6>Enter project budget</h6>
               <div className={css.wrapRateInput}>
                 <button type="button" className={`${css.dollarBtn} btn`}>
                   <Dollar />

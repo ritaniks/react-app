@@ -42,9 +42,6 @@ const Registration = () => {
   useEffect(() => {
     setProgress((100 / 4) * countClick);
   }, [countClick]);
-  useEffect(() => {
-    console.log(globalUsers, 'globalUsers');
-  }, [globalUsers]);
 
   return (
     <div className={css.wrapRegistration}>
