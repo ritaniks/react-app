@@ -32,7 +32,12 @@ const dafaultProject = [
 ];
 
 // eslint-disable-next-line no-unused-vars
-const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
+const ThirdStep = ({
+  countClick,
+  setCountClick,
+  // setIsStopOverflow,
+  globalUsers,
+}) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
   // eslint-disable-next-line no-unused-vars
@@ -81,6 +86,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
           projects={projects}
           clientId={clientId}
           setProjects={setProjects}
+          globalUsers={globalUsers}
         />
         {/* {console.log(projects, 'projects')} */}
         <div className="form-card">
@@ -174,10 +180,15 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   );
 };
 
+ThirdStep.defaultProps = {
+  globalUsers: {},
+};
+
 ThirdStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
-  setIsStopOverflow: PropTypes.func.isRequired,
+  // setIsStopOverflow: PropTypes.func.isRequired,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default ThirdStep;

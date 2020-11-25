@@ -29,7 +29,7 @@ const SecondStep = ({
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
-  console.log(globalUsers, 'globalUsers');
+  // console.log(globalUsers, 'globalUsers');
 
   const ref = useRef();
 
@@ -49,13 +49,26 @@ const SecondStep = ({
         el => el.email !== '' && el.isValid === true,
       );
 
-      // TODO function for send
-      console.log(newUsersArr, 'newUsersArr afte send');
+      const parseNewUser = newUsersArr.map(el => {
+        const newUser = {
+          id: el.id,
+          name: el.name,
+          role: el.role,
+          checked: false,
+        };
+        return newUser;
+      });
+
+      const newTmpUsers = { ...globalUsers };
+      // ADD new users for multiselect
+      parseNewUser.forEach(el => {
+        newTmpUsers[el.role].push(el);
+      });
+
+      setGlobalUsers(newTmpUsers);
+
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
-      // setGlobalUsers([
-      //   ...globalUsers,
-      //   newUsersArr.map(el => console.log(el, 'el')),
-      // ]);
+
       // reset all invites
       setUsers([defaultInputs]);
     }
@@ -99,8 +112,6 @@ const SecondStep = ({
     const index = +e.target.attributes.ind.value;
 
     targetVal = targetVal.toLowerCase().concat('s');
-
-    console.log(targetVal, 'targetVal');
 
     setUsers(
       users.map((el, id) => {

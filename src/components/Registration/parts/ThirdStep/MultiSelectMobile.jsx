@@ -26,7 +26,7 @@ import css from './MultiSelectMobile.module.scss';
 //   ],
 // };
 
-const MultiSelectMobile = ({ setChoiseUsersIds }) => {
+const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
   const [select, setSelect] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
@@ -187,8 +187,13 @@ const MultiSelectMobile = ({ setChoiseUsersIds }) => {
   );
 };
 
+MultiSelectMobile.defaultProps = {
+  globalUsers: {},
+};
+
 MultiSelectMobile.propTypes = {
   setChoiseUsersIds: PropTypes.func.isRequired,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default MultiSelectMobile;
