@@ -168,7 +168,7 @@ SecondStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
   setGlobalUsers: PropTypes.func.isRequired,
-  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+  globalUsers: PropTypes.shape(PropTypes.any),
 };
 
 export default SecondStep;

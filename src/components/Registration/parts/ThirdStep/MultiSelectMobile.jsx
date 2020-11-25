@@ -27,6 +27,7 @@ import css from './MultiSelectMobile.module.scss';
 // };
 
 const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
+  console.log(globalUsers, 'globalUsers');
   const [select, setSelect] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);

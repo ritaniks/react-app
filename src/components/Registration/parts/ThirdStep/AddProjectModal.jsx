@@ -19,6 +19,7 @@ const AddProjectModal = ({
   projects,
   setProjects,
   clientId,
+  globalUsers,
 }) => {
   const [projectName, setProjectName] = useState('');
   const [choiseUsersIds, setChoiseUsersIds] = useState([]);
@@ -114,7 +115,10 @@ const AddProjectModal = ({
             </div>
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
-              <MultiSelectMobile setChoiseUsersIds={setChoiseUsersIds} />
+              <MultiSelectMobile
+                setChoiseUsersIds={setChoiseUsersIds}
+                globalUsers={globalUsers}
+              />
             </div>
             <div className={css.wrapRate}>
               <h6>Enter a billing rate for user</h6>
@@ -179,6 +183,7 @@ const AddProjectModal = ({
 };
 AddProjectModal.defaultProps = {
   clientId: '',
+  globalUsers: {},
 };
 
 AddProjectModal.propTypes = {
@@ -187,6 +192,7 @@ AddProjectModal.propTypes = {
   setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
   clientId: PropTypes.string,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default AddProjectModal;

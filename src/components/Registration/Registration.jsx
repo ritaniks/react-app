@@ -34,7 +34,7 @@ const tmpUsers = {
 };
 
 const Registration = () => {
-  const [countClick, setCountClick] = useState(2);
+  const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
   const [globalUsers, setGlobalUsers] = useState(tmpUsers);
@@ -42,9 +42,9 @@ const Registration = () => {
   useEffect(() => {
     setProgress((100 / 4) * countClick);
   }, [countClick]);
-  // useEffect(() => {
-  //   console.log(globalUsers, 'globalUsers');
-  // }, [globalUsers]);
+  useEffect(() => {
+    console.log(globalUsers, 'globalUsers');
+  }, [globalUsers]);
 
   return (
     <div className={css.wrapRegistration}>
