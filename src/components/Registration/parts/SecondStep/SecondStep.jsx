@@ -11,7 +11,7 @@ import SendInvite from '../../buttons/SendInvite';
 
 import css from './SecondStep.module.scss';
 
-const defaultInputs = { email: '', role: 'User', name: '' };
+const defaultInputs = { email: '', role: 'users', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -32,7 +32,6 @@ const SecondStep = ({
   console.log(globalUsers, 'globalUsers');
 
   const ref = useRef();
-  // console.log(ref, 'ref');
 
   useEffect(() => {
     const indexLastArr = users.length - 1;
@@ -96,8 +95,12 @@ const SecondStep = ({
   };
 
   const handleChangeRole = e => {
-    const targetVal = e.target.value;
+    let targetVal = e.target.value;
     const index = +e.target.attributes.ind.value;
+
+    targetVal = targetVal.toLowerCase().concat('s');
+
+    console.log(targetVal, 'targetVal');
 
     setUsers(
       users.map((el, id) => {
@@ -192,7 +195,7 @@ function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
             id={`${users[ind].email}-Admin`}
             name={`${users[ind]}-Admin`}
             value="Admin"
-            checked={users[ind].role === 'Admin'}
+            checked={users[ind].role === 'admins'}
             onChange={handleChangeRole}
           />
           <label
@@ -207,7 +210,7 @@ function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
             id={`${users[ind].email}-Manager`}
             name={`${users[ind]}-Manager`}
             value="Manager"
-            checked={users[ind].role === 'Manager'}
+            checked={users[ind].role === 'managers'}
             onChange={handleChangeRole}
           />
           <label
@@ -221,8 +224,8 @@ function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
             type="radio"
             id={`${users[ind].email}-User`}
             name={`${users[ind]}-User`}
-            value="User"
-            checked={users[ind].role === 'User'}
+            value="users"
+            checked={users[ind].role === 'users'}
             onChange={handleChangeRole}
           />
           <label
