@@ -9,10 +9,35 @@ import FourthStep from './parts/FourthStep/FourthStep';
 import css from './Registration.module.scss';
 import './globalSW.scss';
 
+const tmpUsers = {
+  managers: [
+    { name: 'Tom', checked: false, role: 'managers', id: 1 },
+    // { name: 'And', checked: false, role: 'managers', id: 2 },
+    // { name: 'Jerry', checked: false, role: 'managers', id: 3 },
+  ],
+
+  users: [
+    { name: 'Elis', checked: false, role: 'users', id: 4 },
+    { name: 'Jonny', checked: false, role: 'users', id: 5 },
+
+    // { name: 'David', checked: false, role: 'users', id: 7 },
+    // { name: 'Carter', checked: false, role: 'users', id: 8 },
+    // { name: 'Evelyn', checked: false, role: 'users', id: 9 },
+    // { name: 'Scarlett', checked: false, role: 'users', id: 10 },
+    // { name: 'Eleanor', checked: false, role: 'users', id: 11 },
+    // { name: 'Kingston', checked: false, role: 'users', id: 12 },
+    // { name: 'Julian', checked: false, role: 'users', id: 13 },
+    // { name: 'Lincoln', checked: false, role: 'users', id: 14 },
+    // { name: 'Addison', checked: false, role: 'users', id: 15 },
+  ],
+  admins: [{ name: 'Christian', checked: false, role: 'admins', id: 6 }],
+};
+
 const Registration = () => {
   const [countClick, setCountClick] = useState(3);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
+  const [globalUsers, setGlobalUsers] = useState(tmpUsers);
 
   useEffect(() => {
     setProgress((100 / 4) * countClick);
@@ -99,6 +124,8 @@ const Registration = () => {
               <SecondStep
                 countClick={countClick}
                 setCountClick={setCountClick}
+                globalUsers={globalUsers}
+                setGlobalUsers={setGlobalUsers}
               />
             )}
 
@@ -108,6 +135,7 @@ const Registration = () => {
                 countClick={countClick}
                 setCountClick={setCountClick}
                 setIsStopOverflow={setIsStopOverflow}
+                globalUsers={globalUsers}
               />
             )}
 

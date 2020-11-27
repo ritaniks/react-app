@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
-import AddProjectModal from './AddProjectModal';
+import AddProjectModalMob from './AddProjectModal';
+// import useWindowSize from '../../../hooks/useWindowSize';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
@@ -24,13 +25,28 @@ const dafaultClients = [
   { name: 'Mark Duffer', id: '2' },
   { name: 'Jon White', id: '3' },
 ];
+const dafaultProject = [
+  { projectName: 'Alatyr', id: '111', users: [], rate: '100000' },
+  { projectName: 'Mami.ua', id: '222', users: [], rate: '500000' },
+  { projectName: 'Mumi-fish', id: '333', users: [], rate: '800000' },
+];
 
-const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
+// eslint-disable-next-line no-unused-vars
+const ThirdStep = ({
+  countClick,
+  setCountClick,
+  // setIsStopOverflow,
+  globalUsers,
+}) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
-  const [projects, setProjects] = useState([]);
-  const [editId, setEditId] = useState();
+  // eslint-disable-next-line no-unused-vars
+  const [projects, setProjects] = useState(dafaultProject);
+  const [clientId, setClientId] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const widthDivice = useWindowSize().width;
+  // console.log(widthDivice, 'widthDivice');
   // const [show, setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -52,7 +68,7 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   const addProject = id => {
     // console.log(id, 'addProject');
     setIsModalOpen(true);
-    setEditId(id);
+    setClientId(id);
   };
 
   // CRUD
@@ -63,35 +79,16 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   return (
     <>
       <fieldset>
-        <AddProjectModal
+        <AddProjectModalMob
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
-          editId={editId}
+          // TO DO
+          projects={projects}
+          clientId={clientId}
+          setProjects={setProjects}
+          globalUsers={globalUsers}
         />
-        {/* <Button variant="primary" onClick={handleShow}>
-          Launch static backdrop modal
-        </Button> */}
-
-        {/* <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            I will not close if you click outside me. Dont even try to press
-            escape key.
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary">Understood</Button>
-          </Modal.Footer>
-        </Modal> */}
+        {/* {console.log(projects, 'projects')} */}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
@@ -130,11 +127,10 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
                   >
                     <X />
                   </button>
+
                   <button
                     className="btn btn-primary btn-sm float-right mr-3 project"
                     type="button"
-                    // data-toggle="modal"
-                    // data-target="#exampleModal"
                     style={{ height: '2rem' }}
                     onClick={() => addProject(el.id)}
                   >
@@ -184,10 +180,15 @@ const ThirdStep = ({ countClick, setCountClick, setIsStopOverflow }) => {
   );
 };
 
+ThirdStep.defaultProps = {
+  globalUsers: {},
+};
+
 ThirdStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
-  setIsStopOverflow: PropTypes.func.isRequired,
+  // setIsStopOverflow: PropTypes.func.isRequired,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default ThirdStep;

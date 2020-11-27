@@ -11,7 +11,7 @@ import SendInvite from '../../buttons/SendInvite';
 
 import css from './SecondStep.module.scss';
 
-const defaultInputs = { email: '', role: 'User', name: '' };
+const defaultInputs = { email: '', role: 'users', name: '' };
 
 const Role = {
   Admin: 'Admin',
@@ -19,13 +19,19 @@ const Role = {
   User: 'User',
 };
 
-const SecondStep = ({ countClick, setCountClick }) => {
-  // eslint-disable-next-line no-unused-vars
+const SecondStep = ({
+  countClick,
+  setCountClick,
+  setGlobalUsers,
+  globalUsers,
+}) => {
+  // eslint-disable-next-line
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
+  // console.log(globalUsers, 'globalUsers');
+
   const ref = useRef();
-  // console.log(ref, 'ref');
 
   useEffect(() => {
     const indexLastArr = users.length - 1;
@@ -43,9 +49,26 @@ const SecondStep = ({ countClick, setCountClick }) => {
         el => el.email !== '' && el.isValid === true,
       );
 
-      // TODO function for send
-      console.log(newUsersArr, 'newUsersArr afte send');
+      const parseNewUser = newUsersArr.map(el => {
+        const newUser = {
+          id: el.id,
+          name: el.name,
+          role: el.role,
+          checked: false,
+        };
+        return newUser;
+      });
+
+      const newTmpUsers = { ...globalUsers };
+      // ADD new users for multiselect
+      parseNewUser.forEach(el => {
+        newTmpUsers[el.role].push(el);
+      });
+
+      setGlobalUsers(newTmpUsers);
+
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
+
       // reset all invites
       setUsers([defaultInputs]);
     }
@@ -85,30 +108,20 @@ const SecondStep = ({ countClick, setCountClick }) => {
   };
 
   const handleChangeRole = e => {
-    const targetVal = e.target.value;
+    let targetVal = e.target.value;
     const index = +e.target.attributes.ind.value;
+
+    targetVal = targetVal.toLowerCase().concat('s');
 
     setUsers(
       users.map((el, id) => {
         if (id === index) {
-          console.log(targetVal, 'targetVal');
           return { ...el, role: targetVal };
         }
         return el;
       }),
     );
   };
-
-  // const handleBlur = e => {
-  // TO DO onBlur
-  // const targetVal = e.target.value;
-  // const index = +e.target.attributes.ind.value;
-  // if (!isEmail(targetVal)) {
-  //   setUsers(
-  //     users.map((el, id) => (id === index ? { ...el, isValid: false } : el)),
-  //   );
-  // }
-  // };
 
   return (
     <>
@@ -129,7 +142,6 @@ const SecondStep = ({ countClick, setCountClick }) => {
                 userRole={u.role}
                 handleChangeRole={handleChangeRole}
                 users={users}
-                // handleBlur={handleBlur}
               />
             );
           })}
@@ -149,51 +161,26 @@ const SecondStep = ({ countClick, setCountClick }) => {
     </>
   );
 };
-
+SecondStep.defaultProps = {
+  globalUsers: {},
+};
 SecondStep.propTypes = {
   countClick: PropTypes.number.isRequired,
   setCountClick: PropTypes.func.isRequired,
+  setGlobalUsers: PropTypes.func.isRequired,
+  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
 export default SecondStep;
 
-function InputsUserInvite({
-  handleChangeEmail,
-  handleChangeRole,
-  // handleBlur,
-  ind,
-  // refInd,
-  users,
-}) {
+function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
   const handleSubmit = e => {
-    console.log('preventDefault');
+    // console.log('preventDefault');
     e.preventDefault();
-
-    // console.log((e.target.onfocus = false), 'target');
-    // console.dir(e.target.firstChild.onfocus, 'target');
-
-    // console.log(e.target.dispatchEvent, 'dispatchEvent');
-    // console.log(refInd.current.lastChild.firstChild, 'e');
-    // console.dir(refInd.current.lastChild.firstChild.onfocus, 'e');
-    // console.dir(refInd.current.attributes.id.nodeValue, 'e');
-    // console.dir(refInd.current, 'e');
-
-    // refInd.current.willValidate = false;
-    // console.dir(e.ref, 'e');
-    // ;
-    // e.blur();
-    // console.dir((e.target.onblur = false), 'e.target');
   };
 
-  // const getId = () => {
-  //   return uuidv4();
-  // };
-
   return (
-    <li
-      className={css.wrapAllInputsInvite}
-      // ref={refInd}
-    >
+    <li className={css.wrapAllInputsInvite}>
       <form onSubmit={handleSubmit} className={css.wrapByEmail}>
         <input
           type="email"
@@ -208,7 +195,6 @@ function InputsUserInvite({
           placeholder="mail@mail.com"
           onChange={handleChangeEmail}
           value={users[ind].email}
-          // onBlur={handleBlur}
           valid="true"
         />
       </form>
@@ -220,7 +206,7 @@ function InputsUserInvite({
             id={`${users[ind].email}-Admin`}
             name={`${users[ind]}-Admin`}
             value="Admin"
-            checked={users[ind].role === 'Admin'}
+            checked={users[ind].role === 'admins'}
             onChange={handleChangeRole}
           />
           <label
@@ -235,7 +221,7 @@ function InputsUserInvite({
             id={`${users[ind].email}-Manager`}
             name={`${users[ind]}-Manager`}
             value="Manager"
-            checked={users[ind].role === 'Manager'}
+            checked={users[ind].role === 'managers'}
             onChange={handleChangeRole}
           />
           <label
@@ -249,8 +235,8 @@ function InputsUserInvite({
             type="radio"
             id={`${users[ind].email}-User`}
             name={`${users[ind]}-User`}
-            value="User"
-            checked={users[ind].role === 'User'}
+            value="users"
+            checked={users[ind].role === 'users'}
             onChange={handleChangeRole}
           />
           <label
@@ -268,7 +254,6 @@ function InputsUserInvite({
 InputsUserInvite.propTypes = {
   handleChangeEmail: PropTypes.func.isRequired,
   handleChangeRole: PropTypes.func.isRequired,
-  // handleBlur: PropTypes.func.isRequired,
   users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   ind: PropTypes.number.isRequired,
 };
