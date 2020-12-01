@@ -24,6 +24,8 @@ const SecondStep = ({
   setCountClick,
   setGlobalUsers,
   globalUsers,
+  countProject,
+  setCountProject,
 }) => {
   // eslint-disable-next-line
   const [users, setUsers] = useState([defaultInputs]);
@@ -67,8 +69,11 @@ const SecondStep = ({
 
       setGlobalUsers(newTmpUsers);
 
+      // TODO setCountProject
+
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
 
+      setCountProject(countProject);
       // reset all invites
       setUsers([defaultInputs]);
     }
@@ -169,6 +174,8 @@ SecondStep.propTypes = {
   setCountClick: PropTypes.func.isRequired,
   setGlobalUsers: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+  countProject: PropTypes.number.isRequired,
+  setCountProject: PropTypes.func.isRequired,
 };
 
 export default SecondStep;
