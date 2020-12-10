@@ -35,6 +35,7 @@ const tmpUsers = {
 
 const Registration = () => {
   const [countClick, setCountClick] = useState(3);
+  const [countProject, setCountProject] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
   const [globalUsers, setGlobalUsers] = useState(tmpUsers);
@@ -126,6 +127,8 @@ const Registration = () => {
                 setCountClick={setCountClick}
                 globalUsers={globalUsers}
                 setGlobalUsers={setGlobalUsers}
+                countProject={countProject}
+                setCountProject={setCountProject}
               />
             )}
 
