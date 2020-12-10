@@ -1,26 +1,24 @@
 import React from 'react';
 
-// import Header from './Header/Header';
-// import Main from './Main/Main';
+import Header from './Header/Header';
+import Main from './Main/Main';
 // import Nonprofit from './Nonprofit/Nonprofit';
 import Registration from './Registration/Registration';
 
 import css from './App.module.scss';
 
-// const user = {
-//   name: 'Kristina',
-//   admin: true,
-//   auth: false,
-//   users: [],
-// };
+const user = {
+  name: 'Kristina',
+  admin: true,
+  auth: false,
+  users: [],
+};
 
 const App = () => {
   return (
     <div className={css.wrapApp}>
       {/* {!user.auth && <Nonprofit />} */}
       <Registration />
-
-      {/* {!user.auth && <Registration />}
 
       {user.auth && (
         <>
@@ -32,7 +30,7 @@ const App = () => {
             <Main />
           </main>
         </>
-      )} */}
+      )}
     </div>
   );
 };
