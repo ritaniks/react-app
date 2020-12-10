@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
-import AddProjectModalMob from './AddProjectModal';
+import AddProjectModalMob from './parts/AddProjectModal';
 // import useWindowSize from '../../../hooks/useWindowSize';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
@@ -82,13 +82,13 @@ const ThirdStep = ({
         <AddProjectModalMob
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
-          // TO DO
+          // TODO
           projects={projects}
           clientId={clientId}
           setProjects={setProjects}
           globalUsers={globalUsers}
         />
-        {/* {console.log(projects, 'projects')} */}
+        {console.log(projects, 'projects')}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}

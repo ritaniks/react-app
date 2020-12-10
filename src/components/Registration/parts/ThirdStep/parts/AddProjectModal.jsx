@@ -7,8 +7,8 @@ import MultiSelectMobile from './MultiSelectMobile';
 
 import css from './AddProjectModal.module.scss';
 
-import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
-import { ReactComponent as Dollar } from '../../../../assets/img/header/dollar.svg';
+import { ReactComponent as X } from '../../../../../assets/img/registration/x.svg';
+import { ReactComponent as Dollar } from '../../../../../assets/img/header/dollar.svg';
 
 // Modal.setAppElement('#root');
 
