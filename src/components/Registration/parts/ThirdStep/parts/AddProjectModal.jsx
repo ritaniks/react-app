@@ -52,6 +52,8 @@ const AddProjectModal = ({
       id: uuidv4(),
     };
 
+    console.log(choiseUsersIds, 'choiseUsersIds');
+
     setProjects([...projects, newProject]);
 
     setProjectName('');
