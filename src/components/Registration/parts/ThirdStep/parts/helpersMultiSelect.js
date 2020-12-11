@@ -9,7 +9,7 @@ export function deleteUsers(id, choiseUsersIds, setChoiseUsersIds) {
   tmpUsersIsd = tmpUsersIsd.filter(el => el !== id);
   setChoiseUsersIds(tmpUsersIsd);
 }
-// export function updateUsers() {}
+
 export function addUsersIdsByGroup(select, setChoiseUsersIds, role) {
   if (!role) {
     // eslint-disable-next-line
@@ -18,7 +18,8 @@ export function addUsersIdsByGroup(select, setChoiseUsersIds, role) {
       select[key].forEach(el => userIds.push(el.id));
     }
   } else {
-    console.log(role, 'role add');
+    // console.log(role, 'role add');
+    select[role].forEach(el => userIds.push(el.id));
   }
 
   console.log(userIds, 'userIds');
