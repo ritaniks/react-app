@@ -11,16 +11,15 @@ export function deleteUsers(id, choiseUsersIds, setChoiseUsersIds) {
 }
 // export function updateUsers() {}
 export function addUsersIdsByGroup(select, setChoiseUsersIds, role) {
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key in select) {
-    if (!role) {
-      // eslint-disable-next-line no-loop-func
+  if (!role) {
+    // eslint-disable-next-line
+    for (const key in select) {
+      // eslint-disable-next-line
       select[key].forEach(el => userIds.push(el.id));
     }
+  } else {
+    console.log(role, 'role add');
   }
-  //   else {
-  //     console.log('role true');
-  //   }
 
   console.log(userIds, 'userIds');
 }
@@ -30,7 +29,7 @@ export function deleteUsersIdsByGroup(select, setChoiseUsersIds, role) {
     setChoiseUsersIds(userIds);
     console.log(userIds, 'userIds');
   } else {
-    console.log('role true');
+    console.log(role, 'role delete');
   }
   //   console.log('delete by group');
 }

@@ -106,7 +106,7 @@ const MultiSelectMobile = ({
       }),
     });
 
-    // add || delete ids for choiseUsersIds
+    // add || delete all ids for choiseUsersIds
     if (!selectAll) {
       addUsersIdsByGroup(select, setChoiseUsersIds);
     } else {
@@ -121,6 +121,13 @@ const MultiSelectMobile = ({
   };
   const handleSelectByRole = e => {
     const roleTmp = e.target.name;
+
+    // add || delete roles ids for choiseUsersIds
+    if (!selectAdmins || !selectManagers || !selectUsers) {
+      addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
+    } else {
+      deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
+    }
 
     if (roleTmp === 'admins') {
       setSelectAdmins(!selectAdmins);
