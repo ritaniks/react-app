@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { addUsers } from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
-const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
+const MultiSelectMobile = ({
+  choiseUsersIds,
+  setChoiseUsersIds,
+  globalUsers,
+}) => {
   const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
@@ -11,7 +16,12 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
 
+  // CRUD for choiseUsersIds
+
   useEffect(() => {
+    // console.log(globalUsers, 'globalUsers');
+    console.log(choiseUsersIds, 'func choiseUsersIds');
+
     if (select.length <= 0) {
       return;
     }
@@ -53,13 +63,25 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
   const handleSelect = e => {
     const selecRole = e.target.attributes.role.value;
 
-    console.log(selecRole, 'selecRole');
+    // console.log(selecRole, 'selecRole');
 
     setSelect({
       ...select,
-      [selecRole]: select[selecRole].map(el =>
-        el.name === e.target.name ? { ...el, checked: !el.checked } : el,
-      ),
+      // [selecRole]: select[selecRole].map(el =>
+      //   el.name === e.target.name ? { ...el, checked: !el.checked } : el,
+      // ),
+      [selecRole]: select[selecRole].map(el => {
+        if (el.name === e.target.name) {
+          if (!el.checked) {
+            addUsers(el.id, choiseUsersIds, setChoiseUsersIds);
+            console.log('true');
+          } else {
+            console.log('false');
+          }
+          return { ...el, checked: !el.checked };
+        }
+        return el;
+      }),
     });
   };
 
@@ -224,6 +246,7 @@ MultiSelectMobile.defaultProps = {
 };
 
 MultiSelectMobile.propTypes = {
+  choiseUsersIds: PropTypes.arrayOf(PropTypes.any).isRequired,
   setChoiseUsersIds: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };

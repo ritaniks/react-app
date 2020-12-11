@@ -67,7 +67,8 @@ const AddProjectModal = ({
   const handlerProjectName = e => {
     setProjectName(e.target.value);
   };
-  const handlerAddUsers = () => {};
+  // const handlerAddUsers = () => {};
+  
   const handlerRate = e => {
     // console.log(e.target, 'e.target');
     setRate(e.target.value);
@@ -119,6 +120,7 @@ const AddProjectModal = ({
               <h6>Assign Users</h6>
               <MultiSelectMobile
                 setChoiseUsersIds={setChoiseUsersIds}
+                choiseUsersIds={choiseUsersIds}
                 globalUsers={globalUsers}
               />
             </div>

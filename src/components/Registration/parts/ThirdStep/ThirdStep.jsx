@@ -88,7 +88,7 @@ const ThirdStep = ({
           setProjects={setProjects}
           globalUsers={globalUsers}
         />
-        {console.log(projects, 'projects')}
+        {/* {console.log(projects, 'projects')} */}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
