@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { addUsers } from './helpersMultiSelect';
+import { addUsers, deleteUsers } from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
@@ -76,6 +76,7 @@ const MultiSelectMobile = ({
             addUsers(el.id, choiseUsersIds, setChoiseUsersIds);
             console.log('true');
           } else {
+            deleteUsers(el.id, choiseUsersIds, setChoiseUsersIds);
             console.log('false');
           }
           return { ...el, checked: !el.checked };
