@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { addUsers, deleteUsers } from './helpersMultiSelect';
+import {
+  addUsers,
+  deleteUsers,
+  addUsersIdsByGroup,
+  deleteUsersIdsByGroup,
+} from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
@@ -20,7 +25,7 @@ const MultiSelectMobile = ({
 
   useEffect(() => {
     // console.log(globalUsers, 'globalUsers');
-    console.log(choiseUsersIds, 'func choiseUsersIds');
+    // console.log(choiseUsersIds, 'func choiseUsersIds');
 
     if (select.length <= 0) {
       return;
@@ -74,10 +79,8 @@ const MultiSelectMobile = ({
         if (el.name === e.target.name) {
           if (!el.checked) {
             addUsers(el.id, choiseUsersIds, setChoiseUsersIds);
-            console.log('true');
           } else {
             deleteUsers(el.id, choiseUsersIds, setChoiseUsersIds);
-            console.log('false');
           }
           return { ...el, checked: !el.checked };
         }
@@ -103,6 +106,13 @@ const MultiSelectMobile = ({
       }),
     });
 
+    // add || delete ids for choiseUsersIds
+    if (!selectAll) {
+      addUsersIdsByGroup(select, setChoiseUsersIds);
+    } else {
+      deleteUsersIdsByGroup(select, setChoiseUsersIds);
+    }
+
     if (selectAll) {
       setSelectAdmins(false);
       setSelectManagers(false);
@@ -110,7 +120,9 @@ const MultiSelectMobile = ({
     }
   };
   const handleSelectByRole = e => {
-    if (e.target.name === 'admins') {
+    const roleTmp = e.target.name;
+
+    if (roleTmp === 'admins') {
       setSelectAdmins(!selectAdmins);
 
       setSelect({
@@ -122,7 +134,7 @@ const MultiSelectMobile = ({
       });
     }
 
-    if (e.target.name === 'managers') {
+    if (roleTmp === 'managers') {
       setSelectManagers(!selectManagers);
 
       setSelect({
@@ -134,7 +146,7 @@ const MultiSelectMobile = ({
       });
     }
 
-    if (e.target.name === 'users') {
+    if (roleTmp === 'users') {
       setSelectUsers(!selectUsers);
 
       setSelect({
