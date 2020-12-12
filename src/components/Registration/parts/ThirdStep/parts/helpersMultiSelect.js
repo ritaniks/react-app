@@ -20,14 +20,15 @@ export function addUsersIdsByGroup(select, setChoiseUsersIds, role) {
     setChoiseUsersIds(userIds);
   } else {
     select[role].forEach(el => {
-      if (userIds.includes(el.id)) {
+      // TODO fix
+      if (!userIds.includes(el.id)) {
         userIds.push(el.id);
       }
     });
     setChoiseUsersIds(userIds);
   }
 
-  //   console.log(userIds, 'userIds');
+  console.log(userIds, 'userIds');
 }
 export function deleteUsersIdsByGroup(select, setChoiseUsersIds, role) {
   if (!role) {
