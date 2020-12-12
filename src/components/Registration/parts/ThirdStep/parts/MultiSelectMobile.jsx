@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import selectUserIds from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
@@ -48,18 +49,25 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     if (isSelectAllAdmin && isSelectAllManager && isSelectAllUsers) {
       setSelectAll(true);
     }
+
+    const newUserIdsArr = selectUserIds(select);
+
+    setChoiseUsersIds(newUserIdsArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
   const handleSelect = e => {
     const selecRole = e.target.attributes.role.value;
 
-    console.log(selecRole, 'selecRole');
-
     setSelect({
       ...select,
-      [selecRole]: select[selecRole].map(el =>
-        el.name === e.target.name ? { ...el, checked: !el.checked } : el,
-      ),
+
+      [selecRole]: select[selecRole].map(el => {
+        if (el.name === e.target.name) {
+          return { ...el, checked: !el.checked };
+        }
+        return el;
+      }),
     });
   };
 
@@ -87,7 +95,9 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
     }
   };
   const handleSelectByRole = e => {
-    if (e.target.name === 'admins') {
+    const roleTmp = e.target.name;
+
+    if (roleTmp === 'admins') {
       setSelectAdmins(!selectAdmins);
 
       setSelect({
@@ -99,7 +109,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
       });
     }
 
-    if (e.target.name === 'managers') {
+    if (roleTmp === 'managers') {
       setSelectManagers(!selectManagers);
 
       setSelect({
@@ -111,7 +121,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
       });
     }
 
-    if (e.target.name === 'users') {
+    if (roleTmp === 'users') {
       setSelectUsers(!selectUsers);
 
       setSelect({
@@ -221,9 +231,11 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
 
 MultiSelectMobile.defaultProps = {
   globalUsers: {},
+  choiseUsersIds: [],
 };
 
 MultiSelectMobile.propTypes = {
+  choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
   setChoiseUsersIds: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };

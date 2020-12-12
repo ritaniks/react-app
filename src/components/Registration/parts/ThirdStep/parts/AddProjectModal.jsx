@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -10,15 +10,13 @@ import css from './AddProjectModal.module.scss';
 import { ReactComponent as X } from '../../../../../assets/img/registration/x.svg';
 import { ReactComponent as Dollar } from '../../../../../assets/img/header/dollar.svg';
 
-// Modal.setAppElement('#root');
-
 // eslint-disable-next-line
 const AddProjectModal = ({
   isModalOpen,
   setIsModalOpen,
   projects,
   setProjects,
-  clientId,
+  // clientId,
   globalUsers,
 }) => {
   const [projectName, setProjectName] = useState('');
@@ -26,9 +24,9 @@ const AddProjectModal = ({
 
   const [rate, setRate] = useState('');
 
-  useEffect(() => {
-    // setUserId(clientId);
-  }, []);
+  // useEffect(() => {
+  // setUserId(clientId);
+  // }, []);
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -41,18 +39,21 @@ const AddProjectModal = ({
   };
   const handlerSubmit = e => {
     e.preventDefault();
+    // eslint-disable-next-line no-console
+    console.log('this is object for one project');
+    // eslint-disable-next-line no-console
     console.log(projectName, 'projectName');
-    console.log(choiseUsersIds, 'choiseUsersIds');
-
+    // eslint-disable-next-line no-console
     console.log(rate, 'rate');
+    // eslint-disable-next-line no-console
+    console.log(choiseUsersIds, 'choiseUsersIds');
 
     const newProject = {
       projectName,
       rate,
       id: uuidv4(),
+      users: [...choiseUsersIds],
     };
-
-    console.log(choiseUsersIds, 'choiseUsersIds');
 
     setProjects([...projects, newProject]);
 
@@ -67,7 +68,8 @@ const AddProjectModal = ({
   const handlerProjectName = e => {
     setProjectName(e.target.value);
   };
-  const handlerAddUsers = () => {};
+  // const handlerAddUsers = () => {};
+
   const handlerRate = e => {
     // console.log(e.target, 'e.target');
     setRate(e.target.value);
@@ -94,8 +96,6 @@ const AddProjectModal = ({
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        {/* {console.log(clientId, 'clientId')} */}
-        {/* {console.log(userId, 'userId')} */}
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h5>Add Project</h5>
@@ -119,6 +119,7 @@ const AddProjectModal = ({
               <h6>Assign Users</h6>
               <MultiSelectMobile
                 setChoiseUsersIds={setChoiseUsersIds}
+                choiseUsersIds={choiseUsersIds}
                 globalUsers={globalUsers}
               />
             </div>
