@@ -1,37 +1,48 @@
 let userIds = [];
 
 export function addUsers(id, choiseUsersIds, setChoiseUsersIds) {
-  //   console.log(id, 'id');
   setChoiseUsersIds([...choiseUsersIds, id]);
 }
 export function deleteUsers(id, choiseUsersIds, setChoiseUsersIds) {
-  let tmpUsersIsd = [...choiseUsersIds];
-  tmpUsersIsd = tmpUsersIsd.filter(el => el !== id);
-  setChoiseUsersIds(tmpUsersIsd);
+  let tmpUsersIds = [...choiseUsersIds];
+  tmpUsersIds = tmpUsersIds.filter(el => el !== id);
+  setChoiseUsersIds(tmpUsersIds);
 }
 
 export function addUsersIdsByGroup(select, setChoiseUsersIds, role) {
   if (!role) {
+    userIds = [];
     // eslint-disable-next-line
     for (const key in select) {
       // eslint-disable-next-line
       select[key].forEach(el => userIds.push(el.id));
     }
+    setChoiseUsersIds(userIds);
   } else {
-    // console.log(role, 'role add');
-    select[role].forEach(el => userIds.push(el.id));
+    select[role].forEach(el => {
+      if (userIds.includes(el.id)) {
+        userIds.push(el.id);
+      }
+    });
+    setChoiseUsersIds(userIds);
   }
 
-  console.log(userIds, 'userIds');
+  //   console.log(userIds, 'userIds');
 }
 export function deleteUsersIdsByGroup(select, setChoiseUsersIds, role) {
-  userIds = [];
   if (!role) {
-    setChoiseUsersIds(userIds);
-    console.log(userIds, 'userIds');
+    setChoiseUsersIds([]);
+    userIds = [];
   } else {
-    console.log(role, 'role delete');
+    // eslint-disable-next-line
+    const res = userIds.filter(el => {
+      const tmpArr = select[role].map(({ id }) => id);
+
+      if (!tmpArr.includes(el)) {
+        return el;
+      }
+    });
+    userIds = [];
+    setChoiseUsersIds(res);
   }
-  //   console.log('delete by group');
 }
-// export function updateUsersByGroup() {}

@@ -10,15 +10,13 @@ import css from './AddProjectModal.module.scss';
 import { ReactComponent as X } from '../../../../../assets/img/registration/x.svg';
 import { ReactComponent as Dollar } from '../../../../../assets/img/header/dollar.svg';
 
-// Modal.setAppElement('#root');
-
 // eslint-disable-next-line
 const AddProjectModal = ({
   isModalOpen,
   setIsModalOpen,
   projects,
   setProjects,
-  clientId,
+  // clientId,
   globalUsers,
 }) => {
   const [projectName, setProjectName] = useState('');
@@ -26,9 +24,9 @@ const AddProjectModal = ({
 
   const [rate, setRate] = useState('');
 
-  useEffect(() => {
-    // setUserId(clientId);
-  }, []);
+  // useEffect(() => {
+  // setUserId(clientId);
+  // }, []);
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -41,18 +39,16 @@ const AddProjectModal = ({
   };
   const handlerSubmit = e => {
     e.preventDefault();
-    console.log(projectName, 'projectName');
-    console.log(choiseUsersIds, 'choiseUsersIds');
-
-    console.log(rate, 'rate');
+    // console.log(projectName, 'projectName');
+    // console.log(rate, 'rate');
+    console.log(choiseUsersIds, 'choiseUsersIds111 prevLast');
 
     const newProject = {
       projectName,
       rate,
       id: uuidv4(),
+      users: [...choiseUsersIds],
     };
-
-    console.log(choiseUsersIds, 'choiseUsersIds');
 
     setProjects([...projects, newProject]);
 
@@ -68,7 +64,7 @@ const AddProjectModal = ({
     setProjectName(e.target.value);
   };
   // const handlerAddUsers = () => {};
-  
+
   const handlerRate = e => {
     // console.log(e.target, 'e.target');
     setRate(e.target.value);
@@ -97,6 +93,7 @@ const AddProjectModal = ({
       >
         {/* {console.log(clientId, 'clientId')} */}
         {/* {console.log(userId, 'userId')} */}
+        {console.log(choiseUsersIds, 'choiseUsersIds2')}
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h5>Add Project</h5>
