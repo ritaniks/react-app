@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  addUsers,
-  deleteUsers,
-  addUsersIdsByGroup,
-  deleteUsersIdsByGroup,
-} from './helpersMultiSelect';
+import selectUserIds from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
-const MultiSelectMobile = ({
-  choiseUsersIds,
-  setChoiseUsersIds,
-  globalUsers,
-}) => {
+const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
   const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
@@ -21,12 +12,7 @@ const MultiSelectMobile = ({
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
 
-  // CRUD for choiseUsersIds
-
   useEffect(() => {
-    // console.log(globalUsers, 'globalUsers');
-    // console.log(choiseUsersIds, 'func choiseUsersIds');
-
     if (select.length <= 0) {
       return;
     }
@@ -63,25 +49,21 @@ const MultiSelectMobile = ({
     if (isSelectAllAdmin && isSelectAllManager && isSelectAllUsers) {
       setSelectAll(true);
     }
+
+    const newUserIdsArr = selectUserIds(select);
+
+    setChoiseUsersIds(newUserIdsArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
   const handleSelect = e => {
     const selecRole = e.target.attributes.role.value;
 
-    // console.log(selecRole, 'selecRole');
-
     setSelect({
       ...select,
-      // [selecRole]: select[selecRole].map(el =>
-      //   el.name === e.target.name ? { ...el, checked: !el.checked } : el,
-      // ),
+
       [selecRole]: select[selecRole].map(el => {
         if (el.name === e.target.name) {
-          if (!el.checked) {
-            addUsers(el.id, choiseUsersIds, setChoiseUsersIds);
-          } else {
-            deleteUsers(el.id, choiseUsersIds, setChoiseUsersIds);
-          }
           return { ...el, checked: !el.checked };
         }
         return el;
@@ -106,13 +88,6 @@ const MultiSelectMobile = ({
       }),
     });
 
-    // add || delete all ids for choiseUsersIds
-    if (!selectAll) {
-      addUsersIdsByGroup(select, setChoiseUsersIds);
-    } else {
-      deleteUsersIdsByGroup(select, setChoiseUsersIds);
-    }
-
     if (selectAll) {
       setSelectAdmins(false);
       setSelectManagers(false);
@@ -122,18 +97,8 @@ const MultiSelectMobile = ({
   const handleSelectByRole = e => {
     const roleTmp = e.target.name;
 
-    function crudForRole() {}
-
     if (roleTmp === 'admins') {
       setSelectAdmins(!selectAdmins);
-
-      // add || delete roles ids for choiseUsersIds
-      if (!selectAdmins) {
-        addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-      } else {
-        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-        console.log('TODO fix this selectAdmins');
-      }
 
       setSelect({
         ...select,
@@ -147,13 +112,6 @@ const MultiSelectMobile = ({
     if (roleTmp === 'managers') {
       setSelectManagers(!selectManagers);
 
-      if (!selectManagers) {
-        addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-      } else {
-        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-        console.log('TODO fix this selectManagers');
-      }
-
       setSelect({
         ...select,
 
@@ -165,13 +123,6 @@ const MultiSelectMobile = ({
 
     if (roleTmp === 'users') {
       setSelectUsers(!selectUsers);
-      // console.log(selectUsers, 'selectUsers');
-      if (!selectUsers) {
-        addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-      } else {
-        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
-        console.log('TODO fix this selectUsers');
-      }
 
       setSelect({
         ...select,
@@ -280,10 +231,11 @@ const MultiSelectMobile = ({
 
 MultiSelectMobile.defaultProps = {
   globalUsers: {},
+  choiseUsersIds: [],
 };
 
 MultiSelectMobile.propTypes = {
-  choiseUsersIds: PropTypes.arrayOf(PropTypes.any).isRequired,
+  choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
   setChoiseUsersIds: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };

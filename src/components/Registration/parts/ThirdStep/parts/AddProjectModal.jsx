@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -39,9 +39,14 @@ const AddProjectModal = ({
   };
   const handlerSubmit = e => {
     e.preventDefault();
-    // console.log(projectName, 'projectName');
-    // console.log(rate, 'rate');
-    console.log(choiseUsersIds, 'choiseUsersIds111 prevLast');
+    // eslint-disable-next-line no-console
+    console.log('this is object for one project');
+    // eslint-disable-next-line no-console
+    console.log(projectName, 'projectName');
+    // eslint-disable-next-line no-console
+    console.log(rate, 'rate');
+    // eslint-disable-next-line no-console
+    console.log(choiseUsersIds, 'choiseUsersIds');
 
     const newProject = {
       projectName,
@@ -91,9 +96,6 @@ const AddProjectModal = ({
         overlayClassName="modalOverlay"
         closeTimeoutMS={100}
       >
-        {/* {console.log(clientId, 'clientId')} */}
-        {/* {console.log(userId, 'userId')} */}
-        {console.log(choiseUsersIds, 'choiseUsersIds2')}
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
             <h5>Add Project</h5>
