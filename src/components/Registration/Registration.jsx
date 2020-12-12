@@ -11,14 +11,14 @@ import './globalSW.scss';
 
 const tmpUsers = {
   managers: [
-    { name: 'Tom', checked: false, role: 'managers', id: 1 },
-    // { name: 'And', checked: false, role: 'managers', id: 2 },
-    // { name: 'Jerry', checked: false, role: 'managers', id: 3 },
+    { name: 'Tom', checked: false, role: 'managers', id: 2 },
+    // { name: 'And', checked: false, role: 'managers', id: 55 },
+    // { name: 'Jerry', checked: false, role: 'managers', id: 56 },
   ],
 
   users: [
-    { name: 'Elis', checked: false, role: 'users', id: 4 },
-    { name: 'Jonny', checked: false, role: 'users', id: 5 },
+    { name: 'Elis', checked: false, role: 'users', id: 3 },
+    { name: 'Jonny', checked: false, role: 'users', id: 4 },
 
     // { name: 'David', checked: false, role: 'users', id: 7 },
     // { name: 'Carter', checked: false, role: 'users', id: 8 },
@@ -30,7 +30,7 @@ const tmpUsers = {
     // { name: 'Lincoln', checked: false, role: 'users', id: 14 },
     // { name: 'Addison', checked: false, role: 'users', id: 15 },
   ],
-  admins: [{ name: 'Christian', checked: false, role: 'admins', id: 6 }],
+  admins: [{ name: 'Christian', checked: false, role: 'admins', id: 1 }],
 };
 
 const Registration = () => {

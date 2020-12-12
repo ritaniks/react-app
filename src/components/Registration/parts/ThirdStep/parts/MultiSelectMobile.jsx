@@ -131,12 +131,7 @@ const MultiSelectMobile = ({
       if (!selectAdmins) {
         addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
       } else {
-        deleteUsersIdsByGroup(
-          select,
-          setChoiseUsersIds,
-          roleTmp,
-          choiseUsersIds,
-        );
+        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
         console.log('TODO fix this selectAdmins');
       }
 
@@ -155,12 +150,7 @@ const MultiSelectMobile = ({
       if (!selectManagers) {
         addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
       } else {
-        deleteUsersIdsByGroup(
-          select,
-          setChoiseUsersIds,
-          roleTmp,
-          choiseUsersIds,
-        );
+        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
         console.log('TODO fix this selectManagers');
       }
 
@@ -179,12 +169,7 @@ const MultiSelectMobile = ({
       if (!selectUsers) {
         addUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
       } else {
-        deleteUsersIdsByGroup(
-          select,
-          setChoiseUsersIds,
-          roleTmp,
-          choiseUsersIds,
-        );
+        deleteUsersIdsByGroup(select, setChoiseUsersIds, roleTmp);
         console.log('TODO fix this selectUsers');
       }
 
