@@ -231,11 +231,11 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
 
 MultiSelectMobile.defaultProps = {
   globalUsers: {},
-  choiseUsersIds: [],
+  // choiseUsersIds: [],
 };
 
 MultiSelectMobile.propTypes = {
-  choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
+  // choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
   setChoiseUsersIds: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };

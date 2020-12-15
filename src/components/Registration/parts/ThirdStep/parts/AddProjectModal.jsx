@@ -185,7 +185,7 @@ const AddProjectModal = ({
   );
 };
 AddProjectModal.defaultProps = {
-  clientId: '',
+  // clientId: '',
   globalUsers: {},
 };
 
@@ -194,7 +194,7 @@ AddProjectModal.propTypes = {
   setIsModalOpen: PropTypes.func.isRequired,
   setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
-  clientId: PropTypes.string,
+  // clientId: PropTypes.string,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 
