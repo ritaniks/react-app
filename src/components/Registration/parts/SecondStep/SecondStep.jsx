@@ -6,7 +6,6 @@ import cn from 'classnames';
 import isEmail from 'validator/lib/isEmail';
 
 import NextBtn from '../../buttons/NextBtn';
-// import PrevBtn from '../buttons/PrevBtn';
 import SendInvite from '../../buttons/SendInvite';
 
 import css from './SecondStep.module.scss';
@@ -152,10 +151,8 @@ const SecondStep = ({
           })}
         </ul>
         <form className={css.form} type="submit" onSubmit={handleSubmit}>
-          <SendInvite />
-          {/* if you need Previous Page */}
-          {/* <PrevBtn countClick={countClick} setCountClick={setCountClick} /> */}
           <NextBtn countClick={countClick} setCountClick={setCountClick} />
+          <SendInvite />
         </form>
 
         {sendInviteArray.length > 0 &&

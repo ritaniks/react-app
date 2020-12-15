@@ -33,7 +33,9 @@ const FirstStep = ({ countClick, setCountClick }) => {
             />
           </div>
         </div>
-        <NextBtn countClick={countClick} setCountClick={setCountClick} />
+        <div className={css.wrapNextBtn}>
+          <NextBtn countClick={countClick} setCountClick={setCountClick} />
+        </div>
       </fieldset>
     </>
   );
