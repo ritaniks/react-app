@@ -19,7 +19,6 @@ const tmpUsers = {
   users: [
     { name: 'Elis', checked: false, role: 'users', id: 3 },
     { name: 'Jonny', checked: false, role: 'users', id: 4 },
-
     // { name: 'David', checked: false, role: 'users', id: 7 },
     // { name: 'Carter', checked: false, role: 'users', id: 8 },
     // { name: 'Evelyn', checked: false, role: 'users', id: 9 },
@@ -34,7 +33,7 @@ const tmpUsers = {
 };
 
 const Registration = () => {
-  const [countClick, setCountClick] = useState(3);
+  const [countClick, setCountClick] = useState(1);
   const [countProject, setCountProject] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isStopOverflow, setIsStopOverflow] = useState(false);
