@@ -71,18 +71,19 @@ const ThirdStep = ({
     setClientId(id);
   };
 
-  // CRUD
+  // CRUD Client
   const deleteClient = id => {
     const newClientsArr = clients.filter(el => el.id !== id);
     setClietns(newClientsArr);
   };
+
+  // CRUD Project
   return (
     <>
       <fieldset>
         <AddProjectModalMob
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
-          // TODO
           projects={projects}
           clientId={clientId}
           setProjects={setProjects}
@@ -152,7 +153,7 @@ const ThirdStep = ({
                       {el.projectName}
                       <button
                         type="button"
-                        className="btn btn-danger btn-sm float-right delete"
+                        className="btn btn-danger btn-sm float-right "
                         style={{ fill: '#fff', width: '2rem', height: '2rem' }}
                       >
                         <X />
