@@ -114,33 +114,38 @@ const ThirdStep = ({
               Add
             </button>
           </form>
-          <h5 className="title">Clients</h5>
-          <ul className={`${css.items} mb-3`}>
-            {clients.map(el => {
-              return (
-                <li className={css.listItem} key={el.id}>
-                  {el.name}
-                  <button
-                    type="button"
-                    className="btn btn-danger btn-sm float-right delete"
-                    style={{ fill: '#fff', width: '2rem', height: '2rem' }}
-                    onClick={() => deleteClient(el.id)}
-                  >
-                    <X />
-                  </button>
 
-                  <button
-                    className="btn btn-primary btn-sm float-right mr-3 project"
-                    type="button"
-                    style={{ height: '2rem' }}
-                    onClick={() => addProject(el.id)}
-                  >
-                    Add Project
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+          {clients.length > 0 && (
+            <>
+              <h5 className="title">Clients</h5>
+              <ul className={`${css.items} mb-3`}>
+                {clients.map(el => {
+                  return (
+                    <li className={css.listItem} key={el.id}>
+                      {el.name}
+                      <button
+                        type="button"
+                        className="btn btn-danger btn-sm float-right delete"
+                        style={{ fill: '#fff', width: '2rem', height: '2rem' }}
+                        onClick={() => deleteClient(el.id)}
+                      >
+                        <X />
+                      </button>
+
+                      <button
+                        className="btn btn-primary btn-sm float-right mr-3 project"
+                        type="button"
+                        style={{ height: '2rem' }}
+                        onClick={() => addProject(el.id)}
+                      >
+                        Add Project
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
 
           {projects.length > 0 && (
             <>
