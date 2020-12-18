@@ -11,7 +11,7 @@ import AddProjectModalMob from './parts/AddProjectModal';
 
 // import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
-// import { ReactComponent as Pen } from '../../../../assets/img/registration/pen.svg';
+import { ReactComponent as Pen } from '../../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
 // import { ReactComponent as Folder } from '../../../../../assets/img/registration/folder.svg';
 // import { ReactComponent as File } from '../../../../../assets/img/registration/file-alt.svg';
@@ -88,7 +88,7 @@ const ThirdStep = ({
           setProjects={setProjects}
           globalUsers={globalUsers}
         />
-        {/* {console.log(projects, 'projects')} */}
+        {console.log(projects, 'projects')}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
@@ -140,35 +140,46 @@ const ThirdStep = ({
               );
             })}
           </ul>
-          {/* <h5 className="title">Projects</h5>
-          <ul className={`${css.items} mb-3`}>
-            <li className={css.listItem}>
-              <button
-                type="button"
-                className="btn btn-danger btn-sm float-right delete"
-                style={{ width: '2rem', height: '2rem' }}
-              >
-                <X />
-              </button>
-              <button
-                className="btn btn-primary btn-sm float-right mr-3 project"
-                type="button"
-                data-toggle="modal"
-                data-target="#exampleModal"
-                style={{ width: '2rem', height: '2rem' }}
-              >
-                <Pen />
-              </button>
-              <div className="pl-3">
-                <i className="far fa-user ml-n3"></i> 
-                Mark Duffer
-              </div>
-              <div className="ml-3a pl-3">
-                <i className="far fa-file-alt ml-n3"></i>
-                General Legal Matters
-              </div>
-            </li>
-          </ul> */}
+
+          {projects.length > 0 && (
+            <>
+              <h5 className="title">Projects</h5>
+
+              <ul className={`${css.items} mb-3`}>
+                {projects.map(el => {
+                  return (
+                    <li key={el.id} className={css.listItem}>
+                      {el.projectName}
+                      <button
+                        type="button"
+                        className="btn btn-danger btn-sm float-right delete"
+                        style={{ fill: '#fff', width: '2rem', height: '2rem' }}
+                      >
+                        <X />
+                      </button>
+                      <button
+                        className="btn btn-primary btn-sm float-right mr-3 project"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                        style={{ width: '2rem', height: '2rem' }}
+                      >
+                        <Pen />
+                      </button>
+                      {/* <div className="pl-3">
+                    <i className="far fa-user ml-n3"></i>
+                    Mark Duffer
+                  </div>
+                  <div className="ml-3a pl-3">
+                    <i className="far fa-file-alt ml-n3"></i>
+                    General Legal Matters
+                  </div> */}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
         </div>
 
         <div className={css.wrapBtn}>
