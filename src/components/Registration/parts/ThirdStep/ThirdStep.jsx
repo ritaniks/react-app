@@ -65,12 +65,6 @@ const ThirdStep = ({
     setClientName('');
   };
 
-  const addProject = id => {
-    // console.log(id, 'addProject');
-    setIsModalOpen(true);
-    setClientId(id);
-  };
-
   // CRUD Client
   const deleteClient = id => {
     const newClientsArr = clients.filter(el => el.id !== id);
@@ -78,6 +72,15 @@ const ThirdStep = ({
   };
 
   // CRUD Project
+  const addProject = id => {
+    // console.log(id, 'addProject');
+    setIsModalOpen(true);
+    setClientId(id);
+  };
+  const deleteProject = id => {
+    const newProjectArr = projects.filter(el => el.id !== id);
+    setProjects(newProjectArr);
+  };
   return (
     <>
       <fieldset>
@@ -157,6 +160,7 @@ const ThirdStep = ({
                     <li key={el.id} className={css.listItem}>
                       {el.projectName}
                       <button
+                        onClick={() => deleteProject(el.id)}
                         type="button"
                         className="btn btn-danger btn-sm float-right "
                         style={{ fill: '#fff', width: '2rem', height: '2rem' }}
