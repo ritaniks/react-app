@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-// import { Modal, Button } from 'react-bootstrap';
-
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
 import AddProjectModalMob from './parts/AddProjectModal';
 // import useWindowSize from '../../../hooks/useWindowSize';
-
-// import MultiSelect from '../../common/MultiSelect/MultiSelect';
 
 import { ReactComponent as Pen } from '../../../../assets/img/registration/pen.svg';
 import { ReactComponent as X } from '../../../../assets/img/registration/x.svg';
@@ -42,15 +38,13 @@ const ThirdStep = ({
   const [clients, setClietns] = useState(dafaultClients);
   // eslint-disable-next-line no-unused-vars
   const [projects, setProjects] = useState(dafaultProject);
-  const [clientId, setClientId] = useState();
+  // const [clientId, setClientId] = useState();
+  const [editProject, setEditProject] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const widthDivice = useWindowSize().width;
   // console.log(widthDivice, 'widthDivice');
-  // const [show, setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const handleChangeClient = e => {
     setClientName(e.target.value);
   };
@@ -65,22 +59,23 @@ const ThirdStep = ({
     setClientName('');
   };
 
-  // CRUD Client
+  // CRUD
   const deleteClient = id => {
     const newClientsArr = clients.filter(el => el.id !== id);
     setClietns(newClientsArr);
   };
 
-  // CRUD Project
-  const addProject = id => {
-    // console.log(id, 'addProject');
+  const addProject = el => {
     setIsModalOpen(true);
-    setClientId(id);
+    if (el) {
+      setEditProject(el);
+    }
   };
   const deleteProject = id => {
     const newProjectArr = projects.filter(el => el.id !== id);
     setProjects(newProjectArr);
   };
+
   return (
     <>
       <fieldset>
@@ -88,9 +83,10 @@ const ThirdStep = ({
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           projects={projects}
-          clientId={clientId}
           setProjects={setProjects}
           globalUsers={globalUsers}
+          editProject={editProject}
+          setEditProject={setEditProject}
         />
         {console.log(projects, 'projects')}
         <div className="form-card">
@@ -139,7 +135,7 @@ const ThirdStep = ({
                         className="btn btn-primary btn-sm float-right mr-3 project"
                         type="button"
                         style={{ height: '2rem' }}
-                        onClick={() => addProject(el.id)}
+                        onClick={() => addProject()}
                       >
                         Add Project
                       </button>
@@ -158,7 +154,7 @@ const ThirdStep = ({
                 {projects.map(el => {
                   return (
                     <li key={el.id} className={css.listItem}>
-                      {el.projectName}
+                      {el.projectName} -&gt; {el.rate}$
                       <button
                         onClick={() => deleteProject(el.id)}
                         type="button"
@@ -170,8 +166,7 @@ const ThirdStep = ({
                       <button
                         className="btn btn-primary btn-sm float-right mr-3 project"
                         type="button"
-                        data-toggle="modal"
-                        data-target="#exampleModal"
+                        onClick={() => addProject(el)}
                         style={{ width: '2rem', height: '2rem' }}
                       >
                         <Pen />

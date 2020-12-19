@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -16,17 +16,17 @@ const AddProjectModal = ({
   setIsModalOpen,
   projects,
   setProjects,
-  // clientId,
   globalUsers,
+  editProject,
+  setEditProject,
 }) => {
   const [projectName, setProjectName] = useState('');
   const [choiseUsersIds, setChoiseUsersIds] = useState([]);
-
   const [rate, setRate] = useState('');
 
-  // useEffect(() => {
-  // setUserId(clientId);
-  // }, []);
+  useEffect(() => {
+    console.log(editProject, 'editProject  TODO');
+  }, [editProject]);
 
   const modalToogle = () => {
     setIsModalOpen(!isModalOpen);
@@ -39,14 +39,14 @@ const AddProjectModal = ({
   };
   const handlerSubmit = e => {
     e.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log('this is object for one project');
-    // eslint-disable-next-line no-console
-    console.log(projectName, 'projectName');
-    // eslint-disable-next-line no-console
-    console.log(rate, 'rate');
-    // eslint-disable-next-line no-console
-    console.log(choiseUsersIds, 'choiseUsersIds');
+    // // eslint-disable-next-line no-console
+    // console.log('this is object for one project');
+    // // eslint-disable-next-line no-console
+    // console.log(projectName, 'projectName');
+    // // eslint-disable-next-line no-console
+    // console.log(rate, 'rate');
+    // // eslint-disable-next-line no-console
+    // console.log(choiseUsersIds, 'choiseUsersIds');
 
     const newProject = {
       projectName,
@@ -56,7 +56,6 @@ const AddProjectModal = ({
     };
 
     setProjects([...projects, newProject]);
-
     setProjectName('');
     setRate('');
     setChoiseUsersIds([]);
@@ -68,23 +67,10 @@ const AddProjectModal = ({
   const handlerProjectName = e => {
     setProjectName(e.target.value);
   };
-  // const handlerAddUsers = () => {};
 
   const handlerRate = e => {
-    // console.log(e.target, 'e.target');
     setRate(e.target.value);
   };
-  // project name input handler
-  // choise users in project
-  // handler rate
-  //
-  // const handleChange = e => {
-  //   const { name, value, type, checked } = e.target;
-
-  //   this.setState({
-  //     [name]: type === 'checkbox' ? checked : value,
-  //   });
-  // };
 
   return (
     <>
@@ -185,8 +171,8 @@ const AddProjectModal = ({
   );
 };
 AddProjectModal.defaultProps = {
-  // clientId: '',
   globalUsers: {},
+  editProject: {},
 };
 
 AddProjectModal.propTypes = {
@@ -194,8 +180,9 @@ AddProjectModal.propTypes = {
   setIsModalOpen: PropTypes.func.isRequired,
   setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
-  // clientId: PropTypes.string,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+  editProject: PropTypes.shape(PropTypes.any.isRequired),
+  setEditProject: PropTypes.func.isRequired,
 };
 
 export default AddProjectModal;
