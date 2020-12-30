@@ -4,13 +4,19 @@ import selectUserIds from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
-const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
+const MultiSelectMobile = ({
+  setSelectUsersIds,
+  selectUsersIds,
+  globalUsers,
+}) => {
   const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
+
+  console.log(selectUsersIds, 'choiseUsersIds');
 
   useEffect(() => {
     if (select.length <= 0) {
@@ -52,7 +58,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
 
     const newUserIdsArr = selectUserIds(select);
 
-    setChoiseUsersIds(newUserIdsArr);
+    setSelectUsersIds(newUserIdsArr);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
@@ -231,12 +237,12 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
 
 MultiSelectMobile.defaultProps = {
   globalUsers: {},
-  // choiseUsersIds: [],
+  selectUsersIds: [],
 };
 
 MultiSelectMobile.propTypes = {
-  // choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
-  setChoiseUsersIds: PropTypes.func.isRequired,
+  selectUsersIds: PropTypes.arrayOf(PropTypes.any),
+  setSelectUsersIds: PropTypes.func.isRequired,
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
 };
 

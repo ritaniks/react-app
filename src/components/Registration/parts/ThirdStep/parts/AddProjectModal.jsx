@@ -21,11 +21,15 @@ const AddProjectModal = ({
   setEditProject,
 }) => {
   const [projectName, setProjectName] = useState('');
-  const [choiseUsersIds, setChoiseUsersIds] = useState([]);
-  const [rate, setRate] = useState('');
+  const [rate, setRate] = useState();
+
+  const [selectUsersIds, setSelectUsersIds] = useState([]);
 
   useEffect(() => {
-    console.log(editProject, 'editProject  TODO');
+    if (editProject) {
+      setProjectName(editProject.projectName);
+      setRate(editProject.rate);
+    }
   }, [editProject]);
 
   const modalToogle = () => {
@@ -39,27 +43,39 @@ const AddProjectModal = ({
   };
   const handlerSubmit = e => {
     e.preventDefault();
-    // // eslint-disable-next-line no-console
-    // console.log('this is object for one project');
-    // // eslint-disable-next-line no-console
-    // console.log(projectName, 'projectName');
-    // // eslint-disable-next-line no-console
-    // console.log(rate, 'rate');
-    // // eslint-disable-next-line no-console
-    // console.log(choiseUsersIds, 'choiseUsersIds');
 
-    const newProject = {
-      projectName,
-      rate,
-      id: uuidv4(),
-      users: [...choiseUsersIds],
-    };
+    if (editProject) {
+      const newUpdateProjects = projects.map(el => {
+        if (el.id !== editProject.id) return el;
+        return {
+          ...el,
+          rate,
+          projectName,
+          users: selectUsersIds,
+        };
+      });
 
-    setProjects([...projects, newProject]);
-    setProjectName('');
-    setRate('');
-    setChoiseUsersIds([]);
+      setProjects(newUpdateProjects);
+    } else {
+      const newProject = {
+        projectName,
+        rate,
+        id: uuidv4(),
+        users: [...selectUsersIds],
+      };
+
+      setProjects([...projects, newProject]);
+    }
+
     handlerToogleModal();
+
+    // reset
+    setTimeout(() => {
+      setProjectName('');
+      setRate('');
+      setSelectUsersIds([]);
+      setEditProject();
+    }, 1000);
   };
   // eslint-disable-next-line no-console
 
@@ -97,6 +113,7 @@ const AddProjectModal = ({
             <div className={css.wrapProjectNameInput}>
               <input
                 type="text"
+                value={projectName}
                 placeholder="Project name"
                 onChange={handlerProjectName}
               />
@@ -104,8 +121,8 @@ const AddProjectModal = ({
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
               <MultiSelectMobile
-                setChoiseUsersIds={setChoiseUsersIds}
-                choiseUsersIds={choiseUsersIds}
+                setSelectUsersIds={setSelectUsersIds}
+                selectUsersIds={selectUsersIds}
                 globalUsers={globalUsers}
               />
             </div>
@@ -172,7 +189,7 @@ const AddProjectModal = ({
 };
 AddProjectModal.defaultProps = {
   globalUsers: {},
-  editProject: {},
+  editProject: undefined,
 };
 
 AddProjectModal.propTypes = {

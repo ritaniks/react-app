@@ -39,7 +39,7 @@ const ThirdStep = ({
   // eslint-disable-next-line no-unused-vars
   const [projects, setProjects] = useState(dafaultProject);
   // const [clientId, setClientId] = useState();
-  const [editProject, setEditProject] = useState({});
+  const [editProject, setEditProject] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const widthDivice = useWindowSize().width;
@@ -88,7 +88,7 @@ const ThirdStep = ({
           editProject={editProject}
           setEditProject={setEditProject}
         />
-        {console.log(projects, 'projects')}
+        {/* {console.log(projects, 'projects')} */}
         <div className="form-card">
           <div
             className={`${css.bdCallout} my-0 bd-callout bd-callout-warning mb-3`}
