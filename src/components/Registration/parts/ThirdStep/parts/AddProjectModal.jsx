@@ -22,13 +22,20 @@ const AddProjectModal = ({
 }) => {
   const [projectName, setProjectName] = useState('');
   const [rate, setRate] = useState();
+  const [selectUsersIds, setSelectUsersIds] = useState();
 
-  const [selectUsersIds, setSelectUsersIds] = useState([]);
+  // useEffect(() => {
+  //   if (editProject) {
+  //     console.log(editProject.users, 'editProject.users');
+  //     setSelectUsersIds(editProject.users);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (editProject) {
       setProjectName(editProject.projectName);
       setRate(editProject.rate);
+      setSelectUsersIds(editProject.users);
     }
   }, [editProject]);
 

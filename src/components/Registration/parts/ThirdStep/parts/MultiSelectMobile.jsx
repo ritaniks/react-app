@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import selectUserIds from './helpersMultiSelect';
+import getUserIdsArr from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
@@ -16,7 +16,12 @@ const MultiSelectMobile = ({
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
 
-  console.log(selectUsersIds, 'choiseUsersIds');
+  useEffect(() => {
+    if (selectUsersIds) {
+      console.log(selectUsersIds, 'choiseUsersIds444');
+      // TODO
+    }
+  }, []);
 
   useEffect(() => {
     if (select.length <= 0) {
@@ -56,7 +61,8 @@ const MultiSelectMobile = ({
       setSelectAll(true);
     }
 
-    const newUserIdsArr = selectUserIds(select);
+    const newUserIdsArr = getUserIdsArr(select);
+    console.log();
 
     setSelectUsersIds(newUserIdsArr);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -237,7 +243,7 @@ const MultiSelectMobile = ({
 
 MultiSelectMobile.defaultProps = {
   globalUsers: {},
-  selectUsersIds: [],
+  selectUsersIds: undefined,
 };
 
 MultiSelectMobile.propTypes = {

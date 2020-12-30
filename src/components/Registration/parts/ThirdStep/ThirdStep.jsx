@@ -22,7 +22,7 @@ const dafaultClients = [
   { name: 'Jon White', id: '3' },
 ];
 const dafaultProject = [
-  { projectName: 'Alatyr', id: '111', users: [], rate: '100000' },
+  { projectName: 'Alatyr', id: '111', users: [1, 2], rate: '100000' },
   { projectName: 'Mami.ua', id: '222', users: [], rate: '500000' },
   { projectName: 'Mumi-fish', id: '333', users: [], rate: '800000' },
 ];

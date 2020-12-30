@@ -1,4 +1,4 @@
-export default function selectUserIds(select) {
+export default function getUserIdsArr(select) {
   const newArr = [];
 
   const keys = Object.keys(select);
