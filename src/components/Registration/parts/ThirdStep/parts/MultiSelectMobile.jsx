@@ -22,7 +22,7 @@ const MultiSelectMobile = ({
       // console.log(select, 'select');
       // TODO
       const keys = Object.keys(select);
-      // for (let el in select) {
+
       keys.map(role => {
         select[role].map(el => {
           if (selectUsersIds.includes(el.id)) {
@@ -68,7 +68,7 @@ const MultiSelectMobile = ({
       setSelectUsers(false);
     }
 
-    //  select ALL (users & managers)
+    //  select ALL (users & managers & admins)
     if (isSelectAllAdmin || isSelectAllManager || isSelectAllUsers) {
       setSelectAll(false);
     }
@@ -77,7 +77,6 @@ const MultiSelectMobile = ({
     }
 
     const newUserIdsArr = getUserIdsArr(select);
-    console.log();
 
     setSelectUsersIds(newUserIdsArr);
     // eslint-disable-next-line react-hooks/exhaustive-deps

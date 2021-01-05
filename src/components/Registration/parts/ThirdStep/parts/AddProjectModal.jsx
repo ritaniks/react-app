@@ -77,12 +77,12 @@ const AddProjectModal = ({
     handlerToogleModal();
 
     // reset
-    setTimeout(() => {
-      setProjectName('');
-      setRate('');
-      setSelectUsersIds([]);
-      setEditProject();
-    }, 1000);
+    // setTimeout(() => {
+    setProjectName('');
+    setRate('');
+    setSelectUsersIds([]);
+    setEditProject();
+    // }, 1000);
   };
   // eslint-disable-next-line no-console
 
@@ -157,7 +157,7 @@ const AddProjectModal = ({
               Close
             </button>
             <button className={`${css.addProjectBtn} btn`} type="submit">
-              Add Project
+              {editProject ? 'Edit Project' : 'Add Project'}
             </button>
           </div>
         </form>
