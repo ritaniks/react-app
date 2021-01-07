@@ -19,10 +19,12 @@ const AddProjectModal = ({
   globalUsers,
   editProject,
   setEditProject,
+  selectUsersIds,
+  setSelectUsersIds,
 }) => {
   const [projectName, setProjectName] = useState('');
   const [rate, setRate] = useState();
-  const [selectUsersIds, setSelectUsersIds] = useState();
+  // const [selectUsersIds, setSelectUsersIds] = useState();
 
   // useEffect(() => {
   //   // if (editProject) {
@@ -206,6 +208,8 @@ AddProjectModal.propTypes = {
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
   editProject: PropTypes.shape(PropTypes.any.isRequired),
   setEditProject: PropTypes.func.isRequired,
+  selectUsersIds: PropTypes.arrayOf(PropTypes.any).isRequired,
+  setSelectUsersIds: PropTypes.func.isRequired,
 };
 
 export default AddProjectModal;

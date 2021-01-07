@@ -41,6 +41,7 @@ const ThirdStep = ({
   // const [clientId, setClientId] = useState();
   const [editProject, setEditProject] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectUsersIds, setSelectUsersIds] = useState();
 
   //  TODO
   // const widthDivice = useWindowSize().width;
@@ -71,6 +72,8 @@ const ThirdStep = ({
     console.log(el, 'el');
     if (el) {
       setEditProject(el);
+      console.log(el, ' setSelectUsersIds([]);');
+      setSelectUsersIds([...el.users]);
     }
   };
   const deleteProject = id => {
@@ -89,6 +92,8 @@ const ThirdStep = ({
           globalUsers={globalUsers}
           editProject={editProject}
           setEditProject={setEditProject}
+          selectUsersIds={selectUsersIds}
+          setSelectUsersIds={setSelectUsersIds}
         />
         {/* {console.log(projects, 'projects')} */}
         <div className="form-card">

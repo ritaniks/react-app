@@ -21,7 +21,7 @@ const MultiSelectMobile = ({
   // };
 
   useEffect(() => {
-    setSelect(globalUsers);
+    // setSelect(globalUsers);
     console.log(selectUsersIds, 'choiseUsersIds444');
     if (selectUsersIds) {
       // console.log(selectUsersIds, 'choiseUsersIds444');
@@ -44,8 +44,6 @@ const MultiSelectMobile = ({
       });
       // }
     }
-
-    // setSelectUsersIds();
   }, []);
 
   useEffect(() => {
