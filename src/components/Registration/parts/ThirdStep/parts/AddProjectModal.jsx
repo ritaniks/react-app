@@ -33,6 +33,7 @@ const AddProjectModal = ({
   // }, []);
 
   useEffect(() => {
+    console.log(editProject, 'editProject');
     if (editProject) {
       setProjectName(editProject.projectName);
       setRate(editProject.rate);

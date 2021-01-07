@@ -21,8 +21,10 @@ const MultiSelectMobile = ({
   // };
 
   useEffect(() => {
+    setSelect(globalUsers);
+    console.log(selectUsersIds, 'choiseUsersIds444');
     if (selectUsersIds) {
-      console.log(selectUsersIds, 'choiseUsersIds444');
+      // console.log(selectUsersIds, 'choiseUsersIds444');
       // console.log(select, 'select');
       // TODO
       const keys = Object.keys(select);
@@ -30,9 +32,11 @@ const MultiSelectMobile = ({
       keys.map(role => {
         select[role].map(el => {
           if (selectUsersIds.includes(el.id)) {
-            console.log('yes');
             // eslint-disable-next-line no-param-reassign
             el.checked = true;
+          } else {
+            // eslint-disable-next-line no-param-reassign
+            el.checked = false;
           }
           return '';
         });
@@ -41,7 +45,7 @@ const MultiSelectMobile = ({
       // }
     }
 
-    setSelectUsersIds();
+    // setSelectUsersIds();
   }, []);
 
   useEffect(() => {
