@@ -30,7 +30,7 @@ const SecondStep = ({
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
 
-  // console.log(globalUsers, 'globalUsers');
+  console.log(globalUsers, 'globalUsers');
 
   const ref = useRef();
 

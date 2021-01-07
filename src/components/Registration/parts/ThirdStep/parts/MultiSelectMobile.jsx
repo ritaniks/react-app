@@ -16,6 +16,10 @@ const MultiSelectMobile = ({
   const [selectUsers, setSelectUsers] = useState(false);
   // const [selectItems, setCheckItems] = useState(0);
 
+  // const resetSelect = select => {
+
+  // };
+
   useEffect(() => {
     if (selectUsersIds) {
       console.log(selectUsersIds, 'choiseUsersIds444');
@@ -36,6 +40,8 @@ const MultiSelectMobile = ({
       });
       // }
     }
+
+    setSelectUsersIds();
   }, []);
 
   useEffect(() => {

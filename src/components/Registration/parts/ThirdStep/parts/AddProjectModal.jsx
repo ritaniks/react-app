@@ -24,13 +24,13 @@ const AddProjectModal = ({
   const [rate, setRate] = useState();
   const [selectUsersIds, setSelectUsersIds] = useState();
 
-  useEffect(() => {
-    // if (editProject) {
-    //   console.log(editProject.users, 'editProject.users');
-    //   setSelectUsersIds(editProject.users);
-    setSelectUsersIds();
-    // }
-  }, []);
+  // useEffect(() => {
+  //   // if (editProject) {
+  //   //   console.log(editProject.users, 'editProject.users');
+  //   //   setSelectUsersIds(editProject.users);
+  //   // setSelectUsersIds();
+  //   // }
+  // }, []);
 
   useEffect(() => {
     if (editProject) {
@@ -40,14 +40,8 @@ const AddProjectModal = ({
     }
   }, [editProject]);
 
-  // const modalToogle = () => {
-  //   setIsModalOpen(!isModalOpen);
-  //   // if (!isModalOpen) {
-  //   //   setEditProject();
-  //   // }
-  // };
-
   // handlers
+  // const resetSelect = select => {};
 
   const handlerToogleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -78,13 +72,13 @@ const AddProjectModal = ({
       setProjects([...projects, newProject]);
     }
 
-    // handlerToogleModal();
+    handlerToogleModal();
 
     // reset
     // setTimeout(() => {
     setProjectName('');
-    setRate('');
-    setSelectUsersIds();
+    setRate(undefined);
+    setSelectUsersIds(undefined);
     setEditProject();
     // }, 1000);
   };

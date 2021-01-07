@@ -15,3 +15,5 @@ export default function getUserIdsArr(select) {
 
   return newArr;
 }
+
+// export default function resetSelect(select) {}
