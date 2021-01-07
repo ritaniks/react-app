@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Submit from '../../buttons/Submit';
 import PrevBtn from '../../buttons/PrevBtn';
-import AddProjectModalMob from './parts/AddProjectModal';
+import AddProjectModal from './parts/AddProjectModal';
 // import useWindowSize from '../../../hooks/useWindowSize';
 
 import { ReactComponent as Pen } from '../../../../assets/img/registration/pen.svg';
@@ -42,6 +42,7 @@ const ThirdStep = ({
   const [editProject, setEditProject] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  //  TODO
   // const widthDivice = useWindowSize().width;
   // console.log(widthDivice, 'widthDivice');
 
@@ -67,6 +68,7 @@ const ThirdStep = ({
 
   const addProject = el => {
     setIsModalOpen(true);
+    console.log(el, 'el');
     if (el) {
       setEditProject(el);
     }
@@ -79,7 +81,7 @@ const ThirdStep = ({
   return (
     <>
       <fieldset>
-        <AddProjectModalMob
+        <AddProjectModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           projects={projects}

@@ -24,12 +24,13 @@ const AddProjectModal = ({
   const [rate, setRate] = useState();
   const [selectUsersIds, setSelectUsersIds] = useState();
 
-  // useEffect(() => {
-  //   if (editProject) {
-  //     console.log(editProject.users, 'editProject.users');
-  //     setSelectUsersIds(editProject.users);
-  //   }
-  // }, []);
+  useEffect(() => {
+    // if (editProject) {
+    //   console.log(editProject.users, 'editProject.users');
+    //   setSelectUsersIds(editProject.users);
+    setSelectUsersIds();
+    // }
+  }, []);
 
   useEffect(() => {
     if (editProject) {
@@ -39,9 +40,12 @@ const AddProjectModal = ({
     }
   }, [editProject]);
 
-  const modalToogle = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  // const modalToogle = () => {
+  //   setIsModalOpen(!isModalOpen);
+  //   // if (!isModalOpen) {
+  //   //   setEditProject();
+  //   // }
+  // };
 
   // handlers
 
@@ -74,13 +78,13 @@ const AddProjectModal = ({
       setProjects([...projects, newProject]);
     }
 
-    handlerToogleModal();
+    // handlerToogleModal();
 
     // reset
     // setTimeout(() => {
     setProjectName('');
     setRate('');
-    setSelectUsersIds([]);
+    setSelectUsersIds();
     setEditProject();
     // }, 1000);
   };
@@ -99,7 +103,7 @@ const AddProjectModal = ({
     <>
       <Modal
         isOpen={isModalOpen}
-        onRequestClose={modalToogle}
+        onRequestClose={handlerToogleModal}
         contentLabel="My dialog"
         className="AddProjectModal"
         overlayClassName="modalOverlay"
