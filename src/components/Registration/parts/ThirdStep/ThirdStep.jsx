@@ -69,10 +69,9 @@ const ThirdStep = ({
 
   const addProject = el => {
     setIsModalOpen(true);
-    console.log(el, 'el');
     if (el) {
       setEditProject(el);
-      console.log(el, ' setSelectUsersIds([]);');
+
       setSelectUsersIds([...el.users]);
     }
   };
@@ -204,7 +203,7 @@ const ThirdStep = ({
 };
 
 ThirdStep.defaultProps = {
-  globalUsers: {},
+  globalUsers: undefined,
 };
 
 ThirdStep.propTypes = {

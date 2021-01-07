@@ -24,18 +24,9 @@ const AddProjectModal = ({
 }) => {
   const [projectName, setProjectName] = useState('');
   const [rate, setRate] = useState();
-  // const [selectUsersIds, setSelectUsersIds] = useState();
-
-  // useEffect(() => {
-  //   // if (editProject) {
-  //   //   console.log(editProject.users, 'editProject.users');
-  //   //   setSelectUsersIds(editProject.users);
-  //   // setSelectUsersIds();
-  //   // }
-  // }, []);
 
   useEffect(() => {
-    console.log(editProject, 'editProject');
+    // console.log(editProject, 'editProject');
     if (editProject) {
       setProjectName(editProject.projectName);
       setRate(editProject.rate);
@@ -78,12 +69,11 @@ const AddProjectModal = ({
     handlerToogleModal();
 
     // reset
-    // setTimeout(() => {
+
     setProjectName('');
-    setRate(undefined);
+    setRate('');
     setSelectUsersIds(undefined);
     setEditProject();
-    // }, 1000);
   };
   // eslint-disable-next-line no-console
 
@@ -198,6 +188,7 @@ const AddProjectModal = ({
 AddProjectModal.defaultProps = {
   globalUsers: {},
   editProject: undefined,
+  selectUsersIds: undefined,
 };
 
 AddProjectModal.propTypes = {
@@ -208,7 +199,7 @@ AddProjectModal.propTypes = {
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
   editProject: PropTypes.shape(PropTypes.any.isRequired),
   setEditProject: PropTypes.func.isRequired,
-  selectUsersIds: PropTypes.arrayOf(PropTypes.any).isRequired,
+  selectUsersIds: PropTypes.arrayOf(PropTypes.any),
   setSelectUsersIds: PropTypes.func.isRequired,
 };
 
