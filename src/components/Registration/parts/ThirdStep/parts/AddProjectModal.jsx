@@ -24,6 +24,7 @@ const AddProjectModal = ({
 }) => {
   const [projectName, setProjectName] = useState('');
   const [rate, setRate] = useState();
+  const [select, setSelect] = useState(globalUsers);
 
   useEffect(() => {
     // console.log(editProject, 'editProject');
@@ -35,9 +36,16 @@ const AddProjectModal = ({
   }, [editProject]);
 
   // handlers
-  // const resetSelect = select => {};
 
   const handlerToogleModal = () => {
+    if (isModalOpen) {
+      console.log('moddd');
+      setProjectName('');
+      setRate('');
+      setSelect(globalUsers);
+      setSelectUsersIds(undefined);
+      setEditProject(undefined);
+    }
     setIsModalOpen(!isModalOpen);
   };
   const handlerSubmit = e => {
@@ -69,11 +77,11 @@ const AddProjectModal = ({
     handlerToogleModal();
 
     // reset
-
     setProjectName('');
     setRate('');
+    setSelect(globalUsers);
     setSelectUsersIds(undefined);
-    setEditProject();
+    setEditProject(undefined);
   };
   // eslint-disable-next-line no-console
 
@@ -121,7 +129,9 @@ const AddProjectModal = ({
               <MultiSelectMobile
                 setSelectUsersIds={setSelectUsersIds}
                 selectUsersIds={selectUsersIds}
-                globalUsers={globalUsers}
+                // globalUsers={globalUsers}
+                select={select}
+                setSelect={setSelect}
               />
             </div>
             <div className={css.wrapRate}>
@@ -186,7 +196,7 @@ const AddProjectModal = ({
   );
 };
 AddProjectModal.defaultProps = {
-  globalUsers: {},
+  globalUsers: undefined,
   editProject: undefined,
   selectUsersIds: undefined,
 };
@@ -194,11 +204,15 @@ AddProjectModal.defaultProps = {
 AddProjectModal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
+
   setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
+
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+
   editProject: PropTypes.shape(PropTypes.any.isRequired),
   setEditProject: PropTypes.func.isRequired,
+
   selectUsersIds: PropTypes.arrayOf(PropTypes.any),
   setSelectUsersIds: PropTypes.func.isRequired,
 };

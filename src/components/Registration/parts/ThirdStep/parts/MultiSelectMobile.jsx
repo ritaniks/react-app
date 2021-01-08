@@ -7,28 +7,19 @@ import css from './MultiSelectMobile.module.scss';
 const MultiSelectMobile = ({
   setSelectUsersIds,
   selectUsersIds,
-  globalUsers,
+  select,
+  setSelect,
+  // globalUsers,
 }) => {
-  const [select, setSelect] = useState(globalUsers);
+  // const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
-  // const [selectItems, setCheckItems] = useState(0);
-
-  // const resetSelect = select => {
-
-  // };
 
   useEffect(() => {
-    // setSelect(globalUsers);
-    console.log(selectUsersIds, 'choiseUsersIds444');
+    const keys = Object.keys(select);
     if (selectUsersIds) {
-      // console.log(selectUsersIds, 'choiseUsersIds444');
-      // console.log(select, 'select');
-      // TODO
-      const keys = Object.keys(select);
-
       keys.map(role => {
         select[role].map(el => {
           if (selectUsersIds.includes(el.id)) {
@@ -38,11 +29,21 @@ const MultiSelectMobile = ({
             // eslint-disable-next-line no-param-reassign
             el.checked = false;
           }
+
           return '';
         });
+
         return '';
       });
-      // }
+    } else {
+      // eslint-disable-next-line array-callback-return
+      keys.map(role => {
+        // eslint-disable-next-line array-callback-return
+        select[role].map(el => {
+          // eslint-disable-next-line no-param-reassign
+          el.checked = false;
+        });
+      });
     }
   }, []);
 
@@ -208,7 +209,6 @@ const MultiSelectMobile = ({
               </div>
             ))}
 
-            {/*  */}
             <div className={css.wrapGroups}>
               <input
                 onChange={handleSelectByRole}
@@ -264,14 +264,18 @@ const MultiSelectMobile = ({
 };
 
 MultiSelectMobile.defaultProps = {
-  globalUsers: {},
+  // globalUsers: {},
   selectUsersIds: undefined,
+  select: undefined,
 };
 
 MultiSelectMobile.propTypes = {
   selectUsersIds: PropTypes.arrayOf(PropTypes.any),
   setSelectUsersIds: PropTypes.func.isRequired,
-  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+
+  // globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+  select: PropTypes.objectOf(PropTypes.any),
+  setSelect: PropTypes.func.isRequired,
 };
 
 export default MultiSelectMobile;
