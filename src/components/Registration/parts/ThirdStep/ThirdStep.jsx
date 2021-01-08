@@ -36,9 +36,7 @@ const ThirdStep = ({
 }) => {
   const [clientName, setClientName] = useState('');
   const [clients, setClietns] = useState(dafaultClients);
-  // eslint-disable-next-line no-unused-vars
   const [projects, setProjects] = useState(dafaultProject);
-  // const [clientId, setClientId] = useState();
   const [editProject, setEditProject] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectUsersIds, setSelectUsersIds] = useState();
