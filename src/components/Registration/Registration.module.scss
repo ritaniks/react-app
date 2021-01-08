@@ -1,7 +1,7 @@
 .wrapRegistration {
   display: flex;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #dfdfdf;
 }
 .registration {
@@ -64,6 +64,9 @@
 }
 
 @media (min-width: 767px) {
+  .wrapRegistration {
+    padding: 0.75rem;
+  }
   .registration {
     max-width: 850px !important;
     height: auto;
