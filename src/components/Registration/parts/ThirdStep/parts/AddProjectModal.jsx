@@ -27,19 +27,18 @@ const AddProjectModal = ({
   const [select, setSelect] = useState(globalUsers);
 
   useEffect(() => {
-    // console.log(editProject, 'editProject');
     if (editProject) {
       setProjectName(editProject.projectName);
       setRate(editProject.rate);
       setSelectUsersIds(editProject.users);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editProject]);
 
   // handlers
 
   const handlerToogleModal = () => {
     if (isModalOpen) {
-      console.log('moddd');
       setProjectName('');
       setRate('');
       setSelect(globalUsers);
@@ -106,7 +105,7 @@ const AddProjectModal = ({
       >
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
-            <h5>Add Project</h5>
+            <h5>{editProject ? 'Edit Project' : 'Add Project'}</h5>
             <button
               onClick={handlerToogleModal}
               type="button"
