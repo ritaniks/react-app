@@ -6,7 +6,7 @@
 }
 .registration {
   background-color: #fff;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .header {
@@ -64,12 +64,14 @@
 }
 
 @media (min-width: 767px) {
-  .wrapRegistration {
-    padding: 0.75rem;
-  }
   .registration {
     max-width: 850px !important;
     height: auto;
     border-radius: 0.5rem;
+  }
+}
+@media (min-width: 496px) {
+  .wrapRegistration {
+    padding: 0.75rem;
   }
 }
