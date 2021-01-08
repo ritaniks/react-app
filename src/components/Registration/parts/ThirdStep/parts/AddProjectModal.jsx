@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -16,51 +16,71 @@ const AddProjectModal = ({
   setIsModalOpen,
   projects,
   setProjects,
-  // clientId,
   globalUsers,
+  editProject,
+  setEditProject,
+  selectUsersIds,
+  setSelectUsersIds,
 }) => {
   const [projectName, setProjectName] = useState('');
-  const [choiseUsersIds, setChoiseUsersIds] = useState([]);
-
   const [rate, setRate] = useState('');
+  const [select, setSelect] = useState(globalUsers);
 
-  // useEffect(() => {
-  // setUserId(clientId);
-  // }, []);
-
-  const modalToogle = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  useEffect(() => {
+    if (editProject) {
+      setProjectName(editProject.projectName);
+      setRate(editProject.rate);
+      setSelectUsersIds(editProject.users);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editProject]);
 
   // handlers
 
   const handlerToogleModal = () => {
+    if (isModalOpen) {
+      setProjectName('');
+      setRate('');
+      setSelect(globalUsers);
+      setSelectUsersIds(undefined);
+      setEditProject(undefined);
+    }
     setIsModalOpen(!isModalOpen);
   };
   const handlerSubmit = e => {
     e.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log('this is object for one project');
-    // eslint-disable-next-line no-console
-    console.log(projectName, 'projectName');
-    // eslint-disable-next-line no-console
-    console.log(rate, 'rate');
-    // eslint-disable-next-line no-console
-    console.log(choiseUsersIds, 'choiseUsersIds');
 
-    const newProject = {
-      projectName,
-      rate,
-      id: uuidv4(),
-      users: [...choiseUsersIds],
-    };
+    if (editProject) {
+      const newUpdateProjects = projects.map(el => {
+        if (el.id !== editProject.id) return el;
+        return {
+          ...el,
+          rate,
+          projectName,
+          users: selectUsersIds,
+        };
+      });
 
-    setProjects([...projects, newProject]);
+      setProjects(newUpdateProjects);
+    } else {
+      const newProject = {
+        projectName,
+        rate,
+        id: uuidv4(),
+        users: [...selectUsersIds],
+      };
 
+      setProjects([...projects, newProject]);
+    }
+
+    handlerToogleModal();
+
+    // reset
     setProjectName('');
     setRate('');
-    setChoiseUsersIds([]);
-    handlerToogleModal();
+    setSelect(globalUsers);
+    setSelectUsersIds(undefined);
+    setEditProject(undefined);
   };
   // eslint-disable-next-line no-console
 
@@ -68,29 +88,16 @@ const AddProjectModal = ({
   const handlerProjectName = e => {
     setProjectName(e.target.value);
   };
-  // const handlerAddUsers = () => {};
 
   const handlerRate = e => {
-    // console.log(e.target, 'e.target');
     setRate(e.target.value);
   };
-  // project name input handler
-  // choise users in project
-  // handler rate
-  //
-  // const handleChange = e => {
-  //   const { name, value, type, checked } = e.target;
-
-  //   this.setState({
-  //     [name]: type === 'checkbox' ? checked : value,
-  //   });
-  // };
 
   return (
     <>
       <Modal
         isOpen={isModalOpen}
-        onRequestClose={modalToogle}
+        onRequestClose={handlerToogleModal}
         contentLabel="My dialog"
         className="AddProjectModal"
         overlayClassName="modalOverlay"
@@ -98,7 +105,7 @@ const AddProjectModal = ({
       >
         <form onSubmit={handlerSubmit} className={css.wrapModal}>
           <div className={css.wrapTitle}>
-            <h5>Add Project</h5>
+            <h5>{editProject ? 'Edit Project' : 'Add Project'}</h5>
             <button
               onClick={handlerToogleModal}
               type="button"
@@ -111,6 +118,7 @@ const AddProjectModal = ({
             <div className={css.wrapProjectNameInput}>
               <input
                 type="text"
+                value={projectName}
                 placeholder="Project name"
                 onChange={handlerProjectName}
               />
@@ -118,9 +126,11 @@ const AddProjectModal = ({
             <div className={css.wrapSelectUser}>
               <h6>Assign Users</h6>
               <MultiSelectMobile
-                setChoiseUsersIds={setChoiseUsersIds}
-                choiseUsersIds={choiseUsersIds}
-                globalUsers={globalUsers}
+                setSelectUsersIds={setSelectUsersIds}
+                selectUsersIds={selectUsersIds}
+                // globalUsers={globalUsers}
+                select={select}
+                setSelect={setSelect}
               />
             </div>
             <div className={css.wrapRate}>
@@ -147,7 +157,7 @@ const AddProjectModal = ({
               Close
             </button>
             <button className={`${css.addProjectBtn} btn`} type="submit">
-              Add Project
+              {editProject ? 'Edit Project' : 'Add Project'}
             </button>
           </div>
         </form>
@@ -185,17 +195,25 @@ const AddProjectModal = ({
   );
 };
 AddProjectModal.defaultProps = {
-  clientId: '',
-  globalUsers: {},
+  globalUsers: undefined,
+  editProject: undefined,
+  selectUsersIds: undefined,
 };
 
 AddProjectModal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
+
   setProjects: PropTypes.func.isRequired,
   projects: PropTypes.arrayOf(PropTypes.any).isRequired,
-  clientId: PropTypes.string,
+
   globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+
+  editProject: PropTypes.shape(PropTypes.any.isRequired),
+  setEditProject: PropTypes.func.isRequired,
+
+  selectUsersIds: PropTypes.arrayOf(PropTypes.any),
+  setSelectUsersIds: PropTypes.func.isRequired,
 };
 
 export default AddProjectModal;

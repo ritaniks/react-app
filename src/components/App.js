@@ -18,7 +18,8 @@ const App = () => {
   return (
     <div className={css.wrapApp}>
       {/* {!user.auth && <Nonprofit />} */}
-      <Registration />
+      {!user.auth && <Registration />}
+      {/* <Registration /> */}
 
       {user.auth && (
         <>

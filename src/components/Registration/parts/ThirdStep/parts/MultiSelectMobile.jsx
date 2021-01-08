@@ -1,16 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import selectUserIds from './helpersMultiSelect';
+import getUserIdsArr from './helpersMultiSelect';
 
 import css from './MultiSelectMobile.module.scss';
 
-const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
-  const [select, setSelect] = useState(globalUsers);
+const MultiSelectMobile = ({
+  setSelectUsersIds,
+  selectUsersIds,
+  select,
+  setSelect,
+}) => {
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
   const [selectUsers, setSelectUsers] = useState(false);
-  // const [selectItems, setCheckItems] = useState(0);
+
+  useEffect(() => {
+    const keys = Object.keys(select);
+    if (selectUsersIds) {
+      keys.map(role => {
+        select[role].map(el => {
+          if (selectUsersIds.includes(el.id)) {
+            // eslint-disable-next-line no-param-reassign
+            el.checked = true;
+          } else {
+            // eslint-disable-next-line no-param-reassign
+            el.checked = false;
+          }
+
+          return '';
+        });
+
+        return '';
+      });
+    } else {
+      // eslint-disable-next-line array-callback-return
+      keys.map(role => {
+        // eslint-disable-next-line array-callback-return
+        select[role].map(el => {
+          // eslint-disable-next-line no-param-reassign
+          el.checked = false;
+        });
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (select.length <= 0) {
@@ -42,7 +76,7 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
       setSelectUsers(false);
     }
 
-    //  select ALL (users & managers)
+    //  select ALL (users & managers & admins)
     if (isSelectAllAdmin || isSelectAllManager || isSelectAllUsers) {
       setSelectAll(false);
     }
@@ -50,9 +84,9 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
       setSelectAll(true);
     }
 
-    const newUserIdsArr = selectUserIds(select);
+    const newUserIdsArr = getUserIdsArr(select);
 
-    setChoiseUsersIds(newUserIdsArr);
+    setSelectUsersIds(newUserIdsArr);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
@@ -174,7 +208,6 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
               </div>
             ))}
 
-            {/*  */}
             <div className={css.wrapGroups}>
               <input
                 onChange={handleSelectByRole}
@@ -230,14 +263,16 @@ const MultiSelectMobile = ({ setChoiseUsersIds, globalUsers }) => {
 };
 
 MultiSelectMobile.defaultProps = {
-  globalUsers: {},
-  choiseUsersIds: [],
+  selectUsersIds: undefined,
+  select: undefined,
 };
 
 MultiSelectMobile.propTypes = {
-  choiseUsersIds: PropTypes.arrayOf(PropTypes.any),
-  setChoiseUsersIds: PropTypes.func.isRequired,
-  globalUsers: PropTypes.shape(PropTypes.any.isRequired),
+  selectUsersIds: PropTypes.arrayOf(PropTypes.any),
+  setSelectUsersIds: PropTypes.func.isRequired,
+
+  select: PropTypes.objectOf(PropTypes.any),
+  setSelect: PropTypes.func.isRequired,
 };
 
 export default MultiSelectMobile;

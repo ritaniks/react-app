@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import NextBtn from '../../buttons/NextBtn';
 
-// import css from './steps.module.scss';
+import css from './FirstStep.module.scss';
 
 const FirstStep = ({ countClick, setCountClick }) => {
   return (
     <>
       <fieldset>
-        <div className="form-card">
+        <div className={`${css.wrapSingIn} form-card`}>
           <div className="form-group mb-3">
             <label htmlFor="exampleInputEmail">
               <b>Email is your Username</b>
@@ -33,7 +33,9 @@ const FirstStep = ({ countClick, setCountClick }) => {
             />
           </div>
         </div>
-        <NextBtn countClick={countClick} setCountClick={setCountClick} />
+        <div className={css.wrapNextBtn}>
+          <NextBtn countClick={countClick} setCountClick={setCountClick} />
+        </div>
       </fieldset>
     </>
   );

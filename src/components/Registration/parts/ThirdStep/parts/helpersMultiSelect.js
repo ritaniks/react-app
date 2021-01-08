@@ -1,4 +1,4 @@
-export default function selectUserIds(select) {
+export default function getUserIdsArr(select) {
   const newArr = [];
 
   const keys = Object.keys(select);
@@ -15,3 +15,5 @@ export default function selectUserIds(select) {
 
   return newArr;
 }
+
+// export default function resetSelect(select) {}
