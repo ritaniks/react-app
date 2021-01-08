@@ -9,9 +9,7 @@ const MultiSelectMobile = ({
   selectUsersIds,
   select,
   setSelect,
-  // globalUsers,
 }) => {
-  // const [select, setSelect] = useState(globalUsers);
   const [selectAll, setSelectAll] = useState(false);
   const [selectAdmins, setSelectAdmins] = useState(false);
   const [selectManagers, setSelectManagers] = useState(false);
@@ -45,6 +43,7 @@ const MultiSelectMobile = ({
         });
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -264,7 +263,6 @@ const MultiSelectMobile = ({
 };
 
 MultiSelectMobile.defaultProps = {
-  // globalUsers: {},
   selectUsersIds: undefined,
   select: undefined,
 };
@@ -273,7 +271,6 @@ MultiSelectMobile.propTypes = {
   selectUsersIds: PropTypes.arrayOf(PropTypes.any),
   setSelectUsersIds: PropTypes.func.isRequired,
 
-  // globalUsers: PropTypes.shape(PropTypes.any.isRequired),
   select: PropTypes.objectOf(PropTypes.any),
   setSelect: PropTypes.func.isRequired,
 };

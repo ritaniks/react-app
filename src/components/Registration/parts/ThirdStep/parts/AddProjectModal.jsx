@@ -23,7 +23,7 @@ const AddProjectModal = ({
   setSelectUsersIds,
 }) => {
   const [projectName, setProjectName] = useState('');
-  const [rate, setRate] = useState();
+  const [rate, setRate] = useState('');
   const [select, setSelect] = useState(globalUsers);
 
   useEffect(() => {
