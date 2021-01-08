@@ -8,6 +8,8 @@ import isEmail from 'validator/lib/isEmail';
 import NextBtn from '../../buttons/NextBtn';
 import SendInvite from '../../buttons/SendInvite';
 
+import { ReactComponent as Sent } from '../../../../assets/img/registration/telegram-plane.svg';
+
 import css from './SecondStep.module.scss';
 
 const defaultInputs = { email: '', role: 'users', name: '' };
@@ -29,8 +31,6 @@ const SecondStep = ({
   // eslint-disable-next-line
   const [users, setUsers] = useState([defaultInputs]);
   const [sendInviteArray, setSendInviteArray] = useState([]);
-
-  console.log(globalUsers, 'globalUsers');
 
   const ref = useRef();
 
@@ -67,8 +67,6 @@ const SecondStep = ({
       });
 
       setGlobalUsers(newTmpUsers);
-
-      // TODO setCountProject
 
       setSendInviteArray([...sendInviteArray, ...newUsersArr]);
 
@@ -157,7 +155,13 @@ const SecondStep = ({
 
         {sendInviteArray.length > 0 &&
           sendInviteArray.map((send, i) => (
-            <div key={i}>send invite to -&gt; {send.email}</div>
+            <div key={i}>
+              sent invite to
+              <span className={css.wrapSent}>
+                <Sent />
+              </span>
+              {send.email}
+            </div>
           ))}
       </fieldset>
     </>
@@ -179,7 +183,6 @@ export default SecondStep;
 
 function InputsUserInvite({ handleChangeEmail, handleChangeRole, ind, users }) {
   const handleSubmit = e => {
-    // console.log('preventDefault');
     e.preventDefault();
   };
 
