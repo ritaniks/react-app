@@ -1,12 +1,12 @@
 .wrapRegistration {
   display: flex;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #dfdfdf;
 }
 .registration {
   background-color: #fff;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .header {
@@ -68,5 +68,10 @@
     max-width: 850px !important;
     height: auto;
     border-radius: 0.5rem;
+  }
+}
+@media (min-width: 496px) {
+  .wrapRegistration {
+    padding: 0.75rem;
   }
 }
